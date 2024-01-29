@@ -1,0 +1,17 @@
+[Unit]
+Description=Agent+Modbus chaos monkey
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi/Workspace
+ExecStart=/bin/bash /home/pi/Workspace/agent/scripts/bash/chaos.sh
+Restart=always
+User=pi
+Group=pi
+StandardOutput=file:/home/pi/Workspace/agent/scripts/bash/stdout.log
+StandardError=file:/home/pi/Workspace/agent/scripts/bash/stderr.log
+
+
+[Install]
+WantedBy=multi-user.target

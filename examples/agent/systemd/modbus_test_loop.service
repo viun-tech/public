@@ -1,0 +1,15 @@
+[Unit]
+Description=Modbus Test Loop
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi/Workspace
+ExecStart=/usr/local/bin/poetry run python agent/scripts/python/modbus_test_loop.py --host localhost --port 5020 --chaos
+Restart=always
+User=pi
+Group=pi
+
+
+[Install]
+WantedBy=multi-user.target

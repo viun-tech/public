@@ -1,0 +1,15 @@
+[Unit]
+Description=Modbus Server for testing
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi/Workspace
+ExecStart=/usr/local/bin/poetry run python agent/scripts/python/modbus_server.py --port 5020
+Restart=always
+User=pi
+Group=pi
+
+
+[Install]
+WantedBy=multi-user.target

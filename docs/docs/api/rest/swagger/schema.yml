@@ -1,0 +1,4564 @@
+openapi: 3.0.3
+info:
+  title: avis
+  version: 0.1.0
+  description: VUE Autonomous Visual Inspection System (AVIS)
+paths:
+  /api/api-keys/:
+    post:
+      operationId: api_key_create
+      description: Create a new API key for the current user.
+      tags:
+      - api-keys
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/credentialsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/credentialsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/credentialsRequest'
+        required: true
+      security:
+      - ApiKeyAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserAPIKeyCreate'
+          description: ''
+  /api/api-keys/{id}/revoke/:
+    post:
+      operationId: api_key_revoke
+      description: |-
+        Revoke an API key for the current user. We use the name of the API Key to revoke it, not the ID or actual key
+        to prevent information leakage.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        description: A unique value identifying this API key.
+        required: true
+      tags:
+      - api-keys
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/credentialsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/credentialsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/credentialsRequest'
+        required: true
+      security:
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserAPIKeyCreate'
+          description: ''
+  /api/case/:
+    get:
+      operationId: case_list
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      - in: query
+        name: id
+        schema:
+          type: array
+          items:
+            type: integer
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      tags:
+      - case
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Case'
+          description: ''
+    post:
+      operationId: case_create
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      tags:
+      - case
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CaseRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CaseRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CaseRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Case'
+          description: ''
+  /api/case/{id}/:
+    get:
+      operationId: case_retrieve
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this case.
+        required: true
+      tags:
+      - case
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Case'
+          description: ''
+    put:
+      operationId: case_update
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this case.
+        required: true
+      tags:
+      - case
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CaseRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CaseRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CaseRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Case'
+          description: ''
+    patch:
+      operationId: case_partial_update
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this case.
+        required: true
+      tags:
+      - case
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCaseRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCaseRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCaseRequest'
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Case'
+          description: ''
+    delete:
+      operationId: case_destroy
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this case.
+        required: true
+      tags:
+      - case
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/case/{id}/send_validation_email/:
+    get:
+      operationId: case_send_validation_email_retrieve
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this case.
+        required: true
+      tags:
+      - case
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Case'
+          description: ''
+  /api/case/inspection_status/:
+    get:
+      operationId: case_inspection_status_list
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: id
+        schema:
+          type: array
+          items:
+            type: integer
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      tags:
+      - case
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InspectionStatus'
+          description: ''
+  /api/case/validation_status/:
+    get:
+      operationId: case_validation_status_list
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: id
+        schema:
+          type: array
+          items:
+            type: integer
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      tags:
+      - case
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CaseValidationStatus'
+          description: ''
+  /api/image/:
+    get:
+      operationId: image_list
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      - in: query
+        name: id
+        schema:
+          type: array
+          items:
+            type: integer
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      tags:
+      - image
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Image'
+          description: ''
+    post:
+      operationId: image_create
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      tags:
+      - image
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ImageRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Image'
+          description: ''
+  /api/image/{id}/:
+    get:
+      operationId: image_retrieve
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this image.
+        required: true
+      tags:
+      - image
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Image'
+          description: ''
+    put:
+      operationId: image_update
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this image.
+        required: true
+      tags:
+      - image
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ImageRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ImageRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Image'
+          description: ''
+    patch:
+      operationId: image_partial_update
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this image.
+        required: true
+      tags:
+      - image
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedImageRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedImageRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedImageRequest'
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Image'
+          description: ''
+    delete:
+      operationId: image_destroy
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this image.
+        required: true
+      tags:
+      - image
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/image/inspection_status/:
+    get:
+      operationId: image_inspection_status_list
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: id
+        schema:
+          type: array
+          items:
+            type: integer
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      tags:
+      - image
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InspectionStatus'
+          description: ''
+  /api/image/quality/:
+    get:
+      operationId: image_quality_list
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: id
+        schema:
+          type: array
+          items:
+            type: integer
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      tags:
+      - image
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ImageQualityGateResult'
+          description: ''
+  /api/imagequalitygate/:
+    get:
+      operationId: imagequalitygate_list
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      - in: query
+        name: id
+        schema:
+          type: array
+          items:
+            type: integer
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      tags:
+      - imagequalitygate
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ImageQualityGate'
+          description: ''
+    post:
+      operationId: imagequalitygate_create
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      tags:
+      - imagequalitygate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageQualityGateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ImageQualityGateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ImageQualityGateRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageQualityGate'
+          description: ''
+  /api/imagequalitygate/{id}/:
+    get:
+      operationId: imagequalitygate_retrieve
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this image quality gate.
+        required: true
+      tags:
+      - imagequalitygate
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageQualityGate'
+          description: ''
+    put:
+      operationId: imagequalitygate_update
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this image quality gate.
+        required: true
+      tags:
+      - imagequalitygate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageQualityGateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ImageQualityGateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ImageQualityGateRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageQualityGate'
+          description: ''
+    patch:
+      operationId: imagequalitygate_partial_update
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this image quality gate.
+        required: true
+      tags:
+      - imagequalitygate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedImageQualityGateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedImageQualityGateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedImageQualityGateRequest'
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageQualityGate'
+          description: ''
+    delete:
+      operationId: imagequalitygate_destroy
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this image quality gate.
+        required: true
+      tags:
+      - imagequalitygate
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/inspectionmetadata/:
+    get:
+      operationId: inspectionmetadata_list
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      - in: query
+        name: id
+        schema:
+          type: array
+          items:
+            type: integer
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      tags:
+      - inspectionmetadata
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InspectionMetadata'
+          description: ''
+    post:
+      operationId: inspectionmetadata_create
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      tags:
+      - inspectionmetadata
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InspectionMetadataRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/InspectionMetadataRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/InspectionMetadataRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionMetadata'
+          description: ''
+  /api/inspectionmetadata/{id}/:
+    get:
+      operationId: inspectionmetadata_retrieve
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection metadata.
+        required: true
+      tags:
+      - inspectionmetadata
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionMetadata'
+          description: ''
+    put:
+      operationId: inspectionmetadata_update
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection metadata.
+        required: true
+      tags:
+      - inspectionmetadata
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InspectionMetadataRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/InspectionMetadataRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/InspectionMetadataRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionMetadata'
+          description: ''
+    patch:
+      operationId: inspectionmetadata_partial_update
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection metadata.
+        required: true
+      tags:
+      - inspectionmetadata
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedInspectionMetadataRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedInspectionMetadataRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedInspectionMetadataRequest'
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionMetadata'
+          description: ''
+    delete:
+      operationId: inspectionmetadata_destroy
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection metadata.
+        required: true
+      tags:
+      - inspectionmetadata
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/inspectionmetadataschema/:
+    get:
+      operationId: inspectionmetadataschema_list
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      - in: query
+        name: id
+        schema:
+          type: array
+          items:
+            type: integer
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      tags:
+      - inspectionmetadataschema
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InspectionMetadataSchema'
+          description: ''
+    post:
+      operationId: inspectionmetadataschema_create
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      tags:
+      - inspectionmetadataschema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InspectionMetadataSchemaRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/InspectionMetadataSchemaRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/InspectionMetadataSchemaRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionMetadataSchema'
+          description: ''
+  /api/inspectionmetadataschema/{id}/:
+    get:
+      operationId: inspectionmetadataschema_retrieve
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection metadata schema.
+        required: true
+      tags:
+      - inspectionmetadataschema
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionMetadataSchema'
+          description: ''
+    put:
+      operationId: inspectionmetadataschema_update
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection metadata schema.
+        required: true
+      tags:
+      - inspectionmetadataschema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InspectionMetadataSchemaRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/InspectionMetadataSchemaRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/InspectionMetadataSchemaRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionMetadataSchema'
+          description: ''
+    patch:
+      operationId: inspectionmetadataschema_partial_update
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection metadata schema.
+        required: true
+      tags:
+      - inspectionmetadataschema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedInspectionMetadataSchemaRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedInspectionMetadataSchemaRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedInspectionMetadataSchemaRequest'
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionMetadataSchema'
+          description: ''
+    delete:
+      operationId: inspectionmetadataschema_destroy
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection metadata schema.
+        required: true
+      tags:
+      - inspectionmetadataschema
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/inspectionobject/:
+    get:
+      operationId: inspectionobject_list
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      - in: query
+        name: id
+        schema:
+          type: array
+          items:
+            type: integer
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: identifier
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: type
+        schema:
+          type: array
+          items:
+            type: integer
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      tags:
+      - inspectionobject
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InspectionObject'
+          description: ''
+    post:
+      operationId: inspectionobject_create
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      tags:
+      - inspectionobject
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InspectionObjectRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/InspectionObjectRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/InspectionObjectRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionObject'
+          description: ''
+  /api/inspectionobject/{id}/:
+    get:
+      operationId: inspectionobject_retrieve
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection object.
+        required: true
+      tags:
+      - inspectionobject
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionObject'
+          description: ''
+    put:
+      operationId: inspectionobject_update
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection object.
+        required: true
+      tags:
+      - inspectionobject
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InspectionObjectRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/InspectionObjectRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/InspectionObjectRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionObject'
+          description: ''
+    patch:
+      operationId: inspectionobject_partial_update
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection object.
+        required: true
+      tags:
+      - inspectionobject
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedInspectionObjectRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedInspectionObjectRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedInspectionObjectRequest'
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionObject'
+          description: ''
+    delete:
+      operationId: inspectionobject_destroy
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection object.
+        required: true
+      tags:
+      - inspectionobject
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/inspectionobjecttype/:
+    get:
+      operationId: inspectionobjecttype_list
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      - in: query
+        name: id
+        schema:
+          type: array
+          items:
+            type: integer
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      tags:
+      - inspectionobjecttype
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InspectionObjectType'
+          description: ''
+    post:
+      operationId: inspectionobjecttype_create
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      tags:
+      - inspectionobjecttype
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InspectionObjectTypeRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/InspectionObjectTypeRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/InspectionObjectTypeRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionObjectType'
+          description: ''
+  /api/inspectionobjecttype/{id}/:
+    get:
+      operationId: inspectionobjecttype_retrieve
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection object type.
+        required: true
+      tags:
+      - inspectionobjecttype
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionObjectType'
+          description: ''
+    put:
+      operationId: inspectionobjecttype_update
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection object type.
+        required: true
+      tags:
+      - inspectionobjecttype
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InspectionObjectTypeRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/InspectionObjectTypeRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/InspectionObjectTypeRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionObjectType'
+          description: ''
+    patch:
+      operationId: inspectionobjecttype_partial_update
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection object type.
+        required: true
+      tags:
+      - inspectionobjecttype
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedInspectionObjectTypeRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedInspectionObjectTypeRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedInspectionObjectTypeRequest'
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionObjectType'
+          description: ''
+    delete:
+      operationId: inspectionobjecttype_destroy
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection object type.
+        required: true
+      tags:
+      - inspectionobjecttype
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/inspectionprocessblueprint/:
+    get:
+      operationId: inspectionprocessblueprint_list
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      - in: query
+        name: id
+        schema:
+          type: array
+          items:
+            type: integer
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      tags:
+      - inspectionprocessblueprint
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InspectionProcessBlueprint'
+          description: ''
+    post:
+      operationId: inspectionprocessblueprint_create
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      tags:
+      - inspectionprocessblueprint
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InspectionProcessBlueprintRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/InspectionProcessBlueprintRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/InspectionProcessBlueprintRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionProcessBlueprint'
+          description: ''
+  /api/inspectionprocessblueprint/{id}/:
+    get:
+      operationId: inspectionprocessblueprint_retrieve
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection process blueprint.
+        required: true
+      tags:
+      - inspectionprocessblueprint
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionProcessBlueprint'
+          description: ''
+    put:
+      operationId: inspectionprocessblueprint_update
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection process blueprint.
+        required: true
+      tags:
+      - inspectionprocessblueprint
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InspectionProcessBlueprintRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/InspectionProcessBlueprintRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/InspectionProcessBlueprintRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionProcessBlueprint'
+          description: ''
+    patch:
+      operationId: inspectionprocessblueprint_partial_update
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection process blueprint.
+        required: true
+      tags:
+      - inspectionprocessblueprint
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedInspectionProcessBlueprintRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedInspectionProcessBlueprintRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedInspectionProcessBlueprintRequest'
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionProcessBlueprint'
+          description: ''
+    delete:
+      operationId: inspectionprocessblueprint_destroy
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection process blueprint.
+        required: true
+      tags:
+      - inspectionprocessblueprint
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/inspectionresult/:
+    get:
+      operationId: inspectionresult_list
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      - in: query
+        name: id
+        schema:
+          type: array
+          items:
+            type: integer
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      tags:
+      - inspectionresult
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InspectionResultPolymorphic'
+          description: ''
+    post:
+      operationId: inspectionresult_create
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      tags:
+      - inspectionresult
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InspectionResultPolymorphicRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/InspectionResultPolymorphicRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/InspectionResultPolymorphicRequest'
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionResultPolymorphic'
+          description: ''
+  /api/inspectionresult/{id}/:
+    get:
+      operationId: inspectionresult_retrieve
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection result.
+        required: true
+      tags:
+      - inspectionresult
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionResultPolymorphic'
+          description: ''
+    put:
+      operationId: inspectionresult_update
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection result.
+        required: true
+      tags:
+      - inspectionresult
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InspectionResultPolymorphicRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/InspectionResultPolymorphicRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/InspectionResultPolymorphicRequest'
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionResultPolymorphic'
+          description: ''
+    patch:
+      operationId: inspectionresult_partial_update
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection result.
+        required: true
+      tags:
+      - inspectionresult
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedInspectionResultPolymorphicRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedInspectionResultPolymorphicRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedInspectionResultPolymorphicRequest'
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionResultPolymorphic'
+          description: ''
+    delete:
+      operationId: inspectionresult_destroy
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection result.
+        required: true
+      tags:
+      - inspectionresult
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/membership/:
+    get:
+      operationId: membership_list
+      description: |-
+        A base read-only viewset that enables optimized queryset fetching and tracing.
+
+        This is a combination of the following mixins:
+        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
+        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
+        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      tags:
+      - membership
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Membership'
+          description: ''
+    post:
+      operationId: membership_create
+      description: |-
+        A base read-only viewset that enables optimized queryset fetching and tracing.
+
+        This is a combination of the following mixins:
+        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
+        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
+        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      tags:
+      - membership
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MembershipRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MembershipRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MembershipRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Membership'
+          description: ''
+  /api/membership/{id}/:
+    get:
+      operationId: membership_retrieve
+      description: |-
+        A base read-only viewset that enables optimized queryset fetching and tracing.
+
+        This is a combination of the following mixins:
+        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
+        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
+        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this membership.
+        required: true
+      tags:
+      - membership
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Membership'
+          description: ''
+    put:
+      operationId: membership_update
+      description: |-
+        A base read-only viewset that enables optimized queryset fetching and tracing.
+
+        This is a combination of the following mixins:
+        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
+        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
+        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this membership.
+        required: true
+      tags:
+      - membership
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MembershipRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MembershipRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MembershipRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Membership'
+          description: ''
+    delete:
+      operationId: membership_destroy
+      description: |-
+        A base read-only viewset that enables optimized queryset fetching and tracing.
+
+        This is a combination of the following mixins:
+        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
+        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
+        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this membership.
+        required: true
+      tags:
+      - membership
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/ml/inspectionresult/:
+    get:
+      operationId: ml_inspectionresult_list
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      - in: query
+        name: id
+        schema:
+          type: array
+          items:
+            type: integer
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      tags:
+      - ml
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClassificationResult'
+          description: ''
+    post:
+      operationId: ml_inspectionresult_create
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      tags:
+      - ml
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClassificationResultRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ClassificationResultRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ClassificationResultRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationResult'
+          description: ''
+  /api/ml/inspectionresult/{id}/:
+    get:
+      operationId: ml_inspectionresult_retrieve
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this classification result.
+        required: true
+      tags:
+      - ml
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationResult'
+          description: ''
+    put:
+      operationId: ml_inspectionresult_update
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this classification result.
+        required: true
+      tags:
+      - ml
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClassificationResultRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ClassificationResultRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ClassificationResultRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationResult'
+          description: ''
+    patch:
+      operationId: ml_inspectionresult_partial_update
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this classification result.
+        required: true
+      tags:
+      - ml
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedClassificationResultRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedClassificationResultRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedClassificationResultRequest'
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationResult'
+          description: ''
+    delete:
+      operationId: ml_inspectionresult_destroy
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this classification result.
+        required: true
+      tags:
+      - ml
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/ml/model/:
+    get:
+      operationId: ml_model_list
+      description: |-
+        A viewset for ML models. It filters results based on the permissions granted to all the user's team(s).
+
+        A user will only be able to interact with an ML models if at least one of the teams they are a member of has access to it.
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      tags:
+      - ml
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MLModel'
+          description: ''
+    post:
+      operationId: ml_model_create
+      description: |-
+        A viewset for ML models. It filters results based on the permissions granted to all the user's team(s).
+
+        A user will only be able to interact with an ML models if at least one of the teams they are a member of has access to it.
+      tags:
+      - ml
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MLModelRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MLModelRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MLModelRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MLModel'
+          description: ''
+  /api/ml/model/{id}/:
+    get:
+      operationId: ml_model_retrieve
+      description: |-
+        A viewset for ML models. It filters results based on the permissions granted to all the user's team(s).
+
+        A user will only be able to interact with an ML models if at least one of the teams they are a member of has access to it.
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this ml model.
+        required: true
+      tags:
+      - ml
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MLModel'
+          description: ''
+    put:
+      operationId: ml_model_update
+      description: |-
+        A viewset for ML models. It filters results based on the permissions granted to all the user's team(s).
+
+        A user will only be able to interact with an ML models if at least one of the teams they are a member of has access to it.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this ml model.
+        required: true
+      tags:
+      - ml
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MLModelRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MLModelRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MLModelRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MLModel'
+          description: ''
+    patch:
+      operationId: ml_model_partial_update
+      description: |-
+        A viewset for ML models. It filters results based on the permissions granted to all the user's team(s).
+
+        A user will only be able to interact with an ML models if at least one of the teams they are a member of has access to it.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this ml model.
+        required: true
+      tags:
+      - ml
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedMLModelRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedMLModelRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedMLModelRequest'
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MLModel'
+          description: ''
+    delete:
+      operationId: ml_model_destroy
+      description: |-
+        A viewset for ML models. It filters results based on the permissions granted to all the user's team(s).
+
+        A user will only be able to interact with an ML models if at least one of the teams they are a member of has access to it.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this ml model.
+        required: true
+      tags:
+      - ml
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/ml/model/{id}/inference/:
+    post:
+      operationId: ml_model_inference
+      description: |-
+        Infer a result from the model. This is a passthrough
+        to the model's inference endpoint running somewhere else.
+        The request body is passed through to the model.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this ml model.
+        required: true
+      tags:
+      - ml
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AzureMLInferenceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AzureMLInferenceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AzureMLInferenceRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MLModel'
+          description: ''
+  /api/ml/modeltype/:
+    get:
+      operationId: ml_modeltype_list
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
+        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
+        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      tags:
+      - ml
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MLModelType'
+          description: ''
+    post:
+      operationId: ml_modeltype_create
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
+        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
+        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+      tags:
+      - ml
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MLModelTypeRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MLModelTypeRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MLModelTypeRequest'
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MLModelType'
+          description: ''
+  /api/ml/modeltype/{id}/:
+    get:
+      operationId: ml_modeltype_retrieve
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
+        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
+        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+      parameters:
+      - in: query
+        name: fields
+        schema:
+          type: string
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this ml model type.
+        required: true
+      tags:
+      - ml
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MLModelType'
+          description: ''
+    put:
+      operationId: ml_modeltype_update
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
+        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
+        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this ml model type.
+        required: true
+      tags:
+      - ml
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MLModelTypeRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MLModelTypeRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MLModelTypeRequest'
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MLModelType'
+          description: ''
+    patch:
+      operationId: ml_modeltype_partial_update
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
+        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
+        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this ml model type.
+        required: true
+      tags:
+      - ml
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedMLModelTypeRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedMLModelTypeRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedMLModelTypeRequest'
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MLModelType'
+          description: ''
+    delete:
+      operationId: ml_modeltype_destroy
+      description: |-
+        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
+        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
+        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
+        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset
+        * CreateModelMixin: allows creating objects
+        * UpdateModelMixin: allows updating objects
+        * DestroyModelMixin: allows deleting objects
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this ml model type.
+        required: true
+      tags:
+      - ml
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/team/:
+    get:
+      operationId: team_list
+      description: |-
+        A base read-only viewset that enables optimized queryset fetching and tracing.
+
+        This is a combination of the following mixins:
+        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
+        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
+        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      tags:
+      - team
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+          description: ''
+    post:
+      operationId: team_create
+      description: |-
+        A base read-only viewset that enables optimized queryset fetching and tracing.
+
+        This is a combination of the following mixins:
+        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
+        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
+        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      tags:
+      - team
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TeamRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TeamRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+          description: ''
+  /api/team/{id}/:
+    get:
+      operationId: team_retrieve
+      description: |-
+        A base read-only viewset that enables optimized queryset fetching and tracing.
+
+        This is a combination of the following mixins:
+        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
+        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
+        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this team.
+        required: true
+      tags:
+      - team
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+          description: ''
+    put:
+      operationId: team_update
+      description: |-
+        A base read-only viewset that enables optimized queryset fetching and tracing.
+
+        This is a combination of the following mixins:
+        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
+        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
+        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this team.
+        required: true
+      tags:
+      - team
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TeamRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TeamRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+          description: ''
+    delete:
+      operationId: team_destroy
+      description: |-
+        A base read-only viewset that enables optimized queryset fetching and tracing.
+
+        This is a combination of the following mixins:
+        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
+        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
+        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this team.
+        required: true
+      tags:
+      - team
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/user/email/:
+    get:
+      operationId: user_email_list
+      description: Get all email addresses associated with the current user.
+      tags:
+      - user
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmailAddress'
+          description: ''
+  /api/user/whoami/:
+    get:
+      operationId: user_whoami_retrieve
+      description: Get the current user's information.
+      tags:
+      - user
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomUser'
+          description: ''
+components:
+  schemas:
+    AzureMLInferenceRequest:
+      type: object
+      description: |-
+        Serializer for Azure ML inference requests. This corresponds to the
+        schema of the request body that Azure ML expects. See
+        https://learn.microsoft.com/en-us/azure/machine-learning/how-to-deploy-mlflow-models?view=azureml-api-2&tabs=azureml#input-structure
+      properties:
+        input_data: {}
+        params:
+          default: {}
+      required:
+      - input_data
+    BinaryClassEnum:
+      enum:
+      - OK
+      - DEFECT
+      type: string
+      description: |-
+        * `OK` - Ok
+        * `DEFECT` - Defect
+    BinaryClassInspectionResult:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        team:
+          type: integer
+        reported_by:
+          type: integer
+          nullable: true
+        image:
+          type: integer
+          nullable: true
+        type:
+          allOf:
+          - $ref: '#/components/schemas/TypeEnum'
+          default: RatingInspectionResult
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        confidence:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,1}(?:\.\d{0,4})?$
+        comment:
+          type: string
+        binary_class:
+          $ref: '#/components/schemas/BinaryClassEnum'
+      required:
+      - confidence
+      - created_at
+      - id
+      - team
+      - updated_at
+    BinaryClassInspectionResultRequest:
+      type: object
+      properties:
+        team:
+          type: integer
+        reported_by:
+          type: integer
+          nullable: true
+        image:
+          type: integer
+          nullable: true
+        type:
+          allOf:
+          - $ref: '#/components/schemas/TypeEnum'
+          default: RatingInspectionResult
+        confidence:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,1}(?:\.\d{0,4})?$
+        comment:
+          type: string
+        binary_class:
+          $ref: '#/components/schemas/BinaryClassEnum'
+      required:
+      - confidence
+      - team
+    BinaryClassInspectionResultTyped:
+      allOf:
+      - type: object
+        properties:
+          type:
+            type: string
+        required:
+        - type
+      - $ref: '#/components/schemas/BinaryClassInspectionResult'
+    BinaryClassInspectionResultTypedRequest:
+      allOf:
+      - type: object
+        properties:
+          type:
+            type: string
+        required:
+        - type
+      - $ref: '#/components/schemas/BinaryClassInspectionResultRequest'
+    BlankEnum:
+      enum:
+      - ''
+    Case:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        team:
+          type: integer
+        inspection_object:
+          type: integer
+          nullable: true
+        opened_by:
+          type: integer
+          nullable: true
+        closed_by:
+          type: integer
+          nullable: true
+        images:
+          type: array
+          items:
+            type: integer
+            nullable: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        open_datetime:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        close_datetime:
+          type: string
+          format: date-time
+          nullable: true
+        blueprint:
+          type: integer
+          nullable: true
+        metadata:
+          type: integer
+          nullable: true
+      required:
+      - created_at
+      - id
+      - open_datetime
+      - team
+      - updated_at
+    CaseRequest:
+      type: object
+      properties:
+        team:
+          type: integer
+        inspection_object:
+          type: integer
+          nullable: true
+        opened_by:
+          type: integer
+          nullable: true
+        closed_by:
+          type: integer
+          nullable: true
+        images:
+          type: array
+          items:
+            type: integer
+            nullable: true
+        close_datetime:
+          type: string
+          format: date-time
+          nullable: true
+        blueprint:
+          type: integer
+          nullable: true
+        metadata:
+          type: integer
+          nullable: true
+      required:
+      - team
+    CaseValidationStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+        validation_status:
+          $ref: '#/components/schemas/ValidationStatusEnum'
+      required:
+      - id
+      - validation_status
+    ClassificationResult:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        team:
+          type: integer
+        reported_by:
+          type: integer
+          nullable: true
+        inferred_by:
+          type: integer
+          nullable: true
+        image:
+          type: integer
+          nullable: true
+        result:
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        status:
+          oneOf:
+          - $ref: '#/components/schemas/StatusEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+        failure_reason:
+          type: string
+        comment:
+          type: string
+      required:
+      - created_at
+      - id
+      - team
+      - updated_at
+    ClassificationResultRequest:
+      type: object
+      properties:
+        team:
+          type: integer
+        reported_by:
+          type: integer
+          nullable: true
+        inferred_by:
+          type: integer
+          nullable: true
+        image:
+          type: integer
+          nullable: true
+        result:
+          nullable: true
+        status:
+          oneOf:
+          - $ref: '#/components/schemas/StatusEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+        failure_reason:
+          type: string
+        comment:
+          type: string
+      required:
+      - team
+    CustomUser:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+      required:
+      - id
+    CustomUserRequest:
+      type: object
+      properties:
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+    EmailAddress:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+        verified:
+          type: boolean
+        primary:
+          type: boolean
+        user:
+          type: integer
+      required:
+      - email
+      - id
+      - user
+    FormatEnum:
+      enum:
+      - image/png
+      - image/tiff
+      - image/jpeg
+      - image/bmp
+      type: string
+      description: |-
+        * `image/png` - png
+        * `image/tiff` - tiff
+        * `image/jpeg` - jpeg
+        * `image/bmp` - bmp
+    Image:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        team:
+          type: integer
+        case:
+          type: integer
+          nullable: true
+        uploaded_by:
+          type: integer
+          nullable: true
+        inspection_results:
+          type: array
+          items:
+            type: integer
+            nullable: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        format:
+          $ref: '#/components/schemas/FormatEnum'
+        capture_datetime:
+          type: string
+          format: date-time
+        file:
+          type: string
+          format: uri
+        part_id:
+          type: string
+          maxLength: 255
+        validation_status:
+          $ref: '#/components/schemas/ValidationStatusEnum'
+      required:
+      - capture_datetime
+      - created_at
+      - file
+      - id
+      - team
+      - updated_at
+    ImageQualityGate:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        team:
+          type: integer
+        blueprints:
+          type: array
+          items:
+            type: integer
+            nullable: true
+        good_quality_classes:
+          type: array
+          items:
+            type: string
+        uncertain_quality_classes:
+          type: array
+          items:
+            type: string
+        bad_quality_classes:
+          type: array
+          items:
+            type: string
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+      required:
+      - bad_quality_classes
+      - created_at
+      - good_quality_classes
+      - id
+      - team
+      - uncertain_quality_classes
+      - updated_at
+    ImageQualityGateRequest:
+      type: object
+      properties:
+        team:
+          type: integer
+        blueprints:
+          type: array
+          items:
+            type: integer
+            nullable: true
+        good_quality_classes:
+          type: array
+          items:
+            type: string
+            minLength: 1
+        uncertain_quality_classes:
+          type: array
+          items:
+            type: string
+            minLength: 1
+        bad_quality_classes:
+          type: array
+          items:
+            type: string
+            minLength: 1
+      required:
+      - bad_quality_classes
+      - good_quality_classes
+      - team
+      - uncertain_quality_classes
+    ImageQualityGateResult:
+      type: object
+      properties:
+        id:
+          type: integer
+        quality:
+          $ref: '#/components/schemas/QualityEnum'
+        quality_gate:
+          type: integer
+      required:
+      - id
+      - quality
+      - quality_gate
+    ImageRequest:
+      type: object
+      properties:
+        team:
+          type: integer
+        case:
+          type: integer
+          nullable: true
+        uploaded_by:
+          type: integer
+          nullable: true
+        inspection_results:
+          type: array
+          items:
+            type: integer
+            nullable: true
+        format:
+          $ref: '#/components/schemas/FormatEnum'
+        capture_datetime:
+          type: string
+          format: date-time
+        file:
+          type: string
+          format: binary
+        part_id:
+          type: string
+          maxLength: 255
+        validation_status:
+          $ref: '#/components/schemas/ValidationStatusEnum'
+      required:
+      - capture_datetime
+      - file
+      - team
+    InspectionMetadata:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        team:
+          type: integer
+        blueprints:
+          type: array
+          items:
+            type: integer
+            nullable: true
+        schema:
+          type: integer
+        data:
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+      required:
+      - created_at
+      - id
+      - schema
+      - team
+      - updated_at
+    InspectionMetadataRequest:
+      type: object
+      properties:
+        team:
+          type: integer
+        blueprints:
+          type: array
+          items:
+            type: integer
+            nullable: true
+        schema:
+          type: integer
+        data:
+          nullable: true
+      required:
+      - schema
+      - team
+    InspectionMetadataSchema:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        team:
+          type: integer
+        json: {}
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+      required:
+      - created_at
+      - id
+      - json
+      - team
+      - updated_at
+    InspectionMetadataSchemaRequest:
+      type: object
+      properties:
+        team:
+          type: integer
+        json: {}
+      required:
+      - json
+      - team
+    InspectionObject:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        team:
+          type: integer
+        type:
+          type: integer
+          nullable: true
+        cases:
+          type: array
+          items:
+            type: integer
+            nullable: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        identifier:
+          type: string
+          maxLength: 255
+        display_name:
+          type: string
+          nullable: true
+          maxLength: 255
+        description:
+          type: string
+      required:
+      - created_at
+      - id
+      - identifier
+      - team
+      - updated_at
+    InspectionObjectRequest:
+      type: object
+      properties:
+        team:
+          type: integer
+        type:
+          type: integer
+          nullable: true
+        cases:
+          type: array
+          items:
+            type: integer
+            nullable: true
+        identifier:
+          type: string
+          maxLength: 255
+        display_name:
+          type: string
+          nullable: true
+          maxLength: 255
+        description:
+          type: string
+      required:
+      - identifier
+      - team
+    InspectionObjectType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        team:
+          type: integer
+        instances:
+          type: array
+          items:
+            type: integer
+            nullable: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        name:
+          type: string
+          maxLength: 255
+        display_name:
+          type: string
+          nullable: true
+          maxLength: 255
+        description:
+          type: string
+      required:
+      - created_at
+      - id
+      - team
+      - updated_at
+    InspectionObjectTypeRequest:
+      type: object
+      properties:
+        team:
+          type: integer
+        instances:
+          type: array
+          items:
+            type: integer
+            nullable: true
+        name:
+          type: string
+          maxLength: 255
+        display_name:
+          type: string
+          nullable: true
+          maxLength: 255
+        description:
+          type: string
+      required:
+      - team
+    InspectionProcessBlueprint:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        team:
+          type: integer
+        name:
+          type: string
+        metadata_schema:
+          type: integer
+          nullable: true
+        image_quality_gate:
+          type: integer
+          nullable: true
+        ml_model:
+          type: integer
+          nullable: true
+        inspection_object_type:
+          type: integer
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        description:
+          type: string
+      required:
+      - created_at
+      - id
+      - name
+      - team
+      - updated_at
+    InspectionProcessBlueprintRequest:
+      type: object
+      properties:
+        team:
+          type: integer
+        name:
+          type: string
+          minLength: 1
+        metadata_schema:
+          type: integer
+          nullable: true
+        image_quality_gate:
+          type: integer
+          nullable: true
+        ml_model:
+          type: integer
+          nullable: true
+        inspection_object_type:
+          type: integer
+          nullable: true
+        description:
+          type: string
+      required:
+      - name
+      - team
+    InspectionResultPolymorphic:
+      oneOf:
+      - $ref: '#/components/schemas/RatingInspectionResultTyped'
+      - $ref: '#/components/schemas/BinaryClassInspectionResultTyped'
+      discriminator:
+        propertyName: type
+        mapping:
+          RatingInspectionResult: '#/components/schemas/RatingInspectionResultTyped'
+          BinaryClassInspectionResult: '#/components/schemas/BinaryClassInspectionResultTyped'
+    InspectionResultPolymorphicRequest:
+      oneOf:
+      - $ref: '#/components/schemas/RatingInspectionResultTypedRequest'
+      - $ref: '#/components/schemas/BinaryClassInspectionResultTypedRequest'
+      discriminator:
+        propertyName: type
+        mapping:
+          RatingInspectionResult: '#/components/schemas/RatingInspectionResultTypedRequest'
+          BinaryClassInspectionResult: '#/components/schemas/BinaryClassInspectionResultTypedRequest'
+    InspectionStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+        inspection_status:
+          $ref: '#/components/schemas/InspectionStatusEnum'
+      required:
+      - id
+      - inspection_status
+    InspectionStatusEnum:
+      enum:
+      - NONE
+      - OK
+      - DEFECT
+      type: string
+      description: |-
+        * `NONE` - None
+        * `OK` - Ok
+        * `DEFECT` - Defect
+    MLModel:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        model:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        version:
+          type: string
+          nullable: true
+          maxLength: 255
+        url:
+          type: string
+          nullable: true
+        teams:
+          type: array
+          items:
+            type: integer
+          readOnly: true
+      required:
+      - created_at
+      - id
+      - model
+      - teams
+      - updated_at
+    MLModelRequest:
+      type: object
+      properties:
+        headers:
+          writeOnly: true
+        model:
+          type: integer
+        version:
+          type: string
+          nullable: true
+          maxLength: 255
+        url:
+          type: string
+          nullable: true
+      required:
+      - headers
+      - model
+    MLModelType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        slug:
+          type: string
+          nullable: true
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+        name:
+          type: string
+          nullable: true
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+      required:
+      - created_at
+      - id
+      - updated_at
+    MLModelTypeRequest:
+      type: object
+      properties:
+        slug:
+          type: string
+          nullable: true
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+        name:
+          type: string
+          nullable: true
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+    Membership:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        user:
+          allOf:
+          - $ref: '#/components/schemas/CustomUser'
+          readOnly: true
+        role:
+          type: string
+        team:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+      required:
+      - created_at
+      - id
+      - role
+      - team
+      - updated_at
+      - user
+    MembershipRequest:
+      type: object
+      properties:
+        role:
+          type: string
+          minLength: 1
+      required:
+      - role
+    PatchedBinaryClassInspectionResultRequest:
+      type: object
+      properties:
+        team:
+          type: integer
+        reported_by:
+          type: integer
+          nullable: true
+        image:
+          type: integer
+          nullable: true
+        type:
+          allOf:
+          - $ref: '#/components/schemas/TypeEnum'
+          default: RatingInspectionResult
+        confidence:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,1}(?:\.\d{0,4})?$
+        comment:
+          type: string
+        binary_class:
+          $ref: '#/components/schemas/BinaryClassEnum'
+    PatchedBinaryClassInspectionResultTypedRequest:
+      allOf:
+      - type: object
+        properties:
+          type:
+            type: string
+      - $ref: '#/components/schemas/PatchedBinaryClassInspectionResultRequest'
+    PatchedCaseRequest:
+      type: object
+      properties:
+        team:
+          type: integer
+        inspection_object:
+          type: integer
+          nullable: true
+        opened_by:
+          type: integer
+          nullable: true
+        closed_by:
+          type: integer
+          nullable: true
+        images:
+          type: array
+          items:
+            type: integer
+            nullable: true
+        close_datetime:
+          type: string
+          format: date-time
+          nullable: true
+        blueprint:
+          type: integer
+          nullable: true
+        metadata:
+          type: integer
+          nullable: true
+    PatchedClassificationResultRequest:
+      type: object
+      properties:
+        team:
+          type: integer
+        reported_by:
+          type: integer
+          nullable: true
+        inferred_by:
+          type: integer
+          nullable: true
+        image:
+          type: integer
+          nullable: true
+        result:
+          nullable: true
+        status:
+          oneOf:
+          - $ref: '#/components/schemas/StatusEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+        failure_reason:
+          type: string
+        comment:
+          type: string
+    PatchedImageQualityGateRequest:
+      type: object
+      properties:
+        team:
+          type: integer
+        blueprints:
+          type: array
+          items:
+            type: integer
+            nullable: true
+        good_quality_classes:
+          type: array
+          items:
+            type: string
+            minLength: 1
+        uncertain_quality_classes:
+          type: array
+          items:
+            type: string
+            minLength: 1
+        bad_quality_classes:
+          type: array
+          items:
+            type: string
+            minLength: 1
+    PatchedImageRequest:
+      type: object
+      properties:
+        team:
+          type: integer
+        case:
+          type: integer
+          nullable: true
+        uploaded_by:
+          type: integer
+          nullable: true
+        inspection_results:
+          type: array
+          items:
+            type: integer
+            nullable: true
+        format:
+          $ref: '#/components/schemas/FormatEnum'
+        capture_datetime:
+          type: string
+          format: date-time
+        file:
+          type: string
+          format: binary
+        part_id:
+          type: string
+          maxLength: 255
+        validation_status:
+          $ref: '#/components/schemas/ValidationStatusEnum'
+    PatchedInspectionMetadataRequest:
+      type: object
+      properties:
+        team:
+          type: integer
+        blueprints:
+          type: array
+          items:
+            type: integer
+            nullable: true
+        schema:
+          type: integer
+        data:
+          nullable: true
+    PatchedInspectionMetadataSchemaRequest:
+      type: object
+      properties:
+        team:
+          type: integer
+        json: {}
+    PatchedInspectionObjectRequest:
+      type: object
+      properties:
+        team:
+          type: integer
+        type:
+          type: integer
+          nullable: true
+        cases:
+          type: array
+          items:
+            type: integer
+            nullable: true
+        identifier:
+          type: string
+          maxLength: 255
+        display_name:
+          type: string
+          nullable: true
+          maxLength: 255
+        description:
+          type: string
+    PatchedInspectionObjectTypeRequest:
+      type: object
+      properties:
+        team:
+          type: integer
+        instances:
+          type: array
+          items:
+            type: integer
+            nullable: true
+        name:
+          type: string
+          maxLength: 255
+        display_name:
+          type: string
+          nullable: true
+          maxLength: 255
+        description:
+          type: string
+    PatchedInspectionProcessBlueprintRequest:
+      type: object
+      properties:
+        team:
+          type: integer
+        name:
+          type: string
+          minLength: 1
+        metadata_schema:
+          type: integer
+          nullable: true
+        image_quality_gate:
+          type: integer
+          nullable: true
+        ml_model:
+          type: integer
+          nullable: true
+        inspection_object_type:
+          type: integer
+          nullable: true
+        description:
+          type: string
+    PatchedInspectionResultPolymorphicRequest:
+      oneOf:
+      - $ref: '#/components/schemas/PatchedRatingInspectionResultTypedRequest'
+      - $ref: '#/components/schemas/PatchedBinaryClassInspectionResultTypedRequest'
+      discriminator:
+        propertyName: type
+        mapping:
+          RatingInspectionResult: '#/components/schemas/PatchedRatingInspectionResultTypedRequest'
+          BinaryClassInspectionResult: '#/components/schemas/PatchedBinaryClassInspectionResultTypedRequest'
+    PatchedMLModelRequest:
+      type: object
+      properties:
+        headers:
+          writeOnly: true
+        model:
+          type: integer
+        version:
+          type: string
+          nullable: true
+          maxLength: 255
+        url:
+          type: string
+          nullable: true
+    PatchedMLModelTypeRequest:
+      type: object
+      properties:
+        slug:
+          type: string
+          nullable: true
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+        name:
+          type: string
+          nullable: true
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+    PatchedRatingInspectionResultRequest:
+      type: object
+      properties:
+        team:
+          type: integer
+        reported_by:
+          type: integer
+          nullable: true
+        image:
+          type: integer
+          nullable: true
+        type:
+          allOf:
+          - $ref: '#/components/schemas/TypeEnum'
+          default: RatingInspectionResult
+        confidence:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,1}(?:\.\d{0,4})?$
+        comment:
+          type: string
+        rating:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,4}(?:\.\d{0,4})?$
+    PatchedRatingInspectionResultTypedRequest:
+      allOf:
+      - type: object
+        properties:
+          type:
+            type: string
+      - $ref: '#/components/schemas/PatchedRatingInspectionResultRequest'
+    QualityEnum:
+      enum:
+      - GOOD
+      - UNCERTAIN
+      - BAD
+      type: string
+      description: |-
+        * `GOOD` - GOOD
+        * `UNCERTAIN` - UNCERTAIN
+        * `BAD` - BAD
+    RatingInspectionResult:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        team:
+          type: integer
+        reported_by:
+          type: integer
+          nullable: true
+        image:
+          type: integer
+          nullable: true
+        type:
+          allOf:
+          - $ref: '#/components/schemas/TypeEnum'
+          default: RatingInspectionResult
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        confidence:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,1}(?:\.\d{0,4})?$
+        comment:
+          type: string
+        rating:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,4}(?:\.\d{0,4})?$
+      required:
+      - confidence
+      - created_at
+      - id
+      - rating
+      - team
+      - updated_at
+    RatingInspectionResultRequest:
+      type: object
+      properties:
+        team:
+          type: integer
+        reported_by:
+          type: integer
+          nullable: true
+        image:
+          type: integer
+          nullable: true
+        type:
+          allOf:
+          - $ref: '#/components/schemas/TypeEnum'
+          default: RatingInspectionResult
+        confidence:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,1}(?:\.\d{0,4})?$
+        comment:
+          type: string
+        rating:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,4}(?:\.\d{0,4})?$
+      required:
+      - confidence
+      - rating
+      - team
+    RatingInspectionResultTyped:
+      allOf:
+      - type: object
+        properties:
+          type:
+            type: string
+        required:
+        - type
+      - $ref: '#/components/schemas/RatingInspectionResult'
+    RatingInspectionResultTypedRequest:
+      allOf:
+      - type: object
+        properties:
+          type:
+            type: string
+        required:
+        - type
+      - $ref: '#/components/schemas/RatingInspectionResultRequest'
+    StatusEnum:
+      enum:
+      - PENDING
+      - FAILED
+      - SUCCESS
+      type: string
+      description: |-
+        * `PENDING` - Pending
+        * `FAILED` - Failed
+        * `SUCCESS` - Success
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        name:
+          type: string
+          maxLength: 100
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+        customer:
+          type: integer
+          nullable: true
+        subscription:
+          type: integer
+          nullable: true
+        members:
+          type: array
+          items:
+            type: integer
+          readOnly: true
+      required:
+      - created_at
+      - id
+      - members
+      - name
+      - slug
+      - updated_at
+    TeamRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        slug:
+          type: string
+          minLength: 1
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+        customer:
+          type: integer
+          nullable: true
+        subscription:
+          type: integer
+          nullable: true
+      required:
+      - name
+      - slug
+    TypeEnum:
+      enum:
+      - RatingInspectionResult
+      type: string
+      description: '* `RatingInspectionResult` - RatingInspectionResult'
+    UserAPIKeyCreate:
+      type: object
+      properties:
+        key:
+          type: string
+          readOnly: true
+          maxLength: 40
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        name:
+          type: string
+          readOnly: true
+          description: A free-form name for the API key. Need not be unique. 50 characters
+            max.
+          maxLength: 50
+        expiry_date:
+          type: string
+          format: date-time
+          readOnly: true
+          description: Once API key expires, clients cannot use it anymore.
+        revoked:
+          type: boolean
+          readOnly: true
+        message:
+          type: string
+          readOnly: true
+          maxLength: 255
+      required:
+      - created
+      - expiry_date
+      - key
+      - message
+      - name
+      - revoked
+    ValidationStatusEnum:
+      enum:
+      - NONE
+      - REQUESTED
+      - VALIDATED
+      type: string
+      description: |-
+        * `NONE` - None
+        * `REQUESTED` - Validation Requested
+        * `VALIDATED` - Validated
+    credentialsRequest:
+      type: object
+      properties:
+        username:
+          type: string
+          minLength: 1
+        password:
+          type: string
+          minLength: 1
+      required:
+      - password
+      - username
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
+servers:
+- url: http://localhost:8000
