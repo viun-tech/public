@@ -1,0 +1,17 @@
+[Unit]
+Description=Avis Agent Service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi/Workspace/agent
+ExecStart=/usr/local/bin/poetry run python agent/avis_agent/main.py --config agent/.env
+Restart=always
+User=pi
+Group=pi
+StandardOutput=file:/home/pi/Workspace/agent/stdout.log
+StandardError=file:/home/pi/Workspace/agent/stderr.log
+
+
+[Install]
+WantedBy=multi-user.target

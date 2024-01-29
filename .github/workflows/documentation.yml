@@ -1,0 +1,45 @@
+name: documentation
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "docs/**"
+      - "examples/**"
+      - ".github/workflows/documentation.yml"
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - uses: actions/cache@v3
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      - name: Move AVIS openapi schema
+        run: |
+          cp avis/schema.yml docs/docs/api/rest/swagger/schema.yml
+      - name: Move AVIS client docs
+        run: |
+          mkdir -p docs/public/docs/api/clients/python/vue_avis_client
+          cp -r libs/vue-avis-client/generated/vue_avis_client/docs docs/public/docs/api/clients/python/vue_avis_client
+          cp libs/vue-avis-client/generated/vue_avis_client_README.md docs/public/docs/api/clients/python/vue_avis_client/docs/README.md
+          # hack to fix the relative links
+          sed -i 's|vue_avis_client/docs/|./|g' docs/public/docs/api/clients/python/vue_avis_client/docs/README.md
+          sed -i 's|../README.md|..|g' docs/public/docs/api/clients/python/vue_avis_client/docs/*
+      - run: pip install mkdocs-material
+      - name : Build documentation
+        working-directory: docs/docs
+        run: mkdocs gh-deploy --force

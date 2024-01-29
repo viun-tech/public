@@ -1,0 +1,32 @@
+{
+  "camera": {
+    "name": "oak_d_poe",
+    "image_path": "image.png",
+    "resolution": "1080p",
+    "fixed_focus": 150,
+    "crop": {
+      "xmin": 0.125,
+      "xmax": 0.625,
+      "ymin": 0.3,
+      "ymax": 0.66
+    }
+  },
+  "backend": {
+    "name": "avis",
+    "api_key": "...",
+    "team_id": 2,
+    "inspection_object_id": 23,
+    "uri": "https://avis.vu.engineering"
+  },
+  "signal": {
+    "name": "modbus_tcp",
+    "polling_interval": 0.1,
+    "host": "localhost",
+    "port": 5020
+  },
+  "instrumentation": {
+    "traces_exporter_endpoint": "http://localhost:4317",
+    "metrics_exporter_endpoint": "http://localhost:4317",
+    "service_instance_id": "test"
+  }
+}
