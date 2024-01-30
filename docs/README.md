@@ -16,16 +16,10 @@ poetry shell
 ## Serve locally
 
 ```bash
-mkdocs serve
+mike serve -a localhost:8888
 ```
 
 This will serve the documentation at http://localhost:8888
-
-## Build
-
-```bash
-mkdocs build
-```
 
 ## Deploy
 
@@ -36,8 +30,10 @@ Please refer to the GitHub Action workflow in `.github/workflows/documentation.y
 ### Manual
 
 ```bash
-mkdocs gh-deploy --force
+mike deploy --push --update-aliases <version> latest
 ```
+
+where `<version>` is the version of the doc you want to deploy.
 
 This will build and deploy the documentation to the `gh-pages` branch of the repository. The documentation will be available at https://vuengineering.github.io/vue-monorepo and
 https://docs.vu.engineering.

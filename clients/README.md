@@ -9,20 +9,14 @@ with:
 npm install @openapitools/openapi-generator-cli -g
 ```
 
-Then pick the API version you'd like to generate the client for:
-
-```commandline
-API_VERSION=v1
-```
-
 ## Python
 
 ```commandline
-openapi-generator-cli generate --global-property apiTests=false,modelTests=false -i "$API_VERSION/api-schema.yml" -g python -o "$API_VERSION/python/vue-avis-client/generated" --additional-properties=packageName=vue_avis_client,generateSourceCodeOnly=true
+openapi-generator-cli generate --global-property apiTests=false,modelTests=false -i api-schema.yml -g python -o python/vue-avis-client/generated --additional-properties=packageName=vue_avis_client
 ```
 
 ## Typescript (using Axios)
 
 ```commandline
-openapi-generator-cli generate -i "$API_VERSION/api-schema.yml" -g typescript-axios -o "$API_VERSION/typescript/vue-avis-axios-client/generated" --additional-properties=withInterfaces=true,npmName=vue-avis-axios-client
+openapi-generator-cli generate -i api-schema.yml -g typescript-axios -o typescript/vue-avis-axios-client/generated --additional-properties=withInterfaces=true,npmName=vue-avis-axios-client
 ```
