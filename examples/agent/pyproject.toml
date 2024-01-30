@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "avis-agent"
-version = "2024.01.3"
+version = "2024.01.1"
 description = "Agent to acquire pictures and interact with AVIS."
 authors = ["Lucas Vandroux <lucas.vandroux@vu.engineering>"]
 readme = "README.md"
