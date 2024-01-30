@@ -1,5 +1,10 @@
 # VUE's public documentation
 
+## Pre-requisites
+
+- [Python 3.10+](https://www.python.org/downloads/)
+- [Poetry](https://python-poetry.org/docs/#installation)
+
 ## Install
 
 ```bash
