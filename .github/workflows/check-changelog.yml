@@ -1,0 +1,32 @@
+name: check changelog
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - labeled
+      - unlabeled
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check if there are changes in VERSION file
+        id: check_version
+        uses: tj-actions/changed-files@v42
+        with:
+          files: |
+            VERSION
+      - name: Check if CHANGELOG.md has been updated
+        id: check_changelog
+        uses: tj-actions/changed-files@v42
+        with:
+          files: |
+            CHANGELOG.md
+      - name: If VERSION has been updated and not CHANGELOG.md, fail the build
+        if: steps.check_version.outputs.test_any_changed == 'true' && steps.check_changelog.outputs.test_any_changed == 'false'
+        run: echo "::error::VERSION file has been updated but not the CHANGELOG.md" && exit 1
+   

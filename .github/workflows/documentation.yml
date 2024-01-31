@@ -4,6 +4,7 @@ on:
     branches:
       - main
     paths:
+      - "VERSION"
       - "docs/**"
       - "examples/**"
       - ".github/workflows/documentation.yml"
@@ -33,13 +34,19 @@ jobs:
           cp avis/schema.yml docs/docs/api/rest/swagger/schema.yml
       - name: Move AVIS client docs
         run: |
-          mkdir -p docs/public/docs/api/clients/python/vue_avis_client
-          cp -r libs/vue-avis-client/generated/vue_avis_client/docs docs/public/docs/api/clients/python/vue_avis_client
-          cp libs/vue-avis-client/generated/vue_avis_client_README.md docs/public/docs/api/clients/python/vue_avis_client/docs/README.md
+          mkdir -p docs/docs/api/clients/python/vue_avis_client
+          cp -r "clients/python/vue-avis-client/generated/docs" docs/docs/api/clients/python/vue_avis_client
+          cp "clients//python/vue-avis-client/generated/vue_avis_client_README.md" docs/docs/api/clients/python/vue_avis_client/docs/README.md
           # hack to fix the relative links
-          sed -i 's|vue_avis_client/docs/|./|g' docs/public/docs/api/clients/python/vue_avis_client/docs/README.md
-          sed -i 's|../README.md|..|g' docs/public/docs/api/clients/python/vue_avis_client/docs/*
-      - run: pip install mkdocs-material
-      - name : Build documentation
+          sed -i 's|vue_avis_client/docs/|./|g' docs/docs/api/clients/python/vue_avis_client/docs/README.md
+          sed -i 's|../README.md|..|g' docs/docs/api/clients/python/vue_avis_client/docs/*
+      - run: pip install mkdocs-material mike
+      - name: Get API version
+        id: get_api_version
+        run: |
+          VERSION=$(awk '/info:/{flag=1; next}/^ /{if(flag){print}}/^[^ ]/{flag=0}' api-schema.yml | grep 'version:' | awk '{print $2}')
+          echo "api_version=$VERSION" >> "$GITHUB_ENV"
+      - name : Deploy documentation
         working-directory: docs/docs
-        run: mkdocs gh-deploy --force
+        run: |
+            mike deploy --push --update-aliases ${{ env.api_version }} latest
