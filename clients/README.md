@@ -21,11 +21,11 @@ files package.json, setup.py, pyproject.toml, ...:
 ## Python
 
 ```bash
-openapi-generator-cli generate --git-repo-id public --git-user-id vuengineering -i ../api-schema.yml -g python -o python/vue-avis-client/generated --additional-properties=packageName=vue_avis_client
+openapi-generator-cli generate --git-repo-id public --git-user-id vuengineering -i ../api-schema.yml -g python -o python/avis-client/generated --additional-properties=packageName=avis_client
 ```
 
 ## Typescript (using Axios)
 
 ```bash
-openapi-generator-cli generate --git-repo-id public --git-user-id vuengineering -i ../api-schema.yml -g typescript-axios -o typescript/vue-avis-axios-client/generated --additional-properties=withInterfaces=true,npmName=vue-avis-axios-client
+openapi-generator-cli generate --git-repo-id public --git-user-id vuengineering -i ../api-schema.yml -g typescript-axios -o typescript/avis-client/generated --additional-properties=withInterfaces=true,npmName=@vision-unified-tech/avis-client
 ```

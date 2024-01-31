@@ -34,12 +34,12 @@ jobs:
           cp avis/schema.yml docs/docs/api/rest/swagger/schema.yml
       - name: Move AVIS client docs
         run: |
-          mkdir -p docs/docs/api/clients/python/vue_avis_client
-          cp -r "clients/python/vue-avis-client/generated/docs" docs/docs/api/clients/python/vue_avis_client
-          cp "clients//python/vue-avis-client/generated/vue_avis_client_README.md" docs/docs/api/clients/python/vue_avis_client/docs/README.md
+          mkdir -p docs/docs/api/clients/python/avis_client
+          cp -r "clients/python/avis-client/generated/docs" docs/docs/api/clients/python/avis_client
+          cp "clients/python/avis-client/generated/avis_client_README.md" docs/docs/api/clients/python/avis_client/docs/README.md
           # hack to fix the relative links
-          sed -i 's|vue_avis_client/docs/|./|g' docs/docs/api/clients/python/vue_avis_client/docs/README.md
-          sed -i 's|../README.md|..|g' docs/docs/api/clients/python/vue_avis_client/docs/*
+          sed -i 's|avis_client/docs/|./|g' docs/docs/api/clients/python/avis_client/docs/README.md
+          sed -i 's|../README.md|..|g' docs/docs/api/clients/python/avis_client/docs/*
       - run: pip install mkdocs-material mike
       - name: Get API version
         id: get_api_version
