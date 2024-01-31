@@ -5,24 +5,27 @@ install [openapi-generator](https://github.com/OpenAPITools/openapi-generator):
 which requires [Java](https://www.java.com/en/download/) to be installed on your system. You can then install the cli
 with:
 
-```commandline
+```bash
 npm install @openapitools/openapi-generator-cli -g
 ```
 
-You can then choose the major version of the API you want to generate the client for:
+You can then use the helper script to generate all the clients:
 
-```commandline
-API_VERSION=v1
+```bash
+./generate-clients.sh
 ```
+
+Or you can generate them one by one. Please note that the author and license fields will need be updated in the generated
+files package.json, setup.py, pyproject.toml, ...:
 
 ## Python
 
-```commandline
-openapi-generator-cli generate -i ../api-schema.yml -g python -o python/vue-avis-client/generated --additional-properties=packageName=vue_avis_client
+```bash
+openapi-generator-cli generate --git-repo-id public --git-user-id vuengineering -i ../api-schema.yml -g python -o python/vue-avis-client/generated --additional-properties=packageName=vue_avis_client
 ```
 
 ## Typescript (using Axios)
 
-```commandline
-openapi-generator-cli generate -i ../api-schema.yml -g typescript-axios -o typescript/vue-avis-axios-client/generated --additional-properties=withInterfaces=true,npmName=vue-avis-axios-client
+```bash
+openapi-generator-cli generate --git-repo-id public --git-user-id vuengineering -i ../api-schema.yml -g typescript-axios -o typescript/vue-avis-axios-client/generated --additional-properties=withInterfaces=true,npmName=vue-avis-axios-client
 ```
