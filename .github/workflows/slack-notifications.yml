@@ -23,7 +23,7 @@ jobs:
                   "type": "header",
                   "text": {
                       "type": "plain_text",
-                      "text": "New PR opened :rocket:",
+                      "text": "[PUBLIC REPO]: New PR opened :rocket:",
                       "emoji": true
                   }
                 },

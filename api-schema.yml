@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: avis
-  version: 0.1.0
+  version: 0.3.0
   description: VUE Autonomous Visual Inspection System (AVIS)
 paths:
   /api/api-keys/:

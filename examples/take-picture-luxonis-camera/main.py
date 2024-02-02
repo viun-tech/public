@@ -45,8 +45,8 @@ class CameraResolution(str, Enum):
 
 class CameraSettings(BaseSettings):
     image_path: Path
-    resolution: CameraResolution = CameraResolution.the_1080_p
     crop: CropCoordinates
+    resolution: CameraResolution = CameraResolution.the_1080_p
     fixed_focus: Union[int, None] = None
     device_info: Union[str, None] = None
 
@@ -109,7 +109,7 @@ class OakDPOECamera:
         return pipeline
 
     def start(self) -> bool:
-        self.pipeline = self.config.with_retries(self.setup_camera)
+        self.pipeline = self.setup_camera()
         try:
             if self.config.device_info is not None:
                 self.device = dai.Device(self.pipeline, self.config.device_info)
@@ -156,3 +156,18 @@ class OakDPOECamera:
             return True
         except Exception as e:
             raise Exception(f"Exception when stopping camera: {e}")
+
+
+if __name__ == "__main__":
+    config = CameraSettings(
+        image_path=Path("image.jpg"),
+        crop=CropCoordinates(xmin=0, ymin=0, xmax=1, ymax=1),
+        resolution=CameraResolution.the_1080_p,
+        fixed_focus=0,
+        device_info="localhost:3456",
+    )
+    camera = OakDPOECamera(config)
+    camera.start()
+    image = camera.capture_image()
+    image.show()
+    camera.stop()

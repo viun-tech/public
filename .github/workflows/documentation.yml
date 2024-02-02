@@ -4,8 +4,8 @@ on:
     branches:
       - main
     paths:
-      - "VERSION"
       - "docs/**"
+      - "clients/**"
       - "examples/**"
       - ".github/workflows/documentation.yml"
 permissions:
