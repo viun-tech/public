@@ -29,12 +29,8 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - name: Move AVIS openapi schema
-        run: |
-          cp avis/schema.yml docs/docs/api/rest/swagger/schema.yml
       - name: Move AVIS client docs
         run: |
-          mkdir -p docs/docs/api/clients/python/avis_client
           cp -r "clients/python/avis-client/generated/docs/." docs/docs/api/clients/python/avis_client
           cp "clients/python/avis-client/generated/README.md" docs/docs/api/clients/python/avis_client/README.md
           # hack to fix the relative links
