@@ -1,0 +1,52 @@
+name: documentation
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "VERSION"
+      - "docs/**"
+      - "examples/**"
+      - ".github/workflows/documentation.yml"
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - uses: actions/cache@v3
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      - name: Move AVIS openapi schema
+        run: |
+          cp avis/schema.yml docs/docs/api/rest/swagger/schema.yml
+      - name: Move AVIS client docs
+        run: |
+          mkdir -p docs/docs/api/clients/python/avis_client
+          cp -r "clients/python/avis-client/generated/docs" docs/docs/api/clients/python/avis_client
+          cp "clients/python/avis-client/generated/avis_client_README.md" docs/docs/api/clients/python/avis_client/docs/README.md
+          # hack to fix the relative links
+          sed -i 's|avis_client/docs/|./|g' docs/docs/api/clients/python/avis_client/docs/README.md
+          sed -i 's|../README.md|..|g' docs/docs/api/clients/python/avis_client/docs/*
+      - run: pip install mkdocs-material mike
+      - name: Get API version
+        id: get_api_version
+        run: |
+          VERSION=$(awk '/info:/{flag=1; next}/^ /{if(flag){print}}/^[^ ]/{flag=0}' api-schema.yml | grep 'version:' | awk '{print $2}')
+          echo "api_version=$VERSION" >> "$GITHUB_ENV"
+      - name : Deploy documentation
+        working-directory: docs/docs
+        run: |
+            mike deploy --push --update-aliases ${{ env.api_version }} latest
