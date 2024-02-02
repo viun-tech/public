@@ -2,7 +2,7 @@
 
 ## Integration
 
-There are several examples of integration of the AVIS API with a real-world, productive manufacturing environment.
+There are several examples of integration of the AVIS API with real-world, productive manufacturing environments and setups.
 
 1. Capture pictures with a Luxonis
    camera: [examples/take-picture-luxonis-camera](https://github.com/vuengineering/public/tree/main/examples/take-picture-luxonis-camera)

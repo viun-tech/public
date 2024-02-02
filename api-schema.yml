@@ -4561,4 +4561,7 @@ components:
       in: cookie
       name: sessionid
 servers:
+- url: https://avis.vu.engineering/
+  description: Production server (uses live data)
 - url: http://localhost:8000
+  description: Local development server

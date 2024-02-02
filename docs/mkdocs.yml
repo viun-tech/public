@@ -18,6 +18,8 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets:
       base_path: docs
+  - admonition
+  - pymdownx.details
   - pymdownx.superfences
 nav:
   - Home: index.md
