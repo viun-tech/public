@@ -5,15 +5,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**team** | **int** |  | 
-**type** | **int** |  | [optional] 
-**cases** | **List[int]** |  | [optional] 
-**created_at** | **datetime** |  | [readonly] 
-**updated_at** | **datetime** |  | [readonly] 
-**identifier** | **str** |  | 
-**display_name** | **str** |  | [optional] 
-**description** | **str** |  | [optional] 
+**id** | **int** |  | [readonly]
+**team** | **int** |  |
+**type** | **int** |  | [optional]
+**cases** | **List[int]** |  | [optional]
+**created_at** | **datetime** |  | [readonly]
+**updated_at** | **datetime** |  | [readonly]
+**identifier** | **str** |  |
+**display_name** | **str** |  | [optional]
+**description** | **str** |  | [optional]
 
 ## Example
 
@@ -33,5 +33,3 @@ inspection_object_dict = inspection_object_instance.to_dict()
 inspection_object_form_dict = inspection_object.from_dict(inspection_object_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

@@ -2,6 +2,8 @@ import io
 from abc import ABC, abstractmethod
 from typing import Union
 
+from PIL import Image
+
 from avis_agent.core.commands import (
     AbstractCommand,
     AddImageCommand,
@@ -12,7 +14,6 @@ from avis_agent.core.commands import (
 from avis_agent.core.exceptions import AgentError
 from avis_agent.core.responses import AbstractResponse, ReadyResponse
 from avis_agent.utils import BaseSettingsWithRetries
-from PIL import Image
 
 
 def image_to_byte_array(image: Image) -> bytes:

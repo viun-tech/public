@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost:8000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**case_create**](CaseApi.md#case_create) | **POST** /api/case/ | 
-[**case_destroy**](CaseApi.md#case_destroy) | **DELETE** /api/case/{id}/ | 
-[**case_inspection_status_list**](CaseApi.md#case_inspection_status_list) | **GET** /api/case/inspection_status/ | 
-[**case_list**](CaseApi.md#case_list) | **GET** /api/case/ | 
-[**case_partial_update**](CaseApi.md#case_partial_update) | **PATCH** /api/case/{id}/ | 
-[**case_retrieve**](CaseApi.md#case_retrieve) | **GET** /api/case/{id}/ | 
-[**case_send_validation_email_retrieve**](CaseApi.md#case_send_validation_email_retrieve) | **GET** /api/case/{id}/send_validation_email/ | 
-[**case_update**](CaseApi.md#case_update) | **PUT** /api/case/{id}/ | 
-[**case_validation_status_list**](CaseApi.md#case_validation_status_list) | **GET** /api/case/validation_status/ | 
+[**case_create**](CaseApi.md#case_create) | **POST** /api/case/ |
+[**case_destroy**](CaseApi.md#case_destroy) | **DELETE** /api/case/{id}/ |
+[**case_inspection_status_list**](CaseApi.md#case_inspection_status_list) | **GET** /api/case/inspection_status/ |
+[**case_list**](CaseApi.md#case_list) | **GET** /api/case/ |
+[**case_partial_update**](CaseApi.md#case_partial_update) | **PATCH** /api/case/{id}/ |
+[**case_retrieve**](CaseApi.md#case_retrieve) | **GET** /api/case/{id}/ |
+[**case_send_validation_email_retrieve**](CaseApi.md#case_send_validation_email_retrieve) | **GET** /api/case/{id}/send_validation_email/ |
+[**case_update**](CaseApi.md#case_update) | **PUT** /api/case/{id}/ |
+[**case_validation_status_list**](CaseApi.md#case_validation_status_list) | **GET** /api/case/validation_status/ |
 
 
 # **case_create**
@@ -63,7 +63,7 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.CaseApi(api_client)
-    case_request = avis_client.CaseRequest() # CaseRequest | 
+    case_request = avis_client.CaseRequest() # CaseRequest |
 
     try:
         api_response = api_instance.case_create(case_request)
@@ -80,7 +80,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **case_request** | [**CaseRequest**](CaseRequest.md)|  | 
+ **case_request** | [**CaseRequest**](CaseRequest.md)|  |
 
 ### Return type
 
@@ -164,7 +164,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this case. | 
+ **id** | **int**| A unique integer value identifying this case. |
 
 ### Return type
 
@@ -251,7 +251,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
+ **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional]
 
 ### Return type
 
@@ -339,8 +339,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fields** | **str**|  | [optional] 
- **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
+ **fields** | **str**|  | [optional]
+ **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional]
 
 ### Return type
 
@@ -429,8 +429,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this case. | 
- **patched_case_request** | [**PatchedCaseRequest**](PatchedCaseRequest.md)|  | [optional] 
+ **id** | **int**| A unique integer value identifying this case. |
+ **patched_case_request** | [**PatchedCaseRequest**](PatchedCaseRequest.md)|  | [optional]
 
 ### Return type
 
@@ -518,8 +518,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this case. | 
- **fields** | **str**|  | [optional] 
+ **id** | **int**| A unique integer value identifying this case. |
+ **fields** | **str**|  | [optional]
 
 ### Return type
 
@@ -606,7 +606,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this case. | 
+ **id** | **int**| A unique integer value identifying this case. |
 
 ### Return type
 
@@ -678,7 +678,7 @@ with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.CaseApi(api_client)
     id = 56 # int | A unique integer value identifying this case.
-    case_request = avis_client.CaseRequest() # CaseRequest | 
+    case_request = avis_client.CaseRequest() # CaseRequest |
 
     try:
         api_response = api_instance.case_update(id, case_request)
@@ -695,8 +695,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this case. | 
- **case_request** | [**CaseRequest**](CaseRequest.md)|  | 
+ **id** | **int**| A unique integer value identifying this case. |
+ **case_request** | [**CaseRequest**](CaseRequest.md)|  |
 
 ### Return type
 
@@ -783,7 +783,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
+ **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional]
 
 ### Return type
 
@@ -805,4 +805,3 @@ Name | Type | Description  | Notes
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

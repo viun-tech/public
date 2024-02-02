@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost:8000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**inspectionobjecttype_create**](InspectionobjecttypeApi.md#inspectionobjecttype_create) | **POST** /api/inspectionobjecttype/ | 
-[**inspectionobjecttype_destroy**](InspectionobjecttypeApi.md#inspectionobjecttype_destroy) | **DELETE** /api/inspectionobjecttype/{id}/ | 
-[**inspectionobjecttype_list**](InspectionobjecttypeApi.md#inspectionobjecttype_list) | **GET** /api/inspectionobjecttype/ | 
-[**inspectionobjecttype_partial_update**](InspectionobjecttypeApi.md#inspectionobjecttype_partial_update) | **PATCH** /api/inspectionobjecttype/{id}/ | 
-[**inspectionobjecttype_retrieve**](InspectionobjecttypeApi.md#inspectionobjecttype_retrieve) | **GET** /api/inspectionobjecttype/{id}/ | 
-[**inspectionobjecttype_update**](InspectionobjecttypeApi.md#inspectionobjecttype_update) | **PUT** /api/inspectionobjecttype/{id}/ | 
+[**inspectionobjecttype_create**](InspectionobjecttypeApi.md#inspectionobjecttype_create) | **POST** /api/inspectionobjecttype/ |
+[**inspectionobjecttype_destroy**](InspectionobjecttypeApi.md#inspectionobjecttype_destroy) | **DELETE** /api/inspectionobjecttype/{id}/ |
+[**inspectionobjecttype_list**](InspectionobjecttypeApi.md#inspectionobjecttype_list) | **GET** /api/inspectionobjecttype/ |
+[**inspectionobjecttype_partial_update**](InspectionobjecttypeApi.md#inspectionobjecttype_partial_update) | **PATCH** /api/inspectionobjecttype/{id}/ |
+[**inspectionobjecttype_retrieve**](InspectionobjecttypeApi.md#inspectionobjecttype_retrieve) | **GET** /api/inspectionobjecttype/{id}/ |
+[**inspectionobjecttype_update**](InspectionobjecttypeApi.md#inspectionobjecttype_update) | **PUT** /api/inspectionobjecttype/{id}/ |
 
 
 # **inspectionobjecttype_create**
@@ -60,7 +60,7 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.InspectionobjecttypeApi(api_client)
-    inspection_object_type_request = avis_client.InspectionObjectTypeRequest() # InspectionObjectTypeRequest | 
+    inspection_object_type_request = avis_client.InspectionObjectTypeRequest() # InspectionObjectTypeRequest |
 
     try:
         api_response = api_instance.inspectionobjecttype_create(inspection_object_type_request)
@@ -77,7 +77,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inspection_object_type_request** | [**InspectionObjectTypeRequest**](InspectionObjectTypeRequest.md)|  | 
+ **inspection_object_type_request** | [**InspectionObjectTypeRequest**](InspectionObjectTypeRequest.md)|  |
 
 ### Return type
 
@@ -161,7 +161,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection object type. | 
+ **id** | **int**| A unique integer value identifying this inspection object type. |
 
 ### Return type
 
@@ -249,8 +249,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fields** | **str**|  | [optional] 
- **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
+ **fields** | **str**|  | [optional]
+ **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional]
 
 ### Return type
 
@@ -339,8 +339,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection object type. | 
- **patched_inspection_object_type_request** | [**PatchedInspectionObjectTypeRequest**](PatchedInspectionObjectTypeRequest.md)|  | [optional] 
+ **id** | **int**| A unique integer value identifying this inspection object type. |
+ **patched_inspection_object_type_request** | [**PatchedInspectionObjectTypeRequest**](PatchedInspectionObjectTypeRequest.md)|  | [optional]
 
 ### Return type
 
@@ -428,8 +428,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection object type. | 
- **fields** | **str**|  | [optional] 
+ **id** | **int**| A unique integer value identifying this inspection object type. |
+ **fields** | **str**|  | [optional]
 
 ### Return type
 
@@ -501,7 +501,7 @@ with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.InspectionobjecttypeApi(api_client)
     id = 56 # int | A unique integer value identifying this inspection object type.
-    inspection_object_type_request = avis_client.InspectionObjectTypeRequest() # InspectionObjectTypeRequest | 
+    inspection_object_type_request = avis_client.InspectionObjectTypeRequest() # InspectionObjectTypeRequest |
 
     try:
         api_response = api_instance.inspectionobjecttype_update(id, inspection_object_type_request)
@@ -518,8 +518,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection object type. | 
- **inspection_object_type_request** | [**InspectionObjectTypeRequest**](InspectionObjectTypeRequest.md)|  | 
+ **id** | **int**| A unique integer value identifying this inspection object type. |
+ **inspection_object_type_request** | [**InspectionObjectTypeRequest**](InspectionObjectTypeRequest.md)|  |
 
 ### Return type
 
@@ -541,4 +541,3 @@ Name | Type | Description  | Notes
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

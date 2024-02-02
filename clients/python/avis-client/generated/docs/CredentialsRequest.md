@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**username** | **str** |  | 
-**password** | **str** |  | 
+**username** | **str** |  |
+**password** | **str** |  |
 
 ## Example
 
@@ -26,5 +26,3 @@ credentials_request_dict = credentials_request_instance.to_dict()
 credentials_request_form_dict = credentials_request.from_dict(credentials_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

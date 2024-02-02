@@ -1,7 +1,8 @@
 import logging
 from enum import Enum
-from typing import Annotated, Union
 from pathlib import Path
+from typing import Annotated, Union
+
 import cv2
 import depthai as dai
 import PIL.Image as img

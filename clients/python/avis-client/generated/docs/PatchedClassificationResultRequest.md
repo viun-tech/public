@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**team** | **int** |  | [optional] 
-**reported_by** | **int** |  | [optional] 
-**inferred_by** | **int** |  | [optional] 
-**image** | **int** |  | [optional] 
-**result** | **object** |  | [optional] 
-**status** | [**ClassificationResultStatus**](ClassificationResultStatus.md) |  | [optional] 
-**failure_reason** | **str** |  | [optional] 
-**comment** | **str** |  | [optional] 
+**team** | **int** |  | [optional]
+**reported_by** | **int** |  | [optional]
+**inferred_by** | **int** |  | [optional]
+**image** | **int** |  | [optional]
+**result** | **object** |  | [optional]
+**status** | [**ClassificationResultStatus**](ClassificationResultStatus.md) |  | [optional]
+**failure_reason** | **str** |  | [optional]
+**comment** | **str** |  | [optional]
 
 ## Example
 
@@ -32,5 +32,3 @@ patched_classification_result_request_dict = patched_classification_result_reque
 patched_classification_result_request_form_dict = patched_classification_result_request.from_dict(patched_classification_result_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

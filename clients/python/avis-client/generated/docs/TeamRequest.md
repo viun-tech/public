@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | 
-**slug** | **str** |  | 
-**customer** | **int** |  | [optional] 
-**subscription** | **int** |  | [optional] 
+**name** | **str** |  |
+**slug** | **str** |  |
+**customer** | **int** |  | [optional]
+**subscription** | **int** |  | [optional]
 
 ## Example
 
@@ -28,5 +28,3 @@ team_request_dict = team_request_instance.to_dict()
 team_request_form_dict = team_request.from_dict(team_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

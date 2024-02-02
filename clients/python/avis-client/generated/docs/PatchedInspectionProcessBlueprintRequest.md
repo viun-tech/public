@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**team** | **int** |  | [optional] 
-**name** | **str** |  | [optional] 
-**metadata_schema** | **int** |  | [optional] 
-**image_quality_gate** | **int** |  | [optional] 
-**ml_model** | **int** |  | [optional] 
-**inspection_object_type** | **int** |  | [optional] 
-**description** | **str** |  | [optional] 
+**team** | **int** |  | [optional]
+**name** | **str** |  | [optional]
+**metadata_schema** | **int** |  | [optional]
+**image_quality_gate** | **int** |  | [optional]
+**ml_model** | **int** |  | [optional]
+**inspection_object_type** | **int** |  | [optional]
+**description** | **str** |  | [optional]
 
 ## Example
 
@@ -31,5 +31,3 @@ patched_inspection_process_blueprint_request_dict = patched_inspection_process_b
 patched_inspection_process_blueprint_request_form_dict = patched_inspection_process_blueprint_request.from_dict(patched_inspection_process_blueprint_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

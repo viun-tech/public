@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost:8000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**inspectionresult_create**](InspectionresultApi.md#inspectionresult_create) | **POST** /api/inspectionresult/ | 
-[**inspectionresult_destroy**](InspectionresultApi.md#inspectionresult_destroy) | **DELETE** /api/inspectionresult/{id}/ | 
-[**inspectionresult_list**](InspectionresultApi.md#inspectionresult_list) | **GET** /api/inspectionresult/ | 
-[**inspectionresult_partial_update**](InspectionresultApi.md#inspectionresult_partial_update) | **PATCH** /api/inspectionresult/{id}/ | 
-[**inspectionresult_retrieve**](InspectionresultApi.md#inspectionresult_retrieve) | **GET** /api/inspectionresult/{id}/ | 
-[**inspectionresult_update**](InspectionresultApi.md#inspectionresult_update) | **PUT** /api/inspectionresult/{id}/ | 
+[**inspectionresult_create**](InspectionresultApi.md#inspectionresult_create) | **POST** /api/inspectionresult/ |
+[**inspectionresult_destroy**](InspectionresultApi.md#inspectionresult_destroy) | **DELETE** /api/inspectionresult/{id}/ |
+[**inspectionresult_list**](InspectionresultApi.md#inspectionresult_list) | **GET** /api/inspectionresult/ |
+[**inspectionresult_partial_update**](InspectionresultApi.md#inspectionresult_partial_update) | **PATCH** /api/inspectionresult/{id}/ |
+[**inspectionresult_retrieve**](InspectionresultApi.md#inspectionresult_retrieve) | **GET** /api/inspectionresult/{id}/ |
+[**inspectionresult_update**](InspectionresultApi.md#inspectionresult_update) | **PUT** /api/inspectionresult/{id}/ |
 
 
 # **inspectionresult_create**
@@ -77,7 +77,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inspection_result_polymorphic_request** | [**InspectionResultPolymorphicRequest**](InspectionResultPolymorphicRequest.md)|  | [optional] 
+ **inspection_result_polymorphic_request** | [**InspectionResultPolymorphicRequest**](InspectionResultPolymorphicRequest.md)|  | [optional]
 
 ### Return type
 
@@ -161,7 +161,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection result. | 
+ **id** | **int**| A unique integer value identifying this inspection result. |
 
 ### Return type
 
@@ -249,8 +249,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fields** | **str**|  | [optional] 
- **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
+ **fields** | **str**|  | [optional]
+ **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional]
 
 ### Return type
 
@@ -339,8 +339,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection result. | 
- **patched_inspection_result_polymorphic_request** | [**PatchedInspectionResultPolymorphicRequest**](PatchedInspectionResultPolymorphicRequest.md)|  | [optional] 
+ **id** | **int**| A unique integer value identifying this inspection result. |
+ **patched_inspection_result_polymorphic_request** | [**PatchedInspectionResultPolymorphicRequest**](PatchedInspectionResultPolymorphicRequest.md)|  | [optional]
 
 ### Return type
 
@@ -428,8 +428,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection result. | 
- **fields** | **str**|  | [optional] 
+ **id** | **int**| A unique integer value identifying this inspection result. |
+ **fields** | **str**|  | [optional]
 
 ### Return type
 
@@ -518,8 +518,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection result. | 
- **inspection_result_polymorphic_request** | [**InspectionResultPolymorphicRequest**](InspectionResultPolymorphicRequest.md)|  | [optional] 
+ **id** | **int**| A unique integer value identifying this inspection result. |
+ **inspection_result_polymorphic_request** | [**InspectionResultPolymorphicRequest**](InspectionResultPolymorphicRequest.md)|  | [optional]
 
 ### Return type
 
@@ -541,4 +541,3 @@ Name | Type | Description  | Notes
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

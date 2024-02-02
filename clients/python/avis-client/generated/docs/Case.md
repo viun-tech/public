@@ -5,18 +5,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**team** | **int** |  | 
-**inspection_object** | **int** |  | [optional] 
-**opened_by** | **int** |  | [optional] 
-**closed_by** | **int** |  | [optional] 
-**images** | **List[int]** |  | [optional] 
-**created_at** | **datetime** |  | [readonly] 
-**updated_at** | **datetime** |  | [readonly] 
-**open_datetime** | **datetime** |  | [readonly] 
-**close_datetime** | **datetime** |  | [optional] 
-**blueprint** | **int** |  | [optional] 
-**metadata** | **int** |  | [optional] 
+**id** | **int** |  | [readonly]
+**team** | **int** |  |
+**inspection_object** | **int** |  | [optional]
+**opened_by** | **int** |  | [optional]
+**closed_by** | **int** |  | [optional]
+**images** | **List[int]** |  | [optional]
+**created_at** | **datetime** |  | [readonly]
+**updated_at** | **datetime** |  | [readonly]
+**open_datetime** | **datetime** |  | [readonly]
+**close_datetime** | **datetime** |  | [optional]
+**blueprint** | **int** |  | [optional]
+**metadata** | **int** |  | [optional]
 
 ## Example
 
@@ -36,5 +36,3 @@ case_dict = case_instance.to_dict()
 case_form_dict = case.from_dict(case_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

@@ -4,8 +4,8 @@ All URIs are relative to *http://localhost:8000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**user_email_list**](UserApi.md#user_email_list) | **GET** /api/user/email/ | 
-[**user_whoami_retrieve**](UserApi.md#user_whoami_retrieve) | **GET** /api/user/whoami/ | 
+[**user_email_list**](UserApi.md#user_email_list) | **GET** /api/user/email/ |
+[**user_whoami_retrieve**](UserApi.md#user_whoami_retrieve) | **GET** /api/user/whoami/ |
 
 
 # **user_email_list**
@@ -173,4 +173,3 @@ This endpoint does not need any parameter.
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

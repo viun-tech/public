@@ -32,9 +32,11 @@ nav:
       - "Clients":
           - api/clients/index.md
           - "Python":
-              - api/clients/python/vue_avis_client/docs/README.md
+              - api/clients/python/avis_client/README.md
+              - api/clients/python/avis_client
   - "Examples":
-      - examples/index.md
+      - "Integrations":
+            - examples/integrations
   - "FAQ":
       - faq/index.md
   - "About":

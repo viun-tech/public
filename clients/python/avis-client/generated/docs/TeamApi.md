@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost:8000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**team_create**](TeamApi.md#team_create) | **POST** /api/team/ | 
-[**team_destroy**](TeamApi.md#team_destroy) | **DELETE** /api/team/{id}/ | 
-[**team_list**](TeamApi.md#team_list) | **GET** /api/team/ | 
-[**team_retrieve**](TeamApi.md#team_retrieve) | **GET** /api/team/{id}/ | 
-[**team_update**](TeamApi.md#team_update) | **PUT** /api/team/{id}/ | 
+[**team_create**](TeamApi.md#team_create) | **POST** /api/team/ |
+[**team_destroy**](TeamApi.md#team_destroy) | **DELETE** /api/team/{id}/ |
+[**team_list**](TeamApi.md#team_list) | **GET** /api/team/ |
+[**team_retrieve**](TeamApi.md#team_retrieve) | **GET** /api/team/{id}/ |
+[**team_update**](TeamApi.md#team_update) | **PUT** /api/team/{id}/ |
 
 
 # **team_create**
@@ -59,7 +59,7 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.TeamApi(api_client)
-    team_request = avis_client.TeamRequest() # TeamRequest | 
+    team_request = avis_client.TeamRequest() # TeamRequest |
 
     try:
         api_response = api_instance.team_create(team_request)
@@ -76,7 +76,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **team_request** | [**TeamRequest**](TeamRequest.md)|  | 
+ **team_request** | [**TeamRequest**](TeamRequest.md)|  |
 
 ### Return type
 
@@ -160,7 +160,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this team. | 
+ **id** | **int**| A unique integer value identifying this team. |
 
 ### Return type
 
@@ -330,7 +330,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this team. | 
+ **id** | **int**| A unique integer value identifying this team. |
 
 ### Return type
 
@@ -402,7 +402,7 @@ with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.TeamApi(api_client)
     id = 56 # int | A unique integer value identifying this team.
-    team_request = avis_client.TeamRequest() # TeamRequest | 
+    team_request = avis_client.TeamRequest() # TeamRequest |
 
     try:
         api_response = api_instance.team_update(id, team_request)
@@ -419,8 +419,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this team. | 
- **team_request** | [**TeamRequest**](TeamRequest.md)|  | 
+ **id** | **int**| A unique integer value identifying this team. |
+ **team_request** | [**TeamRequest**](TeamRequest.md)|  |
 
 ### Return type
 
@@ -442,4 +442,3 @@ Name | Type | Description  | Notes
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

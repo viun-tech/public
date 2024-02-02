@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**team** | **int** |  | [optional] 
-**inspection_object** | **int** |  | [optional] 
-**opened_by** | **int** |  | [optional] 
-**closed_by** | **int** |  | [optional] 
-**images** | **List[int]** |  | [optional] 
-**close_datetime** | **datetime** |  | [optional] 
-**blueprint** | **int** |  | [optional] 
-**metadata** | **int** |  | [optional] 
+**team** | **int** |  | [optional]
+**inspection_object** | **int** |  | [optional]
+**opened_by** | **int** |  | [optional]
+**closed_by** | **int** |  | [optional]
+**images** | **List[int]** |  | [optional]
+**close_datetime** | **datetime** |  | [optional]
+**blueprint** | **int** |  | [optional]
+**metadata** | **int** |  | [optional]
 
 ## Example
 
@@ -32,5 +32,3 @@ patched_case_request_dict = patched_case_request_instance.to_dict()
 patched_case_request_form_dict = patched_case_request.from_dict(patched_case_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**team** | **int** |  | 
-**type** | **int** |  | [optional] 
-**cases** | **List[int]** |  | [optional] 
-**identifier** | **str** |  | 
-**display_name** | **str** |  | [optional] 
-**description** | **str** |  | [optional] 
+**team** | **int** |  |
+**type** | **int** |  | [optional]
+**cases** | **List[int]** |  | [optional]
+**identifier** | **str** |  |
+**display_name** | **str** |  | [optional]
+**description** | **str** |  | [optional]
 
 ## Example
 
@@ -30,5 +30,3 @@ inspection_object_request_dict = inspection_object_request_instance.to_dict()
 inspection_object_request_form_dict = inspection_object_request.from_dict(inspection_object_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

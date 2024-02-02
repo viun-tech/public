@@ -2,9 +2,10 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Union
 
+from PIL.Image import Image
+
 from avis_agent.core.exceptions import AgentError
 from avis_agent.utils import BaseSettingsWithRetries
-from PIL.Image import Image
 
 
 class BaseCameraSettings(BaseSettingsWithRetries):

@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**team** | **int** |  | 
-**var_json** | **object** |  | 
+**team** | **int** |  |
+**var_json** | **object** |  |
 
 ## Example
 
@@ -26,5 +26,3 @@ inspection_metadata_schema_request_dict = inspection_metadata_schema_request_ins
 inspection_metadata_schema_request_form_dict = inspection_metadata_schema_request.from_dict(inspection_metadata_schema_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

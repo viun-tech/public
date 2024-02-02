@@ -60,9 +60,7 @@ def test_coil_mapping_config():
     os.environ[
         "AGENT_BACKEND"
     ] = '{"name": "avis", "api_key": "", "team_id": 1, "inspection_object_id": 1, "uri": ""}'
-    os.environ[
-        "AGENT_SIGNAL"
-    ] = """{
+    os.environ["AGENT_SIGNAL"] = """{
         "name": "modbus_tcp",
         "host": "localhost",
         "port": 502,

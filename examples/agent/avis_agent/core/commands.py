@@ -2,8 +2,9 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Union
 
-from avis_agent.core.exceptions import AgentError
 from pydantic import BaseModel
+
+from avis_agent.core.exceptions import AgentError
 
 
 class AbstractCommand(ABC, BaseModel):

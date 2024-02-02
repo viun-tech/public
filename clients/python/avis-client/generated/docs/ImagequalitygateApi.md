@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost:8000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**imagequalitygate_create**](ImagequalitygateApi.md#imagequalitygate_create) | **POST** /api/imagequalitygate/ | 
-[**imagequalitygate_destroy**](ImagequalitygateApi.md#imagequalitygate_destroy) | **DELETE** /api/imagequalitygate/{id}/ | 
-[**imagequalitygate_list**](ImagequalitygateApi.md#imagequalitygate_list) | **GET** /api/imagequalitygate/ | 
-[**imagequalitygate_partial_update**](ImagequalitygateApi.md#imagequalitygate_partial_update) | **PATCH** /api/imagequalitygate/{id}/ | 
-[**imagequalitygate_retrieve**](ImagequalitygateApi.md#imagequalitygate_retrieve) | **GET** /api/imagequalitygate/{id}/ | 
-[**imagequalitygate_update**](ImagequalitygateApi.md#imagequalitygate_update) | **PUT** /api/imagequalitygate/{id}/ | 
+[**imagequalitygate_create**](ImagequalitygateApi.md#imagequalitygate_create) | **POST** /api/imagequalitygate/ |
+[**imagequalitygate_destroy**](ImagequalitygateApi.md#imagequalitygate_destroy) | **DELETE** /api/imagequalitygate/{id}/ |
+[**imagequalitygate_list**](ImagequalitygateApi.md#imagequalitygate_list) | **GET** /api/imagequalitygate/ |
+[**imagequalitygate_partial_update**](ImagequalitygateApi.md#imagequalitygate_partial_update) | **PATCH** /api/imagequalitygate/{id}/ |
+[**imagequalitygate_retrieve**](ImagequalitygateApi.md#imagequalitygate_retrieve) | **GET** /api/imagequalitygate/{id}/ |
+[**imagequalitygate_update**](ImagequalitygateApi.md#imagequalitygate_update) | **PUT** /api/imagequalitygate/{id}/ |
 
 
 # **imagequalitygate_create**
@@ -60,7 +60,7 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.ImagequalitygateApi(api_client)
-    image_quality_gate_request = avis_client.ImageQualityGateRequest() # ImageQualityGateRequest | 
+    image_quality_gate_request = avis_client.ImageQualityGateRequest() # ImageQualityGateRequest |
 
     try:
         api_response = api_instance.imagequalitygate_create(image_quality_gate_request)
@@ -77,7 +77,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **image_quality_gate_request** | [**ImageQualityGateRequest**](ImageQualityGateRequest.md)|  | 
+ **image_quality_gate_request** | [**ImageQualityGateRequest**](ImageQualityGateRequest.md)|  |
 
 ### Return type
 
@@ -161,7 +161,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this image quality gate. | 
+ **id** | **int**| A unique integer value identifying this image quality gate. |
 
 ### Return type
 
@@ -249,8 +249,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fields** | **str**|  | [optional] 
- **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
+ **fields** | **str**|  | [optional]
+ **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional]
 
 ### Return type
 
@@ -339,8 +339,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this image quality gate. | 
- **patched_image_quality_gate_request** | [**PatchedImageQualityGateRequest**](PatchedImageQualityGateRequest.md)|  | [optional] 
+ **id** | **int**| A unique integer value identifying this image quality gate. |
+ **patched_image_quality_gate_request** | [**PatchedImageQualityGateRequest**](PatchedImageQualityGateRequest.md)|  | [optional]
 
 ### Return type
 
@@ -428,8 +428,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this image quality gate. | 
- **fields** | **str**|  | [optional] 
+ **id** | **int**| A unique integer value identifying this image quality gate. |
+ **fields** | **str**|  | [optional]
 
 ### Return type
 
@@ -501,7 +501,7 @@ with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.ImagequalitygateApi(api_client)
     id = 56 # int | A unique integer value identifying this image quality gate.
-    image_quality_gate_request = avis_client.ImageQualityGateRequest() # ImageQualityGateRequest | 
+    image_quality_gate_request = avis_client.ImageQualityGateRequest() # ImageQualityGateRequest |
 
     try:
         api_response = api_instance.imagequalitygate_update(id, image_quality_gate_request)
@@ -518,8 +518,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this image quality gate. | 
- **image_quality_gate_request** | [**ImageQualityGateRequest**](ImageQualityGateRequest.md)|  | 
+ **id** | **int**| A unique integer value identifying this image quality gate. |
+ **image_quality_gate_request** | [**ImageQualityGateRequest**](ImageQualityGateRequest.md)|  |
 
 ### Return type
 
@@ -541,4 +541,3 @@ Name | Type | Description  | Notes
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

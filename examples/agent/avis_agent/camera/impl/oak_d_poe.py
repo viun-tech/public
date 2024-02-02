@@ -5,10 +5,11 @@ from typing import Annotated, Literal, Union
 import cv2
 import depthai as dai
 import PIL.Image as img
-from avis_agent.camera.base import AbstractCamera, BaseCameraSettings
-from avis_agent.core.exceptions import AgentError
 from PIL.Image import Image
 from pydantic import BaseModel, Field, confloat
+
+from avis_agent.camera.base import AbstractCamera, BaseCameraSettings
+from avis_agent.core.exceptions import AgentError
 
 logger = logging.getLogger(__name__)
 

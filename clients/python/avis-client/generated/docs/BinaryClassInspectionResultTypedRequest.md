@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**team** | **int** |  | 
-**reported_by** | **int** |  | [optional] 
-**image** | **int** |  | [optional] 
-**type** | **str** |  | 
-**confidence** | **decimal.Decimal** |  | 
-**comment** | **str** |  | [optional] 
-**binary_class** | [**BinaryClassEnum**](BinaryClassEnum.md) |  | [optional] 
+**team** | **int** |  |
+**reported_by** | **int** |  | [optional]
+**image** | **int** |  | [optional]
+**type** | **str** |  |
+**confidence** | **decimal.Decimal** |  |
+**comment** | **str** |  | [optional]
+**binary_class** | [**BinaryClassEnum**](BinaryClassEnum.md) |  | [optional]
 
 ## Example
 
@@ -31,5 +31,3 @@ binary_class_inspection_result_typed_request_dict = binary_class_inspection_resu
 binary_class_inspection_result_typed_request_form_dict = binary_class_inspection_result_typed_request.from_dict(binary_class_inspection_result_typed_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

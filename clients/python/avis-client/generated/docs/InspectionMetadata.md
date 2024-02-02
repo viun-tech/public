@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**team** | **int** |  | 
-**blueprints** | **List[int]** |  | [optional] 
-**var_schema** | **int** |  | 
-**data** | **object** |  | [optional] 
-**created_at** | **datetime** |  | [readonly] 
-**updated_at** | **datetime** |  | [readonly] 
+**id** | **int** |  | [readonly]
+**team** | **int** |  |
+**blueprints** | **List[int]** |  | [optional]
+**var_schema** | **int** |  |
+**data** | **object** |  | [optional]
+**created_at** | **datetime** |  | [readonly]
+**updated_at** | **datetime** |  | [readonly]
 
 ## Example
 
@@ -31,5 +31,3 @@ inspection_metadata_dict = inspection_metadata_instance.to_dict()
 inspection_metadata_form_dict = inspection_metadata.from_dict(inspection_metadata_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

@@ -6,8 +6,8 @@ Serializer for Azure ML inference requests. This corresponds to the schema of th
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**input_data** | **object** |  | 
-**params** | **object** |  | [optional] 
+**input_data** | **object** |  |
+**params** | **object** |  | [optional]
 
 ## Example
 
@@ -27,5 +27,3 @@ azure_ml_inference_request_dict = azure_ml_inference_request_instance.to_dict()
 azure_ml_inference_request_form_dict = azure_ml_inference_request.from_dict(azure_ml_inference_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

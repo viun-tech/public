@@ -15,4 +15,3 @@ from avis_client.api.membership_api import MembershipApi
 from avis_client.api.ml_api import MlApi
 from avis_client.api.team_api import TeamApi
 from avis_client.api.user_api import UserApi
-
