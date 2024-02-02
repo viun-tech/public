@@ -1,1 +1,1 @@
-!!swagger schema.yml!!
+!!swagger ../../../../../api-schema.yml!!
