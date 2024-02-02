@@ -1,6 +1,6 @@
 # avis_client.MlApi
 
-All URIs are relative to *http://localhost:8000*
+All URIs are relative to *https://avis.vu.engineering*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -46,10 +46,10 @@ from avis_client.models.classification_result_request import ClassificationResul
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -132,10 +132,10 @@ import avis_client
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -217,10 +217,10 @@ from avis_client.models.classification_result import ClassificationResult
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -307,10 +307,10 @@ from avis_client.models.patched_classification_result_request import PatchedClas
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -396,10 +396,10 @@ from avis_client.models.classification_result import ClassificationResult
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -486,10 +486,10 @@ from avis_client.models.classification_result_request import ClassificationResul
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -576,10 +576,10 @@ from avis_client.models.ml_model_request import MLModelRequest
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -662,10 +662,10 @@ import avis_client
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -748,10 +748,10 @@ from avis_client.models.ml_model import MLModel
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -837,10 +837,10 @@ from avis_client.models.ml_model import MLModel
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -925,10 +925,10 @@ from avis_client.models.patched_ml_model_request import PatchedMLModelRequest
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1014,10 +1014,10 @@ from avis_client.models.ml_model import MLModel
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1104,10 +1104,10 @@ from avis_client.models.ml_model_request import MLModelRequest
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1194,10 +1194,10 @@ from avis_client.models.ml_model_type_request import MLModelTypeRequest
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1280,10 +1280,10 @@ import avis_client
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1365,10 +1365,10 @@ from avis_client.models.ml_model_type import MLModelType
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1453,10 +1453,10 @@ from avis_client.models.patched_ml_model_type_request import PatchedMLModelTypeR
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1542,10 +1542,10 @@ from avis_client.models.ml_model_type import MLModelType
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1632,10 +1632,10 @@ from avis_client.models.ml_model_type_request import MLModelTypeRequest
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
