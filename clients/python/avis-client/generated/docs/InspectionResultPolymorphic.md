@@ -5,17 +5,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | [**TypeEnum**](TypeEnum.md) |  | 
-**id** | **int** |  | [readonly] 
-**team** | **int** |  | 
-**reported_by** | **int** |  | [optional] 
-**image** | **int** |  | [optional] 
-**created_at** | **datetime** |  | [readonly] 
-**updated_at** | **datetime** |  | [readonly] 
-**confidence** | **decimal.Decimal** |  | 
-**comment** | **str** |  | [optional] 
-**rating** | **decimal.Decimal** |  | 
-**binary_class** | [**BinaryClassEnum**](BinaryClassEnum.md) |  | [optional] 
+**type** | [**TypeEnum**](TypeEnum.md) |  |
+**id** | **int** |  | [readonly]
+**team** | **int** |  |
+**reported_by** | **int** |  | [optional]
+**image** | **int** |  | [optional]
+**created_at** | **datetime** |  | [readonly]
+**updated_at** | **datetime** |  | [readonly]
+**confidence** | **decimal.Decimal** |  |
+**comment** | **str** |  | [optional]
+**rating** | **decimal.Decimal** |  |
+**binary_class** | [**BinaryClassEnum**](BinaryClassEnum.md) |  | [optional]
 
 ## Example
 
@@ -35,5 +35,3 @@ inspection_result_polymorphic_dict = inspection_result_polymorphic_instance.to_d
 inspection_result_polymorphic_form_dict = inspection_result_polymorphic.from_dict(inspection_result_polymorphic_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

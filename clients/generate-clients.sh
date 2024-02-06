@@ -7,6 +7,12 @@ new_author="VUEngineering"
 new_license="Apache 2.0"
 new_author_email="tech@vu.engineering"
 
+# if a version number is not passed as an argument, fail
+if [ -z "$1" ]; then
+    echo "Please provide a version number as an argument"
+    exit 1
+fi
+
 # Function to update files
 update_files() {
     local file=$1
@@ -32,7 +38,7 @@ update_files() {
 }
 
 # generate python client
-openapi-generator-cli generate --git-repo-id public --git-user-id vuengineering -i ../api-schema.yml -g python -o python/avis-client/generated --additional-properties=packageName=avis_client
+openapi-generator-cli generate --git-repo-id public --git-user-id vuengineering -i ../api-schema.yml -g python -o python/avis-client/generated --additional-properties=packageName=avis_client,packageVersion="$1"
 # generate typescript client
 openapi-generator-cli generate --git-repo-id public --git-user-id vuengineering -i ../api-schema.yml -g typescript-axios -o typescript/avis-client/generated --additional-properties=withInterfaces=true,npmName=@vision-unified-tech/avis-client
 

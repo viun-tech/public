@@ -7,6 +7,16 @@
 version: 2
 updates:
   - package-ecosystem: "pip"
-    directory: "/clients/python/vue-avis-client"
+    directory: "docs"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "pip"
+    directory: "/clients/python/avis-client/generated"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "npm"
+    directory: "/clients/typescript/avis-client/generated"
     schedule:
       interval: "weekly"

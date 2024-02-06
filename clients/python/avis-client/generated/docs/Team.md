@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly] 
-**created_at** | **datetime** |  | [readonly] 
-**updated_at** | **datetime** |  | [readonly] 
-**name** | **str** |  | 
-**slug** | **str** |  | 
-**customer** | **int** |  | [optional] 
-**subscription** | **int** |  | [optional] 
-**members** | **List[int]** |  | [readonly] 
+**id** | **int** |  | [readonly]
+**created_at** | **datetime** |  | [readonly]
+**updated_at** | **datetime** |  | [readonly]
+**name** | **str** |  |
+**slug** | **str** |  |
+**customer** | **int** |  | [optional]
+**subscription** | **int** |  | [optional]
+**members** | **List[int]** |  | [readonly]
 
 ## Example
 
@@ -32,5 +32,3 @@ team_dict = team_instance.to_dict()
 team_form_dict = team.from_dict(team_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

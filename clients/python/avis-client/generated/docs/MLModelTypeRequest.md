@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**slug** | **str** |  | [optional] 
-**name** | **str** |  | [optional] 
-**description** | **str** |  | [optional] 
+**slug** | **str** |  | [optional]
+**name** | **str** |  | [optional]
+**description** | **str** |  | [optional]
 
 ## Example
 
@@ -27,5 +27,3 @@ ml_model_type_request_dict = ml_model_type_request_instance.to_dict()
 ml_model_type_request_form_dict = ml_model_type_request.from_dict(ml_model_type_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

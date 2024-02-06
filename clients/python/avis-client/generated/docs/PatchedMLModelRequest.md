@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**headers** | **object** |  | [optional] 
-**model** | **int** |  | [optional] 
-**version** | **str** |  | [optional] 
-**url** | **str** |  | [optional] 
+**headers** | **object** |  | [optional]
+**model** | **int** |  | [optional]
+**version** | **str** |  | [optional]
+**url** | **str** |  | [optional]
 
 ## Example
 
@@ -28,5 +28,3 @@ patched_ml_model_request_dict = patched_ml_model_request_instance.to_dict()
 patched_ml_model_request_form_dict = patched_ml_model_request.from_dict(patched_ml_model_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

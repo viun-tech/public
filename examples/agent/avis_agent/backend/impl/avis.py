@@ -3,6 +3,12 @@ import logging
 from typing import Literal, Union
 
 import pytz
+from vue_avis_client import ApiClient, CaseApi, Configuration, ImageApi
+from vue_avis_client.models.case import Case
+from vue_avis_client.models.case_request import CaseRequest
+from vue_avis_client.models.image import Image
+from vue_avis_client.rest import ApiException
+
 from avis_agent.backend.base import AbstractBackend, BaseBackendSettings
 from avis_agent.core.exceptions import AgentError
 from avis_agent.core.responses import (
@@ -12,11 +18,6 @@ from avis_agent.core.responses import (
     QualityTestSuccessfulResponse,
     QualityTestUncertainResponse,
 )
-from vue_avis_client import ApiClient, CaseApi, Configuration, ImageApi
-from vue_avis_client.models.case import Case
-from vue_avis_client.models.case_request import CaseRequest
-from vue_avis_client.models.image import Image
-from vue_avis_client.rest import ApiException
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)

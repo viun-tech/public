@@ -16,7 +16,10 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.snippets
+  - pymdownx.snippets:
+      base_path: docs
+  - admonition
+  - pymdownx.details
   - pymdownx.superfences
 nav:
   - Home: index.md
@@ -32,7 +35,8 @@ nav:
       - "Clients":
           - api/clients/index.md
           - "Python":
-              - api/clients/python/vue_avis_client/docs/README.md
+              - api/clients/python/avis_client/README.md
+              - api/clients/python/avis_client
   - "Examples":
       - examples/index.md
   - "FAQ":
@@ -41,7 +45,8 @@ nav:
       - about/index.md
 plugins:
   - search
-  - render_swagger
+  - render_swagger:
+      allow_arbitrary_locations : true
   - include_dir_to_nav
 extra:
   version:

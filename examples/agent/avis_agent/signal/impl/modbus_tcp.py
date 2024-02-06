@@ -2,6 +2,10 @@ import logging
 import sys
 from typing import Any, Dict, Literal, Type, Union
 
+from pydantic import model_validator
+from pydantic_settings import BaseSettings
+from pymodbus.client import ModbusTcpClient
+
 from avis_agent.core.commands import (
     AbstractCommand,
     AbstractCommandReader,
@@ -22,9 +26,6 @@ from avis_agent.core.responses import (
     ReadyResponse,
 )
 from avis_agent.signal.base import AbstractSignal, BaseSignalSettings
-from pydantic import model_validator
-from pydantic_settings import BaseSettings
-from pymodbus.client import ModbusTcpClient
 
 logger = logging.getLogger(__name__)
 

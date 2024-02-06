@@ -1,15 +1,15 @@
 # avis_client.InspectionmetadataschemaApi
 
-All URIs are relative to *http://localhost:8000*
+All URIs are relative to *https://avis.vu.engineering*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**inspectionmetadataschema_create**](InspectionmetadataschemaApi.md#inspectionmetadataschema_create) | **POST** /api/inspectionmetadataschema/ | 
-[**inspectionmetadataschema_destroy**](InspectionmetadataschemaApi.md#inspectionmetadataschema_destroy) | **DELETE** /api/inspectionmetadataschema/{id}/ | 
-[**inspectionmetadataschema_list**](InspectionmetadataschemaApi.md#inspectionmetadataschema_list) | **GET** /api/inspectionmetadataschema/ | 
-[**inspectionmetadataschema_partial_update**](InspectionmetadataschemaApi.md#inspectionmetadataschema_partial_update) | **PATCH** /api/inspectionmetadataschema/{id}/ | 
-[**inspectionmetadataschema_retrieve**](InspectionmetadataschemaApi.md#inspectionmetadataschema_retrieve) | **GET** /api/inspectionmetadataschema/{id}/ | 
-[**inspectionmetadataschema_update**](InspectionmetadataschemaApi.md#inspectionmetadataschema_update) | **PUT** /api/inspectionmetadataschema/{id}/ | 
+[**inspectionmetadataschema_create**](InspectionmetadataschemaApi.md#inspectionmetadataschema_create) | **POST** /api/inspectionmetadataschema/ |
+[**inspectionmetadataschema_destroy**](InspectionmetadataschemaApi.md#inspectionmetadataschema_destroy) | **DELETE** /api/inspectionmetadataschema/{id}/ |
+[**inspectionmetadataschema_list**](InspectionmetadataschemaApi.md#inspectionmetadataschema_list) | **GET** /api/inspectionmetadataschema/ |
+[**inspectionmetadataschema_partial_update**](InspectionmetadataschemaApi.md#inspectionmetadataschema_partial_update) | **PATCH** /api/inspectionmetadataschema/{id}/ |
+[**inspectionmetadataschema_retrieve**](InspectionmetadataschemaApi.md#inspectionmetadataschema_retrieve) | **GET** /api/inspectionmetadataschema/{id}/ |
+[**inspectionmetadataschema_update**](InspectionmetadataschemaApi.md#inspectionmetadataschema_update) | **PUT** /api/inspectionmetadataschema/{id}/ |
 
 
 # **inspectionmetadataschema_create**
@@ -33,10 +33,10 @@ from avis_client.models.inspection_metadata_schema_request import InspectionMeta
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -60,7 +60,7 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.InspectionmetadataschemaApi(api_client)
-    inspection_metadata_schema_request = avis_client.InspectionMetadataSchemaRequest() # InspectionMetadataSchemaRequest | 
+    inspection_metadata_schema_request = avis_client.InspectionMetadataSchemaRequest() # InspectionMetadataSchemaRequest |
 
     try:
         api_response = api_instance.inspectionmetadataschema_create(inspection_metadata_schema_request)
@@ -77,7 +77,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inspection_metadata_schema_request** | [**InspectionMetadataSchemaRequest**](InspectionMetadataSchemaRequest.md)|  | 
+ **inspection_metadata_schema_request** | [**InspectionMetadataSchemaRequest**](InspectionMetadataSchemaRequest.md)|  |
 
 ### Return type
 
@@ -119,10 +119,10 @@ import avis_client
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -161,7 +161,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection metadata schema. | 
+ **id** | **int**| A unique integer value identifying this inspection metadata schema. |
 
 ### Return type
 
@@ -204,10 +204,10 @@ from avis_client.models.inspection_metadata_schema import InspectionMetadataSche
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -249,8 +249,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fields** | **str**|  | [optional] 
- **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
+ **fields** | **str**|  | [optional]
+ **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional]
 
 ### Return type
 
@@ -294,10 +294,10 @@ from avis_client.models.patched_inspection_metadata_schema_request import Patche
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -339,8 +339,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection metadata schema. | 
- **patched_inspection_metadata_schema_request** | [**PatchedInspectionMetadataSchemaRequest**](PatchedInspectionMetadataSchemaRequest.md)|  | [optional] 
+ **id** | **int**| A unique integer value identifying this inspection metadata schema. |
+ **patched_inspection_metadata_schema_request** | [**PatchedInspectionMetadataSchemaRequest**](PatchedInspectionMetadataSchemaRequest.md)|  | [optional]
 
 ### Return type
 
@@ -383,10 +383,10 @@ from avis_client.models.inspection_metadata_schema import InspectionMetadataSche
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -428,8 +428,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection metadata schema. | 
- **fields** | **str**|  | [optional] 
+ **id** | **int**| A unique integer value identifying this inspection metadata schema. |
+ **fields** | **str**|  | [optional]
 
 ### Return type
 
@@ -473,10 +473,10 @@ from avis_client.models.inspection_metadata_schema_request import InspectionMeta
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -501,7 +501,7 @@ with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.InspectionmetadataschemaApi(api_client)
     id = 56 # int | A unique integer value identifying this inspection metadata schema.
-    inspection_metadata_schema_request = avis_client.InspectionMetadataSchemaRequest() # InspectionMetadataSchemaRequest | 
+    inspection_metadata_schema_request = avis_client.InspectionMetadataSchemaRequest() # InspectionMetadataSchemaRequest |
 
     try:
         api_response = api_instance.inspectionmetadataschema_update(id, inspection_metadata_schema_request)
@@ -518,8 +518,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection metadata schema. | 
- **inspection_metadata_schema_request** | [**InspectionMetadataSchemaRequest**](InspectionMetadataSchemaRequest.md)|  | 
+ **id** | **int**| A unique integer value identifying this inspection metadata schema. |
+ **inspection_metadata_schema_request** | [**InspectionMetadataSchemaRequest**](InspectionMetadataSchemaRequest.md)|  |
 
 ### Return type
 
@@ -541,4 +541,3 @@ Name | Type | Description  | Notes
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

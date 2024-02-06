@@ -1,17 +1,17 @@
 # avis_client.ImageApi
 
-All URIs are relative to *http://localhost:8000*
+All URIs are relative to *https://avis.vu.engineering*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**image_create**](ImageApi.md#image_create) | **POST** /api/image/ | 
-[**image_destroy**](ImageApi.md#image_destroy) | **DELETE** /api/image/{id}/ | 
-[**image_inspection_status_list**](ImageApi.md#image_inspection_status_list) | **GET** /api/image/inspection_status/ | 
-[**image_list**](ImageApi.md#image_list) | **GET** /api/image/ | 
-[**image_partial_update**](ImageApi.md#image_partial_update) | **PATCH** /api/image/{id}/ | 
-[**image_quality_list**](ImageApi.md#image_quality_list) | **GET** /api/image/quality/ | 
-[**image_retrieve**](ImageApi.md#image_retrieve) | **GET** /api/image/{id}/ | 
-[**image_update**](ImageApi.md#image_update) | **PUT** /api/image/{id}/ | 
+[**image_create**](ImageApi.md#image_create) | **POST** /api/image/ |
+[**image_destroy**](ImageApi.md#image_destroy) | **DELETE** /api/image/{id}/ |
+[**image_inspection_status_list**](ImageApi.md#image_inspection_status_list) | **GET** /api/image/inspection_status/ |
+[**image_list**](ImageApi.md#image_list) | **GET** /api/image/ |
+[**image_partial_update**](ImageApi.md#image_partial_update) | **PATCH** /api/image/{id}/ |
+[**image_quality_list**](ImageApi.md#image_quality_list) | **GET** /api/image/quality/ |
+[**image_retrieve**](ImageApi.md#image_retrieve) | **GET** /api/image/{id}/ |
+[**image_update**](ImageApi.md#image_update) | **PUT** /api/image/{id}/ |
 
 
 # **image_create**
@@ -36,10 +36,10 @@ from avis_client.models.validation_status_enum import ValidationStatusEnum
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -63,9 +63,9 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.ImageApi(api_client)
-    team = 56 # int | 
-    capture_datetime = '2013-10-20T19:20:30+01:00' # datetime | 
-    file = None # bytearray | 
+    team = 56 # int |
+    capture_datetime = '2013-10-20T19:20:30+01:00' # datetime |
+    file = None # bytearray |
     case = 56 # int |  (optional)
     uploaded_by = 56 # int |  (optional)
     inspection_results = [56] # List[int] |  (optional)
@@ -88,15 +88,15 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **team** | **int**|  | 
- **capture_datetime** | **datetime**|  | 
- **file** | **bytearray**|  | 
- **case** | **int**|  | [optional] 
- **uploaded_by** | **int**|  | [optional] 
- **inspection_results** | [**List[int]**](int.md)|  | [optional] 
- **format** | [**FormatEnum**](FormatEnum.md)|  | [optional] 
- **part_id** | **str**|  | [optional] 
- **validation_status** | [**ValidationStatusEnum**](ValidationStatusEnum.md)|  | [optional] 
+ **team** | **int**|  |
+ **capture_datetime** | **datetime**|  |
+ **file** | **bytearray**|  |
+ **case** | **int**|  | [optional]
+ **uploaded_by** | **int**|  | [optional]
+ **inspection_results** | [**List[int]**](int.md)|  | [optional]
+ **format** | [**FormatEnum**](FormatEnum.md)|  | [optional]
+ **part_id** | **str**|  | [optional]
+ **validation_status** | [**ValidationStatusEnum**](ValidationStatusEnum.md)|  | [optional]
 
 ### Return type
 
@@ -138,10 +138,10 @@ import avis_client
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -180,7 +180,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this image. | 
+ **id** | **int**| A unique integer value identifying this image. |
 
 ### Return type
 
@@ -223,10 +223,10 @@ from avis_client.models.inspection_status import InspectionStatus
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -267,7 +267,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
+ **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional]
 
 ### Return type
 
@@ -310,10 +310,10 @@ from avis_client.models.image import Image
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -355,8 +355,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fields** | **str**|  | [optional] 
- **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
+ **fields** | **str**|  | [optional]
+ **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional]
 
 ### Return type
 
@@ -400,10 +400,10 @@ from avis_client.models.patched_image_request import PatchedImageRequest
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -445,8 +445,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this image. | 
- **patched_image_request** | [**PatchedImageRequest**](PatchedImageRequest.md)|  | [optional] 
+ **id** | **int**| A unique integer value identifying this image. |
+ **patched_image_request** | [**PatchedImageRequest**](PatchedImageRequest.md)|  | [optional]
 
 ### Return type
 
@@ -489,10 +489,10 @@ from avis_client.models.image_quality_gate_result import ImageQualityGateResult
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -533,7 +533,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
+ **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional]
 
 ### Return type
 
@@ -576,10 +576,10 @@ from avis_client.models.image import Image
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -621,8 +621,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this image. | 
- **fields** | **str**|  | [optional] 
+ **id** | **int**| A unique integer value identifying this image. |
+ **fields** | **str**|  | [optional]
 
 ### Return type
 
@@ -666,10 +666,10 @@ from avis_client.models.image_request import ImageRequest
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -694,7 +694,7 @@ with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.ImageApi(api_client)
     id = 56 # int | A unique integer value identifying this image.
-    image_request = avis_client.ImageRequest() # ImageRequest | 
+    image_request = avis_client.ImageRequest() # ImageRequest |
 
     try:
         api_response = api_instance.image_update(id, image_request)
@@ -711,8 +711,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this image. | 
- **image_request** | [**ImageRequest**](ImageRequest.md)|  | 
+ **id** | **int**| A unique integer value identifying this image. |
+ **image_request** | [**ImageRequest**](ImageRequest.md)|  |
 
 ### Return type
 
@@ -734,4 +734,3 @@ Name | Type | Description  | Notes
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

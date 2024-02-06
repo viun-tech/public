@@ -1,11 +1,11 @@
 # avis_client.ApiKeysApi
 
-All URIs are relative to *http://localhost:8000*
+All URIs are relative to *https://avis.vu.engineering*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api_key_create**](ApiKeysApi.md#api_key_create) | **POST** /api/api-keys/ | 
-[**api_key_revoke**](ApiKeysApi.md#api_key_revoke) | **POST** /api/api-keys/{id}/revoke/ | 
+[**api_key_create**](ApiKeysApi.md#api_key_create) | **POST** /api/api-keys/ |
+[**api_key_revoke**](ApiKeysApi.md#api_key_revoke) | **POST** /api/api-keys/{id}/revoke/ |
 
 
 # **api_key_create**
@@ -28,10 +28,10 @@ from avis_client.models.user_api_key_create import UserAPIKeyCreate
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -49,7 +49,7 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.ApiKeysApi(api_client)
-    credentials_request = avis_client.CredentialsRequest() # CredentialsRequest | 
+    credentials_request = avis_client.CredentialsRequest() # CredentialsRequest |
 
     try:
         api_response = api_instance.api_key_create(credentials_request)
@@ -66,7 +66,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **credentials_request** | [**CredentialsRequest**](CredentialsRequest.md)|  | 
+ **credentials_request** | [**CredentialsRequest**](CredentialsRequest.md)|  |
 
 ### Return type
 
@@ -109,10 +109,10 @@ from avis_client.models.user_api_key_create import UserAPIKeyCreate
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -131,7 +131,7 @@ with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.ApiKeysApi(api_client)
     id = 'id_example' # str | A unique value identifying this API key.
-    credentials_request = avis_client.CredentialsRequest() # CredentialsRequest | 
+    credentials_request = avis_client.CredentialsRequest() # CredentialsRequest |
 
     try:
         api_response = api_instance.api_key_revoke(id, credentials_request)
@@ -148,8 +148,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| A unique value identifying this API key. | 
- **credentials_request** | [**CredentialsRequest**](CredentialsRequest.md)|  | 
+ **id** | **str**| A unique value identifying this API key. |
+ **credentials_request** | [**CredentialsRequest**](CredentialsRequest.md)|  |
 
 ### Return type
 
@@ -171,4 +171,3 @@ Name | Type | Description  | Notes
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

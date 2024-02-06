@@ -1,15 +1,15 @@
 # avis_client.InspectionobjectApi
 
-All URIs are relative to *http://localhost:8000*
+All URIs are relative to *https://avis.vu.engineering*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**inspectionobject_create**](InspectionobjectApi.md#inspectionobject_create) | **POST** /api/inspectionobject/ | 
-[**inspectionobject_destroy**](InspectionobjectApi.md#inspectionobject_destroy) | **DELETE** /api/inspectionobject/{id}/ | 
-[**inspectionobject_list**](InspectionobjectApi.md#inspectionobject_list) | **GET** /api/inspectionobject/ | 
-[**inspectionobject_partial_update**](InspectionobjectApi.md#inspectionobject_partial_update) | **PATCH** /api/inspectionobject/{id}/ | 
-[**inspectionobject_retrieve**](InspectionobjectApi.md#inspectionobject_retrieve) | **GET** /api/inspectionobject/{id}/ | 
-[**inspectionobject_update**](InspectionobjectApi.md#inspectionobject_update) | **PUT** /api/inspectionobject/{id}/ | 
+[**inspectionobject_create**](InspectionobjectApi.md#inspectionobject_create) | **POST** /api/inspectionobject/ |
+[**inspectionobject_destroy**](InspectionobjectApi.md#inspectionobject_destroy) | **DELETE** /api/inspectionobject/{id}/ |
+[**inspectionobject_list**](InspectionobjectApi.md#inspectionobject_list) | **GET** /api/inspectionobject/ |
+[**inspectionobject_partial_update**](InspectionobjectApi.md#inspectionobject_partial_update) | **PATCH** /api/inspectionobject/{id}/ |
+[**inspectionobject_retrieve**](InspectionobjectApi.md#inspectionobject_retrieve) | **GET** /api/inspectionobject/{id}/ |
+[**inspectionobject_update**](InspectionobjectApi.md#inspectionobject_update) | **PUT** /api/inspectionobject/{id}/ |
 
 
 # **inspectionobject_create**
@@ -33,10 +33,10 @@ from avis_client.models.inspection_object_request import InspectionObjectRequest
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -60,7 +60,7 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.InspectionobjectApi(api_client)
-    inspection_object_request = avis_client.InspectionObjectRequest() # InspectionObjectRequest | 
+    inspection_object_request = avis_client.InspectionObjectRequest() # InspectionObjectRequest |
 
     try:
         api_response = api_instance.inspectionobject_create(inspection_object_request)
@@ -77,7 +77,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inspection_object_request** | [**InspectionObjectRequest**](InspectionObjectRequest.md)|  | 
+ **inspection_object_request** | [**InspectionObjectRequest**](InspectionObjectRequest.md)|  |
 
 ### Return type
 
@@ -119,10 +119,10 @@ import avis_client
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -161,7 +161,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection object. | 
+ **id** | **int**| A unique integer value identifying this inspection object. |
 
 ### Return type
 
@@ -204,10 +204,10 @@ from avis_client.models.inspection_object import InspectionObject
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -251,10 +251,10 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fields** | **str**|  | [optional] 
- **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
- **identifier** | [**List[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
- **type** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
+ **fields** | **str**|  | [optional]
+ **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional]
+ **identifier** | [**List[str]**](str.md)| Multiple values may be separated by commas. | [optional]
+ **type** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional]
 
 ### Return type
 
@@ -298,10 +298,10 @@ from avis_client.models.patched_inspection_object_request import PatchedInspecti
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -343,8 +343,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection object. | 
- **patched_inspection_object_request** | [**PatchedInspectionObjectRequest**](PatchedInspectionObjectRequest.md)|  | [optional] 
+ **id** | **int**| A unique integer value identifying this inspection object. |
+ **patched_inspection_object_request** | [**PatchedInspectionObjectRequest**](PatchedInspectionObjectRequest.md)|  | [optional]
 
 ### Return type
 
@@ -387,10 +387,10 @@ from avis_client.models.inspection_object import InspectionObject
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -432,8 +432,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection object. | 
- **fields** | **str**|  | [optional] 
+ **id** | **int**| A unique integer value identifying this inspection object. |
+ **fields** | **str**|  | [optional]
 
 ### Return type
 
@@ -477,10 +477,10 @@ from avis_client.models.inspection_object_request import InspectionObjectRequest
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -505,7 +505,7 @@ with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.InspectionobjectApi(api_client)
     id = 56 # int | A unique integer value identifying this inspection object.
-    inspection_object_request = avis_client.InspectionObjectRequest() # InspectionObjectRequest | 
+    inspection_object_request = avis_client.InspectionObjectRequest() # InspectionObjectRequest |
 
     try:
         api_response = api_instance.inspectionobject_update(id, inspection_object_request)
@@ -522,8 +522,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection object. | 
- **inspection_object_request** | [**InspectionObjectRequest**](InspectionObjectRequest.md)|  | 
+ **id** | **int**| A unique integer value identifying this inspection object. |
+ **inspection_object_request** | [**InspectionObjectRequest**](InspectionObjectRequest.md)|  |
 
 ### Return type
 
@@ -545,4 +545,3 @@ Name | Type | Description  | Notes
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

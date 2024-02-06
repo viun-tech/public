@@ -7,3 +7,16 @@ Unless otherwise noted, all the code is this repository is distributed under the
 
 ## Contributing
 
+## Install the pre-commit hooks
+
+Before starting to work on the repo please install [pre-commit](https://pre-commit.com/):
+
+```commandline
+python3.10 -m pip install pre-commit
+```
+
+And install the hooks:
+
+```commandline
+pre-commit install
+```

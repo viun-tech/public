@@ -1,14 +1,14 @@
 # avis_client.MembershipApi
 
-All URIs are relative to *http://localhost:8000*
+All URIs are relative to *https://avis.vu.engineering*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**membership_create**](MembershipApi.md#membership_create) | **POST** /api/membership/ | 
-[**membership_destroy**](MembershipApi.md#membership_destroy) | **DELETE** /api/membership/{id}/ | 
-[**membership_list**](MembershipApi.md#membership_list) | **GET** /api/membership/ | 
-[**membership_retrieve**](MembershipApi.md#membership_retrieve) | **GET** /api/membership/{id}/ | 
-[**membership_update**](MembershipApi.md#membership_update) | **PUT** /api/membership/{id}/ | 
+[**membership_create**](MembershipApi.md#membership_create) | **POST** /api/membership/ |
+[**membership_destroy**](MembershipApi.md#membership_destroy) | **DELETE** /api/membership/{id}/ |
+[**membership_list**](MembershipApi.md#membership_list) | **GET** /api/membership/ |
+[**membership_retrieve**](MembershipApi.md#membership_retrieve) | **GET** /api/membership/{id}/ |
+[**membership_update**](MembershipApi.md#membership_update) | **PUT** /api/membership/{id}/ |
 
 
 # **membership_create**
@@ -32,10 +32,10 @@ from avis_client.models.membership_request import MembershipRequest
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -59,7 +59,7 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.MembershipApi(api_client)
-    membership_request = avis_client.MembershipRequest() # MembershipRequest | 
+    membership_request = avis_client.MembershipRequest() # MembershipRequest |
 
     try:
         api_response = api_instance.membership_create(membership_request)
@@ -76,7 +76,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **membership_request** | [**MembershipRequest**](MembershipRequest.md)|  | 
+ **membership_request** | [**MembershipRequest**](MembershipRequest.md)|  |
 
 ### Return type
 
@@ -118,10 +118,10 @@ import avis_client
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -160,7 +160,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this membership. | 
+ **id** | **int**| A unique integer value identifying this membership. |
 
 ### Return type
 
@@ -203,10 +203,10 @@ from avis_client.models.membership import Membership
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -286,10 +286,10 @@ from avis_client.models.membership import Membership
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -330,7 +330,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this membership. | 
+ **id** | **int**| A unique integer value identifying this membership. |
 
 ### Return type
 
@@ -374,10 +374,10 @@ from avis_client.models.membership_request import MembershipRequest
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8000
+# Defining the host is optional and defaults to https://avis.vu.engineering
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "http://localhost:8000"
+    host = "https://avis.vu.engineering"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -402,7 +402,7 @@ with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.MembershipApi(api_client)
     id = 56 # int | A unique integer value identifying this membership.
-    membership_request = avis_client.MembershipRequest() # MembershipRequest | 
+    membership_request = avis_client.MembershipRequest() # MembershipRequest |
 
     try:
         api_response = api_instance.membership_update(id, membership_request)
@@ -419,8 +419,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this membership. | 
- **membership_request** | [**MembershipRequest**](MembershipRequest.md)|  | 
+ **id** | **int**| A unique integer value identifying this membership. |
+ **membership_request** | [**MembershipRequest**](MembershipRequest.md)|  |
 
 ### Return type
 
@@ -442,4 +442,3 @@ Name | Type | Description  | Notes
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

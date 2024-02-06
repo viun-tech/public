@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | 
-**validation_status** | [**ValidationStatusEnum**](ValidationStatusEnum.md) |  | 
+**id** | **int** |  |
+**validation_status** | [**ValidationStatusEnum**](ValidationStatusEnum.md) |  |
 
 ## Example
 
@@ -26,5 +26,3 @@ case_validation_status_dict = case_validation_status_instance.to_dict()
 case_validation_status_form_dict = case_validation_status.from_dict(case_validation_status_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

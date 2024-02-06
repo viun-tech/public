@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**key** | **str** |  | [readonly] 
-**created** | **datetime** |  | [readonly] 
-**name** | **str** | A free-form name for the API key. Need not be unique. 50 characters max. | [readonly] 
-**expiry_date** | **datetime** | Once API key expires, clients cannot use it anymore. | [readonly] 
-**revoked** | **bool** |  | [readonly] 
-**message** | **str** |  | [readonly] 
+**key** | **str** |  | [readonly]
+**created** | **datetime** |  | [readonly]
+**name** | **str** | A free-form name for the API key. Need not be unique. 50 characters max. | [readonly]
+**expiry_date** | **datetime** | Once API key expires, clients cannot use it anymore. | [readonly]
+**revoked** | **bool** |  | [readonly]
+**message** | **str** |  | [readonly]
 
 ## Example
 
@@ -30,5 +30,3 @@ user_api_key_create_dict = user_api_key_create_instance.to_dict()
 user_api_key_create_form_dict = user_api_key_create.from_dict(user_api_key_create_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**team** | **int** |  | [optional] 
-**type** | **int** |  | [optional] 
-**cases** | **List[int]** |  | [optional] 
-**identifier** | **str** |  | [optional] 
-**display_name** | **str** |  | [optional] 
-**description** | **str** |  | [optional] 
+**team** | **int** |  | [optional]
+**type** | **int** |  | [optional]
+**cases** | **List[int]** |  | [optional]
+**identifier** | **str** |  | [optional]
+**display_name** | **str** |  | [optional]
+**description** | **str** |  | [optional]
 
 ## Example
 
@@ -30,5 +30,3 @@ patched_inspection_object_request_dict = patched_inspection_object_request_insta
 patched_inspection_object_request_form_dict = patched_inspection_object_request.from_dict(patched_inspection_object_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

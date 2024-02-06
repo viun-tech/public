@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "avis_client"
-version = "1.0.0"
+version = "0.1.0"
 description = "avis"
 authors = ["tech@vu.engineering"]
 license = "Apache 2.0"

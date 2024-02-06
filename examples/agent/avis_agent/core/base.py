@@ -3,6 +3,17 @@ import threading
 import time
 from typing import Type, Union
 
+from PIL.Image import Image
+from pydantic import Field
+from pydantic_settings import SettingsConfigDict
+from vue_instrumentation.core import (
+    InstrumentationSettings,
+    get_default_resource,
+    instrument,
+    send_heartbeat,
+    track_duration,
+)
+
 from avis_agent.backend.base import AbstractBackend
 from avis_agent.backend.impl.avis import AvisBackendSettings
 from avis_agent.camera.base import AbstractCamera
@@ -35,16 +46,6 @@ from avis_agent.signal.base import AbstractSignal
 from avis_agent.signal.impl.cli import CliSignalSettings
 from avis_agent.signal.impl.modbus_tcp import ModbusTcpSignalSettings
 from avis_agent.utils import BaseSettingsWithRetries
-from PIL.Image import Image
-from pydantic import Field
-from pydantic_settings import SettingsConfigDict
-from vue_instrumentation.core import (
-    InstrumentationSettings,
-    get_default_resource,
-    instrument,
-    send_heartbeat,
-    track_duration,
-)
 
 logger = logging.getLogger(__name__)
 

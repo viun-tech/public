@@ -1,1 +1,3 @@
-!!swagger schema.yml!!
+# Swagger UI
+
+!!swagger ../../../../../api-schema.yml!!
