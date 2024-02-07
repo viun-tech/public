@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "take-picture-luxonis-camera"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+license = "Apache 2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+depthai = "^2.24.0.0"
+pillow = "^10.2.0"
+pydantic-settings = "^2.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

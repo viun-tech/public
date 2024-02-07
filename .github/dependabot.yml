@@ -1,0 +1,22 @@
+# Please see the documentation for all configuration options:
+# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+# Unfortunately Github's dependabot does not support specifying wildcard/glob patterns yet (see https://github.com/dependabot/dependabot-core/issues/2178)
+# so we have to manually specify all the projects we want dependabot to monitor for now
+
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "docs"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "pip"
+    directory: "/clients/python/avis-client/generated"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "npm"
+    directory: "/clients/typescript/avis-client/generated"
+    schedule:
+      interval: "weekly"

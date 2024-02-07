@@ -1,0 +1,63 @@
+name: documentation
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "docs/**"
+      - "clients/**"
+      - "examples/**"
+      - ".github/workflows/documentation.yml"
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      - name: Load cached poetry installation
+        uses: actions/cache@v3
+        id: cached-poetry
+        with:
+          path: ~/.local
+          key: dotlocal-${{ runner.os }}-${{ hashFiles('.github/workflows/documentation.yml') }}
+      - name: Install Poetry
+        if: steps.cached-poetry.outputs.cache-hit != 'true'
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - uses: actions/cache@v3
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      - name: Move AVIS client docs
+        run: |
+          cp -r "clients/python/avis-client/generated/docs/." docs/docs/api/clients/python/avis_client
+          cp "clients/python/avis-client/generated/README.md" docs/docs/api/clients/python/avis_client/README.md
+          # hack to fix the relative links
+          sed -i 's|docs/||g' docs/docs/api/clients/python/avis_client/README.md
+          sed -i 's|../README.md|../|g' docs/docs/api/clients/python/avis_client/*
+      - name: Install doc dependencies
+        working-directory: docs
+        run: poetry install --no-root
+      - name: Get API version
+        id: get_api_version
+        run: |
+          VERSION=$(awk '/info:/{flag=1; next}/^ /{if(flag){print}}/^[^ ]/{flag=0}' api-schema.yml | grep 'version:' | awk '{print $2}')
+          echo "api_version=$VERSION" >> "$GITHUB_ENV"
+      - name : Deploy documentation
+        working-directory: docs
+        run: |
+            poetry run mike deploy --push --update-aliases ${{ env.api_version }} latest

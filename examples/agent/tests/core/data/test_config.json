@@ -1,0 +1,16 @@
+{
+  "backend": {
+    "name": "avis",
+    "api_key": "test",
+    "team_id": 1,
+    "inspection_object_id": 1,
+    "uri": "test"
+  },
+  "signal": {
+    "name": "cli"
+  },
+  "camera": {
+    "name": "mock",
+    "image_path": "test"
+  }
+}

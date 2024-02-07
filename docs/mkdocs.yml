@@ -1,0 +1,53 @@
+site_name: VUEngineering public documentation
+dev_addr: localhost:8888
+theme:
+  name: material
+  logo: assets/vue-logo-400x400.jpg
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.path
+    - navigation.top
+    - navigation.indexes
+    - content.code.copy
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      base_path: docs
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+nav:
+  - Home: index.md
+  - "Getting started":
+      - getting-started/index.md
+  - "Platform":
+      - platform/index.md
+  - "API":
+      - "REST":
+          - api/rest/index.md
+          - "Try it out!":
+              - api/rest/swagger/index.md
+      - "Clients":
+          - api/clients/index.md
+          - "Python":
+              - api/clients/python/avis_client/README.md
+              - api/clients/python/avis_client
+  - "Examples":
+      - examples/index.md
+  - "FAQ":
+      - faq/index.md
+  - "About":
+      - about/index.md
+plugins:
+  - search
+  - render_swagger:
+      allow_arbitrary_locations : true
+  - include_dir_to_nav
+extra:
+  version:
+    provider: mike
