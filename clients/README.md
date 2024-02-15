@@ -44,3 +44,32 @@ openapi-generator-cli generate --git-repo-id public --git-user-id vuengineering 
 ```bash
 openapi-generator-cli generate --git-repo-id public --git-user-id vuengineering -i ../api-schema.yml -g typescript-axios -o typescript/avis-client/generated --additional-properties=withInterfaces=true,npmName=@viun/avis-client
 ```
+
+# Manual release
+
+## Python - PyPi
+
+```
+# (optional): if you don't have poetry and build installed
+python3.10 -m pip install --upgrade build poetry
+
+cd python/avis-client/generated
+
+# clean up
+rm -rf dist/
+
+# build
+poetry build
+twine upload -u$username -p$password dist/*
+```
+
+## Typescript - NPM
+
+```
+cd typescript/avis-client/generated
+
+# clean up
+rm -rf dist/
+
+npm publish --access public
+```

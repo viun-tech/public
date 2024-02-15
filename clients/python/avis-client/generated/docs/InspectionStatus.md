@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  |
-**inspection_status** | [**InspectionStatusEnum**](InspectionStatusEnum.md) |  |
+**id** | **int** |  | 
+**inspection_status** | [**InspectionStatusEnum**](InspectionStatusEnum.md) |  | 
 
 ## Example
 
@@ -26,3 +26,5 @@ inspection_status_dict = inspection_status_instance.to_dict()
 inspection_status_form_dict = inspection_status.from_dict(inspection_status_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

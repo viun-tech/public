@@ -4,13 +4,13 @@ After=network.target
 
 [Service]
 Type=simple
-WorkingDirectory=/home/pi/Workspace
-ExecStart=/bin/bash /home/pi/Workspace/agent/scripts/bash/chaos.sh
+WorkingDirectory=/home/pi/Workspace/vue-monorepo/avis
+ExecStart=/bin/bash /home/pi/Workspace/vue-monorepo/avis/agent/scripts/bash/chaos.sh
 Restart=always
 User=pi
 Group=pi
-StandardOutput=file:/home/pi/Workspace/agent/scripts/bash/stdout.log
-StandardError=file:/home/pi/Workspace/agent/scripts/bash/stderr.log
+StandardOutput=file:/home/pi/Workspace/vue-monorepo/avis/agent/scripts/bash/stdout.log
+StandardError=file:/home/pi/Workspace/vue-monorepo/avis/agent/scripts/bash/stderr.log
 
 
 [Install]

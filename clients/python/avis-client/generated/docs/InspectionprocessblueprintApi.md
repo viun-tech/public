@@ -4,12 +4,12 @@ All URIs are relative to *https://avis.vu.engineering*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**inspectionprocessblueprint_create**](InspectionprocessblueprintApi.md#inspectionprocessblueprint_create) | **POST** /api/inspectionprocessblueprint/ |
-[**inspectionprocessblueprint_destroy**](InspectionprocessblueprintApi.md#inspectionprocessblueprint_destroy) | **DELETE** /api/inspectionprocessblueprint/{id}/ |
-[**inspectionprocessblueprint_list**](InspectionprocessblueprintApi.md#inspectionprocessblueprint_list) | **GET** /api/inspectionprocessblueprint/ |
-[**inspectionprocessblueprint_partial_update**](InspectionprocessblueprintApi.md#inspectionprocessblueprint_partial_update) | **PATCH** /api/inspectionprocessblueprint/{id}/ |
-[**inspectionprocessblueprint_retrieve**](InspectionprocessblueprintApi.md#inspectionprocessblueprint_retrieve) | **GET** /api/inspectionprocessblueprint/{id}/ |
-[**inspectionprocessblueprint_update**](InspectionprocessblueprintApi.md#inspectionprocessblueprint_update) | **PUT** /api/inspectionprocessblueprint/{id}/ |
+[**inspectionprocessblueprint_create**](InspectionprocessblueprintApi.md#inspectionprocessblueprint_create) | **POST** /api/inspectionprocessblueprint/ | 
+[**inspectionprocessblueprint_destroy**](InspectionprocessblueprintApi.md#inspectionprocessblueprint_destroy) | **DELETE** /api/inspectionprocessblueprint/{id}/ | 
+[**inspectionprocessblueprint_list**](InspectionprocessblueprintApi.md#inspectionprocessblueprint_list) | **GET** /api/inspectionprocessblueprint/ | 
+[**inspectionprocessblueprint_partial_update**](InspectionprocessblueprintApi.md#inspectionprocessblueprint_partial_update) | **PATCH** /api/inspectionprocessblueprint/{id}/ | 
+[**inspectionprocessblueprint_retrieve**](InspectionprocessblueprintApi.md#inspectionprocessblueprint_retrieve) | **GET** /api/inspectionprocessblueprint/{id}/ | 
+[**inspectionprocessblueprint_update**](InspectionprocessblueprintApi.md#inspectionprocessblueprint_update) | **PUT** /api/inspectionprocessblueprint/{id}/ | 
 
 
 # **inspectionprocessblueprint_create**
@@ -60,7 +60,7 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.InspectionprocessblueprintApi(api_client)
-    inspection_process_blueprint_request = avis_client.InspectionProcessBlueprintRequest() # InspectionProcessBlueprintRequest |
+    inspection_process_blueprint_request = avis_client.InspectionProcessBlueprintRequest() # InspectionProcessBlueprintRequest | 
 
     try:
         api_response = api_instance.inspectionprocessblueprint_create(inspection_process_blueprint_request)
@@ -77,7 +77,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inspection_process_blueprint_request** | [**InspectionProcessBlueprintRequest**](InspectionProcessBlueprintRequest.md)|  |
+ **inspection_process_blueprint_request** | [**InspectionProcessBlueprintRequest**](InspectionProcessBlueprintRequest.md)|  | 
 
 ### Return type
 
@@ -161,7 +161,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection process blueprint. |
+ **id** | **int**| A unique integer value identifying this inspection process blueprint. | 
 
 ### Return type
 
@@ -249,8 +249,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fields** | **str**|  | [optional]
- **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional]
+ **fields** | **str**|  | [optional] 
+ **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
 
 ### Return type
 
@@ -339,8 +339,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection process blueprint. |
- **patched_inspection_process_blueprint_request** | [**PatchedInspectionProcessBlueprintRequest**](PatchedInspectionProcessBlueprintRequest.md)|  | [optional]
+ **id** | **int**| A unique integer value identifying this inspection process blueprint. | 
+ **patched_inspection_process_blueprint_request** | [**PatchedInspectionProcessBlueprintRequest**](PatchedInspectionProcessBlueprintRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -428,8 +428,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection process blueprint. |
- **fields** | **str**|  | [optional]
+ **id** | **int**| A unique integer value identifying this inspection process blueprint. | 
+ **fields** | **str**|  | [optional] 
 
 ### Return type
 
@@ -501,7 +501,7 @@ with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.InspectionprocessblueprintApi(api_client)
     id = 56 # int | A unique integer value identifying this inspection process blueprint.
-    inspection_process_blueprint_request = avis_client.InspectionProcessBlueprintRequest() # InspectionProcessBlueprintRequest |
+    inspection_process_blueprint_request = avis_client.InspectionProcessBlueprintRequest() # InspectionProcessBlueprintRequest | 
 
     try:
         api_response = api_instance.inspectionprocessblueprint_update(id, inspection_process_blueprint_request)
@@ -518,8 +518,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection process blueprint. |
- **inspection_process_blueprint_request** | [**InspectionProcessBlueprintRequest**](InspectionProcessBlueprintRequest.md)|  |
+ **id** | **int**| A unique integer value identifying this inspection process blueprint. | 
+ **inspection_process_blueprint_request** | [**InspectionProcessBlueprintRequest**](InspectionProcessBlueprintRequest.md)|  | 
 
 ### Return type
 
@@ -541,3 +541,4 @@ Name | Type | Description  | Notes
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

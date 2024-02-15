@@ -5,17 +5,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly]
-**team** | **int** |  |
-**reported_by** | **int** |  | [optional]
-**inferred_by** | **int** |  | [optional]
-**image** | **int** |  | [optional]
-**result** | **object** |  | [optional]
-**created_at** | **datetime** |  | [readonly]
-**updated_at** | **datetime** |  | [readonly]
-**status** | [**ClassificationResultStatus**](ClassificationResultStatus.md) |  | [optional]
-**failure_reason** | **str** |  | [optional]
-**comment** | **str** |  | [optional]
+**id** | **int** |  | [readonly] 
+**team** | **int** |  | 
+**reported_by** | **int** |  | [optional] 
+**inferred_by** | **int** |  | [optional] 
+**image** | **int** |  | [optional] 
+**image_attributes** | **List[int]** |  | [optional] 
+**created_at** | **datetime** |  | [readonly] 
+**updated_at** | **datetime** |  | [readonly] 
+**status** | [**ClassificationResultStatus**](ClassificationResultStatus.md) |  | [optional] 
+**failure_reason** | **str** |  | [optional] 
+**comment** | **str** |  | [optional] 
 
 ## Example
 
@@ -35,3 +35,5 @@ classification_result_dict = classification_result_instance.to_dict()
 classification_result_form_dict = classification_result.from_dict(classification_result_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

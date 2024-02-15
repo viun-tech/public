@@ -4,12 +4,12 @@ All URIs are relative to *https://avis.vu.engineering*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**inspectionmetadata_create**](InspectionmetadataApi.md#inspectionmetadata_create) | **POST** /api/inspectionmetadata/ |
-[**inspectionmetadata_destroy**](InspectionmetadataApi.md#inspectionmetadata_destroy) | **DELETE** /api/inspectionmetadata/{id}/ |
-[**inspectionmetadata_list**](InspectionmetadataApi.md#inspectionmetadata_list) | **GET** /api/inspectionmetadata/ |
-[**inspectionmetadata_partial_update**](InspectionmetadataApi.md#inspectionmetadata_partial_update) | **PATCH** /api/inspectionmetadata/{id}/ |
-[**inspectionmetadata_retrieve**](InspectionmetadataApi.md#inspectionmetadata_retrieve) | **GET** /api/inspectionmetadata/{id}/ |
-[**inspectionmetadata_update**](InspectionmetadataApi.md#inspectionmetadata_update) | **PUT** /api/inspectionmetadata/{id}/ |
+[**inspectionmetadata_create**](InspectionmetadataApi.md#inspectionmetadata_create) | **POST** /api/inspectionmetadata/ | 
+[**inspectionmetadata_destroy**](InspectionmetadataApi.md#inspectionmetadata_destroy) | **DELETE** /api/inspectionmetadata/{id}/ | 
+[**inspectionmetadata_list**](InspectionmetadataApi.md#inspectionmetadata_list) | **GET** /api/inspectionmetadata/ | 
+[**inspectionmetadata_partial_update**](InspectionmetadataApi.md#inspectionmetadata_partial_update) | **PATCH** /api/inspectionmetadata/{id}/ | 
+[**inspectionmetadata_retrieve**](InspectionmetadataApi.md#inspectionmetadata_retrieve) | **GET** /api/inspectionmetadata/{id}/ | 
+[**inspectionmetadata_update**](InspectionmetadataApi.md#inspectionmetadata_update) | **PUT** /api/inspectionmetadata/{id}/ | 
 
 
 # **inspectionmetadata_create**
@@ -60,7 +60,7 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.InspectionmetadataApi(api_client)
-    inspection_metadata_request = avis_client.InspectionMetadataRequest() # InspectionMetadataRequest |
+    inspection_metadata_request = avis_client.InspectionMetadataRequest() # InspectionMetadataRequest | 
 
     try:
         api_response = api_instance.inspectionmetadata_create(inspection_metadata_request)
@@ -77,7 +77,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inspection_metadata_request** | [**InspectionMetadataRequest**](InspectionMetadataRequest.md)|  |
+ **inspection_metadata_request** | [**InspectionMetadataRequest**](InspectionMetadataRequest.md)|  | 
 
 ### Return type
 
@@ -161,7 +161,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection metadata. |
+ **id** | **int**| A unique integer value identifying this inspection metadata. | 
 
 ### Return type
 
@@ -249,8 +249,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fields** | **str**|  | [optional]
- **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional]
+ **fields** | **str**|  | [optional] 
+ **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
 
 ### Return type
 
@@ -339,8 +339,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection metadata. |
- **patched_inspection_metadata_request** | [**PatchedInspectionMetadataRequest**](PatchedInspectionMetadataRequest.md)|  | [optional]
+ **id** | **int**| A unique integer value identifying this inspection metadata. | 
+ **patched_inspection_metadata_request** | [**PatchedInspectionMetadataRequest**](PatchedInspectionMetadataRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -428,8 +428,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection metadata. |
- **fields** | **str**|  | [optional]
+ **id** | **int**| A unique integer value identifying this inspection metadata. | 
+ **fields** | **str**|  | [optional] 
 
 ### Return type
 
@@ -501,7 +501,7 @@ with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.InspectionmetadataApi(api_client)
     id = 56 # int | A unique integer value identifying this inspection metadata.
-    inspection_metadata_request = avis_client.InspectionMetadataRequest() # InspectionMetadataRequest |
+    inspection_metadata_request = avis_client.InspectionMetadataRequest() # InspectionMetadataRequest | 
 
     try:
         api_response = api_instance.inspectionmetadata_update(id, inspection_metadata_request)
@@ -518,8 +518,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection metadata. |
- **inspection_metadata_request** | [**InspectionMetadataRequest**](InspectionMetadataRequest.md)|  |
+ **id** | **int**| A unique integer value identifying this inspection metadata. | 
+ **inspection_metadata_request** | [**InspectionMetadataRequest**](InspectionMetadataRequest.md)|  | 
 
 ### Return type
 
@@ -541,3 +541,4 @@ Name | Type | Description  | Notes
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

@@ -4,13 +4,13 @@ After=network.target
 
 [Service]
 Type=simple
-WorkingDirectory=/home/pi/Workspace/agent
-ExecStart=/usr/local/bin/poetry run python agent/avis_agent/main.py --config agent/.env
+WorkingDirectory=/home/pi/Workspace/vue-monorepo/avis
+ExecStart=/usr/local/bin/poetry --directory agent run python agent/avis_agent/main.py --config agent/.env
 Restart=always
 User=pi
 Group=pi
-StandardOutput=file:/home/pi/Workspace/agent/stdout.log
-StandardError=file:/home/pi/Workspace/agent/stderr.log
+StandardOutput=file:/home/pi/Workspace/vue-monorepo/avis/agent/stdout.log
+StandardError=file:/home/pi/Workspace/vue-monorepo/avis/agent/stderr.log
 
 
 [Install]

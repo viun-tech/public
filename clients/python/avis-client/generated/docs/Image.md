@@ -5,18 +5,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly]
-**team** | **int** |  |
-**case** | **int** |  | [optional]
-**uploaded_by** | **int** |  | [optional]
-**inspection_results** | **List[int]** |  | [optional]
-**created_at** | **datetime** |  | [readonly]
-**updated_at** | **datetime** |  | [readonly]
-**format** | [**FormatEnum**](FormatEnum.md) |  | [optional]
-**capture_datetime** | **datetime** |  |
-**file** | **str** |  |
-**part_id** | **str** |  | [optional]
-**validation_status** | [**ValidationStatusEnum**](ValidationStatusEnum.md) |  | [optional]
+**id** | **int** |  | [readonly] 
+**team** | **int** |  | 
+**inspection** | **int** |  | [optional] 
+**uploaded_by** | **int** |  | [optional] 
+**inspection_results** | **List[int]** |  | [optional] 
+**created_at** | **datetime** |  | [readonly] 
+**updated_at** | **datetime** |  | [readonly] 
+**format** | [**FormatEnum**](FormatEnum.md) |  | [optional] 
+**capture_datetime** | **datetime** |  | 
+**file** | **str** |  | 
+**part_id** | **str** |  | [optional] 
+**validation_status** | [**ValidationStatusEnum**](ValidationStatusEnum.md) |  | [optional] 
 
 ## Example
 
@@ -36,3 +36,5 @@ image_dict = image_instance.to_dict()
 image_form_dict = image.from_dict(image_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

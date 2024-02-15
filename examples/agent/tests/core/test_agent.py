@@ -2,7 +2,11 @@ from unittest.mock import MagicMock, Mock, patch
 
 import pytest
 from avis_agent.core.base import Agent
-from avis_agent.core.commands import AddImageCommand, ReadyCommand, StartCaseCommand
+from avis_agent.core.commands import (
+    AddImageCommand,
+    ReadyCommand,
+    StartInspectionCommand,
+)
 from avis_agent.core.exceptions import AgentError
 from avis_agent.core.responses import (
     CommandFailedResponse,
@@ -48,77 +52,85 @@ def mock_agent(mock_camera, mock_backend, mock_signal, mock_config):
 
 
 def test_command_checkpoint_initialized(mock_agent):
-    case_id = 1
-    commands_to_read = [ReadyCommand(), StartCaseCommand(), Exception("Simulated exit")]
+    inspection_id = 1
+    commands_to_read = [
+        ReadyCommand(),
+        StartInspectionCommand(),
+        Exception("Simulated exit"),
+    ]
     mock_agent.signal.read.side_effect = commands_to_read
     mock_agent.backend.execute.side_effect = [
         ReadyResponse(),
-        CommandSuccessfulResponse(result=case_id, message="Case successfully created"),
+        CommandSuccessfulResponse(
+            result=inspection_id, message="Inspection successfully created"
+        ),
     ]
 
     with pytest.raises(Exception, match="Simulated exit"):
         mock_agent.run()
 
-    assert mock_agent.current_case_id == case_id
+    assert mock_agent.current_inspection_id == inspection_id
     assert mock_agent.last_command == commands_to_read[1]
 
 
 def test_command_checkpoint_gets_updated(mock_agent):
-    case_id = 1
+    inspection_id = 1
     commands_to_read = [
         ReadyCommand(),
-        StartCaseCommand(),
+        StartInspectionCommand(),
         ReadyCommand(),
-        AddImageCommand(case_id=case_id),
+        AddImageCommand(inspection_id=inspection_id),
         Exception("Simulated exit"),
     ]
     mock_agent.signal.read.side_effect = commands_to_read
     mock_agent.backend.execute.side_effect = [
         ReadyResponse(),
-        CommandSuccessfulResponse(result=case_id, message="Case successfully created"),
+        CommandSuccessfulResponse(
+            result=inspection_id, message="Inspection successfully created"
+        ),
         ReadyResponse(),
-        CommandSuccessfulResponse(message="Image added to case"),
+        CommandSuccessfulResponse(message="Image added to inspection"),
     ]
 
     with pytest.raises(Exception, match="Simulated exit"):
         mock_agent.run()
 
-    assert mock_agent.current_case_id == case_id
+    assert mock_agent.current_inspection_id == inspection_id
     assert mock_agent.last_command == commands_to_read[3]
 
 
-def test_command_checkpoint_case_id_get_updated(mock_agent):
-    first_case_id = 1
-    second_case_id = 2
+def test_command_checkpoint_inspection_id_get_updated(mock_agent):
+    first_inspection_id = 1
+    second_inspection_id = 2
 
     commands_to_read = [
         ReadyCommand(),
-        StartCaseCommand(),
+        StartInspectionCommand(),
         ReadyCommand(),
-        StartCaseCommand(),
+        StartInspectionCommand(),
         Exception("Simulated exit"),
     ]
     mock_agent.signal.read.side_effect = commands_to_read
     mock_agent.backend.execute.side_effect = [
         ReadyResponse(),
         CommandSuccessfulResponse(
-            result=first_case_id, message="Case successfully created"
+            result=first_inspection_id, message="Inspection successfully created"
         ),
         ReadyResponse(),
         CommandSuccessfulResponse(
-            result=second_case_id, message="Case successfully created"
+            result=second_inspection_id, message="Inspection successfully created"
         ),
     ]
 
     with pytest.raises(Exception, match="Simulated exit"):
         mock_agent.run()
 
-    assert mock_agent.current_case_id == second_case_id
+    assert mock_agent.current_inspection_id == second_inspection_id
     assert mock_agent.last_command == commands_to_read[3]
 
 
 def test_process_command_add_image(mock_agent, image_path, screw_image):
-    command = AddImageCommand(case_id=1, image=image_path)
+    command = AddImageCommand(inspection_id=1, image=image_path)
     mock_agent.camera.check_camera_ready.return_value = True
     mock_agent.last_command = ReadyCommand()
     result = mock_agent._pre_process(command)
@@ -157,21 +169,21 @@ def test_agent_handles_camera_start_error(mock_agent):
 
 def test_agent_wait_until_ready(mock_agent):
     mock_agent.signal.read.side_effect = [
-        StartCaseCommand(),  # not ready
+        StartInspectionCommand(),  # not ready
         AddImageCommand(),  # not ready
         ReadyCommand(),  # ready
-        StartCaseCommand(),
+        StartInspectionCommand(),
         Exception("Simulated exit"),
     ]
 
     with pytest.raises(Exception, match="Simulated exit"):
         mock_agent.run()
 
-    mock_agent.backend.execute.assert_called_with(StartCaseCommand())
+    mock_agent.backend.execute.assert_called_with(StartInspectionCommand())
 
 
-def test_agent_case_id_not_set(mock_agent):
-    mock_agent.current_case_id = None
+def test_agent_inspection_id_not_set(mock_agent):
+    mock_agent.current_inspection_id = None
     mock_agent.signal.read.side_effect = [
         ReadyCommand(),
         AddImageCommand(),
@@ -181,13 +193,15 @@ def test_agent_case_id_not_set(mock_agent):
     with pytest.raises(Exception, match="Simulated exit"):
         mock_agent.run()
 
-    mock_agent.signal.write.assert_called_with(AgentError("The case ID is not known."))
+    mock_agent.signal.write.assert_called_with(
+        AgentError("The inspection ID is not known.")
+    )
 
 
 def test_agent_handles_camera_not_ready(mock_agent):
     error = AgentError("Camera is not ready")
     mock_agent.camera.check_camera_ready.return_value = False
-    mock_agent.current_case_id = 1
+    mock_agent.current_inspection_id = 1
     mock_agent.signal.read.side_effect = [
         ReadyCommand(),
         AddImageCommand(),
@@ -203,10 +217,10 @@ def test_agent_handles_camera_not_ready(mock_agent):
 def test_agent_handles_image_capture_error(mock_agent):
     error = AgentError("Image capture error")
     mock_agent.camera.capture_image.return_value = error
-    mock_agent.current_case_id = 1
+    mock_agent.current_inspection_id = 1
     mock_agent.signal.read.side_effect = [
         ReadyCommand(),
-        AddImageCommand(case_id=1),
+        AddImageCommand(inspection_id=1),
         Exception("Simulated exit"),
     ]
 
@@ -233,16 +247,18 @@ def test_agent_should_should_not_revert_to_ready_when_last_command_failed_and_th
 ):
     mock_agent.signal.read.side_effect = [
         ReadyCommand(),
-        StartCaseCommand(),
+        StartInspectionCommand(),
         ReadyCommand(),
         AddImageCommand(),
-        StartCaseCommand(),
+        StartInspectionCommand(),
         Exception("Simulated exit"),
     ]
     mock_agent._handle_command = Mock(
         side_effect=[
             ReadyResponse(),
-            CommandSuccessfulResponse(result=1, message="Case successfully created"),
+            CommandSuccessfulResponse(
+                result=1, message="Inspection successfully created"
+            ),
             ReadyResponse(),
             CommandFailedResponse(result=None, message="Simulated error"),
         ]
@@ -252,27 +268,31 @@ def test_agent_should_should_not_revert_to_ready_when_last_command_failed_and_th
         mock_agent.run()
 
     assert type(mock_agent.last_command) == AddImageCommand
-    assert mock_agent.current_case_id == 1
+    assert mock_agent.current_inspection_id == 1
 
 
 def test_acknowledgment_after_failure(mock_agent):
     mock_agent.signal.read.side_effect = [
         ReadyCommand(),
-        StartCaseCommand(),
+        StartInspectionCommand(),
         ReadyCommand(),
         AddImageCommand(),
         ReadyCommand(),
-        StartCaseCommand(),
+        StartInspectionCommand(),
         Exception("Simulated exit"),
     ]
     mock_agent._handle_command = Mock(
         side_effect=[
             ReadyResponse(),
-            CommandSuccessfulResponse(result=1, message="Case successfully created"),
+            CommandSuccessfulResponse(
+                result=1, message="Inspection successfully created"
+            ),
             ReadyResponse(),
             CommandFailedResponse(result=None, message="Simulated error"),
             ReadyResponse(),
-            CommandSuccessfulResponse(result=2, message="Case successfully created"),
+            CommandSuccessfulResponse(
+                result=2, message="Inspection successfully created"
+            ),
             ReadyResponse(),
         ]
     )
@@ -280,8 +300,8 @@ def test_acknowledgment_after_failure(mock_agent):
     with pytest.raises(Exception, match="Simulated exit"):
         mock_agent.run()
 
-    assert type(mock_agent.last_command) == StartCaseCommand
-    assert mock_agent.current_case_id == 2
+    assert type(mock_agent.last_command) == StartInspectionCommand
+    assert mock_agent.current_inspection_id == 2
 
 
 def test_agent_should_revert_to_ready_when_failure_was_acknowledged(mock_agent):

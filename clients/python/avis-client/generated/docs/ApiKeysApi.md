@@ -4,12 +4,12 @@ All URIs are relative to *https://avis.vu.engineering*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api_key_create**](ApiKeysApi.md#api_key_create) | **POST** /api/api-keys/ |
-[**api_key_revoke**](ApiKeysApi.md#api_key_revoke) | **POST** /api/api-keys/{id}/revoke/ |
+[**keys_create**](ApiKeysApi.md#keys_create) | **POST** /api/keys/ | 
+[**keys_revoke_create**](ApiKeysApi.md#keys_revoke_create) | **POST** /api/keys/revoke/ | 
 
 
-# **api_key_create**
-> UserAPIKeyCreate api_key_create(credentials_request)
+# **keys_create**
+> UserAPIKeyCreate keys_create(user_api_key_create_request=user_api_key_create_request)
 
 
 
@@ -17,14 +17,15 @@ Create a new API key for the current user.
 
 ### Example
 
+* Api Key Authentication (cookieAuth):
 * Api Key Authentication (ApiKeyAuth):
 
 ```python
 import time
 import os
 import avis_client
-from avis_client.models.credentials_request import CredentialsRequest
 from avis_client.models.user_api_key_create import UserAPIKeyCreate
+from avis_client.models.user_api_key_create_request import UserAPIKeyCreateRequest
 from avis_client.rest import ApiException
 from pprint import pprint
 
@@ -39,6 +40,12 @@ configuration = avis_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: cookieAuth
+configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
+
 # Configure API key authorization: ApiKeyAuth
 configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
@@ -49,14 +56,14 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.ApiKeysApi(api_client)
-    credentials_request = avis_client.CredentialsRequest() # CredentialsRequest |
+    user_api_key_create_request = avis_client.UserAPIKeyCreateRequest() # UserAPIKeyCreateRequest |  (optional)
 
     try:
-        api_response = api_instance.api_key_create(credentials_request)
-        print("The response of ApiKeysApi->api_key_create:\n")
+        api_response = api_instance.keys_create(user_api_key_create_request=user_api_key_create_request)
+        print("The response of ApiKeysApi->keys_create:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ApiKeysApi->api_key_create: %s\n" % e)
+        print("Exception when calling ApiKeysApi->keys_create: %s\n" % e)
 ```
 
 
@@ -66,7 +73,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **credentials_request** | [**CredentialsRequest**](CredentialsRequest.md)|  |
+ **user_api_key_create_request** | [**UserAPIKeyCreateRequest**](UserAPIKeyCreateRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -74,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKeyAuth](../README.md#ApiKeyAuth)
+[cookieAuth](../README.md#cookieAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -89,8 +96,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **api_key_revoke**
-> UserAPIKeyCreate api_key_revoke(id, credentials_request)
+# **keys_revoke_create**
+> UserAPIKeyCreate keys_revoke_create(user_api_key_create_request=user_api_key_create_request)
 
 
 
@@ -98,14 +105,15 @@ Revoke an API key for the current user. We use the name of the API Key to revoke
 
 ### Example
 
+* Api Key Authentication (cookieAuth):
 * Api Key Authentication (ApiKeyAuth):
 
 ```python
 import time
 import os
 import avis_client
-from avis_client.models.credentials_request import CredentialsRequest
 from avis_client.models.user_api_key_create import UserAPIKeyCreate
+from avis_client.models.user_api_key_create_request import UserAPIKeyCreateRequest
 from avis_client.rest import ApiException
 from pprint import pprint
 
@@ -120,6 +128,12 @@ configuration = avis_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: cookieAuth
+configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
+
 # Configure API key authorization: ApiKeyAuth
 configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
@@ -130,15 +144,14 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.ApiKeysApi(api_client)
-    id = 'id_example' # str | A unique value identifying this API key.
-    credentials_request = avis_client.CredentialsRequest() # CredentialsRequest |
+    user_api_key_create_request = avis_client.UserAPIKeyCreateRequest() # UserAPIKeyCreateRequest |  (optional)
 
     try:
-        api_response = api_instance.api_key_revoke(id, credentials_request)
-        print("The response of ApiKeysApi->api_key_revoke:\n")
+        api_response = api_instance.keys_revoke_create(user_api_key_create_request=user_api_key_create_request)
+        print("The response of ApiKeysApi->keys_revoke_create:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ApiKeysApi->api_key_revoke: %s\n" % e)
+        print("Exception when calling ApiKeysApi->keys_revoke_create: %s\n" % e)
 ```
 
 
@@ -148,8 +161,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| A unique value identifying this API key. |
- **credentials_request** | [**CredentialsRequest**](CredentialsRequest.md)|  |
+ **user_api_key_create_request** | [**UserAPIKeyCreateRequest**](UserAPIKeyCreateRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -157,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKeyAuth](../README.md#ApiKeyAuth)
+[cookieAuth](../README.md#cookieAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -171,3 +183,4 @@ Name | Type | Description  | Notes
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

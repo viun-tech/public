@@ -40,8 +40,8 @@ from enum import Enum
 import click
 from avis_agent.core.commands import (
     AddImageCommand,
-    GetCaseInspectionResultCommand,
-    StartCaseCommand,
+    GetInspectionResultCommand,
+    StartInspectionCommand,
 )
 from avis_agent.core.responses import (
     CommandFailedResponse,
@@ -88,10 +88,12 @@ class CoilManager:
                 QualityTestUncertainResponse
             ],
             "machine_ready": self.machine_coils.ready_coil_idx,
-            "machine_startcase": self.machine_coils.coil_mapping[StartCaseCommand],
+            "machine_startinspection": self.machine_coils.coil_mapping[
+                StartInspectionCommand
+            ],
             "machine_addimage": self.machine_coils.coil_mapping[AddImageCommand],
             "machine_getresults": self.machine_coils.coil_mapping[
-                GetCaseInspectionResultCommand
+                GetInspectionResultCommand
             ],
         }
 
@@ -172,7 +174,7 @@ class CoilManager:
 
     def reset(self, reset_ready=False):
         coils = [
-            "machine_startcase",
+            "machine_startinspection",
             "machine_addimage",
             "machine_getresults",
         ]
@@ -208,12 +210,12 @@ def main(host: str, port: int, chaos: bool):
             #################  Open case #################
             ##############################################
             if coil_manager.set_coil(
-                "machine_startcase", True
+                "machine_startinspection", True
             ) and coil_manager.wait_for_coil("agent_success", True):
-                coil_manager.set_coil("machine_startcase", False)
+                coil_manager.set_coil("machine_startinspection", False)
 
             elif coil_manager.wait_for_coil("agent_fail", True):
-                coil_manager.set_coil("machine_startcase", False)
+                coil_manager.set_coil("machine_startinspection", False)
                 coil_manager.set_coil("machine_ready", True)
                 continue
 

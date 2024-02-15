@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly]
-**model** | **int** |  |
-**created_at** | **datetime** |  | [readonly]
-**updated_at** | **datetime** |  | [readonly]
-**version** | **str** |  | [optional]
-**url** | **str** |  | [optional]
-**teams** | **List[int]** |  | [readonly]
+**id** | **int** |  | [readonly] 
+**model** | **int** |  | 
+**created_at** | **datetime** |  | [readonly] 
+**updated_at** | **datetime** |  | [readonly] 
+**version** | **str** |  | [optional] 
+**url** | **str** |  | [optional] 
+**teams** | **List[int]** |  | [readonly] 
 
 ## Example
 
@@ -31,3 +31,5 @@ ml_model_dict = ml_model_instance.to_dict()
 ml_model_form_dict = ml_model.from_dict(ml_model_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

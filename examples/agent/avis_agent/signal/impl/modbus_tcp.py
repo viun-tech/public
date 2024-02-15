@@ -2,17 +2,13 @@ import logging
 import sys
 from typing import Any, Dict, Literal, Type, Union
 
-from pydantic import model_validator
-from pydantic_settings import BaseSettings
-from pymodbus.client import ModbusTcpClient
-
 from avis_agent.core.commands import (
     AbstractCommand,
     AbstractCommandReader,
     AddImageCommand,
-    GetCaseInspectionResultCommand,
+    GetInspectionResultCommand,
     ReadyCommand,
-    StartCaseCommand,
+    StartInspectionCommand,
 )
 from avis_agent.core.exceptions import AgentError
 from avis_agent.core.responses import (
@@ -26,6 +22,9 @@ from avis_agent.core.responses import (
     ReadyResponse,
 )
 from avis_agent.signal.base import AbstractSignal, BaseSignalSettings
+from pydantic import model_validator
+from pydantic_settings import BaseSettings
+from pymodbus.client import ModbusTcpClient
 
 logger = logging.getLogger(__name__)
 
@@ -56,9 +55,9 @@ def get_classes_for_coil_mapping(data: Any, module: str) -> Any:
 class CommandCoilSettings(BaseSettings):
     coil_mapping: Dict[Type[AbstractCommand], int] = {
         ReadyCommand: 0,
-        StartCaseCommand: 1,
+        StartInspectionCommand: 1,
         AddImageCommand: 2,
-        GetCaseInspectionResultCommand: 3,
+        GetInspectionResultCommand: 3,
     }
 
     @property

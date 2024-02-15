@@ -5,14 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | [**TypeEnum**](TypeEnum.md) |  | [optional]
-**team** | **int** |  | [optional]
-**reported_by** | **int** |  | [optional]
-**image** | **int** |  | [optional]
-**confidence** | **decimal.Decimal** |  | [optional]
-**comment** | **str** |  | [optional]
-**rating** | **decimal.Decimal** |  | [optional]
-**binary_class** | [**BinaryClassEnum**](BinaryClassEnum.md) |  | [optional]
+**type** | [**TypeEnum**](TypeEnum.md) |  | [optional] 
+**team** | **int** |  | [optional] 
+**reported_by** | **int** |  | [optional] 
+**image** | **int** |  | [optional] 
+**confidence** | **decimal.Decimal** |  | [optional] 
+**comment** | **str** |  | [optional] 
+**rating** | **decimal.Decimal** |  | [optional] 
 
 ## Example
 
@@ -32,3 +31,5 @@ patched_inspection_result_polymorphic_request_dict = patched_inspection_result_p
 patched_inspection_result_polymorphic_request_form_dict = patched_inspection_result_polymorphic_request.from_dict(patched_inspection_result_polymorphic_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

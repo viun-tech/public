@@ -44,7 +44,7 @@ def modbus_server(modbus_server_port):
             address=("localhost", modbus_server_port),
         )
 
-    thread = threading.Thread(target=run_server, daemon=True)
+    thread = threading.Thread(target=run_server)
     thread.start()
 
     # poll until the server is up

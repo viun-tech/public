@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**team** | **int** |  | [optional]
-**blueprints** | **List[int]** |  | [optional]
-**var_schema** | **int** |  | [optional]
-**data** | **object** |  | [optional]
+**team** | **int** |  | [optional] 
+**blueprints** | **List[int]** |  | [optional] 
+**var_schema** | **int** |  | [optional] 
+**data** | **object** |  | [optional] 
 
 ## Example
 
@@ -28,3 +28,5 @@ patched_inspection_metadata_request_dict = patched_inspection_metadata_request_i
 patched_inspection_metadata_request_form_dict = patched_inspection_metadata_request.from_dict(patched_inspection_metadata_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

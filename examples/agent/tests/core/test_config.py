@@ -4,9 +4,9 @@ import pytest
 from avis_agent.core.base import Agent, AgentSettings
 from avis_agent.core.commands import (
     AddImageCommand,
-    GetCaseInspectionResultCommand,
+    GetInspectionResultCommand,
     ReadyCommand,
-    StartCaseCommand,
+    StartInspectionCommand,
 )
 from avis_agent.core.responses import (
     CommandFailedResponse,
@@ -60,16 +60,18 @@ def test_coil_mapping_config():
     os.environ[
         "AGENT_BACKEND"
     ] = '{"name": "avis", "api_key": "", "team_id": 1, "inspection_object_id": 1, "uri": ""}'
-    os.environ["AGENT_SIGNAL"] = """{
+    os.environ[
+        "AGENT_SIGNAL"
+    ] = """{
         "name": "modbus_tcp",
         "host": "localhost",
         "port": 502,
         "command_coil_settings": {
             "coil_mapping": {
                 "ReadyCommand": 12,
-                "StartCaseCommand": 13,
+                "StartInspectionCommand": 13,
                 "AddImageCommand": 14,
-                "GetCaseInspectionResultCommand": 15
+                "GetInspectionResultCommand": 15
             }
         },
         "response_coil_settings": {
@@ -84,12 +86,9 @@ def test_coil_mapping_config():
     }"""
     settings = AgentSettings().signal
     assert settings.command_coil_settings.coil_mapping[ReadyCommand] == 12
-    assert settings.command_coil_settings.coil_mapping[StartCaseCommand] == 13
+    assert settings.command_coil_settings.coil_mapping[StartInspectionCommand] == 13
     assert settings.command_coil_settings.coil_mapping[AddImageCommand] == 14
-    assert (
-        settings.command_coil_settings.coil_mapping[GetCaseInspectionResultCommand]
-        == 15
-    )
+    assert settings.command_coil_settings.coil_mapping[GetInspectionResultCommand] == 15
     assert settings.response_coil_settings.coil_mapping[ReadyResponse] == 16
     assert settings.response_coil_settings.coil_mapping[CommandSuccessfulResponse] == 17
     assert settings.response_coil_settings.coil_mapping[CommandFailedResponse] == 18

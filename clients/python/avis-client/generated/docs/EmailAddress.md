@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly]
-**email** | **str** |  |
-**verified** | **bool** |  | [optional]
-**primary** | **bool** |  | [optional]
-**user** | **int** |  |
+**id** | **int** |  | [readonly] 
+**email** | **str** |  | 
+**verified** | **bool** |  | [optional] 
+**primary** | **bool** |  | [optional] 
+**user** | **int** |  | 
 
 ## Example
 
@@ -29,3 +29,5 @@ email_address_dict = email_address_instance.to_dict()
 email_address_form_dict = email_address.from_dict(email_address_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

@@ -1,9 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import Generic, Optional, TypeVar, Union
 
-from pydantic import BaseModel
-
 from avis_agent.core.exceptions import AgentError
+from pydantic import BaseModel
 
 T = TypeVar("T")
 

@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**team** | **int** |  |
-**blueprints** | **List[int]** |  | [optional]
-**var_schema** | **int** |  |
-**data** | **object** |  | [optional]
+**team** | **int** |  | 
+**blueprints** | **List[int]** |  | [optional] 
+**var_schema** | **int** |  | 
+**data** | **object** |  | [optional] 
 
 ## Example
 
@@ -28,3 +28,5 @@ inspection_metadata_request_dict = inspection_metadata_request_instance.to_dict(
 inspection_metadata_request_form_dict = inspection_metadata_request.from_dict(inspection_metadata_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

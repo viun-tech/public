@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly]
-**user** | [**CustomUser**](CustomUser.md) |  | [readonly]
-**role** | **str** |  |
-**team** | **int** |  | [readonly]
-**created_at** | **datetime** |  | [readonly]
-**updated_at** | **datetime** |  | [readonly]
+**id** | **int** |  | [readonly] 
+**user** | [**CustomUser**](CustomUser.md) |  | [readonly] 
+**role** | **str** |  | 
+**team** | **int** |  | [readonly] 
+**created_at** | **datetime** |  | [readonly] 
+**updated_at** | **datetime** |  | [readonly] 
 
 ## Example
 
@@ -30,3 +30,5 @@ membership_dict = membership_instance.to_dict()
 membership_form_dict = membership.from_dict(membership_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

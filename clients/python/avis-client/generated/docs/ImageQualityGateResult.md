@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  |
-**quality** | [**QualityEnum**](QualityEnum.md) |  |
-**quality_gate** | **int** |  |
+**id** | **int** |  | 
+**quality** | [**QualityEnum**](QualityEnum.md) |  | 
+**quality_gate** | **int** |  | 
 
 ## Example
 
@@ -27,3 +27,5 @@ image_quality_gate_result_dict = image_quality_gate_result_instance.to_dict()
 image_quality_gate_result_form_dict = image_quality_gate_result.from_dict(image_quality_gate_result_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
