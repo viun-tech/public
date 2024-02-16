@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly]
-**first_name** | **str** |  | [optional]
-**last_name** | **str** |  | [optional]
-**email** | **str** |  | [optional]
+**id** | **int** |  | [readonly] 
+**first_name** | **str** |  | [optional] 
+**last_name** | **str** |  | [optional] 
+**email** | **str** |  | [optional] 
 
 ## Example
 
@@ -28,3 +28,5 @@ custom_user_dict = custom_user_instance.to_dict()
 custom_user_form_dict = custom_user.from_dict(custom_user_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

@@ -5,16 +5,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly]
-**team** | **int** |  |
-**reported_by** | **int** |  | [optional]
-**image** | **int** |  | [optional]
-**type** | **str** |  |
-**created_at** | **datetime** |  | [readonly]
-**updated_at** | **datetime** |  | [readonly]
-**confidence** | **decimal.Decimal** |  |
-**comment** | **str** |  | [optional]
-**rating** | **decimal.Decimal** |  |
+**id** | **int** |  | [readonly] 
+**team** | **int** |  | 
+**reported_by** | **int** |  | [optional] 
+**image** | **int** |  | [optional] 
+**type** | **str** |  | 
+**created_at** | **datetime** |  | [readonly] 
+**updated_at** | **datetime** |  | [readonly] 
+**confidence** | **decimal.Decimal** |  | 
+**comment** | **str** |  | [optional] 
+**rating** | **decimal.Decimal** |  | 
 
 ## Example
 
@@ -34,3 +34,5 @@ rating_inspection_result_typed_dict = rating_inspection_result_typed_instance.to
 rating_inspection_result_typed_form_dict = rating_inspection_result_typed.from_dict(rating_inspection_result_typed_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

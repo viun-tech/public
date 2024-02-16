@@ -3,8 +3,8 @@ from unittest.mock import MagicMock
 import pytest
 from avis_agent.core.commands import (
     AddImageCommand,
-    GetCaseInspectionResultCommand,
-    StartCaseCommand,
+    GetInspectionResultCommand,
+    StartInspectionCommand,
 )
 from avis_agent.core.responses import (
     CommandFailedResponse,
@@ -22,9 +22,9 @@ def cli_config():
 @pytest.mark.parametrize(
     "command, expected_output",
     [
-        ("startcase", StartCaseCommand),
+        ("startinspection", StartInspectionCommand),
         ("addimage", AddImageCommand),
-        ("getcaseinspectionresult", GetCaseInspectionResultCommand),
+        ("getinspectionresult", GetInspectionResultCommand),
     ],
 )
 def test_cli_command_dispatch(command, expected_output, cli_config):
@@ -50,9 +50,9 @@ def test_cli_response_writer(response, expected_output, capfd, cli_config):
 @pytest.mark.parametrize(
     "user_input, expected_type",
     [
-        ("startcase", StartCaseCommand),
+        ("startinspection", StartInspectionCommand),
         ("addimage", AddImageCommand),
-        ("getcaseinspectionresult", GetCaseInspectionResultCommand),
+        ("getinspectionresult", GetInspectionResultCommand),
     ],
 )
 def test_cli_signal_read(user_input, expected_type, monkeypatch, cli_config):

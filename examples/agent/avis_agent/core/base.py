@@ -3,17 +3,6 @@ import threading
 import time
 from typing import Type, Union
 
-from PIL.Image import Image
-from pydantic import Field
-from pydantic_settings import SettingsConfigDict
-from vue_instrumentation.core import (
-    InstrumentationSettings,
-    get_default_resource,
-    instrument,
-    send_heartbeat,
-    track_duration,
-)
-
 from avis_agent.backend.base import AbstractBackend
 from avis_agent.backend.impl.avis import AvisBackendSettings
 from avis_agent.camera.base import AbstractCamera
@@ -23,7 +12,7 @@ from avis_agent.core.commands import (
     AbstractCommand,
     AddImageCommand,
     ReadyCommand,
-    StartCaseCommand,
+    StartInspectionCommand,
     StatefulCommandTypes,
 )
 from avis_agent.core.exceptions import AgentError
@@ -46,6 +35,17 @@ from avis_agent.signal.base import AbstractSignal
 from avis_agent.signal.impl.cli import CliSignalSettings
 from avis_agent.signal.impl.modbus_tcp import ModbusTcpSignalSettings
 from avis_agent.utils import BaseSettingsWithRetries
+from PIL.Image import Image
+from pydantic import Field
+from pydantic_settings import SettingsConfigDict
+from vue_image.utils import get_image_brightness, get_image_sharpness
+from vue_instrumentation.core import (
+    InstrumentationSettings,
+    get_default_resource,
+    instrument,
+    send_heartbeat,
+    track_duration,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -87,7 +87,7 @@ class Agent:
         )
         self.last_command: Union[AbstractCommand, AgentError, None] = None
         self.last_response: Union[AbstractResponse, AgentError, None] = None
-        self.current_case_id: Union[int, None] = None
+        self.current_inspection_id: Union[int, None] = None
         self.first_run = True
         self.current_image_sharpness = float(0)
         self.current_image_brightness = float(0)
@@ -111,6 +111,17 @@ class Agent:
                     daemon=True,
                 )
                 heartbeat_thread.start()
+            # initialize the image sharpness and brightness gauges
+            # see https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#asynchronous-gauge-operations
+
+            # Not working, see https://github.com/vuengineering/vue-monorepo/issues/604
+
+            # image_sharpness_gauge.register_callback(
+            #     lambda result: result.Observe(self.current_image_sharpness)
+            # )
+            # image_brightness_gauge.register_callback(
+            #     lambda result: result.Observe(self.current_image_brightness)
+            # )
 
     def run(self) -> None:
         """
@@ -175,7 +186,7 @@ class Agent:
         else:
             logger.info(f"Wrote response: {response}")
         if not isinstance(response, (AgentError, CommandFailedResponse)):
-            self.current_case_id = self._get_case_id(command, response)
+            self.current_inspection_id = self._get_inspection_id(command, response)
             self.last_command = command
         self.last_response = response
         return response
@@ -200,6 +211,8 @@ class Agent:
         image = self.camera.capture_image()
         if isinstance(image, AgentError):
             return image
+        self.current_image_sharpness = get_image_sharpness(image)
+        self.current_image_brightness = get_image_brightness(image)
         return image
 
     def _start_camera(self) -> bool:
@@ -233,12 +246,12 @@ class Agent:
             Union[AbstractResponse, AgentError]: The result of the command execution or any error encountered.
         """
         # pre-process the command (e.g capture image)
-        # if the command requires a case_id and the case_id is not set, we set it to the last case_id
-        if isinstance(command, StatefulCommandTypes) and command.case_id is None:
-            if self.current_case_id is None:
-                return AgentError("The case ID is not known.")
+        # if the command requires a inspection_id and the inspection_id is not set, we set it to the last inspection_id
+        if isinstance(command, StatefulCommandTypes) and command.inspection_id is None:
+            if self.current_inspection_id is None:
+                return AgentError("The inspection ID is not known.")
             else:
-                command.case_id = self.current_case_id
+                command.inspection_id = self.current_inspection_id
 
         logger.info(f"Received command: {command}")
 
@@ -286,29 +299,29 @@ class Agent:
         command.image = self.config.camera.image_path
         return command
 
-    def _get_case_id(
+    def _get_inspection_id(
         self, command: Type[AbstractCommand], response: AbstractResponse
     ) -> Union[int, None]:
         """
-        Determine the case ID based on the command and response.
+        Determine the inspection ID based on the command and response.
 
         Args:
             command: The command received.
             response: The response generated after executing the command.
 
         Returns:
-            Union[int, None]: The case ID or None.
+            Union[int, None]: The inspection ID or None.
         """
         if isinstance(command, ReadyCommand) or isinstance(response, ReadyResponse):
-            return self.current_case_id
-        if isinstance(command, StartCaseCommand) and isinstance(
+            return self.current_inspection_id
+        if isinstance(command, StartInspectionCommand) and isinstance(
             response, CommandSuccessfulResponse
         ):
             return response.result
         if (
             isinstance(command, StatefulCommandTypes)
             and isinstance(self.last_command, ReadyCommand)
-            and self.current_case_id is None
+            and self.current_inspection_id is None
         ):
-            raise RuntimeError("The case ID is not known.")
-        return self.current_case_id
+            raise RuntimeError("The inspection ID is not known.")
+        return self.current_inspection_id

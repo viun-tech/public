@@ -4,7 +4,6 @@ import os
 from logging.handlers import RotatingFileHandler
 
 import click
-
 from avis_agent.backend.base import AbstractBackend
 from avis_agent.camera.base import AbstractCamera
 from avis_agent.core.base import Agent, AgentSettings

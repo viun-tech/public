@@ -4,9 +4,9 @@ from avis_agent.core.commands import (
     AbstractCommand,
     AbstractCommandReader,
     AddImageCommand,
-    GetCaseInspectionResultCommand,
+    GetInspectionResultCommand,
     ReadyCommand,
-    StartCaseCommand,
+    StartInspectionCommand,
 )
 from avis_agent.core.exceptions import AgentError
 from avis_agent.core.responses import AbstractResponse, AbstractResponseWriter
@@ -21,9 +21,9 @@ class CliCommandReader(AbstractCommandReader):
     def __init__(self, config: CliSignalSettings) -> None:
         self.commands = {
             "ready": ReadyCommand,
-            "startcase": StartCaseCommand,
+            "startinspection": StartInspectionCommand,
             "addimage": AddImageCommand,
-            "getcaseinspectionresult": GetCaseInspectionResultCommand,
+            "getinspectionresult": GetInspectionResultCommand,
         }
         self.config = config
 

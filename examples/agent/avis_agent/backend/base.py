@@ -2,18 +2,17 @@ import io
 from abc import ABC, abstractmethod
 from typing import Union
 
-from PIL import Image
-
 from avis_agent.core.commands import (
     AbstractCommand,
     AddImageCommand,
-    GetCaseInspectionResultCommand,
+    GetInspectionResultCommand,
     ReadyCommand,
-    StartCaseCommand,
+    StartInspectionCommand,
 )
 from avis_agent.core.exceptions import AgentError
 from avis_agent.core.responses import AbstractResponse, ReadyResponse
 from avis_agent.utils import BaseSettingsWithRetries
+from PIL import Image
 
 
 def image_to_byte_array(image: Image) -> bytes:
@@ -42,55 +41,57 @@ class AbstractBackend(ABC):
         """
         if type(command) is ReadyCommand:
             return ReadyResponse()
-        if type(command) is StartCaseCommand:
-            return self.start_case()
+        if type(command) is StartInspectionCommand:
+            return self.start_inspection()
         elif type(command) is AddImageCommand:
-            if command.case_id is None or command.image is None:
+            if command.inspection_id is None or command.image is None:
                 raise ValueError(
-                    "AddImageCommand requires a case_id and an image to be set"
+                    "AddImageCommand requires a inspection_id and an image to be set"
                 )
-            return self.add_image_to_case(command.case_id, str(command.image))
-        elif type(command) is GetCaseInspectionResultCommand:
-            if command.case_id is None:
-                raise ValueError("GetCaseInspectionResultCommand requires a case_id")
-            return self.get_case_inspection_result(command.case_id)
+            return self.add_image_to_inspection(
+                command.inspection_id, str(command.image)
+            )
+        elif type(command) is GetInspectionResultCommand:
+            if command.inspection_id is None:
+                raise ValueError("GetInspectionResultCommand requires a inspection_id")
+            return self.get_inspection_result(command.inspection_id)
         else:
             raise NotImplementedError
 
     """Class for communicating with the backend of AVIS and execute the required chain of operations to perform a task."""
 
     @abstractmethod
-    def start_case(self) -> Union[AbstractResponse, AgentError]:
+    def start_inspection(self) -> Union[AbstractResponse, AgentError]:
         """
-        Open a new case.
+        Open a new inspection.
 
         Returns: should return either a CommandSuccessfulResponse or a CommandFailedResponse or an AgentError
         """
         ...
 
     @abstractmethod
-    def get_case_inspection_result(
-        self, case_id: int
+    def get_inspection_result(
+        self, inspection_id: int
     ) -> Union[AbstractResponse, AgentError]:
         """
-        Get the inspection result of a case.
+        Get the inspection result of a inspection.
         Args:
-            case_id: The ID of the case to get the inspection result of.
+            inspection_id: The ID of the inspection to get the inspection result of.
 
         Returns: should return either a QualityTestSuccessfulResponse, a QualityTestFailedResponse, a QualityTestUncertainResponse or an AgentError
         """
         ...
 
     @abstractmethod
-    def add_image_to_case(
-        self, case_id: int, image: str
+    def add_image_to_inspection(
+        self, inspection_id: int, image: str
     ) -> Union[AbstractResponse, AgentError]:
         """
-        Add an image to a case.
+        Add an image to a inspection.
 
         Args:
-            case_id: The ID of the case to add the image to.
-            image: The path to the image to add to the case.
+            inspection_id: The ID of the inspection to add the image to.
+            image: The path to the image to add to the inspection.
 
         Returns: should return either a CommandSuccessfulResponse, a CommandFailedResponse or an AgentError
 

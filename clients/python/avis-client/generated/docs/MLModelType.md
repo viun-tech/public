@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly]
-**created_at** | **datetime** |  | [readonly]
-**updated_at** | **datetime** |  | [readonly]
-**slug** | **str** |  | [optional]
-**name** | **str** |  | [optional]
-**description** | **str** |  | [optional]
+**id** | **int** |  | [readonly] 
+**created_at** | **datetime** |  | [readonly] 
+**updated_at** | **datetime** |  | [readonly] 
+**slug** | **str** |  | [optional] 
+**name** | **str** |  | [optional] 
+**description** | **str** |  | [optional] 
 
 ## Example
 
@@ -30,3 +30,5 @@ ml_model_type_dict = ml_model_type_instance.to_dict()
 ml_model_type_form_dict = ml_model_type.from_dict(ml_model_type_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

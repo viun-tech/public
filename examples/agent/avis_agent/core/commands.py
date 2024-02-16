@@ -2,9 +2,8 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Union
 
-from pydantic import BaseModel
-
 from avis_agent.core.exceptions import AgentError
+from pydantic import BaseModel
 
 
 class AbstractCommand(ABC, BaseModel):
@@ -28,9 +27,9 @@ class ReadyCommand(AbstractCommand):
         return f"{self.__class__.__name__}()"
 
 
-class StartCaseCommand(AbstractCommand):
+class StartInspectionCommand(AbstractCommand):
     """
-    Start a new case. The agent should return a StartCaseResponseSuccessful with the case id when the case is started.
+    Start a new inspection. The agent should return a StartinspectionResponseSuccessful with the inspection id when the inspection is started.
     """
 
     def __str__(self):
@@ -39,27 +38,27 @@ class StartCaseCommand(AbstractCommand):
 
 class AddImageCommand(AbstractCommand):
     """
-    Add an image to a case. The agent should return a AddImageResponseSuccessful with the image id when the image is
+    Add an image to a inspection. The agent should return a AddImageResponseSuccessful with the image id when the image is
     added.
     """
 
-    case_id: Union[int, None] = None
+    inspection_id: Union[int, None] = None
     image: Union[Path, None] = None
 
     def __str__(self):
-        return f"{self.__class__.__name__}(case_id={self.case_id})"
+        return f"{self.__class__.__name__}(inspection_id={self.inspection_id})"
 
 
-class GetCaseInspectionResultCommand(AbstractCommand):
+class GetInspectionResultCommand(AbstractCommand):
     """
-    Get the inspection result for a case. The agent should return either a QualityTestSuccessfulResponse,
+    Get the inspection result for a inspection. The agent should return either a QualityTestSuccessfulResponse,
     a QualityTestFailedResponse or a QualityTestUncertainResponse.
     """
 
-    case_id: Union[int, None] = None
+    inspection_id: Union[int, None] = None
 
     def __str__(self):
-        return f"{self.__class__.__name__}(case_id={self.case_id})"
+        return f"{self.__class__.__name__}(inspection_id={self.inspection_id})"
 
 
 class AbstractCommandReader(ABC):
@@ -68,5 +67,5 @@ class AbstractCommandReader(ABC):
         ...
 
 
-# require a case id
-StatefulCommandTypes = (AddImageCommand, GetCaseInspectionResultCommand)
+# require a inspection id
+StatefulCommandTypes = (AddImageCommand, GetInspectionResultCommand)

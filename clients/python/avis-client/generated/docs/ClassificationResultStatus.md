@@ -24,3 +24,5 @@ classification_result_status_dict = classification_result_status_instance.to_dic
 classification_result_status_form_dict = classification_result_status.from_dict(classification_result_status_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

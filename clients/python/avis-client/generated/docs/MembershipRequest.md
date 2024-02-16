@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**role** | **str** |  |
+**role** | **str** |  | 
 
 ## Example
 
@@ -25,3 +25,5 @@ membership_request_dict = membership_request_instance.to_dict()
 membership_request_form_dict = membership_request.from_dict(membership_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

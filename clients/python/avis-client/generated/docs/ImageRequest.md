@@ -5,15 +5,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**team** | **int** |  |
-**case** | **int** |  | [optional]
-**uploaded_by** | **int** |  | [optional]
-**inspection_results** | **List[int]** |  | [optional]
-**format** | [**FormatEnum**](FormatEnum.md) |  | [optional]
-**capture_datetime** | **datetime** |  |
-**file** | **bytearray** |  |
-**part_id** | **str** |  | [optional]
-**validation_status** | [**ValidationStatusEnum**](ValidationStatusEnum.md) |  | [optional]
+**team** | **int** |  | 
+**inspection** | **int** |  | [optional] 
+**uploaded_by** | **int** |  | [optional] 
+**inspection_results** | **List[int]** |  | [optional] 
+**format** | [**FormatEnum**](FormatEnum.md) |  | [optional] 
+**capture_datetime** | **datetime** |  | 
+**file** | **bytearray** |  | 
+**part_id** | **str** |  | [optional] 
+**validation_status** | [**ValidationStatusEnum**](ValidationStatusEnum.md) |  | [optional] 
 
 ## Example
 
@@ -33,3 +33,5 @@ image_request_dict = image_request_instance.to_dict()
 image_request_form_dict = image_request.from_dict(image_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

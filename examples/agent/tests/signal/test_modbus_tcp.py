@@ -1,9 +1,9 @@
 import pytest
 from avis_agent.core.commands import (
     AddImageCommand,
-    GetCaseInspectionResultCommand,
+    GetInspectionResultCommand,
     ReadyCommand,
-    StartCaseCommand,
+    StartInspectionCommand,
 )
 from avis_agent.core.exceptions import AgentError
 from avis_agent.core.responses import (
@@ -48,7 +48,11 @@ def verify_ready_coil(coils):
 # Parametrize command tests
 @pytest.mark.parametrize(
     "coil, command_type",
-    [(1, StartCaseCommand), (2, AddImageCommand), (3, GetCaseInspectionResultCommand)],
+    [
+        (1, StartInspectionCommand),
+        (2, AddImageCommand),
+        (3, GetInspectionResultCommand),
+    ],
 )
 def test_read_commands(modbus_config, modbus_client, coil, command_type):
     modbus_client.write_coil(0, True)
@@ -86,7 +90,7 @@ def test_modbus_signal(modbus_config, modbus_client):
     modbus_client.write_coil(0, True)
     assert isinstance(signal.read(), ReadyCommand)
     modbus_client.write_coil(1, True)
-    assert isinstance(signal.read(), StartCaseCommand)
+    assert isinstance(signal.read(), StartInspectionCommand)
     assert signal.write(CommandSuccessfulResponse(message="Test message"))
     coils = modbus_client.read_coils(4, 4).bits[:4]
     assert coils[0] and coils[1] and sum(coils) == 2
@@ -143,9 +147,9 @@ def test_revert_to_ready_and_wait_when_other_party_is_offline(
     # ready coil of the other party is on
     modbus_client.write_coil(0, True)
     assert isinstance(signal.read(), ReadyCommand)
-    # start case
+    # start inspection
     modbus_client.write_coil(1, True)
-    assert isinstance(signal.read(), StartCaseCommand)
+    assert isinstance(signal.read(), StartInspectionCommand)
     assert signal.write(CommandSuccessfulResponse(message="Test message"))
     # other party goes offline
     modbus_client.write_coil(0, False)
@@ -164,9 +168,9 @@ def test_contiguous_modbus_coil_settings(modbus_config, modbus_client):
     command_coil_settings = CommandCoilSettings(
         coil_mapping={
             ReadyCommand: 4,
-            StartCaseCommand: 5,
+            StartInspectionCommand: 5,
             AddImageCommand: 6,
-            GetCaseInspectionResultCommand: 7,
+            GetInspectionResultCommand: 7,
         }
     )
 
@@ -194,12 +198,12 @@ def test_contiguous_modbus_coil_settings(modbus_config, modbus_client):
     modbus_client.write_coil(4, True)
     assert isinstance(signal.read(), ReadyCommand)
     modbus_client.write_coil(5, True)
-    assert isinstance(signal.read(), StartCaseCommand)
+    assert isinstance(signal.read(), StartInspectionCommand)
     assert signal.write(CommandSuccessfulResponse(message="Test message"))
     machine_ready_coil = modbus_client.read_coils(4, 1).bits[0]
-    machine_start_case_coil = modbus_client.read_coils(5, 1).bits[0]
+    machine_start_inspection_coil = modbus_client.read_coils(5, 1).bits[0]
     coils = modbus_client.read_coils(8, 4).bits[:4]
-    assert machine_ready_coil and machine_start_case_coil and sum(coils) == 2
+    assert machine_ready_coil and machine_start_inspection_coil and sum(coils) == 2
 
     coils = modbus_client.read_coils(8, 4).bits[:4]
     assert coils[0] and coils[1] and sum(coils) == 2
@@ -209,9 +213,9 @@ def test_non_contiguous_coil_settings(modbus_config, modbus_client):
     command_coil_settings = CommandCoilSettings(
         coil_mapping={
             ReadyCommand: 4,
-            StartCaseCommand: 8,
+            StartInspectionCommand: 8,
             AddImageCommand: 12,
-            GetCaseInspectionResultCommand: 16,
+            GetInspectionResultCommand: 16,
         }
     )
 
@@ -244,18 +248,18 @@ def test_non_contiguous_coil_settings(modbus_config, modbus_client):
     modbus_client.write_coil(4, True)
     assert isinstance(signal.read(), ReadyCommand)
     modbus_client.write_coil(8, True)
-    assert isinstance(signal.read(), StartCaseCommand)
+    assert isinstance(signal.read(), StartInspectionCommand)
     assert signal.write(CommandSuccessfulResponse(message="Test message"))
 
     machine_ready_coil = modbus_client.read_coils(4, 1).bits[0]
-    machine_start_case_coil = modbus_client.read_coils(8, 1).bits[0]
+    machine_start_inspection_coil = modbus_client.read_coils(8, 1).bits[0]
     machine_add_image_coil = modbus_client.read_coils(12, 1).bits[0]
-    machine_get_case_inspection_result_coil = modbus_client.read_coils(13, 1).bits[0]
+    machine_get_inspection_result_coil = modbus_client.read_coils(13, 1).bits[0]
     assert (
         machine_ready_coil
-        and machine_start_case_coil
+        and machine_start_inspection_coil
         and not machine_add_image_coil
-        and not machine_get_case_inspection_result_coil
+        and not machine_get_inspection_result_coil
     )
 
     agent_ready_coil = modbus_client.read_coils(5, 1).bits[0]
@@ -282,9 +286,9 @@ def test_command_failed_coil_should_be_turned_off_when_failure_has_been_acknowle
     # ready coil of the other party is on
     modbus_client.write_coil(0, True)
     assert isinstance(signal.read(), ReadyCommand)
-    # start case
+    # start inspection
     modbus_client.write_coil(1, True)
-    assert isinstance(signal.read(), StartCaseCommand)
+    assert isinstance(signal.read(), StartInspectionCommand)
     assert signal.write(CommandFailedResponse(message="Test message"))
     # check failure coil is set
     assert modbus_client.read_coils(6, 1).bits[0]

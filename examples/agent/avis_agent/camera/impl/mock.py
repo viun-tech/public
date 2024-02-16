@@ -1,11 +1,10 @@
 from typing import Literal, Union
 
 import numpy as np
-from PIL import Image as img
-from PIL.Image import Image
-
 from avis_agent.camera.base import AbstractCamera, BaseCameraSettings
 from avis_agent.core.exceptions import AgentError
+from PIL import Image as img
+from PIL.Image import Image
 
 
 class MockCameraSettings(BaseCameraSettings):

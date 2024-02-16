@@ -1,6 +1,6 @@
 {
   "name": "@viun/avis-client",
-  "version": "0.3.0",
+  "version": "0.5.0",
   "description": "OpenAPI client for @viun/avis-client",
   "author": "tech@vu.engineering",
   "repository": {
