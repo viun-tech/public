@@ -1,0 +1,4767 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ProductCategory/">
+      
+      
+        <link rel="next" href="../ProductCategoryRequest/">
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
+    
+    
+      
+        <title>avis_client.ProductCategoryApi - VUEngineering public documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.50c56a3b.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#avis_clientproductcategoryapi" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="VUEngineering public documentation" class="md-header__button md-logo" aria-label="VUEngineering public documentation" data-md-component="logo">
+      
+  <img src="../../../../../assets/vue-logo-400x400.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VUEngineering public documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              avis_client.ProductCategoryApi
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../getting-started/" class="md-tabs__link">
+          
+  
+    
+  
+  Getting started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../platform/" class="md-tabs__link">
+          
+  
+    
+  
+  Platform
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../../rest/" class="md-tabs__link">
+          
+  
+    
+  
+  API
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../examples/" class="md-tabs__link">
+          
+  
+    
+  
+  Examples
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../faq/" class="md-tabs__link">
+          
+  
+    
+  
+  FAQ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../about/" class="md-tabs__link">
+          
+  
+    
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="VUEngineering public documentation" class="md-nav__button md-logo" aria-label="VUEngineering public documentation" data-md-component="logo">
+      
+  <img src="../../../../../assets/vue-logo-400x400.jpg" alt="logo">
+
+    </a>
+    VUEngineering public documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../getting-started/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../platform/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Platform
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Platform
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../rest/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    REST
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            REST
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../rest/swagger/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Try it out!
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Try it out!
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Clients
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Clients
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ApiKeysApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.ApiKeysApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AzureMLInferenceRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AzureMLInferenceRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BinaryClassEnum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BinaryClassEnum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BinaryClassInspectionResult/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BinaryClassInspectionResult
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BinaryClassInspectionResultRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BinaryClassInspectionResultRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BinaryClassInspectionResultTyped/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BinaryClassInspectionResultTyped
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BinaryClassInspectionResultTypedRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BinaryClassInspectionResultTypedRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BlankEnum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BlankEnum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Case/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Case
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CaseApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.CaseApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CaseRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CaseRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CaseValidationStatus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CaseValidationStatus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ClassificationResult/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ClassificationResult
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ClassificationResultRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ClassificationResultRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ClassificationResultStatus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ClassificationResultStatus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConfigurationApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.ConfigurationApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConfigurationType/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ConfigurationType
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ConfigurationTypeRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ConfigurationTypeRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CredentialsRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CredentialsRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CustomUser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CustomUser
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CustomUserRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CustomUserRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EmailAddress/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EmailAddress
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FormatEnum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FormatEnum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Image/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.ImageApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageAttribute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ImageAttribute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageAttributeApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.ImageAttributeApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageAttributeCategory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ImageAttributeCategory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageAttributeCategoryApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.ImageAttributeCategoryApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageAttributeCategoryRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ImageAttributeCategoryRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageAttributeRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ImageAttributeRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageQualityGate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ImageQualityGate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageQualityGateRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ImageQualityGateRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageQualityGateResult/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ImageQualityGateResult
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ImageRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageattributeApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.ImageattributeApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImageattributecategoryApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.ImageattributecategoryApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ImagequalitygateApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.ImagequalitygateApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Inspection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inspection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.InspectionApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionMetadata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InspectionMetadata
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionMetadataRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InspectionMetadataRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionMetadataSchema/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InspectionMetadataSchema
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionMetadataSchemaRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InspectionMetadataSchemaRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionObject/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InspectionObject
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionObjectRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InspectionObjectRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionObjectType/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InspectionObjectType
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionObjectTypeRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InspectionObjectTypeRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionProcessBlueprint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InspectionProcessBlueprint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionProcessBlueprintRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InspectionProcessBlueprintRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InspectionRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionResultPolymorphic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InspectionResultPolymorphic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionResultPolymorphicRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InspectionResultPolymorphicRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionStatus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InspectionStatus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionStatusEnum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InspectionStatusEnum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionValidationStatus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InspectionValidationStatus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionmetadataApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.InspectionmetadataApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionmetadataschemaApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.InspectionmetadataschemaApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionobjectApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.InspectionobjectApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionobjecttypeApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.InspectionobjecttypeApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionprocessblueprintApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.InspectionprocessblueprintApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InspectionresultApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.InspectionresultApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MLModel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MLModel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MLModelRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MLModelRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MLModelType/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MLModelType
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MLModelTypeRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MLModelTypeRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Membership/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Membership
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MembershipApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.MembershipApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MembershipRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MembershipRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Metadata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metadata
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MetadataApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.MetadataApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MetadataRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MetadataRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MetadataSchema/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MetadataSchema
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MetadataSchemaApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.MetadataSchemaApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MetadataSchemaRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MetadataSchemaRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MlApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.MlApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedBinaryClassInspectionResultRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedBinaryClassInspectionResultRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedBinaryClassInspectionResultTypedRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedBinaryClassInspectionResultTypedRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedCaseRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedCaseRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedClassificationResultRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedClassificationResultRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedConfigurationTypeRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedConfigurationTypeRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedImageAttributeCategoryRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedImageAttributeCategoryRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedImageAttributeRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedImageAttributeRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedImageQualityGateRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedImageQualityGateRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedImageRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedImageRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedInspectionMetadataRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedInspectionMetadataRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedInspectionMetadataSchemaRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedInspectionMetadataSchemaRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedInspectionObjectRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedInspectionObjectRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedInspectionObjectTypeRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedInspectionObjectTypeRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedInspectionProcessBlueprintRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedInspectionProcessBlueprintRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedInspectionRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedInspectionRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedInspectionResultPolymorphicRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedInspectionResultPolymorphicRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedMLModelRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedMLModelRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedMLModelTypeRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedMLModelTypeRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedMetadataRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedMetadataRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedMetadataSchemaRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedMetadataSchemaRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedProductCategoryRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedProductCategoryRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedProductRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedProductRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedQualityCriteriaRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedQualityCriteriaRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedRatingInspectionResultRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedRatingInspectionResultRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedRatingInspectionResultTypedRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedRatingInspectionResultTypedRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedResultRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedResultRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PatchedResultRequestStatus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PatchedResultRequestStatus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Product/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Product
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ProductApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.ProductApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ProductCategory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ProductCategory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.ProductCategoryApi
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ProductCategoryRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ProductCategoryRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ProductRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ProductRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ProductcategoryApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.ProductcategoryApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QualityCriteria/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QualityCriteria
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QualityCriteriaApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.QualityCriteriaApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QualityCriteriaRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QualityCriteriaRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QualityCriteriaResult/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QualityCriteriaResult
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QualityEnum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QualityEnum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis-client
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RatingInspectionResult/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RatingInspectionResult
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RatingInspectionResultRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RatingInspectionResultRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RatingInspectionResultTyped/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RatingInspectionResultTyped
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RatingInspectionResultTypedRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RatingInspectionResultTypedRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Result/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Result
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ResultApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.ResultApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ResultRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ResultRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../StatusEnum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    StatusEnum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Team/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Team
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TeamApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.TeamApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TeamRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TeamRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TypeEnum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TypeEnum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UserAPIKeyCreate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UserAPIKeyCreate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UserAPIKeyCreateRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UserAPIKeyCreateRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UserApi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    avis_client.UserApi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ValidationStatusEnum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ValidationStatusEnum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../examples/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Examples
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../faq/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            FAQ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../about/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="avis_clientproductcategoryapi">avis_client.ProductCategoryApi</h1>
+<p>All URIs are relative to <em>https://avis.vu.engineering</em></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>HTTP request</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="./#product_category_create"><strong>product_category_create</strong></a></td>
+<td><strong>POST</strong> /api/product-category/</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="./#product_category_destroy"><strong>product_category_destroy</strong></a></td>
+<td><strong>DELETE</strong> /api/product-category/{id}/</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="./#product_category_list"><strong>product_category_list</strong></a></td>
+<td><strong>GET</strong> /api/product-category/</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="./#product_category_partial_update"><strong>product_category_partial_update</strong></a></td>
+<td><strong>PATCH</strong> /api/product-category/{id}/</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="./#product_category_retrieve"><strong>product_category_retrieve</strong></a></td>
+<td><strong>GET</strong> /api/product-category/{id}/</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="./#product_category_update"><strong>product_category_update</strong></a></td>
+<td><strong>PUT</strong> /api/product-category/{id}/</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="product_category_create"><strong>product_category_create</strong></h1>
+<blockquote>
+<p>ProductCategory product_category_create(product_category_request)</p>
+</blockquote>
+<p>A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:  * CreateModelMixin: allows creating objects * UpdateModelMixin: allows updating objects * DestroyModelMixin: allows deleting objects * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the <code>fields</code> query parameter)</p>
+<h3 id="example">Example</h3>
+<ul>
+<li>Api Key Authentication (cookieAuth):</li>
+<li>Api Key Authentication (ApiKeyAuth):</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">time</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">os</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span> <span class="nn">avis_client</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">from</span> <span class="nn">avis_client.models.product_category</span> <span class="kn">import</span> <span class="n">ProductCategory</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">from</span> <span class="nn">avis_client.models.product_category_request</span> <span class="kn">import</span> <span class="n">ProductCategoryRequest</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kn">from</span> <span class="nn">avis_client.rest</span> <span class="kn">import</span> <span class="n">ApiException</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># Defining the host is optional and defaults to https://avis.vu.engineering</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># See configuration.py for a list of all supported configuration parameters.</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">configuration</span> <span class="o">=</span> <span class="n">avis_client</span><span class="o">.</span><span class="n">Configuration</span><span class="p">(</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;https://avis.vu.engineering&quot;</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">)</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># The client must configure the authentication and authorization parameters</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="c1"># in accordance with the API server security policy.</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># Examples for each auth method are provided below, use the example that</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="c1"># satisfies your auth use case.</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="c1"># Configure API key authorization: cookieAuth</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="n">configuration</span><span class="o">.</span><span class="n">api_key</span><span class="p">[</span><span class="s1">&#39;cookieAuth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;API_KEY&quot;</span><span class="p">]</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="c1"># Uncomment below to setup prefix (e.g. Bearer) for API key, if needed</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="c1"># configuration.api_key_prefix[&#39;cookieAuth&#39;] = &#39;Bearer&#39;</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="c1"># Configure API key authorization: ApiKeyAuth</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="n">configuration</span><span class="o">.</span><span class="n">api_key</span><span class="p">[</span><span class="s1">&#39;ApiKeyAuth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;API_KEY&quot;</span><span class="p">]</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="c1"># Uncomment below to setup prefix (e.g. Bearer) for API key, if needed</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="c1"># configuration.api_key_prefix[&#39;ApiKeyAuth&#39;] = &#39;Bearer&#39;</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="c1"># Enter a context with an instance of the API client</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="k">with</span> <span class="n">avis_client</span><span class="o">.</span><span class="n">ApiClient</span><span class="p">(</span><span class="n">configuration</span><span class="p">)</span> <span class="k">as</span> <span class="n">api_client</span><span class="p">:</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>    <span class="c1"># Create an instance of the API class</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>    <span class="n">api_instance</span> <span class="o">=</span> <span class="n">avis_client</span><span class="o">.</span><span class="n">ProductCategoryApi</span><span class="p">(</span><span class="n">api_client</span><span class="p">)</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>    <span class="n">product_category_request</span> <span class="o">=</span> <span class="n">avis_client</span><span class="o">.</span><span class="n">ProductCategoryRequest</span><span class="p">()</span> <span class="c1"># ProductCategoryRequest | </span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>        <span class="n">api_response</span> <span class="o">=</span> <span class="n">api_instance</span><span class="o">.</span><span class="n">product_category_create</span><span class="p">(</span><span class="n">product_category_request</span><span class="p">)</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The response of ProductCategoryApi-&gt;product_category_create:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>        <span class="n">pprint</span><span class="p">(</span><span class="n">api_response</span><span class="p">)</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exception when calling ProductCategoryApi-&gt;product_category_create: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>product_category_request</strong></td>
+<td><a href="../ProductCategoryRequest/"><strong>ProductCategoryRequest</strong></a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type">Return type</h3>
+<p><a href="../ProductCategory/"><strong>ProductCategory</strong></a></p>
+<h3 id="authorization">Authorization</h3>
+<p><a href="../#cookieAuth">cookieAuth</a>, <a href="../#ApiKeyAuth">ApiKeyAuth</a></p>
+<h3 id="http-request-headers">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: application/json, application/x-www-form-urlencoded, multipart/form-data</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<h3 id="http-response-details">HTTP response details</h3>
+<table>
+<thead>
+<tr>
+<th>Status code</th>
+<th>Description</th>
+<th>Response headers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>201</strong></td>
+<td></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#">[Back to top]</a> <a href="../#documentation-for-api-endpoints">[Back to API list]</a> <a href="../#documentation-for-models">[Back to Model list]</a> <a href="../">[Back to README]</a></p>
+<h1 id="product_category_destroy"><strong>product_category_destroy</strong></h1>
+<blockquote>
+<p>product_category_destroy(id)</p>
+</blockquote>
+<p>A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:  * CreateModelMixin: allows creating objects * UpdateModelMixin: allows updating objects * DestroyModelMixin: allows deleting objects * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the <code>fields</code> query parameter)</p>
+<h3 id="example_1">Example</h3>
+<ul>
+<li>Api Key Authentication (cookieAuth):</li>
+<li>Api Key Authentication (ApiKeyAuth):</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">time</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span> <span class="nn">os</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">import</span> <span class="nn">avis_client</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">from</span> <span class="nn">avis_client.rest</span> <span class="kn">import</span> <span class="n">ApiException</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Defining the host is optional and defaults to https://avis.vu.engineering</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># See configuration.py for a list of all supported configuration parameters.</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">configuration</span> <span class="o">=</span> <span class="n">avis_client</span><span class="o">.</span><span class="n">Configuration</span><span class="p">(</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;https://avis.vu.engineering&quot;</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">)</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># The client must configure the authentication and authorization parameters</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="c1"># in accordance with the API server security policy.</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="c1"># Examples for each auth method are provided below, use the example that</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="c1"># satisfies your auth use case.</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="c1"># Configure API key authorization: cookieAuth</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="n">configuration</span><span class="o">.</span><span class="n">api_key</span><span class="p">[</span><span class="s1">&#39;cookieAuth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;API_KEY&quot;</span><span class="p">]</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="c1"># Uncomment below to setup prefix (e.g. Bearer) for API key, if needed</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="c1"># configuration.api_key_prefix[&#39;cookieAuth&#39;] = &#39;Bearer&#39;</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="c1"># Configure API key authorization: ApiKeyAuth</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="n">configuration</span><span class="o">.</span><span class="n">api_key</span><span class="p">[</span><span class="s1">&#39;ApiKeyAuth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;API_KEY&quot;</span><span class="p">]</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="c1"># Uncomment below to setup prefix (e.g. Bearer) for API key, if needed</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="c1"># configuration.api_key_prefix[&#39;ApiKeyAuth&#39;] = &#39;Bearer&#39;</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="c1"># Enter a context with an instance of the API client</span>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="k">with</span> <span class="n">avis_client</span><span class="o">.</span><span class="n">ApiClient</span><span class="p">(</span><span class="n">configuration</span><span class="p">)</span> <span class="k">as</span> <span class="n">api_client</span><span class="p">:</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>    <span class="c1"># Create an instance of the API class</span>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>    <span class="n">api_instance</span> <span class="o">=</span> <span class="n">avis_client</span><span class="o">.</span><span class="n">ProductCategoryApi</span><span class="p">(</span><span class="n">api_client</span><span class="p">)</span>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>    <span class="nb">id</span> <span class="o">=</span> <span class="mi">56</span> <span class="c1"># int | A unique integer value identifying this product category.</span>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>        <span class="n">api_instance</span><span class="o">.</span><span class="n">product_category_destroy</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exception when calling ProductCategoryApi-&gt;product_category_destroy: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="parameters_1">Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td><strong>int</strong></td>
+<td>A unique integer value identifying this product category.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type_1">Return type</h3>
+<p>void (empty response body)</p>
+<h3 id="authorization_1">Authorization</h3>
+<p><a href="../#cookieAuth">cookieAuth</a>, <a href="../#ApiKeyAuth">ApiKeyAuth</a></p>
+<h3 id="http-request-headers_1">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: Not defined</li>
+</ul>
+<h3 id="http-response-details_1">HTTP response details</h3>
+<table>
+<thead>
+<tr>
+<th>Status code</th>
+<th>Description</th>
+<th>Response headers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>204</strong></td>
+<td>No response body</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#">[Back to top]</a> <a href="../#documentation-for-api-endpoints">[Back to API list]</a> <a href="../#documentation-for-models">[Back to Model list]</a> <a href="../">[Back to README]</a></p>
+<h1 id="product_category_list"><strong>product_category_list</strong></h1>
+<blockquote>
+<p>List[ProductCategory] product_category_list(fields=fields, id=id)</p>
+</blockquote>
+<p>A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:  * CreateModelMixin: allows creating objects * UpdateModelMixin: allows updating objects * DestroyModelMixin: allows deleting objects * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the <code>fields</code> query parameter)</p>
+<h3 id="example_2">Example</h3>
+<ul>
+<li>Api Key Authentication (cookieAuth):</li>
+<li>Api Key Authentication (ApiKeyAuth):</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">time</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">import</span> <span class="nn">os</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">import</span> <span class="nn">avis_client</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kn">from</span> <span class="nn">avis_client.models.product_category</span> <span class="kn">import</span> <span class="n">ProductCategory</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kn">from</span> <span class="nn">avis_client.rest</span> <span class="kn">import</span> <span class="n">ApiException</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1"># Defining the host is optional and defaults to https://avis.vu.engineering</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># See configuration.py for a list of all supported configuration parameters.</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">configuration</span> <span class="o">=</span> <span class="n">avis_client</span><span class="o">.</span><span class="n">Configuration</span><span class="p">(</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;https://avis.vu.engineering&quot;</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="p">)</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="c1"># The client must configure the authentication and authorization parameters</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="c1"># in accordance with the API server security policy.</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="c1"># Examples for each auth method are provided below, use the example that</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="c1"># satisfies your auth use case.</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="c1"># Configure API key authorization: cookieAuth</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="n">configuration</span><span class="o">.</span><span class="n">api_key</span><span class="p">[</span><span class="s1">&#39;cookieAuth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;API_KEY&quot;</span><span class="p">]</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="c1"># Uncomment below to setup prefix (e.g. Bearer) for API key, if needed</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="c1"># configuration.api_key_prefix[&#39;cookieAuth&#39;] = &#39;Bearer&#39;</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="c1"># Configure API key authorization: ApiKeyAuth</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="n">configuration</span><span class="o">.</span><span class="n">api_key</span><span class="p">[</span><span class="s1">&#39;ApiKeyAuth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;API_KEY&quot;</span><span class="p">]</span>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="c1"># Uncomment below to setup prefix (e.g. Bearer) for API key, if needed</span>
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="c1"># configuration.api_key_prefix[&#39;ApiKeyAuth&#39;] = &#39;Bearer&#39;</span>
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="c1"># Enter a context with an instance of the API client</span>
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="k">with</span> <span class="n">avis_client</span><span class="o">.</span><span class="n">ApiClient</span><span class="p">(</span><span class="n">configuration</span><span class="p">)</span> <span class="k">as</span> <span class="n">api_client</span><span class="p">:</span>
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>    <span class="c1"># Create an instance of the API class</span>
+</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>    <span class="n">api_instance</span> <span class="o">=</span> <span class="n">avis_client</span><span class="o">.</span><span class="n">ProductCategoryApi</span><span class="p">(</span><span class="n">api_client</span><span class="p">)</span>
+</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>    <span class="n">fields</span> <span class="o">=</span> <span class="s1">&#39;fields_example&#39;</span> <span class="c1"># str |  (optional)</span>
+</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>    <span class="nb">id</span> <span class="o">=</span> <span class="p">[</span><span class="mi">56</span><span class="p">]</span> <span class="c1"># List[int] | Multiple values may be separated by commas. (optional)</span>
+</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>
+</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>        <span class="n">api_response</span> <span class="o">=</span> <span class="n">api_instance</span><span class="o">.</span><span class="n">product_category_list</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="n">fields</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">)</span>
+</span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The response of ProductCategoryApi-&gt;product_category_list:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-2-41"><a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>        <span class="n">pprint</span><span class="p">(</span><span class="n">api_response</span><span class="p">)</span>
+</span><span id="__span-2-42"><a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-2-43"><a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exception when calling ProductCategoryApi-&gt;product_category_list: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="parameters_2">Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>fields</strong></td>
+<td><strong>str</strong></td>
+<td></td>
+<td>[optional]</td>
+</tr>
+<tr>
+<td><strong>id</strong></td>
+<td><a href="int.md"><strong>List[int]</strong></a></td>
+<td>Multiple values may be separated by commas.</td>
+<td>[optional]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type_2">Return type</h3>
+<p><a href="../ProductCategory/"><strong>List[ProductCategory]</strong></a></p>
+<h3 id="authorization_2">Authorization</h3>
+<p><a href="../#cookieAuth">cookieAuth</a>, <a href="../#ApiKeyAuth">ApiKeyAuth</a></p>
+<h3 id="http-request-headers_2">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<h3 id="http-response-details_2">HTTP response details</h3>
+<table>
+<thead>
+<tr>
+<th>Status code</th>
+<th>Description</th>
+<th>Response headers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>200</strong></td>
+<td></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#">[Back to top]</a> <a href="../#documentation-for-api-endpoints">[Back to API list]</a> <a href="../#documentation-for-models">[Back to Model list]</a> <a href="../">[Back to README]</a></p>
+<h1 id="product_category_partial_update"><strong>product_category_partial_update</strong></h1>
+<blockquote>
+<p>ProductCategory product_category_partial_update(id, patched_product_category_request=patched_product_category_request)</p>
+</blockquote>
+<p>A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:  * CreateModelMixin: allows creating objects * UpdateModelMixin: allows updating objects * DestroyModelMixin: allows deleting objects * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the <code>fields</code> query parameter)</p>
+<h3 id="example_3">Example</h3>
+<ul>
+<li>Api Key Authentication (cookieAuth):</li>
+<li>Api Key Authentication (ApiKeyAuth):</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span> <span class="nn">time</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">import</span> <span class="nn">os</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kn">import</span> <span class="nn">avis_client</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kn">from</span> <span class="nn">avis_client.models.patched_product_category_request</span> <span class="kn">import</span> <span class="n">PatchedProductCategoryRequest</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kn">from</span> <span class="nn">avis_client.models.product_category</span> <span class="kn">import</span> <span class="n">ProductCategory</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="kn">from</span> <span class="nn">avis_client.rest</span> <span class="kn">import</span> <span class="n">ApiException</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1"># Defining the host is optional and defaults to https://avis.vu.engineering</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1"># See configuration.py for a list of all supported configuration parameters.</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="n">configuration</span> <span class="o">=</span> <span class="n">avis_client</span><span class="o">.</span><span class="n">Configuration</span><span class="p">(</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;https://avis.vu.engineering&quot;</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">)</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="c1"># The client must configure the authentication and authorization parameters</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="c1"># in accordance with the API server security policy.</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="c1"># Examples for each auth method are provided below, use the example that</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="c1"># satisfies your auth use case.</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="c1"># Configure API key authorization: cookieAuth</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="n">configuration</span><span class="o">.</span><span class="n">api_key</span><span class="p">[</span><span class="s1">&#39;cookieAuth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;API_KEY&quot;</span><span class="p">]</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="c1"># Uncomment below to setup prefix (e.g. Bearer) for API key, if needed</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="c1"># configuration.api_key_prefix[&#39;cookieAuth&#39;] = &#39;Bearer&#39;</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="c1"># Configure API key authorization: ApiKeyAuth</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="n">configuration</span><span class="o">.</span><span class="n">api_key</span><span class="p">[</span><span class="s1">&#39;ApiKeyAuth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;API_KEY&quot;</span><span class="p">]</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="c1"># Uncomment below to setup prefix (e.g. Bearer) for API key, if needed</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="c1"># configuration.api_key_prefix[&#39;ApiKeyAuth&#39;] = &#39;Bearer&#39;</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="c1"># Enter a context with an instance of the API client</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="k">with</span> <span class="n">avis_client</span><span class="o">.</span><span class="n">ApiClient</span><span class="p">(</span><span class="n">configuration</span><span class="p">)</span> <span class="k">as</span> <span class="n">api_client</span><span class="p">:</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>    <span class="c1"># Create an instance of the API class</span>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>    <span class="n">api_instance</span> <span class="o">=</span> <span class="n">avis_client</span><span class="o">.</span><span class="n">ProductCategoryApi</span><span class="p">(</span><span class="n">api_client</span><span class="p">)</span>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>    <span class="nb">id</span> <span class="o">=</span> <span class="mi">56</span> <span class="c1"># int | A unique integer value identifying this product category.</span>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>    <span class="n">patched_product_category_request</span> <span class="o">=</span> <span class="n">avis_client</span><span class="o">.</span><span class="n">PatchedProductCategoryRequest</span><span class="p">()</span> <span class="c1"># PatchedProductCategoryRequest |  (optional)</span>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>        <span class="n">api_response</span> <span class="o">=</span> <span class="n">api_instance</span><span class="o">.</span><span class="n">product_category_partial_update</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">patched_product_category_request</span><span class="o">=</span><span class="n">patched_product_category_request</span><span class="p">)</span>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The response of ProductCategoryApi-&gt;product_category_partial_update:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>        <span class="n">pprint</span><span class="p">(</span><span class="n">api_response</span><span class="p">)</span>
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exception when calling ProductCategoryApi-&gt;product_category_partial_update: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="parameters_3">Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td><strong>int</strong></td>
+<td>A unique integer value identifying this product category.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>patched_product_category_request</strong></td>
+<td><a href="../PatchedProductCategoryRequest/"><strong>PatchedProductCategoryRequest</strong></a></td>
+<td></td>
+<td>[optional]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type_3">Return type</h3>
+<p><a href="../ProductCategory/"><strong>ProductCategory</strong></a></p>
+<h3 id="authorization_3">Authorization</h3>
+<p><a href="../#cookieAuth">cookieAuth</a>, <a href="../#ApiKeyAuth">ApiKeyAuth</a></p>
+<h3 id="http-request-headers_3">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: application/json, application/x-www-form-urlencoded, multipart/form-data</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<h3 id="http-response-details_3">HTTP response details</h3>
+<table>
+<thead>
+<tr>
+<th>Status code</th>
+<th>Description</th>
+<th>Response headers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>200</strong></td>
+<td></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#">[Back to top]</a> <a href="../#documentation-for-api-endpoints">[Back to API list]</a> <a href="../#documentation-for-models">[Back to Model list]</a> <a href="../">[Back to README]</a></p>
+<h1 id="product_category_retrieve"><strong>product_category_retrieve</strong></h1>
+<blockquote>
+<p>ProductCategory product_category_retrieve(id, fields=fields)</p>
+</blockquote>
+<p>A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:  * CreateModelMixin: allows creating objects * UpdateModelMixin: allows updating objects * DestroyModelMixin: allows deleting objects * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the <code>fields</code> query parameter)</p>
+<h3 id="example_4">Example</h3>
+<ul>
+<li>Api Key Authentication (cookieAuth):</li>
+<li>Api Key Authentication (ApiKeyAuth):</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span> <span class="nn">time</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span> <span class="nn">os</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">import</span> <span class="nn">avis_client</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kn">from</span> <span class="nn">avis_client.models.product_category</span> <span class="kn">import</span> <span class="n">ProductCategory</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="kn">from</span> <span class="nn">avis_client.rest</span> <span class="kn">import</span> <span class="n">ApiException</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1"># Defining the host is optional and defaults to https://avis.vu.engineering</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1"># See configuration.py for a list of all supported configuration parameters.</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="n">configuration</span> <span class="o">=</span> <span class="n">avis_client</span><span class="o">.</span><span class="n">Configuration</span><span class="p">(</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    <span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;https://avis.vu.engineering&quot;</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">)</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="c1"># The client must configure the authentication and authorization parameters</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="c1"># in accordance with the API server security policy.</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="c1"># Examples for each auth method are provided below, use the example that</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="c1"># satisfies your auth use case.</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="c1"># Configure API key authorization: cookieAuth</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="n">configuration</span><span class="o">.</span><span class="n">api_key</span><span class="p">[</span><span class="s1">&#39;cookieAuth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;API_KEY&quot;</span><span class="p">]</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="c1"># Uncomment below to setup prefix (e.g. Bearer) for API key, if needed</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="c1"># configuration.api_key_prefix[&#39;cookieAuth&#39;] = &#39;Bearer&#39;</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="c1"># Configure API key authorization: ApiKeyAuth</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="n">configuration</span><span class="o">.</span><span class="n">api_key</span><span class="p">[</span><span class="s1">&#39;ApiKeyAuth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;API_KEY&quot;</span><span class="p">]</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="c1"># Uncomment below to setup prefix (e.g. Bearer) for API key, if needed</span>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="c1"># configuration.api_key_prefix[&#39;ApiKeyAuth&#39;] = &#39;Bearer&#39;</span>
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="c1"># Enter a context with an instance of the API client</span>
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="k">with</span> <span class="n">avis_client</span><span class="o">.</span><span class="n">ApiClient</span><span class="p">(</span><span class="n">configuration</span><span class="p">)</span> <span class="k">as</span> <span class="n">api_client</span><span class="p">:</span>
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>    <span class="c1"># Create an instance of the API class</span>
+</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>    <span class="n">api_instance</span> <span class="o">=</span> <span class="n">avis_client</span><span class="o">.</span><span class="n">ProductCategoryApi</span><span class="p">(</span><span class="n">api_client</span><span class="p">)</span>
+</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>    <span class="nb">id</span> <span class="o">=</span> <span class="mi">56</span> <span class="c1"># int | A unique integer value identifying this product category.</span>
+</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>    <span class="n">fields</span> <span class="o">=</span> <span class="s1">&#39;fields_example&#39;</span> <span class="c1"># str |  (optional)</span>
+</span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>
+</span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>        <span class="n">api_response</span> <span class="o">=</span> <span class="n">api_instance</span><span class="o">.</span><span class="n">product_category_retrieve</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="n">fields</span><span class="p">)</span>
+</span><span id="__span-4-40"><a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The response of ProductCategoryApi-&gt;product_category_retrieve:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-4-41"><a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>        <span class="n">pprint</span><span class="p">(</span><span class="n">api_response</span><span class="p">)</span>
+</span><span id="__span-4-42"><a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-4-43"><a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exception when calling ProductCategoryApi-&gt;product_category_retrieve: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="parameters_4">Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td><strong>int</strong></td>
+<td>A unique integer value identifying this product category.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>fields</strong></td>
+<td><strong>str</strong></td>
+<td></td>
+<td>[optional]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type_4">Return type</h3>
+<p><a href="../ProductCategory/"><strong>ProductCategory</strong></a></p>
+<h3 id="authorization_4">Authorization</h3>
+<p><a href="../#cookieAuth">cookieAuth</a>, <a href="../#ApiKeyAuth">ApiKeyAuth</a></p>
+<h3 id="http-request-headers_4">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: Not defined</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<h3 id="http-response-details_4">HTTP response details</h3>
+<table>
+<thead>
+<tr>
+<th>Status code</th>
+<th>Description</th>
+<th>Response headers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>200</strong></td>
+<td></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#">[Back to top]</a> <a href="../#documentation-for-api-endpoints">[Back to API list]</a> <a href="../#documentation-for-models">[Back to Model list]</a> <a href="../">[Back to README]</a></p>
+<h1 id="product_category_update"><strong>product_category_update</strong></h1>
+<blockquote>
+<p>ProductCategory product_category_update(id, product_category_request)</p>
+</blockquote>
+<p>A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:  * CreateModelMixin: allows creating objects * UpdateModelMixin: allows updating objects * DestroyModelMixin: allows deleting objects * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the <code>fields</code> query parameter)</p>
+<h3 id="example_5">Example</h3>
+<ul>
+<li>Api Key Authentication (cookieAuth):</li>
+<li>Api Key Authentication (ApiKeyAuth):</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span> <span class="nn">time</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">import</span> <span class="nn">os</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">import</span> <span class="nn">avis_client</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kn">from</span> <span class="nn">avis_client.models.product_category</span> <span class="kn">import</span> <span class="n">ProductCategory</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kn">from</span> <span class="nn">avis_client.models.product_category_request</span> <span class="kn">import</span> <span class="n">ProductCategoryRequest</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="kn">from</span> <span class="nn">avis_client.rest</span> <span class="kn">import</span> <span class="n">ApiException</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c1"># Defining the host is optional and defaults to https://avis.vu.engineering</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c1"># See configuration.py for a list of all supported configuration parameters.</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="n">configuration</span> <span class="o">=</span> <span class="n">avis_client</span><span class="o">.</span><span class="n">Configuration</span><span class="p">(</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;https://avis.vu.engineering&quot;</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="p">)</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="c1"># The client must configure the authentication and authorization parameters</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="c1"># in accordance with the API server security policy.</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="c1"># Examples for each auth method are provided below, use the example that</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="c1"># satisfies your auth use case.</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="c1"># Configure API key authorization: cookieAuth</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="n">configuration</span><span class="o">.</span><span class="n">api_key</span><span class="p">[</span><span class="s1">&#39;cookieAuth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;API_KEY&quot;</span><span class="p">]</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="c1"># Uncomment below to setup prefix (e.g. Bearer) for API key, if needed</span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="c1"># configuration.api_key_prefix[&#39;cookieAuth&#39;] = &#39;Bearer&#39;</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="c1"># Configure API key authorization: ApiKeyAuth</span>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="n">configuration</span><span class="o">.</span><span class="n">api_key</span><span class="p">[</span><span class="s1">&#39;ApiKeyAuth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;API_KEY&quot;</span><span class="p">]</span>
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="c1"># Uncomment below to setup prefix (e.g. Bearer) for API key, if needed</span>
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="c1"># configuration.api_key_prefix[&#39;ApiKeyAuth&#39;] = &#39;Bearer&#39;</span>
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>
+</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="c1"># Enter a context with an instance of the API client</span>
+</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="k">with</span> <span class="n">avis_client</span><span class="o">.</span><span class="n">ApiClient</span><span class="p">(</span><span class="n">configuration</span><span class="p">)</span> <span class="k">as</span> <span class="n">api_client</span><span class="p">:</span>
+</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>    <span class="c1"># Create an instance of the API class</span>
+</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>    <span class="n">api_instance</span> <span class="o">=</span> <span class="n">avis_client</span><span class="o">.</span><span class="n">ProductCategoryApi</span><span class="p">(</span><span class="n">api_client</span><span class="p">)</span>
+</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>    <span class="nb">id</span> <span class="o">=</span> <span class="mi">56</span> <span class="c1"># int | A unique integer value identifying this product category.</span>
+</span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>    <span class="n">product_category_request</span> <span class="o">=</span> <span class="n">avis_client</span><span class="o">.</span><span class="n">ProductCategoryRequest</span><span class="p">()</span> <span class="c1"># ProductCategoryRequest | </span>
+</span><span id="__span-5-38"><a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a>
+</span><span id="__span-5-39"><a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-5-40"><a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a>        <span class="n">api_response</span> <span class="o">=</span> <span class="n">api_instance</span><span class="o">.</span><span class="n">product_category_update</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">product_category_request</span><span class="p">)</span>
+</span><span id="__span-5-41"><a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The response of ProductCategoryApi-&gt;product_category_update:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-5-42"><a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a>        <span class="n">pprint</span><span class="p">(</span><span class="n">api_response</span><span class="p">)</span>
+</span><span id="__span-5-43"><a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-5-44"><a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exception when calling ProductCategoryApi-&gt;product_category_update: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="parameters_5">Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td><strong>int</strong></td>
+<td>A unique integer value identifying this product category.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>product_category_request</strong></td>
+<td><a href="../ProductCategoryRequest/"><strong>ProductCategoryRequest</strong></a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="return-type_5">Return type</h3>
+<p><a href="../ProductCategory/"><strong>ProductCategory</strong></a></p>
+<h3 id="authorization_5">Authorization</h3>
+<p><a href="../#cookieAuth">cookieAuth</a>, <a href="../#ApiKeyAuth">ApiKeyAuth</a></p>
+<h3 id="http-request-headers_5">HTTP request headers</h3>
+<ul>
+<li><strong>Content-Type</strong>: application/json, application/x-www-form-urlencoded, multipart/form-data</li>
+<li><strong>Accept</strong>: application/json</li>
+</ul>
+<h3 id="http-response-details_5">HTTP response details</h3>
+<table>
+<thead>
+<tr>
+<th>Status code</th>
+<th>Description</th>
+<th>Response headers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>200</strong></td>
+<td></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#">[Back to top]</a> <a href="../#documentation-for-api-endpoints">[Back to API list]</a> <a href="../#documentation-for-models">[Back to Model list]</a> <a href="../">[Back to README]</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.top", "navigation.indexes", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      
+    
+  </body>
+</html>
