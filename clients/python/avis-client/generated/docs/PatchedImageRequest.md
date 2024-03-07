@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **team** | **int** |  | [optional] 
 **inspection** | **int** |  | [optional] 
 **uploaded_by** | **int** |  | [optional] 
-**inspection_results** | **List[int]** |  | [optional] 
+**results** | **List[int]** |  | [optional] 
 **format** | [**FormatEnum**](FormatEnum.md) |  | [optional] 
 **capture_datetime** | **datetime** |  | [optional] 
 **file** | **bytearray** |  | [optional] 

@@ -46,6 +46,8 @@ jobs:
             mkdocs-material-
       - name: Move AVIS client docs
         run: |
+          # clean up first
+          rm docs/docs/api/clients/python/avis_client/*.md
           cp -r "clients/python/avis-client/generated/docs/." docs/docs/api/clients/python/avis_client
           cp "clients/python/avis-client/generated/README.md" docs/docs/api/clients/python/avis_client/README.md
           # hack to fix the relative links

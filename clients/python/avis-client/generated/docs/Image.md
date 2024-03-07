@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **team** | **int** |  | 
 **inspection** | **int** |  | [optional] 
 **uploaded_by** | **int** |  | [optional] 
-**inspection_results** | **List[int]** |  | [optional] 
+**results** | **List[int]** |  | [optional] 
 **created_at** | **datetime** |  | [readonly] 
 **updated_at** | **datetime** |  | [readonly] 
 **format** | [**FormatEnum**](FormatEnum.md) |  | [optional] 

@@ -34,6 +34,10 @@ update_files() {
     esac
 }
 
+# clean up previous generated files
+rm -rf python/avis-client/generated
+rm -rf typescript/avis-client/generated
+
 # generate python client
 openapi-generator-cli generate --git-repo-id public --git-user-id vuengineering -i ../api-schema.yml -g python -o python/avis-client/generated --additional-properties=packageName=avis_client,packageVersion="$1"
 # generate typescript client

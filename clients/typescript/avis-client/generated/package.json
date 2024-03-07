@@ -1,6 +1,6 @@
 {
   "name": "@viun/avis-client",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "OpenAPI client for @viun/avis-client",
   "author": "tech@vu.engineering",
   "repository": {
@@ -22,10 +22,10 @@
     "prepare": "npm run build"
   },
   "dependencies": {
-    "axios": "^1.6.1"
+    "axios": "^1.6.7"
   },
   "devDependencies": {
-    "@types/node": "^20.11.17",
+    "@types/node": "^12.11.5",
     "typescript": "^4.0"
   }
 }

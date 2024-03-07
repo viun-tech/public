@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [readonly] 
 **team** | **int** |  | 
-**type** | **int** |  | [optional] 
+**category** | **int** |  | [optional] 
 **inspections** | **List[int]** |  | [optional] 
 **created_at** | **datetime** |  | [readonly] 
 **updated_at** | **datetime** |  | [readonly] 

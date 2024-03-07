@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **team** | **int** |  | [optional] 
 **category** | **int** |  | [optional] 
-**classification_results** | **List[int]** |  | [optional] 
+**results** | **List[int]** |  | [optional] 
 **value** | **str** |  | [optional] 
 
 ## Example
