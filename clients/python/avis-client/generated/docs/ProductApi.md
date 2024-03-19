@@ -185,7 +185,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **product_list**
-> List[Product] product_list(fields=fields, id=id, identifier=identifier, type=type)
+> List[Product] product_list(category=category, fields=fields, id=id, identifier=identifier)
 
 
 
@@ -231,13 +231,13 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.ProductApi(api_client)
+    category = [56] # List[int] | Multiple values may be separated by commas. (optional)
     fields = 'fields_example' # str |  (optional)
     id = [56] # List[int] | Multiple values may be separated by commas. (optional)
     identifier = ['identifier_example'] # List[str] | Multiple values may be separated by commas. (optional)
-    type = [56] # List[int] | Multiple values may be separated by commas. (optional)
 
     try:
-        api_response = api_instance.product_list(fields=fields, id=id, identifier=identifier, type=type)
+        api_response = api_instance.product_list(category=category, fields=fields, id=id, identifier=identifier)
         print("The response of ProductApi->product_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -251,10 +251,10 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **category** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
  **fields** | **str**|  | [optional] 
  **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
  **identifier** | [**List[str]**](str.md)| Multiple values may be separated by commas. | [optional] 
- **type** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
 
 ### Return type
 

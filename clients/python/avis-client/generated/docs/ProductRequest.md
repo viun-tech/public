@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **team** | **int** |  | 
-**type** | **int** |  | [optional] 
+**category** | **int** |  | [optional] 
 **inspections** | **List[int]** |  | [optional] 
 **identifier** | **str** |  | 
 **display_name** | **str** |  | [optional] 

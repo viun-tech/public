@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **closed_by** | **int** |  | [optional] 
 **images** | **List[int]** |  | [optional] 
 **close_datetime** | **datetime** |  | [optional] 
-**blueprint** | **int** |  | [optional] 
+**configuration** | **int** |  | [optional] 
 **metadata** | **int** |  | [optional] 
 
 ## Example

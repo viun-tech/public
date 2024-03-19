@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **updated_at** | **datetime** |  | [readonly] 
 **open_datetime** | **datetime** |  | [readonly] 
 **close_datetime** | **datetime** |  | [optional] 
-**blueprint** | **int** |  | [optional] 
+**configuration** | **int** |  | [optional] 
 **metadata** | **int** |  | [optional] 
 
 ## Example

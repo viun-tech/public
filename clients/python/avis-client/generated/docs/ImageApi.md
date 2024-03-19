@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **image_create**
-> Image image_create(team, capture_datetime, file, inspection=inspection, uploaded_by=uploaded_by, inspection_results=inspection_results, format=format, part_id=part_id, validation_status=validation_status)
+> Image image_create(team, capture_datetime, file, inspection=inspection, uploaded_by=uploaded_by, results=results, format=format, part_id=part_id, validation_status=validation_status)
 
 
 
@@ -68,13 +68,13 @@ with avis_client.ApiClient(configuration) as api_client:
     file = None # bytearray | 
     inspection = 56 # int |  (optional)
     uploaded_by = 56 # int |  (optional)
-    inspection_results = [56] # List[int] |  (optional)
+    results = [56] # List[int] |  (optional)
     format = avis_client.FormatEnum() # FormatEnum |  (optional)
     part_id = 'part_id_example' # str |  (optional)
     validation_status = avis_client.ValidationStatusEnum() # ValidationStatusEnum |  (optional)
 
     try:
-        api_response = api_instance.image_create(team, capture_datetime, file, inspection=inspection, uploaded_by=uploaded_by, inspection_results=inspection_results, format=format, part_id=part_id, validation_status=validation_status)
+        api_response = api_instance.image_create(team, capture_datetime, file, inspection=inspection, uploaded_by=uploaded_by, results=results, format=format, part_id=part_id, validation_status=validation_status)
         print("The response of ImageApi->image_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
  **file** | **bytearray**|  | 
  **inspection** | **int**|  | [optional] 
  **uploaded_by** | **int**|  | [optional] 
- **inspection_results** | [**List[int]**](int.md)|  | [optional] 
+ **results** | [**List[int]**](int.md)|  | [optional] 
  **format** | [**FormatEnum**](FormatEnum.md)|  | [optional] 
  **part_id** | **str**|  | [optional] 
  **validation_status** | [**ValidationStatusEnum**](ValidationStatusEnum.md)|  | [optional] 
@@ -470,7 +470,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **image_quality_list**
-> List[ImageQualityGateResult] image_quality_list(id=id)
+> List[QualityCriteriaResult] image_quality_list(id=id)
 
 
 
@@ -485,7 +485,7 @@ A base viewset that allows reading, creating and updating objects. The following
 import time
 import os
 import avis_client
-from avis_client.models.image_quality_gate_result import ImageQualityGateResult
+from avis_client.models.quality_criteria_result import QualityCriteriaResult
 from avis_client.rest import ApiException
 from pprint import pprint
 
@@ -537,7 +537,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[ImageQualityGateResult]**](ImageQualityGateResult.md)
+[**List[QualityCriteriaResult]**](QualityCriteriaResult.md)
 
 ### Authorization
 

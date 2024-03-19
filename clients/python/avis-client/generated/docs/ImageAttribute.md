@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [readonly] 
 **team** | **int** |  | 
 **category** | **int** |  | 
-**classification_results** | **List[int]** |  | [optional] 
+**results** | **List[int]** |  | [optional] 
 **created_at** | **datetime** |  | [readonly] 
 **updated_at** | **datetime** |  | [readonly] 
 **value** | **str** |  | [optional] 
