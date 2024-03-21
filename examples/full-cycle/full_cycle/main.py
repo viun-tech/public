@@ -23,6 +23,14 @@ API_KEY = "1234"
 API_URI = "https://avis.vu.engineering"
 API_CONFIG = Configuration(host=API_URI, api_key={"ApiKeyAuth": API_KEY})
 IMAGE_PATH = "image.png"
+CAMERA_CONFIG = CameraSettings(
+    device_info="192.168.1.80",
+    resolution=CameraResolution.the_1080_p,
+    fixed_focus=177,
+    # crop rectangle with width 550 and height 400
+    # that is located 819px from the left edge of the image and 240px from the top edge
+    crop=CropCoordinates(left=819, upper=240, right=1369, lower=640),
+)
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -31,6 +39,14 @@ logger = logging.getLogger(__name__)
 def wait_for_condition(
     func: Callable[[], bool], timeout: int = 8, raise_timeout: bool = False
 ) -> None:
+    """
+    Wait for a condition to be true or timeout.
+
+    Args:
+        func: callable that returns a boolean (condition to check)
+        timeout: time to wait for the condition to be true
+        raise_timeout: if True, raise an exception if the timeout is reached
+    """
     time_limit = time.time() + timeout
     while True:
         if time.time() > time_limit:
@@ -46,6 +62,16 @@ def wait_for_condition(
 def capture_and_inspect_new_picture(
     team_id: int, inspection_id: int, image_path: str
 ) -> List[str]:
+    """
+    Capture a new image and add it to an inspection.
+
+    Args:
+        team_id: id of the team
+        inspection_id: id of the inspection
+        image_path: path to save the image locally
+
+    Returns: list of inferred attributes of the image
+    """
     image = camera.capture_image()
     image.save(image_path, format="PNG")
     logger.info(f"Image saved to {image_path}")
@@ -56,13 +82,29 @@ def capture_and_inspect_new_picture(
     return get_image_attributes(image_id, API_CONFIG)
 
 
-def check_part(
+def check_part_quality(
     team_id: int,
     inspection_id: int,
     image_path: str,
     good_attributes: List[str],
     bad_attributes: List[str],
 ) -> bool:
+    """
+    Capture a new image and check if it has the expected attributes.
+
+    If the image has any of the good attributes, return True.
+
+    If the image has any of the bad attributes or no attributes, return False.
+
+    Args:
+        team_id: id of the team
+        inspection_id: id of the inspection
+        image_path: path to save the image locally
+        good_attributes: list of attributes that indicate the part is good
+        bad_attributes: list of attributes that indicate the part is bad
+
+    Returns: True if the part is good, False if the part is bad
+    """
     image_attributes = capture_and_inspect_new_picture(
         team_id, inspection_id, image_path
     )
@@ -77,15 +119,7 @@ def check_part(
 
 
 if __name__ == "__main__":
-    config = CameraSettings(
-        device_info="192.168.1.80",
-        resolution=CameraResolution.the_1080_p,
-        fixed_focus=177,
-        # crop rectangle with width 550 and height 400
-        # that is located 819px from the left edge of the image and 240px from the top edge
-        crop=CropCoordinates(left=819, upper=240, right=1369, lower=640),
-    )
-    camera = OakDPOECamera(config)
+    camera = OakDPOECamera(CAMERA_CONFIG)
     camera.start()
     try:
         # wait for the camera to be ready
@@ -98,7 +132,7 @@ if __name__ == "__main__":
             # grab blue base and inspect it, replace with actual code to wait for the part
             time.sleep(5)
             # inspect part
-            while not check_part(
+            while not check_part_quality(
                 team_id=TEAM_ID,
                 inspection_id=inspection_id,
                 image_path=IMAGE_PATH,
@@ -110,7 +144,7 @@ if __name__ == "__main__":
 
             # grab end-mill and inspect it, replace with actual code
             time.sleep(5)
-            while not check_part(
+            while not check_part_quality(
                 team_id=TEAM_ID,
                 inspection_id=inspection_id,
                 image_path=IMAGE_PATH,
