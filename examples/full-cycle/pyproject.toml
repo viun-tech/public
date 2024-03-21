@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "take-picture-luxonis-camera"
+name = "full-cycle"
 version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
@@ -8,10 +8,8 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-depthai = "^2.24.0.0"
-pillow = "^10.2.0"
-pydantic-settings = "^2.1.0"
-opencv-python = "^4.9.0.80"
+take-picture-luxonis-camera = {path = "../take-picture-luxonis-camera", develop = true}
+use-avis-client = {path = "../use-avis-client", develop = true}
 
 
 [build-system]
