@@ -164,6 +164,23 @@ tests-mypy = ["mypy (>=1.6)", "pytest-mypy-plugins"]
 tests-no-zope = ["attrs[tests-mypy]", "cloudpickle", "hypothesis", "pympler", "pytest (>=4.3.0)", "pytest-xdist[psutil]"]
 
 [[package]]
+name = "avis-client"
+version = "0.6.0"
+description = "AVIS Python client"
+optional = false
+python-versions = ">=3.7,<4.0"
+files = [
+    {file = "avis_client-0.6.0-py3-none-any.whl", hash = "sha256:f1fedb5a35539a782ccd9c95ebb2f92ea5ae631cb4a486cd871ac05f441140cb"},
+    {file = "avis_client-0.6.0.tar.gz", hash = "sha256:81f4c78c9fcb086bc6591fe16a5fa8972f77d101bb4bd1a01091716a0ab2ad5f"},
+]
+
+[package.dependencies]
+pydantic = ">=2"
+python-dateutil = ">=2.8.2"
+typing-extensions = ">=4.7.1"
+urllib3 = ">=1.25.3"
+
+[[package]]
 name = "certifi"
 version = "2023.11.17"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -1224,4 +1241,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9,<3.12"
-content-hash = "8924f9631608f5855969956ecdf94e0ba9786729dd708e5200dbed3342d238ff"
+content-hash = "a6c09eff71b7f3796a867ef8632d38268b30f024d22058a6d68b99fe3c0940b4"

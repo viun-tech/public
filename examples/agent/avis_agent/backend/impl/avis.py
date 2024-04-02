@@ -12,11 +12,11 @@ from avis_agent.core.responses import (
     QualityTestSuccessfulResponse,
     QualityTestUncertainResponse,
 )
-from vue_avis_client import ApiClient, Configuration, ImageApi, InspectionApi
-from vue_avis_client.models.image import Image
-from vue_avis_client.models.inspection import Inspection
-from vue_avis_client.models.inspection_request import InspectionRequest
-from vue_avis_client.rest import ApiException
+from avis_client import ApiClient, Configuration, ImageApi, InspectionApi
+from avis_client.models.image import Image
+from avis_client.models.inspection import Inspection
+from avis_client.models.inspection_request import InspectionRequest
+from avis_client.rest import ApiException
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)

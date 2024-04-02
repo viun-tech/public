@@ -25,9 +25,7 @@ pytz = "^2023.3"
 frozendict = "^2.3.8"
 tenacity = "^8.2.3"
 click = "^8.1.7"
-# TODO(apagano): fix this
-# vue_instrumentation = { path = "../../libs/vue-instrumentation", develop = true }
-# vue_avis_client = { path = "../../libs/vue-avis-client", develop = true }
+avis-client = "^0.6.0"
 
 [tool.poetry.group.luxonis]
 optional = true
