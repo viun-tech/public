@@ -112,7 +112,9 @@ class OakDPOECamera(AbstractCamera):
         self.pipeline = self.config.with_retries(self.setup_camera)
         try:
             if self.config.device_info is not None:
-                self.device = dai.Device(self.pipeline, self.config.device_info)
+                self.device = dai.Device(
+                    self.pipeline, dai.DeviceInfo(self.config.device_info)
+                )
             else:
                 self.device = dai.Device(self.pipeline)
             self.camera_started = True
