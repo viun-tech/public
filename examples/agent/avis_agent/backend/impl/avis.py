@@ -26,19 +26,29 @@ class AvisBackendSettings(BaseBackendSettings):
     name: Literal["avis"]
     api_key: str
     team_id: int
-    inspection_object_id: int
+    inspection_object_id: Union[int, None] = None
     uri: str
+    configuration_id: Union[int, None] = None
 
 
 class AvisBackend(AbstractBackend):
     def __init__(self, config: AvisBackendSettings) -> None:
         super().__init__(config)
+        self.configuration_id = config.configuration_id
         self.team_id = config.team_id
         self.inspection_object_id = config.inspection_object_id
         self.openapi_client_config = Configuration(
             host=config.uri,
             api_key={"ApiKeyAuth": config.api_key},
         )
+        if self.inspection_object_id is None and self.configuration_id is None:
+            raise ValueError(
+                "Either inspection_object_id or configuration_id must be provided"
+            )
+        if self.inspection_object_id is not None and self.configuration_id is not None:
+            raise ValueError(
+                "Only one of inspection_object_id or configuration_id must be provided"
+            )
 
     def start_inspection(
         self,
@@ -47,6 +57,7 @@ class AvisBackend(AbstractBackend):
             api_instance = InspectionApi(api_client)
             inspection_request = InspectionRequest(
                 team=self.team_id,
+                configuration=self.configuration_id,
                 inspection_object=self.inspection_object_id,
             )
             try:
