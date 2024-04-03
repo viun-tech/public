@@ -28,11 +28,13 @@ class AvisBackendSettings(BaseBackendSettings):
     team_id: int
     inspection_object_id: int
     uri: str
+    configuration_id: Union[int, None] = None
 
 
 class AvisBackend(AbstractBackend):
     def __init__(self, config: AvisBackendSettings) -> None:
         super().__init__(config)
+        self.configuration_id = config.configuration_id
         self.team_id = config.team_id
         self.inspection_object_id = config.inspection_object_id
         self.openapi_client_config = Configuration(
@@ -45,10 +47,16 @@ class AvisBackend(AbstractBackend):
     ) -> Union[CommandSuccessfulResponse, CommandFailedResponse, AgentError]:
         with ApiClient(self.openapi_client_config) as api_client:
             api_instance = InspectionApi(api_client)
-            inspection_request = InspectionRequest(
-                team=self.team_id,
-                inspection_object=self.inspection_object_id,
-            )
+            if self.configuration_id is not None:
+                inspection_request = InspectionRequest(
+                    team=self.team_id,
+                    configuration=self.configuration_id,
+                )
+            else:
+                inspection_request = InspectionRequest(
+                    team=self.team_id,
+                    inspection_object=self.inspection_object_id,
+                )
             try:
                 api_response: Inspection = self.config.with_retries(
                     api_instance.inspection_create,
