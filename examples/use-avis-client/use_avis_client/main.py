@@ -19,7 +19,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 avis_uri = "https://avis.vu.engineering"
-api_key = "your api key"
+api_key = "<your api key>"
 
 config = Configuration(
     host=avis_uri,
@@ -93,7 +93,6 @@ def add_image_to_inspection(
             logger.error(msg)
             raise Exception(msg)
 
-
 def get_image_attributes(
     image_id: int, api_config: Configuration = config
 ) -> List[str]:
@@ -126,18 +125,18 @@ def get_image_attributes(
 
 
 if __name__ == "__main__":
+    # <replace with your team id>
     team_id = 1
-    configuration_id = 1
     # open inspection
-    inspection_id = create_inspection(team_id, configuration_id)
+    inspection_id = create_inspection(team_id, configuration_id=None)
     logger.info(f"Inspection {inspection_id} created")
-    # take picture
+    # <replace with a local path to a picture>
     image = "path/to/image.jpg"
     # add image to inspection
     image_id = add_image_to_inspection(team_id, inspection_id, image)
     logger.info(f"Image {image_id} added to inspection {inspection_id}")
     # get image attributes
     image_attributes = get_image_attributes(image_id)
-    logger.info(f"Image attributes: {image_attributes.results}")
+    logger.info(f"Image attributes: {image_attributes}")
     # continue cycle if needed or
     # close inspection
