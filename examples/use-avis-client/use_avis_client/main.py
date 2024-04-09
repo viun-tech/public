@@ -26,7 +26,6 @@ config = Configuration(
     api_key={"ApiKeyAuth": api_key},
 )
 
-
 def create_inspection(
     team_id: int, configuration_id: int, api_config: Configuration = config
 ) -> int:
@@ -127,8 +126,10 @@ def get_image_attributes(
 if __name__ == "__main__":
     # <replace with your team id>
     team_id = 1
+    # <replace with your configuration id>
+    configuration_id = 1
     # open inspection
-    inspection_id = create_inspection(team_id, configuration_id=None)
+    inspection_id = create_inspection(team_id, configuration_id=configuration_id)
     logger.info(f"Inspection {inspection_id} created")
     # <replace with a local path to a picture>
     image = "path/to/image.jpg"
