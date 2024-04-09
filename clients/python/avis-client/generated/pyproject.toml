@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [tool.poetry]
 name = "avis_client"
-version = "0.6.0"
+version = "0.7.0"
 description = "AVIS Python client"
 authors = [ "VUEngineering <tech@vu.engineering>",]
 license = "Apache License 2.0"

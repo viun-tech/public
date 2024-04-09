@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: avis
-  version: 0.6.0
+  version: 0.7.0
   description: VUE Autonomous Visual Inspection System (AVIS)
 paths:
   /api/configuration/:
@@ -28,6 +28,24 @@ paths:
         description: Multiple values may be separated by commas.
         explode: false
         style: form
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - configuration
       security:
@@ -38,9 +56,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ConfigurationType'
+                $ref: '#/components/schemas/PaginatedConfigurationTypeList'
           description: ''
     post:
       operationId: configuration_create
@@ -235,6 +251,24 @@ paths:
         description: Multiple values may be separated by commas.
         explode: false
         style: form
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - image
       security:
@@ -245,9 +279,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Image'
+                $ref: '#/components/schemas/PaginatedImageList'
           description: ''
     post:
       operationId: image_create
@@ -300,6 +332,24 @@ paths:
         description: Multiple values may be separated by commas.
         explode: false
         style: form
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - image-attribute
       security:
@@ -310,9 +360,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ImageAttribute'
+                $ref: '#/components/schemas/PaginatedImageAttributeList'
           description: ''
     post:
       operationId: image_attribute_create
@@ -371,6 +419,24 @@ paths:
         description: Multiple values may be separated by commas.
         explode: false
         style: form
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - image-attribute-category
       security:
@@ -381,9 +447,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ImageAttributeCategory'
+                $ref: '#/components/schemas/PaginatedImageAttributeCategoryList'
           description: ''
     post:
       operationId: image_attribute_category_create
@@ -846,6 +910,24 @@ paths:
         description: Multiple values may be separated by commas.
         explode: false
         style: form
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - image
       security:
@@ -856,9 +938,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/InspectionStatus'
+                $ref: '#/components/schemas/PaginatedInspectionStatusList'
           description: ''
   /api/image/quality/:
     get:
@@ -880,6 +960,24 @@ paths:
         description: Multiple values may be separated by commas.
         explode: false
         style: form
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - image
       security:
@@ -890,9 +988,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/QualityCriteriaResult'
+                $ref: '#/components/schemas/PaginatedQualityCriteriaResultList'
           description: ''
   /api/inspection/:
     get:
@@ -918,6 +1014,24 @@ paths:
         description: Multiple values may be separated by commas.
         explode: false
         style: form
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - inspection
       security:
@@ -928,9 +1042,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Inspection'
+                $ref: '#/components/schemas/PaginatedInspectionList'
           description: ''
     post:
       operationId: inspection_create
@@ -1150,6 +1262,24 @@ paths:
         description: Multiple values may be separated by commas.
         explode: false
         style: form
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - inspection
       security:
@@ -1160,9 +1290,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/InspectionStatus'
+                $ref: '#/components/schemas/PaginatedInspectionStatusList'
           description: ''
   /api/inspection/validation_status/:
     get:
@@ -1184,6 +1312,24 @@ paths:
         description: Multiple values may be separated by commas.
         explode: false
         style: form
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - inspection
       security:
@@ -1194,9 +1340,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/InspectionValidationStatus'
+                $ref: '#/components/schemas/PaginatedInspectionValidationStatusList'
           description: ''
   /api/keys/:
     post:
@@ -1264,6 +1408,19 @@ paths:
         * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
         * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
         * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - membership
       security:
@@ -1274,9 +1431,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Membership'
+                $ref: '#/components/schemas/PaginatedMembershipList'
           description: ''
     post:
       operationId: membership_create
@@ -1428,6 +1583,24 @@ paths:
         description: Multiple values may be separated by commas.
         explode: false
         style: form
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - metadata
       security:
@@ -1438,9 +1611,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Metadata'
+                $ref: '#/components/schemas/PaginatedMetadataList'
           description: ''
     post:
       operationId: metadata_create
@@ -1499,6 +1670,24 @@ paths:
         description: Multiple values may be separated by commas.
         explode: false
         style: form
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - metadata-schema
       security:
@@ -1509,9 +1698,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/MetadataSchema'
+                $ref: '#/components/schemas/PaginatedMetadataSchemaList'
           description: ''
     post:
       operationId: metadata_schema_create
@@ -1825,6 +2012,19 @@ paths:
         A viewset for ML models. It filters results based on the permissions granted to all the user's team(s).
 
         A user will only be able to interact with an ML models if at least one of the teams they are a member of has access to it.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - ml
       security:
@@ -1835,9 +2035,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/MLModel'
+                $ref: '#/components/schemas/PaginatedMLModelList'
           description: ''
     post:
       operationId: ml_model_create
@@ -1869,6 +2067,162 @@ paths:
               schema:
                 $ref: '#/components/schemas/MLModel'
           description: ''
+  /api/ml/model-type/:
+    get:
+      operationId: ml_model_type_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - ml
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMLModelTypeList'
+          description: ''
+    post:
+      operationId: ml_model_type_create
+      tags:
+      - ml
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MLModelTypeRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MLModelTypeRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MLModelTypeRequest'
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MLModelType'
+          description: ''
+  /api/ml/model-type/{id}/:
+    get:
+      operationId: ml_model_type_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this ml model type.
+        required: true
+      tags:
+      - ml
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MLModelType'
+          description: ''
+    put:
+      operationId: ml_model_type_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this ml model type.
+        required: true
+      tags:
+      - ml
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MLModelTypeRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MLModelTypeRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MLModelTypeRequest'
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MLModelType'
+          description: ''
+    patch:
+      operationId: ml_model_type_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this ml model type.
+        required: true
+      tags:
+      - ml
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedMLModelTypeRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedMLModelTypeRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedMLModelTypeRequest'
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MLModelType'
+          description: ''
+    delete:
+      operationId: ml_model_type_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this ml model type.
+        required: true
+      tags:
+      - ml
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '204':
+          description: No response body
   /api/ml/model/{id}/:
     get:
       operationId: ml_model_retrieve
@@ -1989,7 +2343,7 @@ paths:
       responses:
         '204':
           description: No response body
-  /api/ml/model/{id}/inference/:
+  /api/ml/model/{id}/infer/:
     post:
       operationId: ml_model_inference
       description: |-
@@ -2027,151 +2381,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/MLModel'
           description: ''
-  /api/ml/modeltype/:
-    get:
-      operationId: ml_modeltype_list
-      tags:
-      - ml
-      security:
-      - cookieAuth: []
-      - ApiKeyAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/MLModelType'
-          description: ''
-    post:
-      operationId: ml_modeltype_create
-      tags:
-      - ml
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MLModelTypeRequest'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/MLModelTypeRequest'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/MLModelTypeRequest'
-      security:
-      - cookieAuth: []
-      - ApiKeyAuth: []
-      responses:
-        '201':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MLModelType'
-          description: ''
-  /api/ml/modeltype/{id}/:
-    get:
-      operationId: ml_modeltype_retrieve
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        description: A unique integer value identifying this ml model type.
-        required: true
-      tags:
-      - ml
-      security:
-      - cookieAuth: []
-      - ApiKeyAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MLModelType'
-          description: ''
-    put:
-      operationId: ml_modeltype_update
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        description: A unique integer value identifying this ml model type.
-        required: true
-      tags:
-      - ml
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MLModelTypeRequest'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/MLModelTypeRequest'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/MLModelTypeRequest'
-      security:
-      - cookieAuth: []
-      - ApiKeyAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MLModelType'
-          description: ''
-    patch:
-      operationId: ml_modeltype_partial_update
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        description: A unique integer value identifying this ml model type.
-        required: true
-      tags:
-      - ml
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedMLModelTypeRequest'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedMLModelTypeRequest'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/PatchedMLModelTypeRequest'
-      security:
-      - cookieAuth: []
-      - ApiKeyAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MLModelType'
-          description: ''
-    delete:
-      operationId: ml_modeltype_destroy
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        description: A unique integer value identifying this ml model type.
-        required: true
-      tags:
-      - ml
-      security:
-      - cookieAuth: []
-      - ApiKeyAuth: []
-      responses:
-        '204':
-          description: No response body
   /api/product/:
     get:
       operationId: product_list
@@ -2214,6 +2423,24 @@ paths:
         description: Multiple values may be separated by commas.
         explode: false
         style: form
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - product
       security:
@@ -2224,9 +2451,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Product'
+                $ref: '#/components/schemas/PaginatedProductList'
           description: ''
     post:
       operationId: product_create
@@ -2285,6 +2510,24 @@ paths:
         description: Multiple values may be separated by commas.
         explode: false
         style: form
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - product-category
       security:
@@ -2295,9 +2538,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ProductCategory'
+                $ref: '#/components/schemas/PaginatedProductCategoryList'
           description: ''
     post:
       operationId: product_category_create
@@ -2628,6 +2869,24 @@ paths:
         description: Multiple values may be separated by commas.
         explode: false
         style: form
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - quality-criteria
       security:
@@ -2638,9 +2897,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/QualityCriteria'
+                $ref: '#/components/schemas/PaginatedQualityCriteriaList'
           description: ''
     post:
       operationId: quality_criteria_create
@@ -2835,6 +3092,24 @@ paths:
         description: Multiple values may be separated by commas.
         explode: false
         style: form
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
       - result
       security:
@@ -2845,9 +3120,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Result'
+                $ref: '#/components/schemas/PaginatedResultList'
           description: ''
     post:
       operationId: result_create
@@ -3018,18 +3291,25 @@ paths:
       responses:
         '204':
           description: No response body
-  /api/team/:
+  /api/statistics/inspection/:
     get:
-      operationId: team_list
-      description: |-
-        A base read-only viewset that enables optimized queryset fetching and tracing.
-
-        This is a combination of the following mixins:
-        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
-        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
-        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      operationId: statistics_inspection_list
+      description: Allows a Google Partial Response query param like to prune results
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
       tags:
-      - team
+      - statistics
       security:
       - cookieAuth: []
       - ApiKeyAuth: []
@@ -3038,12 +3318,278 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Team'
+                $ref: '#/components/schemas/PaginatedInspectionImagesStatisticsList'
           description: ''
     post:
-      operationId: team_create
+      operationId: statistics_inspection_create
+      description: Allows a Google Partial Response query param like to prune results
+      tags:
+      - statistics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InspectionImagesStatisticsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/InspectionImagesStatisticsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/InspectionImagesStatisticsRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionImagesStatistics'
+          description: ''
+  /api/statistics/inspection/{id}/:
+    get:
+      operationId: statistics_inspection_retrieve
+      description: Allows a Google Partial Response query param like to prune results
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this image.
+        required: true
+      tags:
+      - statistics
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionImagesStatistics'
+          description: ''
+    put:
+      operationId: statistics_inspection_update
+      description: Allows a Google Partial Response query param like to prune results
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this image.
+        required: true
+      tags:
+      - statistics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InspectionImagesStatisticsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/InspectionImagesStatisticsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/InspectionImagesStatisticsRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionImagesStatistics'
+          description: ''
+    delete:
+      operationId: statistics_inspection_destroy
+      description: Allows a Google Partial Response query param like to prune results
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this image.
+        required: true
+      tags:
+      - statistics
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/statistics/team/:
+    get:
+      operationId: statistics_team_list
+      description: Allows a Google Partial Response query param like to prune results
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - statistics
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedInspectionStatisticsList'
+          description: ''
+    post:
+      operationId: statistics_team_create
+      description: Allows a Google Partial Response query param like to prune results
+      tags:
+      - statistics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InspectionStatisticsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/InspectionStatisticsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/InspectionStatisticsRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionStatistics'
+          description: ''
+  /api/statistics/team/{id}/:
+    get:
+      operationId: statistics_team_retrieve
+      description: Allows a Google Partial Response query param like to prune results
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection.
+        required: true
+      tags:
+      - statistics
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionStatistics'
+          description: ''
+    put:
+      operationId: statistics_team_update
+      description: Allows a Google Partial Response query param like to prune results
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection.
+        required: true
+      tags:
+      - statistics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InspectionStatisticsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/InspectionStatisticsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/InspectionStatisticsRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InspectionStatistics'
+          description: ''
+    delete:
+      operationId: statistics_team_destroy
+      description: Allows a Google Partial Response query param like to prune results
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this inspection.
+        required: true
+      tags:
+      - statistics
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/teams/:
+    get:
+      operationId: teams_list
+      description: |-
+        A base read-only viewset that enables optimized queryset fetching and tracing.
+
+        This is a combination of the following mixins:
+        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
+        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
+        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - teams
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedTeamList'
+          description: ''
+    post:
+      operationId: teams_create
       description: |-
         A base read-only viewset that enables optimized queryset fetching and tracing.
 
@@ -3052,7 +3598,7 @@ paths:
         * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
         * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
       tags:
-      - team
+      - teams
       requestBody:
         content:
           application/json:
@@ -3075,9 +3621,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Team'
           description: ''
-  /api/team/{id}/:
+  /api/teams/{id}/:
     get:
-      operationId: team_retrieve
+      operationId: teams_retrieve
       description: |-
         A base read-only viewset that enables optimized queryset fetching and tracing.
 
@@ -3093,7 +3639,7 @@ paths:
         description: A unique integer value identifying this team.
         required: true
       tags:
-      - team
+      - teams
       security:
       - cookieAuth: []
       - ApiKeyAuth: []
@@ -3105,7 +3651,7 @@ paths:
                 $ref: '#/components/schemas/Team'
           description: ''
     put:
-      operationId: team_update
+      operationId: teams_update
       description: |-
         A base read-only viewset that enables optimized queryset fetching and tracing.
 
@@ -3121,7 +3667,7 @@ paths:
         description: A unique integer value identifying this team.
         required: true
       tags:
-      - team
+      - teams
       requestBody:
         content:
           application/json:
@@ -3145,7 +3691,7 @@ paths:
                 $ref: '#/components/schemas/Team'
           description: ''
     delete:
-      operationId: team_destroy
+      operationId: teams_destroy
       description: |-
         A base read-only viewset that enables optimized queryset fetching and tracing.
 
@@ -3161,7 +3707,7 @@ paths:
         description: A unique integer value identifying this team.
         required: true
       tags:
-      - team
+      - teams
       security:
       - cookieAuth: []
       - ApiKeyAuth: []
@@ -3589,6 +4135,26 @@ components:
       - open_datetime
       - team
       - updated_at
+    InspectionImagesStatistics:
+      type: object
+      properties:
+        total_images:
+          type: integer
+        images_to_inspect:
+          type: integer
+      required:
+      - images_to_inspect
+      - total_images
+    InspectionImagesStatisticsRequest:
+      type: object
+      properties:
+        total_images:
+          type: integer
+        images_to_inspect:
+          type: integer
+      required:
+      - images_to_inspect
+      - total_images
     InspectionRequest:
       type: object
       properties:
@@ -3620,6 +4186,38 @@ components:
           nullable: true
       required:
       - team
+    InspectionStatistics:
+      type: object
+      properties:
+        total_inspections:
+          type: integer
+        closed_inspections:
+          type: integer
+        opened_inspections:
+          type: integer
+        validation_requests:
+          type: integer
+      required:
+      - closed_inspections
+      - opened_inspections
+      - total_inspections
+      - validation_requests
+    InspectionStatisticsRequest:
+      type: object
+      properties:
+        total_inspections:
+          type: integer
+        closed_inspections:
+          type: integer
+        opened_inspections:
+          type: integer
+        validation_requests:
+          type: integer
+      required:
+      - closed_inspections
+      - opened_inspections
+      - total_inspections
+      - validation_requests
     InspectionStatus:
       type: object
       properties:
@@ -3874,6 +4472,406 @@ components:
       required:
       - json
       - team
+    PaginatedConfigurationTypeList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConfigurationType'
+    PaginatedImageAttributeCategoryList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImageAttributeCategory'
+    PaginatedImageAttributeList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImageAttribute'
+    PaginatedImageList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Image'
+    PaginatedInspectionImagesStatisticsList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/InspectionImagesStatistics'
+    PaginatedInspectionList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Inspection'
+    PaginatedInspectionStatisticsList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/InspectionStatistics'
+    PaginatedInspectionStatusList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/InspectionStatus'
+    PaginatedInspectionValidationStatusList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/InspectionValidationStatus'
+    PaginatedMLModelList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/MLModel'
+    PaginatedMLModelTypeList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/MLModelType'
+    PaginatedMembershipList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Membership'
+    PaginatedMetadataList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metadata'
+    PaginatedMetadataSchemaList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetadataSchema'
+    PaginatedProductCategoryList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductCategory'
+    PaginatedProductList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+    PaginatedQualityCriteriaList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/QualityCriteria'
+    PaginatedQualityCriteriaResultList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/QualityCriteriaResult'
+    PaginatedResultList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Result'
+    PaginatedTeamList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Team'
     PatchedConfigurationTypeRequest:
       type: object
       properties:
@@ -4556,7 +5554,4 @@ components:
       in: cookie
       name: sessionid
 servers:
-- url: https://avis.vu.engineering/
-  description: Production server (uses live data)
 - url: http://localhost:8000
-  description: Local development server
