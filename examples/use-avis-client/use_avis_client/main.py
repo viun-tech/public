@@ -107,7 +107,7 @@ def get_image_attributes(
             result_list = result_client.result_list(id=image_response.results)
             attributes = [
                 image_attribute
-                for result in result_list
+                for result in result_list.results
                 for image_attribute in result.image_attributes
             ]
             if len(attributes) == 0:
