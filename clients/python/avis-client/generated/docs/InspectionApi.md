@@ -1,6 +1,6 @@
 # avis_client.InspectionApi
 
-All URIs are relative to *https://avis.vu.engineering*
+All URIs are relative to *http://localhost:8000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -36,10 +36,10 @@ from avis_client.models.inspection_request import InspectionRequest
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -122,10 +122,10 @@ import avis_client
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -188,7 +188,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **inspection_list**
-> List[Inspection] inspection_list(fields=fields, id=id)
+> PaginatedInspectionList inspection_list(fields=fields, id=id, ordering=ordering, page=page, page_size=page_size)
 
 
 
@@ -203,14 +203,14 @@ A base viewset that allows reading, creating and updating objects. The following
 import time
 import os
 import avis_client
-from avis_client.models.inspection import Inspection
+from avis_client.models.paginated_inspection_list import PaginatedInspectionList
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -236,9 +236,12 @@ with avis_client.ApiClient(configuration) as api_client:
     api_instance = avis_client.InspectionApi(api_client)
     fields = 'fields_example' # str |  (optional)
     id = [56] # List[int] | Multiple values may be separated by commas. (optional)
+    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
     try:
-        api_response = api_instance.inspection_list(fields=fields, id=id)
+        api_response = api_instance.inspection_list(fields=fields, id=id, ordering=ordering, page=page, page_size=page_size)
         print("The response of InspectionApi->inspection_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -254,10 +257,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **fields** | **str**|  | [optional] 
  **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional] 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
 
 ### Return type
 
-[**List[Inspection]**](Inspection.md)
+[**PaginatedInspectionList**](PaginatedInspectionList.md)
 
 ### Authorization
 
@@ -297,10 +303,10 @@ from avis_client.models.patched_inspection_request import PatchedInspectionReque
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -386,10 +392,10 @@ from avis_client.models.inspection import Inspection
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -475,10 +481,10 @@ from avis_client.models.inspection import Inspection
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -543,7 +549,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **inspection_status_list**
-> List[InspectionStatus] inspection_status_list(id=id)
+> PaginatedInspectionStatusList inspection_status_list(id=id, ordering=ordering, page=page, page_size=page_size)
 
 
 
@@ -558,14 +564,14 @@ A base viewset that allows reading, creating and updating objects. The following
 import time
 import os
 import avis_client
-from avis_client.models.inspection_status import InspectionStatus
+from avis_client.models.paginated_inspection_status_list import PaginatedInspectionStatusList
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -590,9 +596,12 @@ with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.InspectionApi(api_client)
     id = [56] # List[int] | Multiple values may be separated by commas. (optional)
+    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
     try:
-        api_response = api_instance.inspection_status_list(id=id)
+        api_response = api_instance.inspection_status_list(id=id, ordering=ordering, page=page, page_size=page_size)
         print("The response of InspectionApi->inspection_status_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -607,10 +616,13 @@ with avis_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional] 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
 
 ### Return type
 
-[**List[InspectionStatus]**](InspectionStatus.md)
+[**PaginatedInspectionStatusList**](PaginatedInspectionStatusList.md)
 
 ### Authorization
 
@@ -650,10 +662,10 @@ from avis_client.models.inspection_request import InspectionRequest
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -720,7 +732,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **inspection_validation_status_list**
-> List[InspectionValidationStatus] inspection_validation_status_list(id=id)
+> PaginatedInspectionValidationStatusList inspection_validation_status_list(id=id, ordering=ordering, page=page, page_size=page_size)
 
 
 
@@ -735,14 +747,14 @@ A base viewset that allows reading, creating and updating objects. The following
 import time
 import os
 import avis_client
-from avis_client.models.inspection_validation_status import InspectionValidationStatus
+from avis_client.models.paginated_inspection_validation_status_list import PaginatedInspectionValidationStatusList
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -767,9 +779,12 @@ with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.InspectionApi(api_client)
     id = [56] # List[int] | Multiple values may be separated by commas. (optional)
+    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
     try:
-        api_response = api_instance.inspection_validation_status_list(id=id)
+        api_response = api_instance.inspection_validation_status_list(id=id, ordering=ordering, page=page, page_size=page_size)
         print("The response of InspectionApi->inspection_validation_status_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -784,10 +799,13 @@ with avis_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional] 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
 
 ### Return type
 
-[**List[InspectionValidationStatus]**](InspectionValidationStatus.md)
+[**PaginatedInspectionValidationStatusList**](PaginatedInspectionValidationStatusList.md)
 
 ### Authorization
 

@@ -1,22 +1,22 @@
 # avis_client.MlApi
 
-All URIs are relative to *https://avis.vu.engineering*
+All URIs are relative to *http://localhost:8000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ml_model_create**](MlApi.md#ml_model_create) | **POST** /api/ml/model/ | 
 [**ml_model_destroy**](MlApi.md#ml_model_destroy) | **DELETE** /api/ml/model/{id}/ | 
-[**ml_model_inference**](MlApi.md#ml_model_inference) | **POST** /api/ml/model/{id}/inference/ | 
+[**ml_model_inference**](MlApi.md#ml_model_inference) | **POST** /api/ml/model/{id}/infer/ | 
 [**ml_model_list**](MlApi.md#ml_model_list) | **GET** /api/ml/model/ | 
 [**ml_model_partial_update**](MlApi.md#ml_model_partial_update) | **PATCH** /api/ml/model/{id}/ | 
 [**ml_model_retrieve**](MlApi.md#ml_model_retrieve) | **GET** /api/ml/model/{id}/ | 
+[**ml_model_type_create**](MlApi.md#ml_model_type_create) | **POST** /api/ml/model-type/ | 
+[**ml_model_type_destroy**](MlApi.md#ml_model_type_destroy) | **DELETE** /api/ml/model-type/{id}/ | 
+[**ml_model_type_list**](MlApi.md#ml_model_type_list) | **GET** /api/ml/model-type/ | 
+[**ml_model_type_partial_update**](MlApi.md#ml_model_type_partial_update) | **PATCH** /api/ml/model-type/{id}/ | 
+[**ml_model_type_retrieve**](MlApi.md#ml_model_type_retrieve) | **GET** /api/ml/model-type/{id}/ | 
+[**ml_model_type_update**](MlApi.md#ml_model_type_update) | **PUT** /api/ml/model-type/{id}/ | 
 [**ml_model_update**](MlApi.md#ml_model_update) | **PUT** /api/ml/model/{id}/ | 
-[**ml_modeltype_create**](MlApi.md#ml_modeltype_create) | **POST** /api/ml/modeltype/ | 
-[**ml_modeltype_destroy**](MlApi.md#ml_modeltype_destroy) | **DELETE** /api/ml/modeltype/{id}/ | 
-[**ml_modeltype_list**](MlApi.md#ml_modeltype_list) | **GET** /api/ml/modeltype/ | 
-[**ml_modeltype_partial_update**](MlApi.md#ml_modeltype_partial_update) | **PATCH** /api/ml/modeltype/{id}/ | 
-[**ml_modeltype_retrieve**](MlApi.md#ml_modeltype_retrieve) | **GET** /api/ml/modeltype/{id}/ | 
-[**ml_modeltype_update**](MlApi.md#ml_modeltype_update) | **PUT** /api/ml/modeltype/{id}/ | 
 
 
 # **ml_model_create**
@@ -40,10 +40,10 @@ from avis_client.models.ml_model_request import MLModelRequest
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -126,10 +126,10 @@ import avis_client
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -212,10 +212,10 @@ from avis_client.models.ml_model import MLModel
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ml_model_list**
-> List[MLModel] ml_model_list()
+> PaginatedMLModelList ml_model_list(page=page, page_size=page_size)
 
 
 
@@ -297,14 +297,14 @@ A viewset for ML models. It filters results based on the permissions granted to 
 import time
 import os
 import avis_client
-from avis_client.models.ml_model import MLModel
+from avis_client.models.paginated_ml_model_list import PaginatedMLModelList
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -328,9 +328,11 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.MlApi(api_client)
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
     try:
-        api_response = api_instance.ml_model_list()
+        api_response = api_instance.ml_model_list(page=page, page_size=page_size)
         print("The response of MlApi->ml_model_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -341,11 +343,15 @@ with avis_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
 
 ### Return type
 
-[**List[MLModel]**](MLModel.md)
+[**PaginatedMLModelList**](PaginatedMLModelList.md)
 
 ### Authorization
 
@@ -385,10 +391,10 @@ from avis_client.models.patched_ml_model_request import PatchedMLModelRequest
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -474,10 +480,10 @@ from avis_client.models.ml_model import MLModel
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -541,6 +547,522 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **ml_model_type_create**
+> MLModelType ml_model_type_create(ml_model_type_request=ml_model_type_request)
+
+
+
+### Example
+
+* Api Key Authentication (cookieAuth):
+* Api Key Authentication (ApiKeyAuth):
+
+```python
+import time
+import os
+import avis_client
+from avis_client.models.ml_model_type import MLModelType
+from avis_client.models.ml_model_type_request import MLModelTypeRequest
+from avis_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost:8000
+# See configuration.py for a list of all supported configuration parameters.
+configuration = avis_client.Configuration(
+    host = "http://localhost:8000"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: cookieAuth
+configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with avis_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = avis_client.MlApi(api_client)
+    ml_model_type_request = avis_client.MLModelTypeRequest() # MLModelTypeRequest |  (optional)
+
+    try:
+        api_response = api_instance.ml_model_type_create(ml_model_type_request=ml_model_type_request)
+        print("The response of MlApi->ml_model_type_create:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling MlApi->ml_model_type_create: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ml_model_type_request** | [**MLModelTypeRequest**](MLModelTypeRequest.md)|  | [optional] 
+
+### Return type
+
+[**MLModelType**](MLModelType.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ml_model_type_destroy**
+> ml_model_type_destroy(id)
+
+
+
+### Example
+
+* Api Key Authentication (cookieAuth):
+* Api Key Authentication (ApiKeyAuth):
+
+```python
+import time
+import os
+import avis_client
+from avis_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost:8000
+# See configuration.py for a list of all supported configuration parameters.
+configuration = avis_client.Configuration(
+    host = "http://localhost:8000"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: cookieAuth
+configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with avis_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = avis_client.MlApi(api_client)
+    id = 56 # int | A unique integer value identifying this ml model type.
+
+    try:
+        api_instance.ml_model_type_destroy(id)
+    except Exception as e:
+        print("Exception when calling MlApi->ml_model_type_destroy: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this ml model type. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No response body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ml_model_type_list**
+> PaginatedMLModelTypeList ml_model_type_list(page=page, page_size=page_size)
+
+
+
+### Example
+
+* Api Key Authentication (cookieAuth):
+* Api Key Authentication (ApiKeyAuth):
+
+```python
+import time
+import os
+import avis_client
+from avis_client.models.paginated_ml_model_type_list import PaginatedMLModelTypeList
+from avis_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost:8000
+# See configuration.py for a list of all supported configuration parameters.
+configuration = avis_client.Configuration(
+    host = "http://localhost:8000"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: cookieAuth
+configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with avis_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = avis_client.MlApi(api_client)
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
+
+    try:
+        api_response = api_instance.ml_model_type_list(page=page, page_size=page_size)
+        print("The response of MlApi->ml_model_type_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling MlApi->ml_model_type_list: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
+
+### Return type
+
+[**PaginatedMLModelTypeList**](PaginatedMLModelTypeList.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ml_model_type_partial_update**
+> MLModelType ml_model_type_partial_update(id, patched_ml_model_type_request=patched_ml_model_type_request)
+
+
+
+### Example
+
+* Api Key Authentication (cookieAuth):
+* Api Key Authentication (ApiKeyAuth):
+
+```python
+import time
+import os
+import avis_client
+from avis_client.models.ml_model_type import MLModelType
+from avis_client.models.patched_ml_model_type_request import PatchedMLModelTypeRequest
+from avis_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost:8000
+# See configuration.py for a list of all supported configuration parameters.
+configuration = avis_client.Configuration(
+    host = "http://localhost:8000"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: cookieAuth
+configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with avis_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = avis_client.MlApi(api_client)
+    id = 56 # int | A unique integer value identifying this ml model type.
+    patched_ml_model_type_request = avis_client.PatchedMLModelTypeRequest() # PatchedMLModelTypeRequest |  (optional)
+
+    try:
+        api_response = api_instance.ml_model_type_partial_update(id, patched_ml_model_type_request=patched_ml_model_type_request)
+        print("The response of MlApi->ml_model_type_partial_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling MlApi->ml_model_type_partial_update: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this ml model type. | 
+ **patched_ml_model_type_request** | [**PatchedMLModelTypeRequest**](PatchedMLModelTypeRequest.md)|  | [optional] 
+
+### Return type
+
+[**MLModelType**](MLModelType.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ml_model_type_retrieve**
+> MLModelType ml_model_type_retrieve(id)
+
+
+
+### Example
+
+* Api Key Authentication (cookieAuth):
+* Api Key Authentication (ApiKeyAuth):
+
+```python
+import time
+import os
+import avis_client
+from avis_client.models.ml_model_type import MLModelType
+from avis_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost:8000
+# See configuration.py for a list of all supported configuration parameters.
+configuration = avis_client.Configuration(
+    host = "http://localhost:8000"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: cookieAuth
+configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with avis_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = avis_client.MlApi(api_client)
+    id = 56 # int | A unique integer value identifying this ml model type.
+
+    try:
+        api_response = api_instance.ml_model_type_retrieve(id)
+        print("The response of MlApi->ml_model_type_retrieve:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling MlApi->ml_model_type_retrieve: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this ml model type. | 
+
+### Return type
+
+[**MLModelType**](MLModelType.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ml_model_type_update**
+> MLModelType ml_model_type_update(id, ml_model_type_request=ml_model_type_request)
+
+
+
+### Example
+
+* Api Key Authentication (cookieAuth):
+* Api Key Authentication (ApiKeyAuth):
+
+```python
+import time
+import os
+import avis_client
+from avis_client.models.ml_model_type import MLModelType
+from avis_client.models.ml_model_type_request import MLModelTypeRequest
+from avis_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost:8000
+# See configuration.py for a list of all supported configuration parameters.
+configuration = avis_client.Configuration(
+    host = "http://localhost:8000"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: cookieAuth
+configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with avis_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = avis_client.MlApi(api_client)
+    id = 56 # int | A unique integer value identifying this ml model type.
+    ml_model_type_request = avis_client.MLModelTypeRequest() # MLModelTypeRequest |  (optional)
+
+    try:
+        api_response = api_instance.ml_model_type_update(id, ml_model_type_request=ml_model_type_request)
+        print("The response of MlApi->ml_model_type_update:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling MlApi->ml_model_type_update: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| A unique integer value identifying this ml model type. | 
+ **ml_model_type_request** | [**MLModelTypeRequest**](MLModelTypeRequest.md)|  | [optional] 
+
+### Return type
+
+[**MLModelType**](MLModelType.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **ml_model_update**
 > MLModel ml_model_update(id, ml_model_request)
 
@@ -562,10 +1084,10 @@ from avis_client.models.ml_model_request import MLModelRequest
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -613,516 +1135,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**MLModel**](MLModel.md)
-
-### Authorization
-
-[cookieAuth](../README.md#cookieAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **ml_modeltype_create**
-> MLModelType ml_modeltype_create(ml_model_type_request=ml_model_type_request)
-
-
-
-### Example
-
-* Api Key Authentication (cookieAuth):
-* Api Key Authentication (ApiKeyAuth):
-
-```python
-import time
-import os
-import avis_client
-from avis_client.models.ml_model_type import MLModelType
-from avis_client.models.ml_model_type_request import MLModelTypeRequest
-from avis_client.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://avis.vu.engineering
-# See configuration.py for a list of all supported configuration parameters.
-configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
-
-# Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with avis_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = avis_client.MlApi(api_client)
-    ml_model_type_request = avis_client.MLModelTypeRequest() # MLModelTypeRequest |  (optional)
-
-    try:
-        api_response = api_instance.ml_modeltype_create(ml_model_type_request=ml_model_type_request)
-        print("The response of MlApi->ml_modeltype_create:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling MlApi->ml_modeltype_create: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ml_model_type_request** | [**MLModelTypeRequest**](MLModelTypeRequest.md)|  | [optional] 
-
-### Return type
-
-[**MLModelType**](MLModelType.md)
-
-### Authorization
-
-[cookieAuth](../README.md#cookieAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** |  |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **ml_modeltype_destroy**
-> ml_modeltype_destroy(id)
-
-
-
-### Example
-
-* Api Key Authentication (cookieAuth):
-* Api Key Authentication (ApiKeyAuth):
-
-```python
-import time
-import os
-import avis_client
-from avis_client.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://avis.vu.engineering
-# See configuration.py for a list of all supported configuration parameters.
-configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
-
-# Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with avis_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = avis_client.MlApi(api_client)
-    id = 56 # int | A unique integer value identifying this ml model type.
-
-    try:
-        api_instance.ml_modeltype_destroy(id)
-    except Exception as e:
-        print("Exception when calling MlApi->ml_modeltype_destroy: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this ml model type. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[cookieAuth](../README.md#cookieAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**204** | No response body |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **ml_modeltype_list**
-> List[MLModelType] ml_modeltype_list()
-
-
-
-### Example
-
-* Api Key Authentication (cookieAuth):
-* Api Key Authentication (ApiKeyAuth):
-
-```python
-import time
-import os
-import avis_client
-from avis_client.models.ml_model_type import MLModelType
-from avis_client.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://avis.vu.engineering
-# See configuration.py for a list of all supported configuration parameters.
-configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
-
-# Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with avis_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = avis_client.MlApi(api_client)
-
-    try:
-        api_response = api_instance.ml_modeltype_list()
-        print("The response of MlApi->ml_modeltype_list:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling MlApi->ml_modeltype_list: %s\n" % e)
-```
-
-
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**List[MLModelType]**](MLModelType.md)
-
-### Authorization
-
-[cookieAuth](../README.md#cookieAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **ml_modeltype_partial_update**
-> MLModelType ml_modeltype_partial_update(id, patched_ml_model_type_request=patched_ml_model_type_request)
-
-
-
-### Example
-
-* Api Key Authentication (cookieAuth):
-* Api Key Authentication (ApiKeyAuth):
-
-```python
-import time
-import os
-import avis_client
-from avis_client.models.ml_model_type import MLModelType
-from avis_client.models.patched_ml_model_type_request import PatchedMLModelTypeRequest
-from avis_client.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://avis.vu.engineering
-# See configuration.py for a list of all supported configuration parameters.
-configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
-
-# Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with avis_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = avis_client.MlApi(api_client)
-    id = 56 # int | A unique integer value identifying this ml model type.
-    patched_ml_model_type_request = avis_client.PatchedMLModelTypeRequest() # PatchedMLModelTypeRequest |  (optional)
-
-    try:
-        api_response = api_instance.ml_modeltype_partial_update(id, patched_ml_model_type_request=patched_ml_model_type_request)
-        print("The response of MlApi->ml_modeltype_partial_update:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling MlApi->ml_modeltype_partial_update: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this ml model type. | 
- **patched_ml_model_type_request** | [**PatchedMLModelTypeRequest**](PatchedMLModelTypeRequest.md)|  | [optional] 
-
-### Return type
-
-[**MLModelType**](MLModelType.md)
-
-### Authorization
-
-[cookieAuth](../README.md#cookieAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **ml_modeltype_retrieve**
-> MLModelType ml_modeltype_retrieve(id)
-
-
-
-### Example
-
-* Api Key Authentication (cookieAuth):
-* Api Key Authentication (ApiKeyAuth):
-
-```python
-import time
-import os
-import avis_client
-from avis_client.models.ml_model_type import MLModelType
-from avis_client.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://avis.vu.engineering
-# See configuration.py for a list of all supported configuration parameters.
-configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
-
-# Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with avis_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = avis_client.MlApi(api_client)
-    id = 56 # int | A unique integer value identifying this ml model type.
-
-    try:
-        api_response = api_instance.ml_modeltype_retrieve(id)
-        print("The response of MlApi->ml_modeltype_retrieve:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling MlApi->ml_modeltype_retrieve: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this ml model type. | 
-
-### Return type
-
-[**MLModelType**](MLModelType.md)
-
-### Authorization
-
-[cookieAuth](../README.md#cookieAuth), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **ml_modeltype_update**
-> MLModelType ml_modeltype_update(id, ml_model_type_request=ml_model_type_request)
-
-
-
-### Example
-
-* Api Key Authentication (cookieAuth):
-* Api Key Authentication (ApiKeyAuth):
-
-```python
-import time
-import os
-import avis_client
-from avis_client.models.ml_model_type import MLModelType
-from avis_client.models.ml_model_type_request import MLModelTypeRequest
-from avis_client.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://avis.vu.engineering
-# See configuration.py for a list of all supported configuration parameters.
-configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: cookieAuth
-configuration.api_key['cookieAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['cookieAuth'] = 'Bearer'
-
-# Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with avis_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = avis_client.MlApi(api_client)
-    id = 56 # int | A unique integer value identifying this ml model type.
-    ml_model_type_request = avis_client.MLModelTypeRequest() # MLModelTypeRequest |  (optional)
-
-    try:
-        api_response = api_instance.ml_modeltype_update(id, ml_model_type_request=ml_model_type_request)
-        print("The response of MlApi->ml_modeltype_update:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling MlApi->ml_modeltype_update: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this ml model type. | 
- **ml_model_type_request** | [**MLModelTypeRequest**](MLModelTypeRequest.md)|  | [optional] 
-
-### Return type
-
-[**MLModelType**](MLModelType.md)
 
 ### Authorization
 

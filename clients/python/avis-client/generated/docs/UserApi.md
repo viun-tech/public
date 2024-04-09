@@ -1,6 +1,6 @@
 # avis_client.UserApi
 
-All URIs are relative to *https://avis.vu.engineering*
+All URIs are relative to *http://localhost:8000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,10 +28,10 @@ from avis_client.models.email_address import EmailAddress
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -111,10 +111,10 @@ from avis_client.models.custom_user import CustomUser
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters

@@ -1,6 +1,6 @@
 # avis_client.ImageApi
 
-All URIs are relative to *https://avis.vu.engineering*
+All URIs are relative to *http://localhost:8000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -36,10 +36,10 @@ from avis_client.models.validation_status_enum import ValidationStatusEnum
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -138,10 +138,10 @@ import avis_client
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -204,7 +204,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **image_inspection_status_list**
-> List[InspectionStatus] image_inspection_status_list(id=id)
+> PaginatedInspectionStatusList image_inspection_status_list(id=id, ordering=ordering, page=page, page_size=page_size)
 
 
 
@@ -219,14 +219,14 @@ A base viewset that allows reading, creating and updating objects. The following
 import time
 import os
 import avis_client
-from avis_client.models.inspection_status import InspectionStatus
+from avis_client.models.paginated_inspection_status_list import PaginatedInspectionStatusList
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -251,9 +251,12 @@ with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.ImageApi(api_client)
     id = [56] # List[int] | Multiple values may be separated by commas. (optional)
+    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
     try:
-        api_response = api_instance.image_inspection_status_list(id=id)
+        api_response = api_instance.image_inspection_status_list(id=id, ordering=ordering, page=page, page_size=page_size)
         print("The response of ImageApi->image_inspection_status_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -268,10 +271,13 @@ with avis_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional] 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
 
 ### Return type
 
-[**List[InspectionStatus]**](InspectionStatus.md)
+[**PaginatedInspectionStatusList**](PaginatedInspectionStatusList.md)
 
 ### Authorization
 
@@ -291,7 +297,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **image_list**
-> List[Image] image_list(fields=fields, id=id)
+> PaginatedImageList image_list(fields=fields, id=id, ordering=ordering, page=page, page_size=page_size)
 
 
 
@@ -306,14 +312,14 @@ A base viewset that allows reading, creating and updating objects. The following
 import time
 import os
 import avis_client
-from avis_client.models.image import Image
+from avis_client.models.paginated_image_list import PaginatedImageList
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -339,9 +345,12 @@ with avis_client.ApiClient(configuration) as api_client:
     api_instance = avis_client.ImageApi(api_client)
     fields = 'fields_example' # str |  (optional)
     id = [56] # List[int] | Multiple values may be separated by commas. (optional)
+    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
     try:
-        api_response = api_instance.image_list(fields=fields, id=id)
+        api_response = api_instance.image_list(fields=fields, id=id, ordering=ordering, page=page, page_size=page_size)
         print("The response of ImageApi->image_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -357,10 +366,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **fields** | **str**|  | [optional] 
  **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional] 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
 
 ### Return type
 
-[**List[Image]**](Image.md)
+[**PaginatedImageList**](PaginatedImageList.md)
 
 ### Authorization
 
@@ -400,10 +412,10 @@ from avis_client.models.patched_image_request import PatchedImageRequest
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -470,7 +482,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **image_quality_list**
-> List[QualityCriteriaResult] image_quality_list(id=id)
+> PaginatedQualityCriteriaResultList image_quality_list(id=id, ordering=ordering, page=page, page_size=page_size)
 
 
 
@@ -485,14 +497,14 @@ A base viewset that allows reading, creating and updating objects. The following
 import time
 import os
 import avis_client
-from avis_client.models.quality_criteria_result import QualityCriteriaResult
+from avis_client.models.paginated_quality_criteria_result_list import PaginatedQualityCriteriaResultList
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -517,9 +529,12 @@ with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.ImageApi(api_client)
     id = [56] # List[int] | Multiple values may be separated by commas. (optional)
+    ordering = 'ordering_example' # str | Which field to use when ordering the results. (optional)
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
     try:
-        api_response = api_instance.image_quality_list(id=id)
+        api_response = api_instance.image_quality_list(id=id, ordering=ordering, page=page, page_size=page_size)
         print("The response of ImageApi->image_quality_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -534,10 +549,13 @@ with avis_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional] 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
 
 ### Return type
 
-[**List[QualityCriteriaResult]**](QualityCriteriaResult.md)
+[**PaginatedQualityCriteriaResultList**](PaginatedQualityCriteriaResultList.md)
 
 ### Authorization
 
@@ -576,10 +594,10 @@ from avis_client.models.image import Image
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -666,10 +684,10 @@ from avis_client.models.image_request import ImageRequest
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters

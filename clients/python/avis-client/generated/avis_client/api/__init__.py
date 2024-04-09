@@ -15,6 +15,7 @@ from avis_client.api.product_api import ProductApi
 from avis_client.api.product_category_api import ProductCategoryApi
 from avis_client.api.quality_criteria_api import QualityCriteriaApi
 from avis_client.api.result_api import ResultApi
-from avis_client.api.team_api import TeamApi
+from avis_client.api.statistics_api import StatisticsApi
+from avis_client.api.teams_api import TeamsApi
 from avis_client.api.user_api import UserApi
 

@@ -1,18 +1,18 @@
-# avis_client.TeamApi
+# avis_client.TeamsApi
 
-All URIs are relative to *https://avis.vu.engineering*
+All URIs are relative to *http://localhost:8000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**team_create**](TeamApi.md#team_create) | **POST** /api/team/ | 
-[**team_destroy**](TeamApi.md#team_destroy) | **DELETE** /api/team/{id}/ | 
-[**team_list**](TeamApi.md#team_list) | **GET** /api/team/ | 
-[**team_retrieve**](TeamApi.md#team_retrieve) | **GET** /api/team/{id}/ | 
-[**team_update**](TeamApi.md#team_update) | **PUT** /api/team/{id}/ | 
+[**teams_create**](TeamsApi.md#teams_create) | **POST** /api/teams/ | 
+[**teams_destroy**](TeamsApi.md#teams_destroy) | **DELETE** /api/teams/{id}/ | 
+[**teams_list**](TeamsApi.md#teams_list) | **GET** /api/teams/ | 
+[**teams_retrieve**](TeamsApi.md#teams_retrieve) | **GET** /api/teams/{id}/ | 
+[**teams_update**](TeamsApi.md#teams_update) | **PUT** /api/teams/{id}/ | 
 
 
-# **team_create**
-> Team team_create(team_request)
+# **teams_create**
+> Team teams_create(team_request)
 
 
 
@@ -32,10 +32,10 @@ from avis_client.models.team_request import TeamRequest
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -58,15 +58,15 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = avis_client.TeamApi(api_client)
+    api_instance = avis_client.TeamsApi(api_client)
     team_request = avis_client.TeamRequest() # TeamRequest | 
 
     try:
-        api_response = api_instance.team_create(team_request)
-        print("The response of TeamApi->team_create:\n")
+        api_response = api_instance.teams_create(team_request)
+        print("The response of TeamsApi->teams_create:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TeamApi->team_create: %s\n" % e)
+        print("Exception when calling TeamsApi->teams_create: %s\n" % e)
 ```
 
 
@@ -99,8 +99,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **team_destroy**
-> team_destroy(id)
+# **teams_destroy**
+> teams_destroy(id)
 
 
 
@@ -118,10 +118,10 @@ import avis_client
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -144,13 +144,13 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = avis_client.TeamApi(api_client)
+    api_instance = avis_client.TeamsApi(api_client)
     id = 56 # int | A unique integer value identifying this team.
 
     try:
-        api_instance.team_destroy(id)
+        api_instance.teams_destroy(id)
     except Exception as e:
-        print("Exception when calling TeamApi->team_destroy: %s\n" % e)
+        print("Exception when calling TeamsApi->teams_destroy: %s\n" % e)
 ```
 
 
@@ -183,8 +183,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **team_list**
-> List[Team] team_list()
+# **teams_list**
+> PaginatedTeamList teams_list(page=page, page_size=page_size)
 
 
 
@@ -199,14 +199,14 @@ A base read-only viewset that enables optimized queryset fetching and tracing.  
 import time
 import os
 import avis_client
-from avis_client.models.team import Team
+from avis_client.models.paginated_team_list import PaginatedTeamList
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -229,25 +229,31 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = avis_client.TeamApi(api_client)
+    api_instance = avis_client.TeamsApi(api_client)
+    page = 56 # int | A page number within the paginated result set. (optional)
+    page_size = 56 # int | Number of results to return per page. (optional)
 
     try:
-        api_response = api_instance.team_list()
-        print("The response of TeamApi->team_list:\n")
+        api_response = api_instance.teams_list(page=page, page_size=page_size)
+        print("The response of TeamsApi->teams_list:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TeamApi->team_list: %s\n" % e)
+        print("Exception when calling TeamsApi->teams_list: %s\n" % e)
 ```
 
 
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
 
 ### Return type
 
-[**List[Team]**](Team.md)
+[**PaginatedTeamList**](PaginatedTeamList.md)
 
 ### Authorization
 
@@ -266,8 +272,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **team_retrieve**
-> Team team_retrieve(id)
+# **teams_retrieve**
+> Team teams_retrieve(id)
 
 
 
@@ -286,10 +292,10 @@ from avis_client.models.team import Team
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -312,15 +318,15 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = avis_client.TeamApi(api_client)
+    api_instance = avis_client.TeamsApi(api_client)
     id = 56 # int | A unique integer value identifying this team.
 
     try:
-        api_response = api_instance.team_retrieve(id)
-        print("The response of TeamApi->team_retrieve:\n")
+        api_response = api_instance.teams_retrieve(id)
+        print("The response of TeamsApi->teams_retrieve:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TeamApi->team_retrieve: %s\n" % e)
+        print("Exception when calling TeamsApi->teams_retrieve: %s\n" % e)
 ```
 
 
@@ -353,8 +359,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **team_update**
-> Team team_update(id, team_request)
+# **teams_update**
+> Team teams_update(id, team_request)
 
 
 
@@ -374,10 +380,10 @@ from avis_client.models.team_request import TeamRequest
 from avis_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://avis.vu.engineering
+# Defining the host is optional and defaults to http://localhost:8000
 # See configuration.py for a list of all supported configuration parameters.
 configuration = avis_client.Configuration(
-    host = "https://avis.vu.engineering"
+    host = "http://localhost:8000"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -400,16 +406,16 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = avis_client.TeamApi(api_client)
+    api_instance = avis_client.TeamsApi(api_client)
     id = 56 # int | A unique integer value identifying this team.
     team_request = avis_client.TeamRequest() # TeamRequest | 
 
     try:
-        api_response = api_instance.team_update(id, team_request)
-        print("The response of TeamApi->team_update:\n")
+        api_response = api_instance.teams_update(id, team_request)
+        print("The response of TeamsApi->teams_update:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TeamApi->team_update: %s\n" % e)
+        print("Exception when calling TeamsApi->teams_update: %s\n" % e)
 ```
 
 

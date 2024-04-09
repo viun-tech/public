@@ -118,7 +118,7 @@ def get_image_attributes(
             image_attribute_list = image_attribute_client.image_attribute_list(
                 id=attributes
             )
-            return [attribute.value for attribute in image_attribute_list]
+            return [attribute.value for attribute in image_attribute_list.results]
         except ApiException as e:
             msg = f"Exception when retrieving image attributes:  {e}\n"
             logger.error(msg)
@@ -138,6 +138,6 @@ if __name__ == "__main__":
     logger.info(f"Image {image_id} added to inspection {inspection_id}")
     # get image attributes
     image_attributes = get_image_attributes(image_id)
-    logger.info(f"Image attributes: {image_attributes}")
+    logger.info(f"Image attributes: {image_attributes.results}")
     # continue cycle if needed or
     # close inspection
