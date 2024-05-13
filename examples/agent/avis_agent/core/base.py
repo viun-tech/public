@@ -1,5 +1,4 @@
 import logging
-import threading
 import time
 from typing import Type, Union
 
@@ -22,15 +21,6 @@ from avis_agent.core.responses import (
     CommandSuccessfulResponse,
     ReadyResponse,
 )
-from avis_agent.instrumentation import (  # Not working, see https://github.com/vuengineering/vue-monorepo/issues/604; image_brightness_gauge,; image_sharpness_gauge,
-    backend_execute_duration_histogram,
-    capture_image_duration_histogram,
-    cycle_counter,
-    heartbeat_metric,
-    total_run_duration_histogram,
-    tracer,
-    write_signal_duration_histogram,
-)
 from avis_agent.signal.base import AbstractSignal
 from avis_agent.signal.impl.cli import CliSignalSettings
 from avis_agent.signal.impl.modbus_tcp import ModbusTcpSignalSettings
@@ -38,14 +28,6 @@ from avis_agent.utils import BaseSettingsWithRetries
 from PIL.Image import Image
 from pydantic import Field
 from pydantic_settings import SettingsConfigDict
-from vue_image.utils import get_image_brightness, get_image_sharpness
-from vue_instrumentation.core import (
-    InstrumentationSettings,
-    get_default_resource,
-    instrument,
-    send_heartbeat,
-    track_duration,
-)
 
 logger = logging.getLogger(__name__)
 
@@ -58,7 +40,6 @@ class AgentSettings(BaseSettingsWithRetries):
     camera: CameraSettings = Field(..., discriminator="name")
     backend: BackendSettings = Field(..., discriminator="name")
     signal: SignalSettings = Field(..., discriminator="name")
-    instrumentation: Union[InstrumentationSettings, None] = None
 
     model_config = SettingsConfigDict(env_prefix="AGENT_", env_nested_delimiter="__")
 
@@ -92,37 +73,6 @@ class Agent:
         self.current_image_sharpness = float(0)
         self.current_image_brightness = float(0)
 
-        if config.instrumentation:
-            instrument(
-                get_default_resource(
-                    env_value="production",
-                    service_name="agent",
-                    service_instance_id=config.instrumentation.service_instance_id,
-                ),
-                config.instrumentation.metrics_exporter_endpoint,
-                config.instrumentation.traces_exporter_endpoint,
-                False,
-            )
-            if config.instrumentation.heartbeat_interval is not None:
-                # this will send a heartbeat in a background thread and stop when the agent stops
-                heartbeat_thread = threading.Thread(
-                    target=send_heartbeat,
-                    args=(heartbeat_metric, config.instrumentation.heartbeat_interval),
-                    daemon=True,
-                )
-                heartbeat_thread.start()
-            # initialize the image sharpness and brightness gauges
-            # see https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#asynchronous-gauge-operations
-
-            # Not working, see https://github.com/vuengineering/vue-monorepo/issues/604
-
-            # image_sharpness_gauge.register_callback(
-            #     lambda result: result.Observe(self.current_image_sharpness)
-            # )
-            # image_brightness_gauge.register_callback(
-            #     lambda result: result.Observe(self.current_image_brightness)
-            # )
-
     def run(self) -> None:
         """
         Run the agent.
@@ -141,9 +91,7 @@ class Agent:
                 ):
                     continue
                 self.last_command = command
-                with tracer.start_as_current_span(f"{command.__class__.__name__}"):
-                    self._process_command(command)
-                cycle_counter.add(1)
+                self._process_command(command)
                 self.first_run = False
                 time.sleep(self.config.signal.polling_interval)
         finally:
@@ -175,7 +123,6 @@ class Agent:
             and not self._is_ready_command(command)
         )
 
-    @track_duration(meter=total_run_duration_histogram)
     def _process_command(self, command) -> Union[AbstractResponse, AgentError]:
         response = self._handle_command(command)
         success = self._write_signal(response)
@@ -191,28 +138,20 @@ class Agent:
         self.last_response = response
         return response
 
-    @track_duration(meter=write_signal_duration_histogram)
-    @tracer.start_as_current_span("Write signal")
     def _write_signal(
         self, response: Union[AbstractResponse, AgentError]
     ) -> Union[bool, AgentError]:
         return self.signal.write(response)
 
-    @track_duration(backend_execute_duration_histogram)
-    @tracer.start_as_current_span("Execute command on backend")
     def _call_backend(
         self, command: AbstractCommand
     ) -> Union[AbstractResponse, AgentError]:
         return self.backend.execute(command)
 
-    @track_duration(meter=capture_image_duration_histogram)
-    @tracer.start_as_current_span("Capture image with camera")
     def _capture_image(self) -> Union[Image, AgentError]:
         image = self.camera.capture_image()
         if isinstance(image, AgentError):
             return image
-        self.current_image_sharpness = get_image_sharpness(image)
-        self.current_image_brightness = get_image_brightness(image)
         return image
 
     def _start_camera(self) -> bool:

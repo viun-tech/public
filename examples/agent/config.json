@@ -23,10 +23,5 @@
     "polling_interval": 0.1,
     "host": "localhost",
     "port": 5020
-  },
-  "instrumentation": {
-    "traces_exporter_endpoint": "http://localhost:4317",
-    "metrics_exporter_endpoint": "http://localhost:4317",
-    "service_instance_id": "test"
   }
 }

@@ -72,7 +72,7 @@ class OakDPOECamera(AbstractCamera):
     def setup_camera(self) -> dai.Pipeline:
         pipeline = dai.Pipeline()
 
-        if not self.is_crop_valid():
+        if self.config.crop is not None and not self.is_crop_valid():
             raise AgentError(
                 f"The cropping coordinates are invalid. The width ({self.config.crop.xmax - self.config.crop.xmin}) must be divisible by 2 and the height ({self.config.crop.ymax - self.config.crop.ymin}) by 3."
             )
@@ -112,7 +112,9 @@ class OakDPOECamera(AbstractCamera):
         self.pipeline = self.config.with_retries(self.setup_camera)
         try:
             if self.config.device_info is not None:
-                self.device = dai.Device(self.pipeline, self.config.device_info)
+                self.device = dai.Device(
+                    self.pipeline, dai.DeviceInfo(self.config.device_info)
+                )
             else:
                 self.device = dai.Device(self.pipeline)
             self.camera_started = True
