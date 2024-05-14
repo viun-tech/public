@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **int** |  | [optional] 
-**next** | **str** |  | [optional] 
-**previous** | **str** |  | [optional] 
-**results** | [**List[Product]**](Product.md) |  | [optional] 
+**count** | **int** |  |
+**next** | **str** |  | [optional]
+**previous** | **str** |  | [optional]
+**results** | [**List[Product]**](Product.md) |  |
 
 ## Example
 
@@ -28,5 +28,3 @@ paginated_product_list_dict = paginated_product_list_instance.to_dict()
 paginated_product_list_form_dict = paginated_product_list.from_dict(paginated_product_list_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

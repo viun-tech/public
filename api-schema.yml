@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: avis
-  version: 0.7.0
+  version: 0.8.0
   description: VUE Autonomous Visual Inspection System (AVIS)
 paths:
   /api/configuration/:
@@ -890,56 +890,6 @@ paths:
       responses:
         '204':
           description: No response body
-  /api/image/inspection_status/:
-    get:
-      operationId: image_inspection_status_list
-      description: |-
-        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
-
-        * CreateModelMixin: allows creating objects
-        * UpdateModelMixin: allows updating objects
-        * DestroyModelMixin: allows deleting objects
-        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
-      parameters:
-      - in: query
-        name: id
-        schema:
-          type: array
-          items:
-            type: integer
-        description: Multiple values may be separated by commas.
-        explode: false
-        style: form
-      - name: ordering
-        required: false
-        in: query
-        description: Which field to use when ordering the results.
-        schema:
-          type: string
-      - name: page
-        required: false
-        in: query
-        description: A page number within the paginated result set.
-        schema:
-          type: integer
-      - name: page_size
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      tags:
-      - image
-      security:
-      - cookieAuth: []
-      - ApiKeyAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PaginatedInspectionStatusList'
-          description: ''
   /api/image/quality/:
     get:
       operationId: image_quality_list
@@ -1242,56 +1192,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Inspection'
           description: ''
-  /api/inspection/status/:
-    get:
-      operationId: inspection_status_list
-      description: |-
-        A base viewset that allows reading, creating and updating objects. The following functionalities are added by the mixins:
-
-        * CreateModelMixin: allows creating objects
-        * UpdateModelMixin: allows updating objects
-        * DestroyModelMixin: allows deleting objects
-        * OptimizedReadOnlyTracedViewSet: allows reading objects and adds tracing and optimized queryset fetching (with the use of the `fields` query parameter)
-      parameters:
-      - in: query
-        name: id
-        schema:
-          type: array
-          items:
-            type: integer
-        description: Multiple values may be separated by commas.
-        explode: false
-        style: form
-      - name: ordering
-        required: false
-        in: query
-        description: Which field to use when ordering the results.
-        schema:
-          type: string
-      - name: page
-        required: false
-        in: query
-        description: A page number within the paginated result set.
-        schema:
-          type: integer
-      - name: page_size
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      tags:
-      - inspection
-      security:
-      - cookieAuth: []
-      - ApiKeyAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PaginatedInspectionStatusList'
-          description: ''
   /api/inspection/validation_status/:
     get:
       operationId: inspection_validation_status_list
@@ -1401,13 +1301,8 @@ paths:
   /api/membership/:
     get:
       operationId: membership_list
-      description: |-
-        A base read-only viewset that enables optimized queryset fetching and tracing.
-
-        This is a combination of the following mixins:
-        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
-        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
-        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      description: A mixin that allows reading entities (listing and retrieving by
+        id).
       parameters:
       - name: page
         required: false
@@ -1435,13 +1330,8 @@ paths:
           description: ''
     post:
       operationId: membership_create
-      description: |-
-        A base read-only viewset that enables optimized queryset fetching and tracing.
-
-        This is a combination of the following mixins:
-        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
-        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
-        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      description: A mixin that allows reading entities (listing and retrieving by
+        id).
       tags:
       - membership
       requestBody:
@@ -1469,13 +1359,8 @@ paths:
   /api/membership/{id}/:
     get:
       operationId: membership_retrieve
-      description: |-
-        A base read-only viewset that enables optimized queryset fetching and tracing.
-
-        This is a combination of the following mixins:
-        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
-        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
-        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      description: A mixin that allows reading entities (listing and retrieving by
+        id).
       parameters:
       - in: path
         name: id
@@ -1497,13 +1382,8 @@ paths:
           description: ''
     put:
       operationId: membership_update
-      description: |-
-        A base read-only viewset that enables optimized queryset fetching and tracing.
-
-        This is a combination of the following mixins:
-        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
-        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
-        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      description: A mixin that allows reading entities (listing and retrieving by
+        id).
       parameters:
       - in: path
         name: id
@@ -1537,13 +1417,8 @@ paths:
           description: ''
     delete:
       operationId: membership_destroy
-      description: |-
-        A base read-only viewset that enables optimized queryset fetching and tracing.
-
-        This is a combination of the following mixins:
-        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
-        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
-        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      description: A mixin that allows reading entities (listing and retrieving by
+        id).
       parameters:
       - in: path
         name: id
@@ -3291,10 +3166,161 @@ paths:
       responses:
         '204':
           description: No response body
+  /api/statistics/configuration/:
+    get:
+      operationId: statistics_configuration_list
+      description: A mixin that allows reading entities (listing and retrieving by
+        id).
+      parameters:
+      - in: query
+        name: id
+        schema:
+          type: array
+          items:
+            type: integer
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - statistics
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedConfigurationStatisticsList'
+          description: ''
+    post:
+      operationId: statistics_configuration_create
+      description: A mixin that allows reading entities (listing and retrieving by
+        id).
+      tags:
+      - statistics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConfigurationStatisticsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ConfigurationStatisticsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ConfigurationStatisticsRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConfigurationStatistics'
+          description: ''
+  /api/statistics/configuration/{id}/:
+    get:
+      operationId: statistics_configuration_retrieve
+      description: A mixin that allows reading entities (listing and retrieving by
+        id).
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this configuration.
+        required: true
+      tags:
+      - statistics
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConfigurationStatistics'
+          description: ''
+    put:
+      operationId: statistics_configuration_update
+      description: A mixin that allows reading entities (listing and retrieving by
+        id).
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this configuration.
+        required: true
+      tags:
+      - statistics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConfigurationStatisticsRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ConfigurationStatisticsRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ConfigurationStatisticsRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConfigurationStatistics'
+          description: ''
+    delete:
+      operationId: statistics_configuration_destroy
+      description: A mixin that allows reading entities (listing and retrieving by
+        id).
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this configuration.
+        required: true
+      tags:
+      - statistics
+      security:
+      - cookieAuth: []
+      - ApiKeyAuth: []
+      responses:
+        '204':
+          description: No response body
   /api/statistics/inspection/:
     get:
       operationId: statistics_inspection_list
-      description: Allows a Google Partial Response query param like to prune results
+      description: A mixin that only allows retrieving entities by id.
       parameters:
       - name: page
         required: false
@@ -3322,7 +3348,7 @@ paths:
           description: ''
     post:
       operationId: statistics_inspection_create
-      description: Allows a Google Partial Response query param like to prune results
+      description: A mixin that only allows retrieving entities by id.
       tags:
       - statistics
       requestBody:
@@ -3350,7 +3376,7 @@ paths:
   /api/statistics/inspection/{id}/:
     get:
       operationId: statistics_inspection_retrieve
-      description: Allows a Google Partial Response query param like to prune results
+      description: A mixin that only allows retrieving entities by id.
       parameters:
       - in: path
         name: id
@@ -3372,7 +3398,7 @@ paths:
           description: ''
     put:
       operationId: statistics_inspection_update
-      description: Allows a Google Partial Response query param like to prune results
+      description: A mixin that only allows retrieving entities by id.
       parameters:
       - in: path
         name: id
@@ -3406,7 +3432,7 @@ paths:
           description: ''
     delete:
       operationId: statistics_inspection_destroy
-      description: Allows a Google Partial Response query param like to prune results
+      description: A mixin that only allows retrieving entities by id.
       parameters:
       - in: path
         name: id
@@ -3425,7 +3451,7 @@ paths:
   /api/statistics/team/:
     get:
       operationId: statistics_team_list
-      description: Allows a Google Partial Response query param like to prune results
+      description: A mixin that only allows retrieving entities by id.
       parameters:
       - name: page
         required: false
@@ -3453,7 +3479,7 @@ paths:
           description: ''
     post:
       operationId: statistics_team_create
-      description: Allows a Google Partial Response query param like to prune results
+      description: A mixin that only allows retrieving entities by id.
       tags:
       - statistics
       requestBody:
@@ -3481,7 +3507,7 @@ paths:
   /api/statistics/team/{id}/:
     get:
       operationId: statistics_team_retrieve
-      description: Allows a Google Partial Response query param like to prune results
+      description: A mixin that only allows retrieving entities by id.
       parameters:
       - in: path
         name: id
@@ -3503,7 +3529,7 @@ paths:
           description: ''
     put:
       operationId: statistics_team_update
-      description: Allows a Google Partial Response query param like to prune results
+      description: A mixin that only allows retrieving entities by id.
       parameters:
       - in: path
         name: id
@@ -3537,7 +3563,7 @@ paths:
           description: ''
     delete:
       operationId: statistics_team_destroy
-      description: Allows a Google Partial Response query param like to prune results
+      description: A mixin that only allows retrieving entities by id.
       parameters:
       - in: path
         name: id
@@ -3556,13 +3582,8 @@ paths:
   /api/teams/:
     get:
       operationId: teams_list
-      description: |-
-        A base read-only viewset that enables optimized queryset fetching and tracing.
-
-        This is a combination of the following mixins:
-        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
-        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
-        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      description: A mixin that allows reading entities (listing and retrieving by
+        id).
       parameters:
       - name: page
         required: false
@@ -3590,13 +3611,8 @@ paths:
           description: ''
     post:
       operationId: teams_create
-      description: |-
-        A base read-only viewset that enables optimized queryset fetching and tracing.
-
-        This is a combination of the following mixins:
-        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
-        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
-        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      description: A mixin that allows reading entities (listing and retrieving by
+        id).
       tags:
       - teams
       requestBody:
@@ -3624,13 +3640,8 @@ paths:
   /api/teams/{id}/:
     get:
       operationId: teams_retrieve
-      description: |-
-        A base read-only viewset that enables optimized queryset fetching and tracing.
-
-        This is a combination of the following mixins:
-        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
-        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
-        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      description: A mixin that allows reading entities (listing and retrieving by
+        id).
       parameters:
       - in: path
         name: id
@@ -3652,13 +3663,8 @@ paths:
           description: ''
     put:
       operationId: teams_update
-      description: |-
-        A base read-only viewset that enables optimized queryset fetching and tracing.
-
-        This is a combination of the following mixins:
-        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
-        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
-        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      description: A mixin that allows reading entities (listing and retrieving by
+        id).
       parameters:
       - in: path
         name: id
@@ -3692,13 +3698,8 @@ paths:
           description: ''
     delete:
       operationId: teams_destroy
-      description: |-
-        A base read-only viewset that enables optimized queryset fetching and tracing.
-
-        This is a combination of the following mixins:
-        * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database.
-        * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods.
-        * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+      description: A mixin that allows reading entities (listing and retrieving by
+        id).
       parameters:
       - in: path
         name: id
@@ -3765,6 +3766,32 @@ components:
     BlankEnum:
       enum:
       - ''
+    ConfigurationStatistics:
+      type: object
+      properties:
+        configuration:
+          type: integer
+        opened_inspections:
+          type: integer
+        inspections_marked_for_validation:
+          type: integer
+      required:
+      - configuration
+      - inspections_marked_for_validation
+      - opened_inspections
+    ConfigurationStatisticsRequest:
+      type: object
+      properties:
+        configuration:
+          type: integer
+        opened_inspections:
+          type: integer
+        inspections_marked_for_validation:
+          type: integer
+      required:
+      - configuration
+      - inspections_marked_for_validation
+      - opened_inspections
     ConfigurationType:
       type: object
       properties:
@@ -3801,6 +3828,8 @@ components:
           nullable: true
         description:
           type: string
+        is_default:
+          type: boolean
       required:
       - created_at
       - id
@@ -3831,6 +3860,8 @@ components:
             nullable: true
         description:
           type: string
+        is_default:
+          type: boolean
       required:
       - name
       - team
@@ -4218,26 +4249,6 @@ components:
       - opened_inspections
       - total_inspections
       - validation_requests
-    InspectionStatus:
-      type: object
-      properties:
-        id:
-          type: integer
-        inspection_status:
-          $ref: '#/components/schemas/InspectionStatusEnum'
-      required:
-      - id
-      - inspection_status
-    InspectionStatusEnum:
-      enum:
-      - NONE
-      - OK
-      - DEFECT
-      type: string
-      description: |-
-        * `NONE` - None
-        * `OK` - Ok
-        * `DEFECT` - Defect
     InspectionValidationStatus:
       type: object
       properties:
@@ -4472,8 +4483,34 @@ components:
       required:
       - json
       - team
+    PaginatedConfigurationStatisticsList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConfigurationStatistics'
     PaginatedConfigurationTypeList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -4494,6 +4531,9 @@ components:
             $ref: '#/components/schemas/ConfigurationType'
     PaginatedImageAttributeCategoryList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -4514,6 +4554,9 @@ components:
             $ref: '#/components/schemas/ImageAttributeCategory'
     PaginatedImageAttributeList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -4534,6 +4577,9 @@ components:
             $ref: '#/components/schemas/ImageAttribute'
     PaginatedImageList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -4554,6 +4600,9 @@ components:
             $ref: '#/components/schemas/Image'
     PaginatedInspectionImagesStatisticsList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -4574,6 +4623,9 @@ components:
             $ref: '#/components/schemas/InspectionImagesStatistics'
     PaginatedInspectionList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -4594,6 +4646,9 @@ components:
             $ref: '#/components/schemas/Inspection'
     PaginatedInspectionStatisticsList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -4612,28 +4667,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/InspectionStatistics'
-    PaginatedInspectionStatusList:
-      type: object
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?page=4
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?page=2
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/InspectionStatus'
     PaginatedInspectionValidationStatusList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -4654,6 +4692,9 @@ components:
             $ref: '#/components/schemas/InspectionValidationStatus'
     PaginatedMLModelList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -4674,6 +4715,9 @@ components:
             $ref: '#/components/schemas/MLModel'
     PaginatedMLModelTypeList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -4694,6 +4738,9 @@ components:
             $ref: '#/components/schemas/MLModelType'
     PaginatedMembershipList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -4714,6 +4761,9 @@ components:
             $ref: '#/components/schemas/Membership'
     PaginatedMetadataList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -4734,6 +4784,9 @@ components:
             $ref: '#/components/schemas/Metadata'
     PaginatedMetadataSchemaList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -4754,6 +4807,9 @@ components:
             $ref: '#/components/schemas/MetadataSchema'
     PaginatedProductCategoryList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -4774,6 +4830,9 @@ components:
             $ref: '#/components/schemas/ProductCategory'
     PaginatedProductList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -4794,6 +4853,9 @@ components:
             $ref: '#/components/schemas/Product'
     PaginatedQualityCriteriaList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -4814,6 +4876,9 @@ components:
             $ref: '#/components/schemas/QualityCriteria'
     PaginatedQualityCriteriaResultList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -4834,6 +4899,9 @@ components:
             $ref: '#/components/schemas/QualityCriteriaResult'
     PaginatedResultList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -4854,6 +4922,9 @@ components:
             $ref: '#/components/schemas/Result'
     PaginatedTeamList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -4896,6 +4967,8 @@ components:
             nullable: true
         description:
           type: string
+        is_default:
+          type: boolean
     PatchedImageAttributeCategoryRequest:
       type: object
       properties:

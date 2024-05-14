@@ -5,13 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**team** | **int** |  | [optional] 
-**name** | **str** |  | [optional] 
-**metadata_schema** | **int** |  | [optional] 
-**quality_criteria** | **int** |  | [optional] 
-**product_category** | **int** |  | [optional] 
-**image_attribute_categories** | **List[int]** |  | [optional] 
-**description** | **str** |  | [optional] 
+**team** | **int** |  | [optional]
+**name** | **str** |  | [optional]
+**metadata_schema** | **int** |  | [optional]
+**quality_criteria** | **int** |  | [optional]
+**product_category** | **int** |  | [optional]
+**image_attribute_categories** | **List[int]** |  | [optional]
+**description** | **str** |  | [optional]
+**is_default** | **bool** |  | [optional]
 
 ## Example
 
@@ -31,5 +32,3 @@ patched_configuration_type_request_dict = patched_configuration_type_request_ins
 patched_configuration_type_request_form_dict = patched_configuration_type_request.from_dict(patched_configuration_type_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

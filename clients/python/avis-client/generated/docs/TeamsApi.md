@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost:8000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**teams_create**](TeamsApi.md#teams_create) | **POST** /api/teams/ | 
-[**teams_destroy**](TeamsApi.md#teams_destroy) | **DELETE** /api/teams/{id}/ | 
-[**teams_list**](TeamsApi.md#teams_list) | **GET** /api/teams/ | 
-[**teams_retrieve**](TeamsApi.md#teams_retrieve) | **GET** /api/teams/{id}/ | 
-[**teams_update**](TeamsApi.md#teams_update) | **PUT** /api/teams/{id}/ | 
+[**teams_create**](TeamsApi.md#teams_create) | **POST** /api/teams/ |
+[**teams_destroy**](TeamsApi.md#teams_destroy) | **DELETE** /api/teams/{id}/ |
+[**teams_list**](TeamsApi.md#teams_list) | **GET** /api/teams/ |
+[**teams_retrieve**](TeamsApi.md#teams_retrieve) | **GET** /api/teams/{id}/ |
+[**teams_update**](TeamsApi.md#teams_update) | **PUT** /api/teams/{id}/ |
 
 
 # **teams_create**
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 
-A base read-only viewset that enables optimized queryset fetching and tracing.  This is a combination of the following mixins: * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database. * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods. * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+A mixin that allows reading entities (listing and retrieving by id).
 
 ### Example
 
@@ -59,7 +59,7 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.TeamsApi(api_client)
-    team_request = avis_client.TeamRequest() # TeamRequest | 
+    team_request = avis_client.TeamRequest() # TeamRequest |
 
     try:
         api_response = api_instance.teams_create(team_request)
@@ -76,7 +76,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **team_request** | [**TeamRequest**](TeamRequest.md)|  | 
+ **team_request** | [**TeamRequest**](TeamRequest.md)|  |
 
 ### Return type
 
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 
 
-A base read-only viewset that enables optimized queryset fetching and tracing.  This is a combination of the following mixins: * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database. * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods. * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+A mixin that allows reading entities (listing and retrieving by id).
 
 ### Example
 
@@ -160,7 +160,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this team. | 
+ **id** | **int**| A unique integer value identifying this team. |
 
 ### Return type
 
@@ -188,7 +188,7 @@ void (empty response body)
 
 
 
-A base read-only viewset that enables optimized queryset fetching and tracing.  This is a combination of the following mixins: * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database. * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods. * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+A mixin that allows reading entities (listing and retrieving by id).
 
 ### Example
 
@@ -248,8 +248,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| A page number within the paginated result set. | [optional] 
- **page_size** | **int**| Number of results to return per page. | [optional] 
+ **page** | **int**| A page number within the paginated result set. | [optional]
+ **page_size** | **int**| Number of results to return per page. | [optional]
 
 ### Return type
 
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 
 
 
-A base read-only viewset that enables optimized queryset fetching and tracing.  This is a combination of the following mixins: * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database. * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods. * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+A mixin that allows reading entities (listing and retrieving by id).
 
 ### Example
 
@@ -336,7 +336,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this team. | 
+ **id** | **int**| A unique integer value identifying this team. |
 
 ### Return type
 
@@ -364,7 +364,7 @@ Name | Type | Description  | Notes
 
 
 
-A base read-only viewset that enables optimized queryset fetching and tracing.  This is a combination of the following mixins: * OptimizedQuerySetMixin (from drf_jsonmask): allows the client to specify which fields to return by exposing a `fields` query parameter. If this parameter is not specified, all fields are returned. If it is specified, only the specified fields are returned and the other fields are not fetched from the database. * TracedModelViewSetMixin (from vue_instrumentation): adds tracing to the viewset's methods. * ListModelMixin, RetrieveModelMixin  (from django-rest-framework): adds a list and retrieve method to the viewset making it read-only.
+A mixin that allows reading entities (listing and retrieving by id).
 
 ### Example
 
@@ -408,7 +408,7 @@ with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.TeamsApi(api_client)
     id = 56 # int | A unique integer value identifying this team.
-    team_request = avis_client.TeamRequest() # TeamRequest | 
+    team_request = avis_client.TeamRequest() # TeamRequest |
 
     try:
         api_response = api_instance.teams_update(id, team_request)
@@ -425,8 +425,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this team. | 
- **team_request** | [**TeamRequest**](TeamRequest.md)|  | 
+ **id** | **int**| A unique integer value identifying this team. |
+ **team_request** | [**TeamRequest**](TeamRequest.md)|  |
 
 ### Return type
 
@@ -448,4 +448,3 @@ Name | Type | Description  | Notes
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
