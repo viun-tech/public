@@ -30,6 +30,8 @@ avis_client/exceptions.py
 avis_client/models/__init__.py
 avis_client/models/azure_ml_inference_request.py
 avis_client/models/blank_enum.py
+avis_client/models/configuration_statistics.py
+avis_client/models/configuration_statistics_request.py
 avis_client/models/configuration_type.py
 avis_client/models/configuration_type_request.py
 avis_client/models/custom_user.py
@@ -48,8 +50,6 @@ avis_client/models/inspection_images_statistics_request.py
 avis_client/models/inspection_request.py
 avis_client/models/inspection_statistics.py
 avis_client/models/inspection_statistics_request.py
-avis_client/models/inspection_status.py
-avis_client/models/inspection_status_enum.py
 avis_client/models/inspection_validation_status.py
 avis_client/models/membership.py
 avis_client/models/membership_request.py
@@ -61,6 +61,7 @@ avis_client/models/ml_model.py
 avis_client/models/ml_model_request.py
 avis_client/models/ml_model_type.py
 avis_client/models/ml_model_type_request.py
+avis_client/models/paginated_configuration_statistics_list.py
 avis_client/models/paginated_configuration_type_list.py
 avis_client/models/paginated_image_attribute_category_list.py
 avis_client/models/paginated_image_attribute_list.py
@@ -68,7 +69,6 @@ avis_client/models/paginated_image_list.py
 avis_client/models/paginated_inspection_images_statistics_list.py
 avis_client/models/paginated_inspection_list.py
 avis_client/models/paginated_inspection_statistics_list.py
-avis_client/models/paginated_inspection_status_list.py
 avis_client/models/paginated_inspection_validation_status_list.py
 avis_client/models/paginated_membership_list.py
 avis_client/models/paginated_metadata_list.py
@@ -117,6 +117,8 @@ docs/ApiKeysApi.md
 docs/AzureMLInferenceRequest.md
 docs/BlankEnum.md
 docs/ConfigurationApi.md
+docs/ConfigurationStatistics.md
+docs/ConfigurationStatisticsRequest.md
 docs/ConfigurationType.md
 docs/ConfigurationTypeRequest.md
 docs/CustomUser.md
@@ -139,8 +141,6 @@ docs/InspectionImagesStatisticsRequest.md
 docs/InspectionRequest.md
 docs/InspectionStatistics.md
 docs/InspectionStatisticsRequest.md
-docs/InspectionStatus.md
-docs/InspectionStatusEnum.md
 docs/InspectionValidationStatus.md
 docs/MLModel.md
 docs/MLModelRequest.md
@@ -156,6 +156,7 @@ docs/MetadataSchema.md
 docs/MetadataSchemaApi.md
 docs/MetadataSchemaRequest.md
 docs/MlApi.md
+docs/PaginatedConfigurationStatisticsList.md
 docs/PaginatedConfigurationTypeList.md
 docs/PaginatedImageAttributeCategoryList.md
 docs/PaginatedImageAttributeList.md
@@ -163,7 +164,6 @@ docs/PaginatedImageList.md
 docs/PaginatedInspectionImagesStatisticsList.md
 docs/PaginatedInspectionList.md
 docs/PaginatedInspectionStatisticsList.md
-docs/PaginatedInspectionStatusList.md
 docs/PaginatedInspectionValidationStatusList.md
 docs/PaginatedMLModelList.md
 docs/PaginatedMLModelTypeList.md
@@ -224,6 +224,8 @@ test/test_api_keys_api.py
 test/test_azure_ml_inference_request.py
 test/test_blank_enum.py
 test/test_configuration_api.py
+test/test_configuration_statistics.py
+test/test_configuration_statistics_request.py
 test/test_configuration_type.py
 test/test_configuration_type_request.py
 test/test_custom_user.py
@@ -246,8 +248,6 @@ test/test_inspection_images_statistics_request.py
 test/test_inspection_request.py
 test/test_inspection_statistics.py
 test/test_inspection_statistics_request.py
-test/test_inspection_status.py
-test/test_inspection_status_enum.py
 test/test_inspection_validation_status.py
 test/test_membership.py
 test/test_membership_api.py
@@ -263,6 +263,7 @@ test/test_ml_model.py
 test/test_ml_model_request.py
 test/test_ml_model_type.py
 test/test_ml_model_type_request.py
+test/test_paginated_configuration_statistics_list.py
 test/test_paginated_configuration_type_list.py
 test/test_paginated_image_attribute_category_list.py
 test/test_paginated_image_attribute_list.py
@@ -270,7 +271,6 @@ test/test_paginated_image_list.py
 test/test_paginated_inspection_images_statistics_list.py
 test/test_paginated_inspection_list.py
 test/test_paginated_inspection_statistics_list.py
-test/test_paginated_inspection_status_list.py
 test/test_paginated_inspection_validation_status_list.py
 test/test_paginated_membership_list.py
 test/test_paginated_metadata_list.py
