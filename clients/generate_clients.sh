@@ -37,11 +37,14 @@ update_files() {
 # clean up previous generated files
 rm -rf python/avis-client/generated
 rm -rf typescript/avis-client/generated
+rm -rf javascript/avis-client/generated
 
 # generate python client
 openapi-generator-cli generate --git-repo-id public --git-user-id vuengineering -i ../api-schema.yml -g python -o python/avis-client/generated --additional-properties=packageName=avis_client,packageVersion="$1"
 # generate typescript client
 openapi-generator-cli generate --git-repo-id public --git-user-id vuengineering -i ../api-schema.yml -g typescript-axios -o typescript/avis-client/generated --additional-properties=withInterfaces=true,npmName=@viun/avis-client
+# generate javascript client
+openapi-generator-cli generate --git-repo-id public --git-user-id vuengineering -i ../api-schema.yml -g javascript -o javascript/avis-client-js/generated --additional-properties=npmName=@viun/avis-client-js
 
 # Clean up author and license fields
 export -f update_files
@@ -50,5 +53,6 @@ find . -type d \( -name node_modules -o -name .venv \) -prune -o -type f \( -nam
 # Add Apache-2.0 license to the generated files
 cp ../LICENSE python/avis-client/generated/LICENSE
 cp ../LICENSE typescript/avis-client/generated/LICENSE
+cp ../LICENSE javascript/avis-client/generated/LICENSE
 
 echo "Done."
