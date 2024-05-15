@@ -1,8 +1,10 @@
-# Avis.AzureMLInferenceRequest
+# ViunAvisClientJs.AzureMLInferenceRequest
 
 ## Properties
 
-| Name          | Type       | Description | Notes      |
-| ------------- | ---------- | ----------- | ---------- |
-| **inputData** | **Object** |             |
-| **params**    | **Object** |             | [optional] |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**inputData** | **Object** |  | 
+**params** | **Object** |  | [optional] 
+
+

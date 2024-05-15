@@ -20,34 +20,27 @@ import json
 
 from typing import Any, ClassVar, Dict, List
 from pydantic import BaseModel, StrictInt
-
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
-
 class InspectionStatisticsRequest(BaseModel):
     """
     InspectionStatisticsRequest
-    """  # noqa: E501
-
+    """ # noqa: E501
     total_inspections: StrictInt
     closed_inspections: StrictInt
     opened_inspections: StrictInt
     validation_requests: StrictInt
-    __properties: ClassVar[List[str]] = [
-        "total_inspections",
-        "closed_inspections",
-        "opened_inspections",
-        "validation_requests",
-    ]
+    __properties: ClassVar[List[str]] = ["total_inspections", "closed_inspections", "opened_inspections", "validation_requests"]
 
     model_config = {
         "populate_by_name": True,
         "validate_assignment": True,
         "protected_namespaces": (),
     }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -75,7 +68,8 @@ class InspectionStatisticsRequest(BaseModel):
         """
         _dict = self.model_dump(
             by_alias=True,
-            exclude={},
+            exclude={
+            },
             exclude_none=True,
         )
         return _dict
@@ -89,12 +83,12 @@ class InspectionStatisticsRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate(
-            {
-                "total_inspections": obj.get("total_inspections"),
-                "closed_inspections": obj.get("closed_inspections"),
-                "opened_inspections": obj.get("opened_inspections"),
-                "validation_requests": obj.get("validation_requests"),
-            }
-        )
+        _obj = cls.model_validate({
+            "total_inspections": obj.get("total_inspections"),
+            "closed_inspections": obj.get("closed_inspections"),
+            "opened_inspections": obj.get("opened_inspections"),
+            "validation_requests": obj.get("validation_requests")
+        })
         return _obj
+
+

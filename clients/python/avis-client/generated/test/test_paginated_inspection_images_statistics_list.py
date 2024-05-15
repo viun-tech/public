@@ -13,11 +13,9 @@
 
 
 import unittest
+import datetime
 
-from avis_client.models.paginated_inspection_images_statistics_list import (
-    PaginatedInspectionImagesStatisticsList,
-)
-
+from avis_client.models.paginated_inspection_images_statistics_list import PaginatedInspectionImagesStatisticsList
 
 class TestPaginatedInspectionImagesStatisticsList(unittest.TestCase):
     """PaginatedInspectionImagesStatisticsList unit test stubs"""
@@ -28,13 +26,11 @@ class TestPaginatedInspectionImagesStatisticsList(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(
-        self, include_optional
-    ) -> PaginatedInspectionImagesStatisticsList:
+    def make_instance(self, include_optional) -> PaginatedInspectionImagesStatisticsList:
         """Test PaginatedInspectionImagesStatisticsList
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `PaginatedInspectionImagesStatisticsList`
         """
         model = PaginatedInspectionImagesStatisticsList()
@@ -45,7 +41,7 @@ class TestPaginatedInspectionImagesStatisticsList(unittest.TestCase):
                 previous = 'http://api.example.org/accounts/?page=2',
                 results = [
                     avis_client.models.inspection_images_statistics.InspectionImagesStatistics(
-                        total_images = 56,
+                        total_images = 56, 
                         images_to_inspect = 56, )
                     ]
             )
@@ -54,7 +50,7 @@ class TestPaginatedInspectionImagesStatisticsList(unittest.TestCase):
                 count = 123,
                 results = [
                     avis_client.models.inspection_images_statistics.InspectionImagesStatistics(
-                        total_images = 56,
+                        total_images = 56, 
                         images_to_inspect = 56, )
                     ],
         )
@@ -65,6 +61,5 @@ class TestPaginatedInspectionImagesStatisticsList(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

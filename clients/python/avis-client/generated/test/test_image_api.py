@@ -27,33 +27,47 @@ class TestImageApi(unittest.TestCase):
         pass
 
     def test_image_create(self) -> None:
-        """Test case for image_create"""
+        """Test case for image_create
+
+        """
         pass
 
     def test_image_destroy(self) -> None:
-        """Test case for image_destroy"""
+        """Test case for image_destroy
+
+        """
         pass
 
     def test_image_list(self) -> None:
-        """Test case for image_list"""
+        """Test case for image_list
+
+        """
         pass
 
     def test_image_partial_update(self) -> None:
-        """Test case for image_partial_update"""
+        """Test case for image_partial_update
+
+        """
         pass
 
     def test_image_quality_list(self) -> None:
-        """Test case for image_quality_list"""
+        """Test case for image_quality_list
+
+        """
         pass
 
     def test_image_retrieve(self) -> None:
-        """Test case for image_retrieve"""
+        """Test case for image_retrieve
+
+        """
         pass
 
     def test_image_update(self) -> None:
-        """Test case for image_update"""
+        """Test case for image_update
+
+        """
         pass
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

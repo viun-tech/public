@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **int** |  |
-**next** | **str** |  | [optional]
-**previous** | **str** |  | [optional]
-**results** | [**List[ImageAttribute]**](ImageAttribute.md) |  |
+**count** | **int** |  | 
+**next** | **str** |  | [optional] 
+**previous** | **str** |  | [optional] 
+**results** | [**List[ImageAttribute]**](ImageAttribute.md) |  | 
 
 ## Example
 
@@ -28,3 +28,5 @@ paginated_image_attribute_list_dict = paginated_image_attribute_list_instance.to
 paginated_image_attribute_list_form_dict = paginated_image_attribute_list.from_dict(paginated_image_attribute_list_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

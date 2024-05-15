@@ -22,18 +22,15 @@ from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictInt, StrictStr
 from pydantic import Field
 from typing_extensions import Annotated
-
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
-
 class ImageAttributeCategory(BaseModel):
     """
     ImageAttributeCategory
-    """  # noqa: E501
-
+    """ # noqa: E501
     id: StrictInt
     team: StrictInt
     created_at: Optional[datetime]
@@ -41,21 +38,14 @@ class ImageAttributeCategory(BaseModel):
     name: Optional[Annotated[str, Field(strict=True, max_length=255)]] = None
     description: Optional[StrictStr] = None
     ml_model: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = [
-        "id",
-        "team",
-        "created_at",
-        "updated_at",
-        "name",
-        "description",
-        "ml_model",
-    ]
+    __properties: ClassVar[List[str]] = ["id", "team", "created_at", "updated_at", "name", "description", "ml_model"]
 
     model_config = {
         "populate_by_name": True,
         "validate_assignment": True,
         "protected_namespaces": (),
     }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -96,17 +86,17 @@ class ImageAttributeCategory(BaseModel):
         # set to None if created_at (nullable) is None
         # and model_fields_set contains the field
         if self.created_at is None and "created_at" in self.model_fields_set:
-            _dict["created_at"] = None
+            _dict['created_at'] = None
 
         # set to None if updated_at (nullable) is None
         # and model_fields_set contains the field
         if self.updated_at is None and "updated_at" in self.model_fields_set:
-            _dict["updated_at"] = None
+            _dict['updated_at'] = None
 
         # set to None if ml_model (nullable) is None
         # and model_fields_set contains the field
         if self.ml_model is None and "ml_model" in self.model_fields_set:
-            _dict["ml_model"] = None
+            _dict['ml_model'] = None
 
         return _dict
 
@@ -119,15 +109,15 @@ class ImageAttributeCategory(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate(
-            {
-                "id": obj.get("id"),
-                "team": obj.get("team"),
-                "created_at": obj.get("created_at"),
-                "updated_at": obj.get("updated_at"),
-                "name": obj.get("name"),
-                "description": obj.get("description"),
-                "ml_model": obj.get("ml_model"),
-            }
-        )
+        _obj = cls.model_validate({
+            "id": obj.get("id"),
+            "team": obj.get("team"),
+            "created_at": obj.get("created_at"),
+            "updated_at": obj.get("updated_at"),
+            "name": obj.get("name"),
+            "description": obj.get("description"),
+            "ml_model": obj.get("ml_model")
+        })
         return _obj
+
+

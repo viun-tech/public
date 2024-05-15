@@ -12,6 +12,9 @@
 """  # noqa: E501
 
 
+import io
+import warnings
+
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Dict, List, Optional, Tuple, Union, Any
 
@@ -20,15 +23,16 @@ try:
 except ImportError:
     from typing_extensions import Annotated
 
+from pydantic import Field
 from typing_extensions import Annotated
+from pydantic import StrictInt, StrictStr
 
+from typing import List, Optional
 
 from avis_client.models.inspection import Inspection
 from avis_client.models.inspection_request import InspectionRequest
 from avis_client.models.paginated_inspection_list import PaginatedInspectionList
-from avis_client.models.paginated_inspection_validation_status_list import (
-    PaginatedInspectionValidationStatusList,
-)
+from avis_client.models.paginated_inspection_validation_status_list import PaginatedInspectionValidationStatusList
 from avis_client.models.patched_inspection_request import PatchedInspectionRequest
 
 from avis_client.api_client import ApiClient
@@ -48,6 +52,7 @@ class InspectionApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
+
     @validate_call
     def inspection_create(
         self,
@@ -56,8 +61,9 @@ class InspectionApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -90,27 +96,29 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_create_serialize(
             inspection_request=inspection_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "201": "Inspection",
+            '201': "Inspection",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
+
 
     @validate_call
     def inspection_create_with_http_info(
@@ -120,8 +128,9 @@ class InspectionApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -154,27 +163,29 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_create_serialize(
             inspection_request=inspection_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "201": "Inspection",
+            '201': "Inspection",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
+
 
     @validate_call
     def inspection_create_without_preload_content(
@@ -184,8 +195,9 @@ class InspectionApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -218,23 +230,25 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_create_serialize(
             inspection_request=inspection_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "201": "Inspection",
+            '201': "Inspection",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         return response_data.response
+
 
     def _inspection_create_serialize(
         self,
@@ -244,9 +258,11 @@ class InspectionApi:
         _headers,
         _host_index,
     ) -> Tuple:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -263,31 +279,39 @@ class InspectionApi:
         if inspection_request is not None:
             _body_params = inspection_request
 
+
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                [
-                    "application/json",
-                    "application/x-www-form-urlencoded",
-                    "multipart/form-data",
-                ]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json', 
+                        'application/x-www-form-urlencoded', 
+                        'multipart/form-data'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
+        _auth_settings: List[str] = [
+            'cookieAuth', 
+            'ApiKeyAuth'
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/api/inspection/",
+            method='POST',
+            resource_path='/api/inspection/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -297,22 +321,23 @@ class InspectionApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
+
+
+
 
     @validate_call
     def inspection_destroy(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this inspection."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this inspection.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -345,21 +370,22 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_destroy_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "204": None,
+            '204': None,
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -367,19 +393,18 @@ class InspectionApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def inspection_destroy_with_http_info(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this inspection."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this inspection.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -412,21 +437,22 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_destroy_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "204": None,
+            '204': None,
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -434,19 +460,18 @@ class InspectionApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def inspection_destroy_without_preload_content(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this inspection."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this inspection.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -479,23 +504,25 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_destroy_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "204": None,
+            '204': None,
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         return response_data.response
+
 
     def _inspection_destroy_serialize(
         self,
@@ -505,9 +532,11 @@ class InspectionApi:
         _headers,
         _host_index,
     ) -> Tuple:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -518,18 +547,24 @@ class InspectionApi:
 
         # process the path parameters
         if id is not None:
-            _path_params["id"] = id
+            _path_params['id'] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
+
+
+
         # authentication setting
-        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
+        _auth_settings: List[str] = [
+            'cookieAuth', 
+            'ApiKeyAuth'
+        ]
 
         return self.api_client.param_serialize(
-            method="DELETE",
-            resource_path="/api/inspection/{id}/",
+            method='DELETE',
+            resource_path='/api/inspection/{id}/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -539,35 +574,27 @@ class InspectionApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
+
+
+
 
     @validate_call
     def inspection_list(
         self,
         fields: Optional[StrictStr] = None,
-        id: Annotated[
-            Optional[List[StrictInt]],
-            Field(description="Multiple values may be separated by commas."),
-        ] = None,
-        ordering: Annotated[
-            Optional[StrictStr],
-            Field(description="Which field to use when ordering the results."),
-        ] = None,
-        page: Annotated[
-            Optional[StrictInt],
-            Field(description="A page number within the paginated result set."),
-        ] = None,
-        page_size: Annotated[
-            Optional[StrictInt],
-            Field(description="Number of results to return per page."),
-        ] = None,
+        id: Annotated[Optional[List[StrictInt]], Field(description="Multiple values may be separated by commas.")] = None,
+        ordering: Annotated[Optional[StrictStr], Field(description="Which field to use when ordering the results.")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -608,7 +635,7 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_list_serialize(
             fields=fields,
@@ -619,14 +646,15 @@ class InspectionApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "PaginatedInspectionList",
+            '200': "PaginatedInspectionList",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -634,32 +662,22 @@ class InspectionApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def inspection_list_with_http_info(
         self,
         fields: Optional[StrictStr] = None,
-        id: Annotated[
-            Optional[List[StrictInt]],
-            Field(description="Multiple values may be separated by commas."),
-        ] = None,
-        ordering: Annotated[
-            Optional[StrictStr],
-            Field(description="Which field to use when ordering the results."),
-        ] = None,
-        page: Annotated[
-            Optional[StrictInt],
-            Field(description="A page number within the paginated result set."),
-        ] = None,
-        page_size: Annotated[
-            Optional[StrictInt],
-            Field(description="Number of results to return per page."),
-        ] = None,
+        id: Annotated[Optional[List[StrictInt]], Field(description="Multiple values may be separated by commas.")] = None,
+        ordering: Annotated[Optional[StrictStr], Field(description="Which field to use when ordering the results.")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -700,7 +718,7 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_list_serialize(
             fields=fields,
@@ -711,14 +729,15 @@ class InspectionApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "PaginatedInspectionList",
+            '200': "PaginatedInspectionList",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -726,32 +745,22 @@ class InspectionApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def inspection_list_without_preload_content(
         self,
         fields: Optional[StrictStr] = None,
-        id: Annotated[
-            Optional[List[StrictInt]],
-            Field(description="Multiple values may be separated by commas."),
-        ] = None,
-        ordering: Annotated[
-            Optional[StrictStr],
-            Field(description="Which field to use when ordering the results."),
-        ] = None,
-        page: Annotated[
-            Optional[StrictInt],
-            Field(description="A page number within the paginated result set."),
-        ] = None,
-        page_size: Annotated[
-            Optional[StrictInt],
-            Field(description="Number of results to return per page."),
-        ] = None,
+        id: Annotated[Optional[List[StrictInt]], Field(description="Multiple values may be separated by commas.")] = None,
+        ordering: Annotated[Optional[StrictStr], Field(description="Which field to use when ordering the results.")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -792,7 +801,7 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_list_serialize(
             fields=fields,
@@ -803,16 +812,18 @@ class InspectionApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "PaginatedInspectionList",
+            '200': "PaginatedInspectionList",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         return response_data.response
+
 
     def _inspection_list_serialize(
         self,
@@ -826,10 +837,11 @@ class InspectionApi:
         _headers,
         _host_index,
     ) -> Tuple:
+
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            "id": "csv",
+            'id': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -842,35 +854,47 @@ class InspectionApi:
         # process the path parameters
         # process the query parameters
         if fields is not None:
-            _query_params.append(("fields", fields))
-
+            
+            _query_params.append(('fields', fields))
+            
         if id is not None:
-            _query_params.append(("id", id))
-
+            
+            _query_params.append(('id', id))
+            
         if ordering is not None:
-            _query_params.append(("ordering", ordering))
-
+            
+            _query_params.append(('ordering', ordering))
+            
         if page is not None:
-            _query_params.append(("page", page))
-
+            
+            _query_params.append(('page', page))
+            
         if page_size is not None:
-            _query_params.append(("page_size", page_size))
-
+            
+            _query_params.append(('page_size', page_size))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
+
         # authentication setting
-        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
+        _auth_settings: List[str] = [
+            'cookieAuth', 
+            'ApiKeyAuth'
+        ]
 
         return self.api_client.param_serialize(
-            method="GET",
-            resource_path="/api/inspection/",
+            method='GET',
+            resource_path='/api/inspection/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -880,23 +904,24 @@ class InspectionApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
+
+
+
 
     @validate_call
     def inspection_partial_update(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this inspection."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this inspection.")],
         patched_inspection_request: Optional[PatchedInspectionRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -931,7 +956,7 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_partial_update_serialize(
             id=id,
@@ -939,14 +964,15 @@ class InspectionApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Inspection",
+            '200': "Inspection",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -954,20 +980,19 @@ class InspectionApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def inspection_partial_update_with_http_info(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this inspection."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this inspection.")],
         patched_inspection_request: Optional[PatchedInspectionRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1002,7 +1027,7 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_partial_update_serialize(
             id=id,
@@ -1010,14 +1035,15 @@ class InspectionApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Inspection",
+            '200': "Inspection",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1025,20 +1051,19 @@ class InspectionApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def inspection_partial_update_without_preload_content(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this inspection."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this inspection.")],
         patched_inspection_request: Optional[PatchedInspectionRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1073,7 +1098,7 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_partial_update_serialize(
             id=id,
@@ -1081,16 +1106,18 @@ class InspectionApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Inspection",
+            '200': "Inspection",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         return response_data.response
+
 
     def _inspection_partial_update_serialize(
         self,
@@ -1101,9 +1128,11 @@ class InspectionApi:
         _headers,
         _host_index,
     ) -> Tuple:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1114,7 +1143,7 @@ class InspectionApi:
 
         # process the path parameters
         if id is not None:
-            _path_params["id"] = id
+            _path_params['id'] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -1122,31 +1151,39 @@ class InspectionApi:
         if patched_inspection_request is not None:
             _body_params = patched_inspection_request
 
+
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                [
-                    "application/json",
-                    "application/x-www-form-urlencoded",
-                    "multipart/form-data",
-                ]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json', 
+                        'application/x-www-form-urlencoded', 
+                        'multipart/form-data'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
+        _auth_settings: List[str] = [
+            'cookieAuth', 
+            'ApiKeyAuth'
+        ]
 
         return self.api_client.param_serialize(
-            method="PATCH",
-            resource_path="/api/inspection/{id}/",
+            method='PATCH',
+            resource_path='/api/inspection/{id}/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1156,23 +1193,24 @@ class InspectionApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
+
+
+
 
     @validate_call
     def inspection_retrieve(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this inspection."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this inspection.")],
         fields: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1207,7 +1245,7 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_retrieve_serialize(
             id=id,
@@ -1215,14 +1253,15 @@ class InspectionApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Inspection",
+            '200': "Inspection",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1230,20 +1269,19 @@ class InspectionApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def inspection_retrieve_with_http_info(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this inspection."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this inspection.")],
         fields: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1278,7 +1316,7 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_retrieve_serialize(
             id=id,
@@ -1286,14 +1324,15 @@ class InspectionApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Inspection",
+            '200': "Inspection",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1301,20 +1340,19 @@ class InspectionApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def inspection_retrieve_without_preload_content(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this inspection."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this inspection.")],
         fields: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1349,7 +1387,7 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_retrieve_serialize(
             id=id,
@@ -1357,16 +1395,18 @@ class InspectionApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Inspection",
+            '200': "Inspection",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         return response_data.response
+
 
     def _inspection_retrieve_serialize(
         self,
@@ -1377,9 +1417,11 @@ class InspectionApi:
         _headers,
         _host_index,
     ) -> Tuple:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1390,26 +1432,34 @@ class InspectionApi:
 
         # process the path parameters
         if id is not None:
-            _path_params["id"] = id
+            _path_params['id'] = id
         # process the query parameters
         if fields is not None:
-            _query_params.append(("fields", fields))
-
+            
+            _query_params.append(('fields', fields))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
+
         # authentication setting
-        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
+        _auth_settings: List[str] = [
+            'cookieAuth', 
+            'ApiKeyAuth'
+        ]
 
         return self.api_client.param_serialize(
-            method="GET",
-            resource_path="/api/inspection/{id}/",
+            method='GET',
+            resource_path='/api/inspection/{id}/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1419,22 +1469,23 @@ class InspectionApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
+
+
+
 
     @validate_call
     def inspection_send_validation_email_retrieve(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this inspection."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this inspection.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1467,21 +1518,22 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_send_validation_email_retrieve_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Inspection",
+            '200': "Inspection",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1489,19 +1541,18 @@ class InspectionApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def inspection_send_validation_email_retrieve_with_http_info(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this inspection."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this inspection.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1534,21 +1585,22 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_send_validation_email_retrieve_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Inspection",
+            '200': "Inspection",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1556,19 +1608,18 @@ class InspectionApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def inspection_send_validation_email_retrieve_without_preload_content(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this inspection."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this inspection.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1601,23 +1652,25 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_send_validation_email_retrieve_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Inspection",
+            '200': "Inspection",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         return response_data.response
+
 
     def _inspection_send_validation_email_retrieve_serialize(
         self,
@@ -1627,9 +1680,11 @@ class InspectionApi:
         _headers,
         _host_index,
     ) -> Tuple:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1640,23 +1695,30 @@ class InspectionApi:
 
         # process the path parameters
         if id is not None:
-            _path_params["id"] = id
+            _path_params['id'] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
+
         # authentication setting
-        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
+        _auth_settings: List[str] = [
+            'cookieAuth', 
+            'ApiKeyAuth'
+        ]
 
         return self.api_client.param_serialize(
-            method="GET",
-            resource_path="/api/inspection/{id}/send_validation_email/",
+            method='GET',
+            resource_path='/api/inspection/{id}/send_validation_email/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1666,23 +1728,24 @@ class InspectionApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
+
+
+
 
     @validate_call
     def inspection_update(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this inspection."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this inspection.")],
         inspection_request: InspectionRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1717,7 +1780,7 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_update_serialize(
             id=id,
@@ -1725,14 +1788,15 @@ class InspectionApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Inspection",
+            '200': "Inspection",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1740,20 +1804,19 @@ class InspectionApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def inspection_update_with_http_info(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this inspection."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this inspection.")],
         inspection_request: InspectionRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1788,7 +1851,7 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_update_serialize(
             id=id,
@@ -1796,14 +1859,15 @@ class InspectionApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Inspection",
+            '200': "Inspection",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1811,20 +1875,19 @@ class InspectionApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def inspection_update_without_preload_content(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this inspection."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this inspection.")],
         inspection_request: InspectionRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1859,7 +1922,7 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_update_serialize(
             id=id,
@@ -1867,16 +1930,18 @@ class InspectionApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Inspection",
+            '200': "Inspection",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         return response_data.response
+
 
     def _inspection_update_serialize(
         self,
@@ -1887,9 +1952,11 @@ class InspectionApi:
         _headers,
         _host_index,
     ) -> Tuple:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1900,7 +1967,7 @@ class InspectionApi:
 
         # process the path parameters
         if id is not None:
-            _path_params["id"] = id
+            _path_params['id'] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -1908,31 +1975,39 @@ class InspectionApi:
         if inspection_request is not None:
             _body_params = inspection_request
 
+
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                [
-                    "application/json",
-                    "application/x-www-form-urlencoded",
-                    "multipart/form-data",
-                ]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json', 
+                        'application/x-www-form-urlencoded', 
+                        'multipart/form-data'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
+        _auth_settings: List[str] = [
+            'cookieAuth', 
+            'ApiKeyAuth'
+        ]
 
         return self.api_client.param_serialize(
-            method="PUT",
-            resource_path="/api/inspection/{id}/",
+            method='PUT',
+            resource_path='/api/inspection/{id}/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1942,34 +2017,26 @@ class InspectionApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
+
+
+
 
     @validate_call
     def inspection_validation_status_list(
         self,
-        id: Annotated[
-            Optional[List[StrictInt]],
-            Field(description="Multiple values may be separated by commas."),
-        ] = None,
-        ordering: Annotated[
-            Optional[StrictStr],
-            Field(description="Which field to use when ordering the results."),
-        ] = None,
-        page: Annotated[
-            Optional[StrictInt],
-            Field(description="A page number within the paginated result set."),
-        ] = None,
-        page_size: Annotated[
-            Optional[StrictInt],
-            Field(description="Number of results to return per page."),
-        ] = None,
+        id: Annotated[Optional[List[StrictInt]], Field(description="Multiple values may be separated by commas.")] = None,
+        ordering: Annotated[Optional[StrictStr], Field(description="Which field to use when ordering the results.")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2008,7 +2075,7 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_validation_status_list_serialize(
             id=id,
@@ -2018,14 +2085,15 @@ class InspectionApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "PaginatedInspectionValidationStatusList",
+            '200': "PaginatedInspectionValidationStatusList",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2033,31 +2101,21 @@ class InspectionApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def inspection_validation_status_list_with_http_info(
         self,
-        id: Annotated[
-            Optional[List[StrictInt]],
-            Field(description="Multiple values may be separated by commas."),
-        ] = None,
-        ordering: Annotated[
-            Optional[StrictStr],
-            Field(description="Which field to use when ordering the results."),
-        ] = None,
-        page: Annotated[
-            Optional[StrictInt],
-            Field(description="A page number within the paginated result set."),
-        ] = None,
-        page_size: Annotated[
-            Optional[StrictInt],
-            Field(description="Number of results to return per page."),
-        ] = None,
+        id: Annotated[Optional[List[StrictInt]], Field(description="Multiple values may be separated by commas.")] = None,
+        ordering: Annotated[Optional[StrictStr], Field(description="Which field to use when ordering the results.")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2096,7 +2154,7 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_validation_status_list_serialize(
             id=id,
@@ -2106,14 +2164,15 @@ class InspectionApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "PaginatedInspectionValidationStatusList",
+            '200': "PaginatedInspectionValidationStatusList",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2121,31 +2180,21 @@ class InspectionApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def inspection_validation_status_list_without_preload_content(
         self,
-        id: Annotated[
-            Optional[List[StrictInt]],
-            Field(description="Multiple values may be separated by commas."),
-        ] = None,
-        ordering: Annotated[
-            Optional[StrictStr],
-            Field(description="Which field to use when ordering the results."),
-        ] = None,
-        page: Annotated[
-            Optional[StrictInt],
-            Field(description="A page number within the paginated result set."),
-        ] = None,
-        page_size: Annotated[
-            Optional[StrictInt],
-            Field(description="Number of results to return per page."),
-        ] = None,
+        id: Annotated[Optional[List[StrictInt]], Field(description="Multiple values may be separated by commas.")] = None,
+        ordering: Annotated[Optional[StrictStr], Field(description="Which field to use when ordering the results.")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2184,7 +2233,7 @@ class InspectionApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._inspection_validation_status_list_serialize(
             id=id,
@@ -2194,16 +2243,18 @@ class InspectionApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "PaginatedInspectionValidationStatusList",
+            '200': "PaginatedInspectionValidationStatusList",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         return response_data.response
+
 
     def _inspection_validation_status_list_serialize(
         self,
@@ -2216,10 +2267,11 @@ class InspectionApi:
         _headers,
         _host_index,
     ) -> Tuple:
+
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            "id": "csv",
+            'id': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -2232,32 +2284,43 @@ class InspectionApi:
         # process the path parameters
         # process the query parameters
         if id is not None:
-            _query_params.append(("id", id))
-
+            
+            _query_params.append(('id', id))
+            
         if ordering is not None:
-            _query_params.append(("ordering", ordering))
-
+            
+            _query_params.append(('ordering', ordering))
+            
         if page is not None:
-            _query_params.append(("page", page))
-
+            
+            _query_params.append(('page', page))
+            
         if page_size is not None:
-            _query_params.append(("page_size", page_size))
-
+            
+            _query_params.append(('page_size', page_size))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
+
         # authentication setting
-        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
+        _auth_settings: List[str] = [
+            'cookieAuth', 
+            'ApiKeyAuth'
+        ]
 
         return self.api_client.param_serialize(
-            method="GET",
-            resource_path="/api/inspection/validation_status/",
+            method='GET',
+            resource_path='/api/inspection/validation_status/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2267,5 +2330,7 @@ class InspectionApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
+
+

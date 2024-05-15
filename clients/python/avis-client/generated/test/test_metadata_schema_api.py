@@ -27,29 +27,41 @@ class TestMetadataSchemaApi(unittest.TestCase):
         pass
 
     def test_metadata_schema_create(self) -> None:
-        """Test case for metadata_schema_create"""
+        """Test case for metadata_schema_create
+
+        """
         pass
 
     def test_metadata_schema_destroy(self) -> None:
-        """Test case for metadata_schema_destroy"""
+        """Test case for metadata_schema_destroy
+
+        """
         pass
 
     def test_metadata_schema_list(self) -> None:
-        """Test case for metadata_schema_list"""
+        """Test case for metadata_schema_list
+
+        """
         pass
 
     def test_metadata_schema_partial_update(self) -> None:
-        """Test case for metadata_schema_partial_update"""
+        """Test case for metadata_schema_partial_update
+
+        """
         pass
 
     def test_metadata_schema_retrieve(self) -> None:
-        """Test case for metadata_schema_retrieve"""
+        """Test case for metadata_schema_retrieve
+
+        """
         pass
 
     def test_metadata_schema_update(self) -> None:
-        """Test case for metadata_schema_update"""
+        """Test case for metadata_schema_update
+
+        """
         pass
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

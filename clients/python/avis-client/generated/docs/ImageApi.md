@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost:8000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**image_create**](ImageApi.md#image_create) | **POST** /api/image/ |
-[**image_destroy**](ImageApi.md#image_destroy) | **DELETE** /api/image/{id}/ |
-[**image_list**](ImageApi.md#image_list) | **GET** /api/image/ |
-[**image_partial_update**](ImageApi.md#image_partial_update) | **PATCH** /api/image/{id}/ |
-[**image_quality_list**](ImageApi.md#image_quality_list) | **GET** /api/image/quality/ |
-[**image_retrieve**](ImageApi.md#image_retrieve) | **GET** /api/image/{id}/ |
-[**image_update**](ImageApi.md#image_update) | **PUT** /api/image/{id}/ |
+[**image_create**](ImageApi.md#image_create) | **POST** /api/image/ | 
+[**image_destroy**](ImageApi.md#image_destroy) | **DELETE** /api/image/{id}/ | 
+[**image_list**](ImageApi.md#image_list) | **GET** /api/image/ | 
+[**image_partial_update**](ImageApi.md#image_partial_update) | **PATCH** /api/image/{id}/ | 
+[**image_quality_list**](ImageApi.md#image_quality_list) | **GET** /api/image/quality/ | 
+[**image_retrieve**](ImageApi.md#image_retrieve) | **GET** /api/image/{id}/ | 
+[**image_update**](ImageApi.md#image_update) | **PUT** /api/image/{id}/ | 
 
 
 # **image_create**
@@ -62,9 +62,9 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.ImageApi(api_client)
-    team = 56 # int |
-    capture_datetime = '2013-10-20T19:20:30+01:00' # datetime |
-    file = None # bytearray |
+    team = 56 # int | 
+    capture_datetime = '2013-10-20T19:20:30+01:00' # datetime | 
+    file = None # bytearray | 
     inspection = 56 # int |  (optional)
     uploaded_by = 56 # int |  (optional)
     results = [56] # List[int] |  (optional)
@@ -87,15 +87,15 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **team** | **int**|  |
- **capture_datetime** | **datetime**|  |
- **file** | **bytearray**|  |
- **inspection** | **int**|  | [optional]
- **uploaded_by** | **int**|  | [optional]
- **results** | [**List[int]**](int.md)|  | [optional]
- **format** | [**FormatEnum**](FormatEnum.md)|  | [optional]
- **part_id** | **str**|  | [optional]
- **validation_status** | [**ValidationStatusEnum**](ValidationStatusEnum.md)|  | [optional]
+ **team** | **int**|  | 
+ **capture_datetime** | **datetime**|  | 
+ **file** | **bytearray**|  | 
+ **inspection** | **int**|  | [optional] 
+ **uploaded_by** | **int**|  | [optional] 
+ **results** | [**List[int]**](int.md)|  | [optional] 
+ **format** | [**FormatEnum**](FormatEnum.md)|  | [optional] 
+ **part_id** | **str**|  | [optional] 
+ **validation_status** | [**ValidationStatusEnum**](ValidationStatusEnum.md)|  | [optional] 
 
 ### Return type
 
@@ -179,7 +179,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this image. |
+ **id** | **int**| A unique integer value identifying this image. | 
 
 ### Return type
 
@@ -270,11 +270,11 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fields** | **str**|  | [optional]
- **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional]
- **ordering** | **str**| Which field to use when ordering the results. | [optional]
- **page** | **int**| A page number within the paginated result set. | [optional]
- **page_size** | **int**| Number of results to return per page. | [optional]
+ **fields** | **str**|  | [optional] 
+ **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional] 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
 
 ### Return type
 
@@ -363,8 +363,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this image. |
- **patched_image_request** | [**PatchedImageRequest**](PatchedImageRequest.md)|  | [optional]
+ **id** | **int**| A unique integer value identifying this image. | 
+ **patched_image_request** | [**PatchedImageRequest**](PatchedImageRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -454,10 +454,10 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional]
- **ordering** | **str**| Which field to use when ordering the results. | [optional]
- **page** | **int**| A page number within the paginated result set. | [optional]
- **page_size** | **int**| Number of results to return per page. | [optional]
+ **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional] 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
 
 ### Return type
 
@@ -545,8 +545,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this image. |
- **fields** | **str**|  | [optional]
+ **id** | **int**| A unique integer value identifying this image. | 
+ **fields** | **str**|  | [optional] 
 
 ### Return type
 
@@ -618,7 +618,7 @@ with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.ImageApi(api_client)
     id = 56 # int | A unique integer value identifying this image.
-    image_request = avis_client.ImageRequest() # ImageRequest |
+    image_request = avis_client.ImageRequest() # ImageRequest | 
 
     try:
         api_response = api_instance.image_update(id, image_request)
@@ -635,8 +635,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this image. |
- **image_request** | [**ImageRequest**](ImageRequest.md)|  |
+ **id** | **int**| A unique integer value identifying this image. | 
+ **image_request** | [**ImageRequest**](ImageRequest.md)|  | 
 
 ### Return type
 
@@ -658,3 +658,4 @@ Name | Type | Description  | Notes
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

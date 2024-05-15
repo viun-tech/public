@@ -1,10 +1,12 @@
-# Avis.ImageAttributeRequest
+# ViunAvisClientJs.ImageAttributeRequest
 
 ## Properties
 
-| Name         | Type         | Description | Notes      |
-| ------------ | ------------ | ----------- | ---------- |
-| **team**     | **Number**   |             |
-| **category** | **Number**   |             |
-| **results**  | **[Number]** |             | [optional] |
-| **value**    | **String**   |             | [optional] |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**team** | **Number** |  | 
+**category** | **Number** |  | 
+**results** | **[Number]** |  | [optional] 
+**value** | **String** |  | [optional] 
+
+

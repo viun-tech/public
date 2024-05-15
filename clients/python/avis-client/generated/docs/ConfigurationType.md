@@ -5,17 +5,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [readonly]
-**team** | **int** |  |
-**name** | **str** |  |
-**metadata_schema** | **int** |  | [optional]
-**quality_criteria** | **int** |  | [optional]
-**product_category** | **int** |  | [optional]
-**image_attribute_categories** | **List[int]** |  | [optional]
-**created_at** | **datetime** |  | [readonly]
-**updated_at** | **datetime** |  | [readonly]
-**description** | **str** |  | [optional]
-**is_default** | **bool** |  | [optional]
+**id** | **int** |  | [readonly] 
+**team** | **int** |  | 
+**name** | **str** |  | 
+**metadata_schema** | **int** |  | [optional] 
+**quality_criteria** | **int** |  | [optional] 
+**product_category** | **int** |  | [optional] 
+**image_attribute_categories** | **List[int]** |  | [optional] 
+**created_at** | **datetime** |  | [readonly] 
+**updated_at** | **datetime** |  | [readonly] 
+**description** | **str** |  | [optional] 
+**is_default** | **bool** |  | [optional] 
 
 ## Example
 
@@ -35,3 +35,5 @@ configuration_type_dict = configuration_type_instance.to_dict()
 configuration_type_form_dict = configuration_type.from_dict(configuration_type_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

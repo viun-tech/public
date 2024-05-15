@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost:8000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**inspection_create**](InspectionApi.md#inspection_create) | **POST** /api/inspection/ |
-[**inspection_destroy**](InspectionApi.md#inspection_destroy) | **DELETE** /api/inspection/{id}/ |
-[**inspection_list**](InspectionApi.md#inspection_list) | **GET** /api/inspection/ |
-[**inspection_partial_update**](InspectionApi.md#inspection_partial_update) | **PATCH** /api/inspection/{id}/ |
-[**inspection_retrieve**](InspectionApi.md#inspection_retrieve) | **GET** /api/inspection/{id}/ |
-[**inspection_send_validation_email_retrieve**](InspectionApi.md#inspection_send_validation_email_retrieve) | **GET** /api/inspection/{id}/send_validation_email/ |
-[**inspection_update**](InspectionApi.md#inspection_update) | **PUT** /api/inspection/{id}/ |
-[**inspection_validation_status_list**](InspectionApi.md#inspection_validation_status_list) | **GET** /api/inspection/validation_status/ |
+[**inspection_create**](InspectionApi.md#inspection_create) | **POST** /api/inspection/ | 
+[**inspection_destroy**](InspectionApi.md#inspection_destroy) | **DELETE** /api/inspection/{id}/ | 
+[**inspection_list**](InspectionApi.md#inspection_list) | **GET** /api/inspection/ | 
+[**inspection_partial_update**](InspectionApi.md#inspection_partial_update) | **PATCH** /api/inspection/{id}/ | 
+[**inspection_retrieve**](InspectionApi.md#inspection_retrieve) | **GET** /api/inspection/{id}/ | 
+[**inspection_send_validation_email_retrieve**](InspectionApi.md#inspection_send_validation_email_retrieve) | **GET** /api/inspection/{id}/send_validation_email/ | 
+[**inspection_update**](InspectionApi.md#inspection_update) | **PUT** /api/inspection/{id}/ | 
+[**inspection_validation_status_list**](InspectionApi.md#inspection_validation_status_list) | **GET** /api/inspection/validation_status/ | 
 
 
 # **inspection_create**
@@ -62,7 +62,7 @@ configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.InspectionApi(api_client)
-    inspection_request = avis_client.InspectionRequest() # InspectionRequest |
+    inspection_request = avis_client.InspectionRequest() # InspectionRequest | 
 
     try:
         api_response = api_instance.inspection_create(inspection_request)
@@ -79,7 +79,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inspection_request** | [**InspectionRequest**](InspectionRequest.md)|  |
+ **inspection_request** | [**InspectionRequest**](InspectionRequest.md)|  | 
 
 ### Return type
 
@@ -163,7 +163,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection. |
+ **id** | **int**| A unique integer value identifying this inspection. | 
 
 ### Return type
 
@@ -254,11 +254,11 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fields** | **str**|  | [optional]
- **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional]
- **ordering** | **str**| Which field to use when ordering the results. | [optional]
- **page** | **int**| A page number within the paginated result set. | [optional]
- **page_size** | **int**| Number of results to return per page. | [optional]
+ **fields** | **str**|  | [optional] 
+ **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional] 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
 
 ### Return type
 
@@ -347,8 +347,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection. |
- **patched_inspection_request** | [**PatchedInspectionRequest**](PatchedInspectionRequest.md)|  | [optional]
+ **id** | **int**| A unique integer value identifying this inspection. | 
+ **patched_inspection_request** | [**PatchedInspectionRequest**](PatchedInspectionRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -436,8 +436,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection. |
- **fields** | **str**|  | [optional]
+ **id** | **int**| A unique integer value identifying this inspection. | 
+ **fields** | **str**|  | [optional] 
 
 ### Return type
 
@@ -524,7 +524,7 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection. |
+ **id** | **int**| A unique integer value identifying this inspection. | 
 
 ### Return type
 
@@ -596,7 +596,7 @@ with avis_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = avis_client.InspectionApi(api_client)
     id = 56 # int | A unique integer value identifying this inspection.
-    inspection_request = avis_client.InspectionRequest() # InspectionRequest |
+    inspection_request = avis_client.InspectionRequest() # InspectionRequest | 
 
     try:
         api_response = api_instance.inspection_update(id, inspection_request)
@@ -613,8 +613,8 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| A unique integer value identifying this inspection. |
- **inspection_request** | [**InspectionRequest**](InspectionRequest.md)|  |
+ **id** | **int**| A unique integer value identifying this inspection. | 
+ **inspection_request** | [**InspectionRequest**](InspectionRequest.md)|  | 
 
 ### Return type
 
@@ -704,10 +704,10 @@ with avis_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional]
- **ordering** | **str**| Which field to use when ordering the results. | [optional]
- **page** | **int**| A page number within the paginated result set. | [optional]
- **page_size** | **int**| Number of results to return per page. | [optional]
+ **id** | [**List[int]**](int.md)| Multiple values may be separated by commas. | [optional] 
+ **ordering** | **str**| Which field to use when ordering the results. | [optional] 
+ **page** | **int**| A page number within the paginated result set. | [optional] 
+ **page_size** | **int**| Number of results to return per page. | [optional] 
 
 ### Return type
 
@@ -729,3 +729,4 @@ Name | Type | Description  | Notes
 **200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

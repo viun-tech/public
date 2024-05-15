@@ -1,9 +1,12 @@
-# Avis.StatusEnum
+# ViunAvisClientJs.StatusEnum
 
 ## Enum
 
-- `PENDING` (value: `"PENDING"`)
 
-- `FAILED` (value: `"FAILED"`)
+* `PENDING` (value: `"PENDING"`)
 
-- `SUCCESS` (value: `"SUCCESS"`)
+* `FAILED` (value: `"FAILED"`)
+
+* `SUCCESS` (value: `"SUCCESS"`)
+
+

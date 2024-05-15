@@ -27,37 +27,53 @@ class TestInspectionApi(unittest.TestCase):
         pass
 
     def test_inspection_create(self) -> None:
-        """Test case for inspection_create"""
+        """Test case for inspection_create
+
+        """
         pass
 
     def test_inspection_destroy(self) -> None:
-        """Test case for inspection_destroy"""
+        """Test case for inspection_destroy
+
+        """
         pass
 
     def test_inspection_list(self) -> None:
-        """Test case for inspection_list"""
+        """Test case for inspection_list
+
+        """
         pass
 
     def test_inspection_partial_update(self) -> None:
-        """Test case for inspection_partial_update"""
+        """Test case for inspection_partial_update
+
+        """
         pass
 
     def test_inspection_retrieve(self) -> None:
-        """Test case for inspection_retrieve"""
+        """Test case for inspection_retrieve
+
+        """
         pass
 
     def test_inspection_send_validation_email_retrieve(self) -> None:
-        """Test case for inspection_send_validation_email_retrieve"""
+        """Test case for inspection_send_validation_email_retrieve
+
+        """
         pass
 
     def test_inspection_update(self) -> None:
-        """Test case for inspection_update"""
+        """Test case for inspection_update
+
+        """
         pass
 
     def test_inspection_validation_status_list(self) -> None:
-        """Test case for inspection_validation_status_list"""
+        """Test case for inspection_validation_status_list
+
+        """
         pass
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

@@ -1,6 +1,8 @@
-# Avis.PatchedResultRequestStatus
+# ViunAvisClientJs.PatchedResultRequestStatus
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+
+

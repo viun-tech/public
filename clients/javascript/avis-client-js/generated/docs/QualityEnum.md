@@ -1,9 +1,12 @@
-# Avis.QualityEnum
+# ViunAvisClientJs.QualityEnum
 
 ## Enum
 
-- `GOOD` (value: `"GOOD"`)
 
-- `UNCERTAIN` (value: `"UNCERTAIN"`)
+* `GOOD` (value: `"GOOD"`)
 
-- `BAD` (value: `"BAD"`)
+* `UNCERTAIN` (value: `"UNCERTAIN"`)
+
+* `BAD` (value: `"BAD"`)
+
+

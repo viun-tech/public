@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **int** |  |
-**next** | **str** |  | [optional]
-**previous** | **str** |  | [optional]
-**results** | [**List[MLModel]**](MLModel.md) |  |
+**count** | **int** |  | 
+**next** | **str** |  | [optional] 
+**previous** | **str** |  | [optional] 
+**results** | [**List[MLModel]**](MLModel.md) |  | 
 
 ## Example
 
@@ -28,3 +28,5 @@ paginated_ml_model_list_dict = paginated_ml_model_list_instance.to_dict()
 paginated_ml_model_list_form_dict = paginated_ml_model_list.from_dict(paginated_ml_model_list_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

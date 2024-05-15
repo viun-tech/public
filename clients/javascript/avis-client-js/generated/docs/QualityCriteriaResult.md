@@ -1,9 +1,11 @@
-# Avis.QualityCriteriaResult
+# ViunAvisClientJs.QualityCriteriaResult
 
 ## Properties
 
-| Name                | Type                              | Description | Notes |
-| ------------------- | --------------------------------- | ----------- | ----- |
-| **id**              | **Number**                        |             |
-| **quality**         | [**QualityEnum**](QualityEnum.md) |             |
-| **qualityCriteria** | **Number**                        |             |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **Number** |  | 
+**quality** | [**QualityEnum**](QualityEnum.md) |  | 
+**qualityCriteria** | **Number** |  | 
+
+

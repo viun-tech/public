@@ -1,5 +1,8 @@
-# Avis.BlankEnum
+# ViunAvisClientJs.BlankEnum
 
 ## Enum
 
-- `empty` (value: `""`)
+
+* `empty` (value: `""`)
+
+

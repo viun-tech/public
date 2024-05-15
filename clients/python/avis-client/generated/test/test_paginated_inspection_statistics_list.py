@@ -13,11 +13,9 @@
 
 
 import unittest
+import datetime
 
-from avis_client.models.paginated_inspection_statistics_list import (
-    PaginatedInspectionStatisticsList,
-)
-
+from avis_client.models.paginated_inspection_statistics_list import PaginatedInspectionStatisticsList
 
 class TestPaginatedInspectionStatisticsList(unittest.TestCase):
     """PaginatedInspectionStatisticsList unit test stubs"""
@@ -30,9 +28,9 @@ class TestPaginatedInspectionStatisticsList(unittest.TestCase):
 
     def make_instance(self, include_optional) -> PaginatedInspectionStatisticsList:
         """Test PaginatedInspectionStatisticsList
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `PaginatedInspectionStatisticsList`
         """
         model = PaginatedInspectionStatisticsList()
@@ -43,9 +41,9 @@ class TestPaginatedInspectionStatisticsList(unittest.TestCase):
                 previous = 'http://api.example.org/accounts/?page=2',
                 results = [
                     avis_client.models.inspection_statistics.InspectionStatistics(
-                        total_inspections = 56,
-                        closed_inspections = 56,
-                        opened_inspections = 56,
+                        total_inspections = 56, 
+                        closed_inspections = 56, 
+                        opened_inspections = 56, 
                         validation_requests = 56, )
                     ]
             )
@@ -54,9 +52,9 @@ class TestPaginatedInspectionStatisticsList(unittest.TestCase):
                 count = 123,
                 results = [
                     avis_client.models.inspection_statistics.InspectionStatistics(
-                        total_inspections = 56,
-                        closed_inspections = 56,
-                        opened_inspections = 56,
+                        total_inspections = 56, 
+                        closed_inspections = 56, 
+                        opened_inspections = 56, 
                         validation_requests = 56, )
                     ],
         )
@@ -67,6 +65,5 @@ class TestPaginatedInspectionStatisticsList(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

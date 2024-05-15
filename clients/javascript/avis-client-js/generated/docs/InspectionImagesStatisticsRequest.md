@@ -1,8 +1,10 @@
-# Avis.InspectionImagesStatisticsRequest
+# ViunAvisClientJs.InspectionImagesStatisticsRequest
 
 ## Properties
 
-| Name                | Type       | Description | Notes |
-| ------------------- | ---------- | ----------- | ----- |
-| **totalImages**     | **Number** |             |
-| **imagesToInspect** | **Number** |             |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**totalImages** | **Number** |  | 
+**imagesToInspect** | **Number** |  | 
+
+

@@ -1,9 +1,11 @@
-# Avis.ConfigurationStatisticsRequest
+# ViunAvisClientJs.ConfigurationStatisticsRequest
 
 ## Properties
 
-| Name                               | Type       | Description | Notes |
-| ---------------------------------- | ---------- | ----------- | ----- |
-| **configuration**                  | **Number** |             |
-| **openedInspections**              | **Number** |             |
-| **inspectionsMarkedForValidation** | **Number** |             |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**configuration** | **Number** |  | 
+**openedInspections** | **Number** |  | 
+**inspectionsMarkedForValidation** | **Number** |  | 
+
+

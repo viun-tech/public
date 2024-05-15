@@ -27,13 +27,17 @@ class TestApiKeysApi(unittest.TestCase):
         pass
 
     def test_keys_create(self) -> None:
-        """Test case for keys_create"""
+        """Test case for keys_create
+
+        """
         pass
 
     def test_keys_revoke_create(self) -> None:
-        """Test case for keys_revoke_create"""
+        """Test case for keys_revoke_create
+
+        """
         pass
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

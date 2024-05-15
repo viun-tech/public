@@ -1,8 +1,8 @@
 {
-  "name": "avis",
+  "name": "@viun/avis-client-js",
   "version": "0.8.0",
   "description": "VUE Autonomous Visual Inspection System (AVIS)",
-  "license": "Unlicense",
+  "license": "Apache-2.0",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src -d dist",

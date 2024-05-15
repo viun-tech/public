@@ -22,36 +22,28 @@ from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictInt
 from pydantic import Field
 from typing_extensions import Annotated
-
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
-
 class QualityCriteriaRequest(BaseModel):
     """
     QualityCriteriaRequest
-    """  # noqa: E501
-
+    """ # noqa: E501
     team: StrictInt
     configurations: Optional[List[StrictInt]] = None
     good_quality_classes: List[Annotated[str, Field(min_length=1, strict=True)]]
     uncertain_quality_classes: List[Annotated[str, Field(min_length=1, strict=True)]]
     bad_quality_classes: List[Annotated[str, Field(min_length=1, strict=True)]]
-    __properties: ClassVar[List[str]] = [
-        "team",
-        "configurations",
-        "good_quality_classes",
-        "uncertain_quality_classes",
-        "bad_quality_classes",
-    ]
+    __properties: ClassVar[List[str]] = ["team", "configurations", "good_quality_classes", "uncertain_quality_classes", "bad_quality_classes"]
 
     model_config = {
         "populate_by_name": True,
         "validate_assignment": True,
         "protected_namespaces": (),
     }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -79,7 +71,8 @@ class QualityCriteriaRequest(BaseModel):
         """
         _dict = self.model_dump(
             by_alias=True,
-            exclude={},
+            exclude={
+            },
             exclude_none=True,
         )
         return _dict
@@ -93,13 +86,13 @@ class QualityCriteriaRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate(
-            {
-                "team": obj.get("team"),
-                "configurations": obj.get("configurations"),
-                "good_quality_classes": obj.get("good_quality_classes"),
-                "uncertain_quality_classes": obj.get("uncertain_quality_classes"),
-                "bad_quality_classes": obj.get("bad_quality_classes"),
-            }
-        )
+        _obj = cls.model_validate({
+            "team": obj.get("team"),
+            "configurations": obj.get("configurations"),
+            "good_quality_classes": obj.get("good_quality_classes"),
+            "uncertain_quality_classes": obj.get("uncertain_quality_classes"),
+            "bad_quality_classes": obj.get("bad_quality_classes")
+        })
         return _obj
+
+

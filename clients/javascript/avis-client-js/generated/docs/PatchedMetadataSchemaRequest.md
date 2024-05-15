@@ -1,8 +1,10 @@
-# Avis.PatchedMetadataSchemaRequest
+# ViunAvisClientJs.PatchedMetadataSchemaRequest
 
 ## Properties
 
-| Name     | Type       | Description | Notes      |
-| -------- | ---------- | ----------- | ---------- |
-| **team** | **Number** |             | [optional] |
-| **json** | **Object** |             | [optional] |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**team** | **Number** |  | [optional] 
+**json** | **Object** |  | [optional] 
+
+

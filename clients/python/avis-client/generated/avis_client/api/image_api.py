@@ -12,6 +12,9 @@
 """  # noqa: E501
 
 
+import io
+import warnings
+
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Dict, List, Optional, Tuple, Union, Any
 
@@ -20,19 +23,19 @@ try:
 except ImportError:
     from typing_extensions import Annotated
 
+from pydantic import Field
 from typing_extensions import Annotated
 from datetime import datetime
 
-from pydantic import StrictBytes
+from pydantic import StrictBytes, StrictInt, StrictStr
 
+from typing import List, Optional, Union
 
 from avis_client.models.format_enum import FormatEnum
 from avis_client.models.image import Image
 from avis_client.models.image_request import ImageRequest
 from avis_client.models.paginated_image_list import PaginatedImageList
-from avis_client.models.paginated_quality_criteria_result_list import (
-    PaginatedQualityCriteriaResultList,
-)
+from avis_client.models.paginated_quality_criteria_result_list import PaginatedQualityCriteriaResultList
 from avis_client.models.patched_image_request import PatchedImageRequest
 from avis_client.models.validation_status_enum import ValidationStatusEnum
 
@@ -53,6 +56,7 @@ class ImageApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
+
     @validate_call
     def image_create(
         self,
@@ -69,8 +73,9 @@ class ImageApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -119,7 +124,7 @@ class ImageApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._image_create_serialize(
             team=team,
@@ -134,20 +139,22 @@ class ImageApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "201": "Image",
+            '201': "Image",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
+
 
     @validate_call
     def image_create_with_http_info(
@@ -165,8 +172,9 @@ class ImageApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -215,7 +223,7 @@ class ImageApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._image_create_serialize(
             team=team,
@@ -230,20 +238,22 @@ class ImageApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "201": "Image",
+            '201': "Image",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
+
 
     @validate_call
     def image_create_without_preload_content(
@@ -261,8 +271,9 @@ class ImageApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -311,7 +322,7 @@ class ImageApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._image_create_serialize(
             team=team,
@@ -326,16 +337,18 @@ class ImageApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "201": "Image",
+            '201': "Image",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         return response_data.response
+
 
     def _image_create_serialize(
         self,
@@ -353,10 +366,11 @@ class ImageApi:
         _headers,
         _host_index,
     ) -> Tuple:
+
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            "results": "csv",
+            'results': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -371,46 +385,56 @@ class ImageApi:
         # process the header parameters
         # process the form parameters
         if team is not None:
-            _form_params.append(("team", team))
+            _form_params.append(('team', team))
         if inspection is not None:
-            _form_params.append(("inspection", inspection))
+            _form_params.append(('inspection', inspection))
         if uploaded_by is not None:
-            _form_params.append(("uploaded_by", uploaded_by))
+            _form_params.append(('uploaded_by', uploaded_by))
         if results is not None:
-            _form_params.append(("results", results))
+            _form_params.append(('results', results))
         if format is not None:
-            _form_params.append(("format", format))
+            _form_params.append(('format', format))
         if capture_datetime is not None:
-            _form_params.append(("capture_datetime", capture_datetime))
+            _form_params.append(('capture_datetime', capture_datetime))
         if file is not None:
-            _files["file"] = file
+            _files['file'] = file
         if part_id is not None:
-            _form_params.append(("part_id", part_id))
+            _form_params.append(('part_id', part_id))
         if validation_status is not None:
-            _form_params.append(("validation_status", validation_status))
+            _form_params.append(('validation_status', validation_status))
         # process the body parameter
 
+
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                ["multipart/form-data"]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'multipart/form-data'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
+        _auth_settings: List[str] = [
+            'cookieAuth', 
+            'ApiKeyAuth'
+        ]
 
         return self.api_client.param_serialize(
-            method="POST",
-            resource_path="/api/image/",
+            method='POST',
+            resource_path='/api/image/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -420,22 +444,23 @@ class ImageApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
+
+
+
 
     @validate_call
     def image_destroy(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this image."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this image.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -468,21 +493,22 @@ class ImageApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._image_destroy_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "204": None,
+            '204': None,
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -490,19 +516,18 @@ class ImageApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def image_destroy_with_http_info(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this image."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this image.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -535,21 +560,22 @@ class ImageApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._image_destroy_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "204": None,
+            '204': None,
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -557,19 +583,18 @@ class ImageApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def image_destroy_without_preload_content(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this image."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this image.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -602,23 +627,25 @@ class ImageApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._image_destroy_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "204": None,
+            '204': None,
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         return response_data.response
+
 
     def _image_destroy_serialize(
         self,
@@ -628,9 +655,11 @@ class ImageApi:
         _headers,
         _host_index,
     ) -> Tuple:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -641,18 +670,24 @@ class ImageApi:
 
         # process the path parameters
         if id is not None:
-            _path_params["id"] = id
+            _path_params['id'] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
+
+
+
         # authentication setting
-        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
+        _auth_settings: List[str] = [
+            'cookieAuth', 
+            'ApiKeyAuth'
+        ]
 
         return self.api_client.param_serialize(
-            method="DELETE",
-            resource_path="/api/image/{id}/",
+            method='DELETE',
+            resource_path='/api/image/{id}/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -662,35 +697,27 @@ class ImageApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
+
+
+
 
     @validate_call
     def image_list(
         self,
         fields: Optional[StrictStr] = None,
-        id: Annotated[
-            Optional[List[StrictInt]],
-            Field(description="Multiple values may be separated by commas."),
-        ] = None,
-        ordering: Annotated[
-            Optional[StrictStr],
-            Field(description="Which field to use when ordering the results."),
-        ] = None,
-        page: Annotated[
-            Optional[StrictInt],
-            Field(description="A page number within the paginated result set."),
-        ] = None,
-        page_size: Annotated[
-            Optional[StrictInt],
-            Field(description="Number of results to return per page."),
-        ] = None,
+        id: Annotated[Optional[List[StrictInt]], Field(description="Multiple values may be separated by commas.")] = None,
+        ordering: Annotated[Optional[StrictStr], Field(description="Which field to use when ordering the results.")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -731,7 +758,7 @@ class ImageApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._image_list_serialize(
             fields=fields,
@@ -742,14 +769,15 @@ class ImageApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "PaginatedImageList",
+            '200': "PaginatedImageList",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -757,32 +785,22 @@ class ImageApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def image_list_with_http_info(
         self,
         fields: Optional[StrictStr] = None,
-        id: Annotated[
-            Optional[List[StrictInt]],
-            Field(description="Multiple values may be separated by commas."),
-        ] = None,
-        ordering: Annotated[
-            Optional[StrictStr],
-            Field(description="Which field to use when ordering the results."),
-        ] = None,
-        page: Annotated[
-            Optional[StrictInt],
-            Field(description="A page number within the paginated result set."),
-        ] = None,
-        page_size: Annotated[
-            Optional[StrictInt],
-            Field(description="Number of results to return per page."),
-        ] = None,
+        id: Annotated[Optional[List[StrictInt]], Field(description="Multiple values may be separated by commas.")] = None,
+        ordering: Annotated[Optional[StrictStr], Field(description="Which field to use when ordering the results.")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -823,7 +841,7 @@ class ImageApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._image_list_serialize(
             fields=fields,
@@ -834,14 +852,15 @@ class ImageApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "PaginatedImageList",
+            '200': "PaginatedImageList",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -849,32 +868,22 @@ class ImageApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def image_list_without_preload_content(
         self,
         fields: Optional[StrictStr] = None,
-        id: Annotated[
-            Optional[List[StrictInt]],
-            Field(description="Multiple values may be separated by commas."),
-        ] = None,
-        ordering: Annotated[
-            Optional[StrictStr],
-            Field(description="Which field to use when ordering the results."),
-        ] = None,
-        page: Annotated[
-            Optional[StrictInt],
-            Field(description="A page number within the paginated result set."),
-        ] = None,
-        page_size: Annotated[
-            Optional[StrictInt],
-            Field(description="Number of results to return per page."),
-        ] = None,
+        id: Annotated[Optional[List[StrictInt]], Field(description="Multiple values may be separated by commas.")] = None,
+        ordering: Annotated[Optional[StrictStr], Field(description="Which field to use when ordering the results.")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -915,7 +924,7 @@ class ImageApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._image_list_serialize(
             fields=fields,
@@ -926,16 +935,18 @@ class ImageApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "PaginatedImageList",
+            '200': "PaginatedImageList",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         return response_data.response
+
 
     def _image_list_serialize(
         self,
@@ -949,10 +960,11 @@ class ImageApi:
         _headers,
         _host_index,
     ) -> Tuple:
+
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            "id": "csv",
+            'id': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -965,35 +977,47 @@ class ImageApi:
         # process the path parameters
         # process the query parameters
         if fields is not None:
-            _query_params.append(("fields", fields))
-
+            
+            _query_params.append(('fields', fields))
+            
         if id is not None:
-            _query_params.append(("id", id))
-
+            
+            _query_params.append(('id', id))
+            
         if ordering is not None:
-            _query_params.append(("ordering", ordering))
-
+            
+            _query_params.append(('ordering', ordering))
+            
         if page is not None:
-            _query_params.append(("page", page))
-
+            
+            _query_params.append(('page', page))
+            
         if page_size is not None:
-            _query_params.append(("page_size", page_size))
-
+            
+            _query_params.append(('page_size', page_size))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
+
         # authentication setting
-        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
+        _auth_settings: List[str] = [
+            'cookieAuth', 
+            'ApiKeyAuth'
+        ]
 
         return self.api_client.param_serialize(
-            method="GET",
-            resource_path="/api/image/",
+            method='GET',
+            resource_path='/api/image/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1003,23 +1027,24 @@ class ImageApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
+
+
+
 
     @validate_call
     def image_partial_update(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this image."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this image.")],
         patched_image_request: Optional[PatchedImageRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1054,7 +1079,7 @@ class ImageApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._image_partial_update_serialize(
             id=id,
@@ -1062,14 +1087,15 @@ class ImageApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Image",
+            '200': "Image",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1077,20 +1103,19 @@ class ImageApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def image_partial_update_with_http_info(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this image."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this image.")],
         patched_image_request: Optional[PatchedImageRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1125,7 +1150,7 @@ class ImageApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._image_partial_update_serialize(
             id=id,
@@ -1133,14 +1158,15 @@ class ImageApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Image",
+            '200': "Image",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1148,20 +1174,19 @@ class ImageApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def image_partial_update_without_preload_content(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this image."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this image.")],
         patched_image_request: Optional[PatchedImageRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1196,7 +1221,7 @@ class ImageApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._image_partial_update_serialize(
             id=id,
@@ -1204,16 +1229,18 @@ class ImageApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Image",
+            '200': "Image",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         return response_data.response
+
 
     def _image_partial_update_serialize(
         self,
@@ -1224,9 +1251,11 @@ class ImageApi:
         _headers,
         _host_index,
     ) -> Tuple:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1237,7 +1266,7 @@ class ImageApi:
 
         # process the path parameters
         if id is not None:
-            _path_params["id"] = id
+            _path_params['id'] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -1245,31 +1274,39 @@ class ImageApi:
         if patched_image_request is not None:
             _body_params = patched_image_request
 
+
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                [
-                    "application/json",
-                    "application/x-www-form-urlencoded",
-                    "multipart/form-data",
-                ]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json', 
+                        'application/x-www-form-urlencoded', 
+                        'multipart/form-data'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
+        _auth_settings: List[str] = [
+            'cookieAuth', 
+            'ApiKeyAuth'
+        ]
 
         return self.api_client.param_serialize(
-            method="PATCH",
-            resource_path="/api/image/{id}/",
+            method='PATCH',
+            resource_path='/api/image/{id}/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1279,34 +1316,26 @@ class ImageApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
+
+
+
 
     @validate_call
     def image_quality_list(
         self,
-        id: Annotated[
-            Optional[List[StrictInt]],
-            Field(description="Multiple values may be separated by commas."),
-        ] = None,
-        ordering: Annotated[
-            Optional[StrictStr],
-            Field(description="Which field to use when ordering the results."),
-        ] = None,
-        page: Annotated[
-            Optional[StrictInt],
-            Field(description="A page number within the paginated result set."),
-        ] = None,
-        page_size: Annotated[
-            Optional[StrictInt],
-            Field(description="Number of results to return per page."),
-        ] = None,
+        id: Annotated[Optional[List[StrictInt]], Field(description="Multiple values may be separated by commas.")] = None,
+        ordering: Annotated[Optional[StrictStr], Field(description="Which field to use when ordering the results.")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1345,7 +1374,7 @@ class ImageApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._image_quality_list_serialize(
             id=id,
@@ -1355,14 +1384,15 @@ class ImageApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "PaginatedQualityCriteriaResultList",
+            '200': "PaginatedQualityCriteriaResultList",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1370,31 +1400,21 @@ class ImageApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def image_quality_list_with_http_info(
         self,
-        id: Annotated[
-            Optional[List[StrictInt]],
-            Field(description="Multiple values may be separated by commas."),
-        ] = None,
-        ordering: Annotated[
-            Optional[StrictStr],
-            Field(description="Which field to use when ordering the results."),
-        ] = None,
-        page: Annotated[
-            Optional[StrictInt],
-            Field(description="A page number within the paginated result set."),
-        ] = None,
-        page_size: Annotated[
-            Optional[StrictInt],
-            Field(description="Number of results to return per page."),
-        ] = None,
+        id: Annotated[Optional[List[StrictInt]], Field(description="Multiple values may be separated by commas.")] = None,
+        ordering: Annotated[Optional[StrictStr], Field(description="Which field to use when ordering the results.")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1433,7 +1453,7 @@ class ImageApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._image_quality_list_serialize(
             id=id,
@@ -1443,14 +1463,15 @@ class ImageApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "PaginatedQualityCriteriaResultList",
+            '200': "PaginatedQualityCriteriaResultList",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1458,31 +1479,21 @@ class ImageApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def image_quality_list_without_preload_content(
         self,
-        id: Annotated[
-            Optional[List[StrictInt]],
-            Field(description="Multiple values may be separated by commas."),
-        ] = None,
-        ordering: Annotated[
-            Optional[StrictStr],
-            Field(description="Which field to use when ordering the results."),
-        ] = None,
-        page: Annotated[
-            Optional[StrictInt],
-            Field(description="A page number within the paginated result set."),
-        ] = None,
-        page_size: Annotated[
-            Optional[StrictInt],
-            Field(description="Number of results to return per page."),
-        ] = None,
+        id: Annotated[Optional[List[StrictInt]], Field(description="Multiple values may be separated by commas.")] = None,
+        ordering: Annotated[Optional[StrictStr], Field(description="Which field to use when ordering the results.")] = None,
+        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1521,7 +1532,7 @@ class ImageApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._image_quality_list_serialize(
             id=id,
@@ -1531,16 +1542,18 @@ class ImageApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "PaginatedQualityCriteriaResultList",
+            '200': "PaginatedQualityCriteriaResultList",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         return response_data.response
+
 
     def _image_quality_list_serialize(
         self,
@@ -1553,10 +1566,11 @@ class ImageApi:
         _headers,
         _host_index,
     ) -> Tuple:
+
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            "id": "csv",
+            'id': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -1569,32 +1583,43 @@ class ImageApi:
         # process the path parameters
         # process the query parameters
         if id is not None:
-            _query_params.append(("id", id))
-
+            
+            _query_params.append(('id', id))
+            
         if ordering is not None:
-            _query_params.append(("ordering", ordering))
-
+            
+            _query_params.append(('ordering', ordering))
+            
         if page is not None:
-            _query_params.append(("page", page))
-
+            
+            _query_params.append(('page', page))
+            
         if page_size is not None:
-            _query_params.append(("page_size", page_size))
-
+            
+            _query_params.append(('page_size', page_size))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
+
         # authentication setting
-        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
+        _auth_settings: List[str] = [
+            'cookieAuth', 
+            'ApiKeyAuth'
+        ]
 
         return self.api_client.param_serialize(
-            method="GET",
-            resource_path="/api/image/quality/",
+            method='GET',
+            resource_path='/api/image/quality/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1604,23 +1629,24 @@ class ImageApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
+
+
+
 
     @validate_call
     def image_retrieve(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this image."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this image.")],
         fields: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1655,7 +1681,7 @@ class ImageApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._image_retrieve_serialize(
             id=id,
@@ -1663,14 +1689,15 @@ class ImageApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Image",
+            '200': "Image",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1678,20 +1705,19 @@ class ImageApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def image_retrieve_with_http_info(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this image."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this image.")],
         fields: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1726,7 +1752,7 @@ class ImageApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._image_retrieve_serialize(
             id=id,
@@ -1734,14 +1760,15 @@ class ImageApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Image",
+            '200': "Image",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1749,20 +1776,19 @@ class ImageApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def image_retrieve_without_preload_content(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this image."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this image.")],
         fields: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1797,7 +1823,7 @@ class ImageApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._image_retrieve_serialize(
             id=id,
@@ -1805,16 +1831,18 @@ class ImageApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Image",
+            '200': "Image",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         return response_data.response
+
 
     def _image_retrieve_serialize(
         self,
@@ -1825,9 +1853,11 @@ class ImageApi:
         _headers,
         _host_index,
     ) -> Tuple:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1838,26 +1868,34 @@ class ImageApi:
 
         # process the path parameters
         if id is not None:
-            _path_params["id"] = id
+            _path_params['id'] = id
         # process the query parameters
         if fields is not None:
-            _query_params.append(("fields", fields))
-
+            
+            _query_params.append(('fields', fields))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
+
         # authentication setting
-        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
+        _auth_settings: List[str] = [
+            'cookieAuth', 
+            'ApiKeyAuth'
+        ]
 
         return self.api_client.param_serialize(
-            method="GET",
-            resource_path="/api/image/{id}/",
+            method='GET',
+            resource_path='/api/image/{id}/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1867,23 +1905,24 @@ class ImageApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
+
+
+
 
     @validate_call
     def image_update(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this image."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this image.")],
         image_request: ImageRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1918,7 +1957,7 @@ class ImageApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._image_update_serialize(
             id=id,
@@ -1926,14 +1965,15 @@ class ImageApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Image",
+            '200': "Image",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1941,20 +1981,19 @@ class ImageApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def image_update_with_http_info(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this image."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this image.")],
         image_request: ImageRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1989,7 +2028,7 @@ class ImageApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._image_update_serialize(
             id=id,
@@ -1997,14 +2036,15 @@ class ImageApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Image",
+            '200': "Image",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2012,20 +2052,19 @@ class ImageApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def image_update_without_preload_content(
         self,
-        id: Annotated[
-            StrictInt,
-            Field(description="A unique integer value identifying this image."),
-        ],
+        id: Annotated[StrictInt, Field(description="A unique integer value identifying this image.")],
         image_request: ImageRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2060,7 +2099,7 @@ class ImageApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._image_update_serialize(
             id=id,
@@ -2068,16 +2107,18 @@ class ImageApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index,
+            _host_index=_host_index
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "Image",
+            '200': "Image",
         }
         response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
+            *_param,
+            _request_timeout=_request_timeout
         )
         return response_data.response
+
 
     def _image_update_serialize(
         self,
@@ -2088,9 +2129,11 @@ class ImageApi:
         _headers,
         _host_index,
     ) -> Tuple:
+
         _host = None
 
-        _collection_formats: Dict[str, str] = {}
+        _collection_formats: Dict[str, str] = {
+        }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2101,7 +2144,7 @@ class ImageApi:
 
         # process the path parameters
         if id is not None:
-            _path_params["id"] = id
+            _path_params['id'] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -2109,31 +2152,39 @@ class ImageApi:
         if image_request is not None:
             _body_params = image_request
 
+
         # set the HTTP header `Accept`
-        _header_params["Accept"] = self.api_client.select_header_accept(
-            ["application/json"]
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params["Content-Type"] = _content_type
+            _header_params['Content-Type'] = _content_type
         else:
-            _default_content_type = self.api_client.select_header_content_type(
-                [
-                    "application/json",
-                    "application/x-www-form-urlencoded",
-                    "multipart/form-data",
-                ]
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json', 
+                        'application/x-www-form-urlencoded', 
+                        'multipart/form-data'
+                    ]
+                )
             )
             if _default_content_type is not None:
-                _header_params["Content-Type"] = _default_content_type
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
+        _auth_settings: List[str] = [
+            'cookieAuth', 
+            'ApiKeyAuth'
+        ]
 
         return self.api_client.param_serialize(
-            method="PUT",
-            resource_path="/api/image/{id}/",
+            method='PUT',
+            resource_path='/api/image/{id}/',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2143,5 +2194,7 @@ class ImageApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth,
+            _request_auth=_request_auth
         )
+
+

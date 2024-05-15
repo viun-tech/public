@@ -21,18 +21,15 @@ import json
 from typing import Any, ClassVar, Dict, List
 from pydantic import BaseModel, StrictInt
 from avis_client.models.quality_enum import QualityEnum
-
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
-
 class QualityCriteriaResult(BaseModel):
     """
     QualityCriteriaResult
-    """  # noqa: E501
-
+    """ # noqa: E501
     id: StrictInt
     quality: QualityEnum
     quality_criteria: StrictInt
@@ -43,6 +40,7 @@ class QualityCriteriaResult(BaseModel):
         "validate_assignment": True,
         "protected_namespaces": (),
     }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -70,7 +68,8 @@ class QualityCriteriaResult(BaseModel):
         """
         _dict = self.model_dump(
             by_alias=True,
-            exclude={},
+            exclude={
+            },
             exclude_none=True,
         )
         return _dict
@@ -84,11 +83,11 @@ class QualityCriteriaResult(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate(
-            {
-                "id": obj.get("id"),
-                "quality": obj.get("quality"),
-                "quality_criteria": obj.get("quality_criteria"),
-            }
-        )
+        _obj = cls.model_validate({
+            "id": obj.get("id"),
+            "quality": obj.get("quality"),
+            "quality_criteria": obj.get("quality_criteria")
+        })
         return _obj
+
+

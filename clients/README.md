@@ -48,7 +48,7 @@ openapi-generator-cli generate --git-repo-id public --git-user-id vuengineering 
 ## Javascript (using Fetch)
 
 ```bash
-openapi-generator-cli generate --git-repo-id public --git-user-id vuengineering -i ../api-schema.yml -g javascript -o javascript/avis-client/generated --additional-properties=npmName=@viun/avis-client-js
+openapi-generator-cli generate --git-repo-id public --git-user-id vuengineering -i ../api-schema.yml -g javascript -o javascript/avis-client-js/generated --additional-properties=projectName=@viun/avis-client-js
 ```
 
 # Manual release

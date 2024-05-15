@@ -1,9 +1,12 @@
-# Avis.ValidationStatusEnum
+# ViunAvisClientJs.ValidationStatusEnum
 
 ## Enum
 
-- `NONE` (value: `"NONE"`)
 
-- `REQUESTED` (value: `"REQUESTED"`)
+* `NONE` (value: `"NONE"`)
 
-- `VALIDATED` (value: `"VALIDATED"`)
+* `REQUESTED` (value: `"REQUESTED"`)
+
+* `VALIDATED` (value: `"VALIDATED"`)
+
+

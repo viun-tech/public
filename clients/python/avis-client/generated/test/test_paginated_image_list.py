@@ -13,9 +13,9 @@
 
 
 import unittest
+import datetime
 
 from avis_client.models.paginated_image_list import PaginatedImageList
-
 
 class TestPaginatedImageList(unittest.TestCase):
     """PaginatedImageList unit test stubs"""
@@ -28,9 +28,9 @@ class TestPaginatedImageList(unittest.TestCase):
 
     def make_instance(self, include_optional) -> PaginatedImageList:
         """Test PaginatedImageList
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `PaginatedImageList`
         """
         model = PaginatedImageList()
@@ -41,19 +41,19 @@ class TestPaginatedImageList(unittest.TestCase):
                 previous = 'http://api.example.org/accounts/?page=2',
                 results = [
                     avis_client.models.image.Image(
-                        id = 56,
-                        team = 56,
-                        inspection = 56,
-                        uploaded_by = 56,
+                        id = 56, 
+                        team = 56, 
+                        inspection = 56, 
+                        uploaded_by = 56, 
                         results = [
                             56
-                            ],
-                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                        format = 'image/png',
-                        capture_datetime = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                        file = '',
-                        part_id = '',
+                            ], 
+                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        format = 'image/png', 
+                        capture_datetime = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        file = '', 
+                        part_id = '', 
                         validation_status = 'NONE', )
                     ]
             )
@@ -62,19 +62,19 @@ class TestPaginatedImageList(unittest.TestCase):
                 count = 123,
                 results = [
                     avis_client.models.image.Image(
-                        id = 56,
-                        team = 56,
-                        inspection = 56,
-                        uploaded_by = 56,
+                        id = 56, 
+                        team = 56, 
+                        inspection = 56, 
+                        uploaded_by = 56, 
                         results = [
                             56
-                            ],
-                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                        format = 'image/png',
-                        capture_datetime = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                        file = '',
-                        part_id = '',
+                            ], 
+                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        format = 'image/png', 
+                        capture_datetime = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        file = '', 
+                        part_id = '', 
                         validation_status = 'NONE', )
                     ],
         )
@@ -85,6 +85,5 @@ class TestPaginatedImageList(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

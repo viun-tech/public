@@ -13,9 +13,9 @@
 
 
 import unittest
+import datetime
 
 from avis_client.models.paginated_inspection_list import PaginatedInspectionList
-
 
 class TestPaginatedInspectionList(unittest.TestCase):
     """PaginatedInspectionList unit test stubs"""
@@ -28,9 +28,9 @@ class TestPaginatedInspectionList(unittest.TestCase):
 
     def make_instance(self, include_optional) -> PaginatedInspectionList:
         """Test PaginatedInspectionList
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `PaginatedInspectionList`
         """
         model = PaginatedInspectionList()
@@ -41,19 +41,19 @@ class TestPaginatedInspectionList(unittest.TestCase):
                 previous = 'http://api.example.org/accounts/?page=2',
                 results = [
                     avis_client.models.inspection.Inspection(
-                        id = 56,
-                        team = 56,
-                        product = 56,
-                        opened_by = 56,
-                        closed_by = 56,
+                        id = 56, 
+                        team = 56, 
+                        product = 56, 
+                        opened_by = 56, 
+                        closed_by = 56, 
                         images = [
                             56
-                            ],
-                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                        open_datetime = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                        close_datetime = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                        configuration = 56,
+                            ], 
+                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        open_datetime = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        close_datetime = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        configuration = 56, 
                         metadata = 56, )
                     ]
             )
@@ -62,19 +62,19 @@ class TestPaginatedInspectionList(unittest.TestCase):
                 count = 123,
                 results = [
                     avis_client.models.inspection.Inspection(
-                        id = 56,
-                        team = 56,
-                        product = 56,
-                        opened_by = 56,
-                        closed_by = 56,
+                        id = 56, 
+                        team = 56, 
+                        product = 56, 
+                        opened_by = 56, 
+                        closed_by = 56, 
                         images = [
                             56
-                            ],
-                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                        open_datetime = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                        close_datetime = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                        configuration = 56,
+                            ], 
+                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        open_datetime = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        close_datetime = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        configuration = 56, 
                         metadata = 56, )
                     ],
         )
@@ -85,6 +85,5 @@ class TestPaginatedInspectionList(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

@@ -21,18 +21,15 @@ import json
 from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictInt, StrictStr
 from avis_client.models.product_category import ProductCategory
-
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
-
 class PaginatedProductCategoryList(BaseModel):
     """
     PaginatedProductCategoryList
-    """  # noqa: E501
-
+    """ # noqa: E501
     count: StrictInt
     next: Optional[StrictStr] = None
     previous: Optional[StrictStr] = None
@@ -44,6 +41,7 @@ class PaginatedProductCategoryList(BaseModel):
         "validate_assignment": True,
         "protected_namespaces": (),
     }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -71,7 +69,8 @@ class PaginatedProductCategoryList(BaseModel):
         """
         _dict = self.model_dump(
             by_alias=True,
-            exclude={},
+            exclude={
+            },
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of each item in results (list)
@@ -80,16 +79,16 @@ class PaginatedProductCategoryList(BaseModel):
             for _item in self.results:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict["results"] = _items
+            _dict['results'] = _items
         # set to None if next (nullable) is None
         # and model_fields_set contains the field
         if self.next is None and "next" in self.model_fields_set:
-            _dict["next"] = None
+            _dict['next'] = None
 
         # set to None if previous (nullable) is None
         # and model_fields_set contains the field
         if self.previous is None and "previous" in self.model_fields_set:
-            _dict["previous"] = None
+            _dict['previous'] = None
 
         return _dict
 
@@ -102,16 +101,12 @@ class PaginatedProductCategoryList(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate(
-            {
-                "count": obj.get("count"),
-                "next": obj.get("next"),
-                "previous": obj.get("previous"),
-                "results": [
-                    ProductCategory.from_dict(_item) for _item in obj.get("results")
-                ]
-                if obj.get("results") is not None
-                else None,
-            }
-        )
+        _obj = cls.model_validate({
+            "count": obj.get("count"),
+            "next": obj.get("next"),
+            "previous": obj.get("previous"),
+            "results": [ProductCategory.from_dict(_item) for _item in obj.get("results")] if obj.get("results") is not None else None
+        })
         return _obj
+
+

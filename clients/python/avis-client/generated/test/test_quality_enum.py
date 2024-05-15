@@ -13,7 +13,9 @@
 
 
 import unittest
+import datetime
 
+from avis_client.models.quality_enum import QualityEnum
 
 class TestQualityEnum(unittest.TestCase):
     """QualityEnum unit test stubs"""
@@ -28,6 +30,5 @@ class TestQualityEnum(unittest.TestCase):
         """Test QualityEnum"""
         # inst = QualityEnum()
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

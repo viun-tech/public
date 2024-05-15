@@ -14,8 +14,10 @@
 
 from __future__ import annotations
 import json
+import pprint
 import re  # noqa: F401
 from enum import Enum
+
 
 
 try:
@@ -32,11 +34,13 @@ class QualityEnum(str, Enum):
     """
     allowed enum values
     """
-    GOOD = "GOOD"
-    UNCERTAIN = "UNCERTAIN"
-    BAD = "BAD"
+    GOOD = 'GOOD'
+    UNCERTAIN = 'UNCERTAIN'
+    BAD = 'BAD'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
         """Create an instance of QualityEnum from a JSON string"""
         return cls(json.loads(json_str))
+
+

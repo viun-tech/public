@@ -27,29 +27,41 @@ class TestConfigurationApi(unittest.TestCase):
         pass
 
     def test_configuration_create(self) -> None:
-        """Test case for configuration_create"""
+        """Test case for configuration_create
+
+        """
         pass
 
     def test_configuration_destroy(self) -> None:
-        """Test case for configuration_destroy"""
+        """Test case for configuration_destroy
+
+        """
         pass
 
     def test_configuration_list(self) -> None:
-        """Test case for configuration_list"""
+        """Test case for configuration_list
+
+        """
         pass
 
     def test_configuration_partial_update(self) -> None:
-        """Test case for configuration_partial_update"""
+        """Test case for configuration_partial_update
+
+        """
         pass
 
     def test_configuration_retrieve(self) -> None:
-        """Test case for configuration_retrieve"""
+        """Test case for configuration_retrieve
+
+        """
         pass
 
     def test_configuration_update(self) -> None:
-        """Test case for configuration_update"""
+        """Test case for configuration_update
+
+        """
         pass
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

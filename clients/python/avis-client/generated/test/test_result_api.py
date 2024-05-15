@@ -27,29 +27,41 @@ class TestResultApi(unittest.TestCase):
         pass
 
     def test_result_create(self) -> None:
-        """Test case for result_create"""
+        """Test case for result_create
+
+        """
         pass
 
     def test_result_destroy(self) -> None:
-        """Test case for result_destroy"""
+        """Test case for result_destroy
+
+        """
         pass
 
     def test_result_list(self) -> None:
-        """Test case for result_list"""
+        """Test case for result_list
+
+        """
         pass
 
     def test_result_partial_update(self) -> None:
-        """Test case for result_partial_update"""
+        """Test case for result_partial_update
+
+        """
         pass
 
     def test_result_retrieve(self) -> None:
-        """Test case for result_retrieve"""
+        """Test case for result_retrieve
+
+        """
         pass
 
     def test_result_update(self) -> None:
-        """Test case for result_update"""
+        """Test case for result_update
+
+        """
         pass
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

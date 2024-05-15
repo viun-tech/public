@@ -27,65 +27,95 @@ class TestStatisticsApi(unittest.TestCase):
         pass
 
     def test_statistics_configuration_create(self) -> None:
-        """Test case for statistics_configuration_create"""
+        """Test case for statistics_configuration_create
+
+        """
         pass
 
     def test_statistics_configuration_destroy(self) -> None:
-        """Test case for statistics_configuration_destroy"""
+        """Test case for statistics_configuration_destroy
+
+        """
         pass
 
     def test_statistics_configuration_list(self) -> None:
-        """Test case for statistics_configuration_list"""
+        """Test case for statistics_configuration_list
+
+        """
         pass
 
     def test_statistics_configuration_retrieve(self) -> None:
-        """Test case for statistics_configuration_retrieve"""
+        """Test case for statistics_configuration_retrieve
+
+        """
         pass
 
     def test_statistics_configuration_update(self) -> None:
-        """Test case for statistics_configuration_update"""
+        """Test case for statistics_configuration_update
+
+        """
         pass
 
     def test_statistics_inspection_create(self) -> None:
-        """Test case for statistics_inspection_create"""
+        """Test case for statistics_inspection_create
+
+        """
         pass
 
     def test_statistics_inspection_destroy(self) -> None:
-        """Test case for statistics_inspection_destroy"""
+        """Test case for statistics_inspection_destroy
+
+        """
         pass
 
     def test_statistics_inspection_list(self) -> None:
-        """Test case for statistics_inspection_list"""
+        """Test case for statistics_inspection_list
+
+        """
         pass
 
     def test_statistics_inspection_retrieve(self) -> None:
-        """Test case for statistics_inspection_retrieve"""
+        """Test case for statistics_inspection_retrieve
+
+        """
         pass
 
     def test_statistics_inspection_update(self) -> None:
-        """Test case for statistics_inspection_update"""
+        """Test case for statistics_inspection_update
+
+        """
         pass
 
     def test_statistics_team_create(self) -> None:
-        """Test case for statistics_team_create"""
+        """Test case for statistics_team_create
+
+        """
         pass
 
     def test_statistics_team_destroy(self) -> None:
-        """Test case for statistics_team_destroy"""
+        """Test case for statistics_team_destroy
+
+        """
         pass
 
     def test_statistics_team_list(self) -> None:
-        """Test case for statistics_team_list"""
+        """Test case for statistics_team_list
+
+        """
         pass
 
     def test_statistics_team_retrieve(self) -> None:
-        """Test case for statistics_team_retrieve"""
+        """Test case for statistics_team_retrieve
+
+        """
         pass
 
     def test_statistics_team_update(self) -> None:
-        """Test case for statistics_team_update"""
+        """Test case for statistics_team_update
+
+        """
         pass
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

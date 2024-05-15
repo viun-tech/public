@@ -21,18 +21,15 @@ import json
 from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictInt
 from pydantic import Field
-
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
-
 class MetadataRequest(BaseModel):
     """
     MetadataRequest
-    """  # noqa: E501
-
+    """ # noqa: E501
     team: StrictInt
     configurations: Optional[List[StrictInt]] = None
     var_schema: StrictInt = Field(alias="schema")
@@ -44,6 +41,7 @@ class MetadataRequest(BaseModel):
         "validate_assignment": True,
         "protected_namespaces": (),
     }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -71,13 +69,14 @@ class MetadataRequest(BaseModel):
         """
         _dict = self.model_dump(
             by_alias=True,
-            exclude={},
+            exclude={
+            },
             exclude_none=True,
         )
         # set to None if data (nullable) is None
         # and model_fields_set contains the field
         if self.data is None and "data" in self.model_fields_set:
-            _dict["data"] = None
+            _dict['data'] = None
 
         return _dict
 
@@ -90,12 +89,12 @@ class MetadataRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate(
-            {
-                "team": obj.get("team"),
-                "configurations": obj.get("configurations"),
-                "schema": obj.get("schema"),
-                "data": obj.get("data"),
-            }
-        )
+        _obj = cls.model_validate({
+            "team": obj.get("team"),
+            "configurations": obj.get("configurations"),
+            "schema": obj.get("schema"),
+            "data": obj.get("data")
+        })
         return _obj
+
+

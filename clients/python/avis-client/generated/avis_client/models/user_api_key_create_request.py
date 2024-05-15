@@ -22,24 +22,16 @@ from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel
 from pydantic import Field
 from typing_extensions import Annotated
-
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
-
 class UserAPIKeyCreateRequest(BaseModel):
     """
     UserAPIKeyCreateRequest
-    """  # noqa: E501
-
-    name: Optional[
-        Annotated[str, Field(min_length=1, strict=True, max_length=50)]
-    ] = Field(
-        default=None,
-        description="A free-form name for the API key. Need not be unique. 50 characters max.",
-    )
+    """ # noqa: E501
+    name: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=50)]] = Field(default=None, description="A free-form name for the API key. Need not be unique. 50 characters max.")
     __properties: ClassVar[List[str]] = ["name"]
 
     model_config = {
@@ -47,6 +39,7 @@ class UserAPIKeyCreateRequest(BaseModel):
         "validate_assignment": True,
         "protected_namespaces": (),
     }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -74,7 +67,8 @@ class UserAPIKeyCreateRequest(BaseModel):
         """
         _dict = self.model_dump(
             by_alias=True,
-            exclude={},
+            exclude={
+            },
             exclude_none=True,
         )
         return _dict
@@ -88,5 +82,9 @@ class UserAPIKeyCreateRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({"name": obj.get("name")})
+        _obj = cls.model_validate({
+            "name": obj.get("name")
+        })
         return _obj
+
+

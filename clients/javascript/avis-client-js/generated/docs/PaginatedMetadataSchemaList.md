@@ -1,10 +1,12 @@
-# Avis.PaginatedMetadataSchemaList
+# ViunAvisClientJs.PaginatedMetadataSchemaList
 
 ## Properties
 
-| Name         | Type                                      | Description | Notes      |
-| ------------ | ----------------------------------------- | ----------- | ---------- |
-| **count**    | **Number**                                |             |
-| **next**     | **String**                                |             | [optional] |
-| **previous** | **String**                                |             | [optional] |
-| **results**  | [**[MetadataSchema]**](MetadataSchema.md) |             |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**count** | **Number** |  | 
+**next** | **String** |  | [optional] 
+**previous** | **String** |  | [optional] 
+**results** | [**[MetadataSchema]**](MetadataSchema.md) |  | 
+
+

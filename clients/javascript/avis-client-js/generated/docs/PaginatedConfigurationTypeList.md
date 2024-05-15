@@ -1,10 +1,12 @@
-# Avis.PaginatedConfigurationTypeList
+# ViunAvisClientJs.PaginatedConfigurationTypeList
 
 ## Properties
 
-| Name         | Type                                            | Description | Notes      |
-| ------------ | ----------------------------------------------- | ----------- | ---------- |
-| **count**    | **Number**                                      |             |
-| **next**     | **String**                                      |             | [optional] |
-| **previous** | **String**                                      |             | [optional] |
-| **results**  | [**[ConfigurationType]**](ConfigurationType.md) |             |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**count** | **Number** |  | 
+**next** | **String** |  | [optional] 
+**previous** | **String** |  | [optional] 
+**results** | [**[ConfigurationType]**](ConfigurationType.md) |  | 
+
+

@@ -27,25 +27,35 @@ class TestTeamsApi(unittest.TestCase):
         pass
 
     def test_teams_create(self) -> None:
-        """Test case for teams_create"""
+        """Test case for teams_create
+
+        """
         pass
 
     def test_teams_destroy(self) -> None:
-        """Test case for teams_destroy"""
+        """Test case for teams_destroy
+
+        """
         pass
 
     def test_teams_list(self) -> None:
-        """Test case for teams_list"""
+        """Test case for teams_list
+
+        """
         pass
 
     def test_teams_retrieve(self) -> None:
-        """Test case for teams_retrieve"""
+        """Test case for teams_retrieve
+
+        """
         pass
 
     def test_teams_update(self) -> None:
-        """Test case for teams_update"""
+        """Test case for teams_update
+
+        """
         pass
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

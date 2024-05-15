@@ -22,43 +22,29 @@ from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictBool
 from pydantic import Field
 from typing_extensions import Annotated
-
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
-
 class UserAPIKeyCreate(BaseModel):
     """
     UserAPIKeyCreate
-    """  # noqa: E501
-
+    """ # noqa: E501
     key: Annotated[str, Field(strict=True, max_length=40)]
     created: datetime
-    name: Optional[Annotated[str, Field(strict=True, max_length=50)]] = Field(
-        default=None,
-        description="A free-form name for the API key. Need not be unique. 50 characters max.",
-    )
-    expiry_date: datetime = Field(
-        description="Once API key expires, clients cannot use it anymore."
-    )
+    name: Optional[Annotated[str, Field(strict=True, max_length=50)]] = Field(default=None, description="A free-form name for the API key. Need not be unique. 50 characters max.")
+    expiry_date: datetime = Field(description="Once API key expires, clients cannot use it anymore.")
     revoked: StrictBool
     message: Annotated[str, Field(strict=True, max_length=255)]
-    __properties: ClassVar[List[str]] = [
-        "key",
-        "created",
-        "name",
-        "expiry_date",
-        "revoked",
-        "message",
-    ]
+    __properties: ClassVar[List[str]] = ["key", "created", "name", "expiry_date", "revoked", "message"]
 
     model_config = {
         "populate_by_name": True,
         "validate_assignment": True,
         "protected_namespaces": (),
     }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -111,14 +97,14 @@ class UserAPIKeyCreate(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate(
-            {
-                "key": obj.get("key"),
-                "created": obj.get("created"),
-                "name": obj.get("name"),
-                "expiry_date": obj.get("expiry_date"),
-                "revoked": obj.get("revoked"),
-                "message": obj.get("message"),
-            }
-        )
+        _obj = cls.model_validate({
+            "key": obj.get("key"),
+            "created": obj.get("created"),
+            "name": obj.get("name"),
+            "expiry_date": obj.get("expiry_date"),
+            "revoked": obj.get("revoked"),
+            "message": obj.get("message")
+        })
         return _obj
+
+

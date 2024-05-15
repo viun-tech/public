@@ -1,10 +1,12 @@
-# Avis.InspectionStatistics
+# ViunAvisClientJs.InspectionStatistics
 
 ## Properties
 
-| Name                   | Type       | Description | Notes |
-| ---------------------- | ---------- | ----------- | ----- |
-| **totalInspections**   | **Number** |             |
-| **closedInspections**  | **Number** |             |
-| **openedInspections**  | **Number** |             |
-| **validationRequests** | **Number** |             |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**totalInspections** | **Number** |  | 
+**closedInspections** | **Number** |  | 
+**openedInspections** | **Number** |  | 
+**validationRequests** | **Number** |  | 
+
+

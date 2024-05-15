@@ -13,9 +13,9 @@
 
 
 import unittest
+import datetime
 
 from avis_client.models.paginated_team_list import PaginatedTeamList
-
 
 class TestPaginatedTeamList(unittest.TestCase):
     """PaginatedTeamList unit test stubs"""
@@ -28,9 +28,9 @@ class TestPaginatedTeamList(unittest.TestCase):
 
     def make_instance(self, include_optional) -> PaginatedTeamList:
         """Test PaginatedTeamList
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `PaginatedTeamList`
         """
         model = PaginatedTeamList()
@@ -41,13 +41,13 @@ class TestPaginatedTeamList(unittest.TestCase):
                 previous = 'http://api.example.org/accounts/?page=2',
                 results = [
                     avis_client.models.team.Team(
-                        id = 56,
-                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                        name = '',
-                        slug = 'z',
-                        customer = 56,
-                        subscription = 56,
+                        id = 56, 
+                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        name = '', 
+                        slug = 'z', 
+                        customer = 56, 
+                        subscription = 56, 
                         members = [
                             56
                             ], )
@@ -58,13 +58,13 @@ class TestPaginatedTeamList(unittest.TestCase):
                 count = 123,
                 results = [
                     avis_client.models.team.Team(
-                        id = 56,
-                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                        name = '',
-                        slug = 'z',
-                        customer = 56,
-                        subscription = 56,
+                        id = 56, 
+                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        name = '', 
+                        slug = 'z', 
+                        customer = 56, 
+                        subscription = 56, 
                         members = [
                             56
                             ], )
@@ -77,6 +77,5 @@ class TestPaginatedTeamList(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

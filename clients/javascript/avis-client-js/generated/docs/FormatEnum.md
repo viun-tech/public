@@ -1,11 +1,14 @@
-# Avis.FormatEnum
+# ViunAvisClientJs.FormatEnum
 
 ## Enum
 
-- `png` (value: `"image/png"`)
 
-- `tiff` (value: `"image/tiff"`)
+* `png` (value: `"image/png"`)
 
-- `jpeg` (value: `"image/jpeg"`)
+* `tiff` (value: `"image/tiff"`)
 
-- `bmp` (value: `"image/bmp"`)
+* `jpeg` (value: `"image/jpeg"`)
+
+* `bmp` (value: `"image/bmp"`)
+
+

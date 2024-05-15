@@ -13,11 +13,9 @@
 
 
 import unittest
+import datetime
 
-from avis_client.models.paginated_quality_criteria_result_list import (
-    PaginatedQualityCriteriaResultList,
-)
-
+from avis_client.models.paginated_quality_criteria_result_list import PaginatedQualityCriteriaResultList
 
 class TestPaginatedQualityCriteriaResultList(unittest.TestCase):
     """PaginatedQualityCriteriaResultList unit test stubs"""
@@ -30,9 +28,9 @@ class TestPaginatedQualityCriteriaResultList(unittest.TestCase):
 
     def make_instance(self, include_optional) -> PaginatedQualityCriteriaResultList:
         """Test PaginatedQualityCriteriaResultList
-        include_option is a boolean, when False only required
-        params are included, when True both required and
-        optional params are included"""
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
         # uncomment below to create an instance of `PaginatedQualityCriteriaResultList`
         """
         model = PaginatedQualityCriteriaResultList()
@@ -43,8 +41,8 @@ class TestPaginatedQualityCriteriaResultList(unittest.TestCase):
                 previous = 'http://api.example.org/accounts/?page=2',
                 results = [
                     avis_client.models.quality_criteria_result.QualityCriteriaResult(
-                        id = 56,
-                        quality = 'GOOD',
+                        id = 56, 
+                        quality = 'GOOD', 
                         quality_criteria = 56, )
                     ]
             )
@@ -53,8 +51,8 @@ class TestPaginatedQualityCriteriaResultList(unittest.TestCase):
                 count = 123,
                 results = [
                     avis_client.models.quality_criteria_result.QualityCriteriaResult(
-                        id = 56,
-                        quality = 'GOOD',
+                        id = 56, 
+                        quality = 'GOOD', 
                         quality_criteria = 56, )
                     ],
         )
@@ -65,6 +63,5 @@ class TestPaginatedQualityCriteriaResultList(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

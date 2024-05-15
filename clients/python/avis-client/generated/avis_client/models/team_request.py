@@ -22,25 +22,22 @@ from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictInt, field_validator
 from pydantic import Field
 from typing_extensions import Annotated
-
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
-
 class TeamRequest(BaseModel):
     """
     TeamRequest
-    """  # noqa: E501
-
+    """ # noqa: E501
     name: Annotated[str, Field(min_length=1, strict=True, max_length=100)]
     slug: Annotated[str, Field(min_length=1, strict=True, max_length=50)]
     customer: Optional[StrictInt] = None
     subscription: Optional[StrictInt] = None
     __properties: ClassVar[List[str]] = ["name", "slug", "customer", "subscription"]
 
-    @field_validator("slug")
+    @field_validator('slug')
     def slug_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^[-a-zA-Z0-9_]+$", value):
@@ -52,6 +49,7 @@ class TeamRequest(BaseModel):
         "validate_assignment": True,
         "protected_namespaces": (),
     }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -79,18 +77,19 @@ class TeamRequest(BaseModel):
         """
         _dict = self.model_dump(
             by_alias=True,
-            exclude={},
+            exclude={
+            },
             exclude_none=True,
         )
         # set to None if customer (nullable) is None
         # and model_fields_set contains the field
         if self.customer is None and "customer" in self.model_fields_set:
-            _dict["customer"] = None
+            _dict['customer'] = None
 
         # set to None if subscription (nullable) is None
         # and model_fields_set contains the field
         if self.subscription is None and "subscription" in self.model_fields_set:
-            _dict["subscription"] = None
+            _dict['subscription'] = None
 
         return _dict
 
@@ -103,12 +102,12 @@ class TeamRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate(
-            {
-                "name": obj.get("name"),
-                "slug": obj.get("slug"),
-                "customer": obj.get("customer"),
-                "subscription": obj.get("subscription"),
-            }
-        )
+        _obj = cls.model_validate({
+            "name": obj.get("name"),
+            "slug": obj.get("slug"),
+            "customer": obj.get("customer"),
+            "subscription": obj.get("subscription")
+        })
         return _obj
+
+

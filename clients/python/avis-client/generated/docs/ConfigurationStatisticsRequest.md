@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**configuration** | **int** |  |
-**opened_inspections** | **int** |  |
-**inspections_marked_for_validation** | **int** |  |
+**configuration** | **int** |  | 
+**opened_inspections** | **int** |  | 
+**inspections_marked_for_validation** | **int** |  | 
 
 ## Example
 
@@ -27,3 +27,5 @@ configuration_statistics_request_dict = configuration_statistics_request_instanc
 configuration_statistics_request_form_dict = configuration_statistics_request.from_dict(configuration_statistics_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

@@ -24,18 +24,15 @@ from pydantic import Field
 from typing_extensions import Annotated
 from avis_client.models.format_enum import FormatEnum
 from avis_client.models.validation_status_enum import ValidationStatusEnum
-
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
-
 class ImageRequest(BaseModel):
     """
     ImageRequest
-    """  # noqa: E501
-
+    """ # noqa: E501
     team: StrictInt
     inspection: Optional[StrictInt] = None
     uploaded_by: Optional[StrictInt] = None
@@ -45,23 +42,14 @@ class ImageRequest(BaseModel):
     file: Union[StrictBytes, StrictStr]
     part_id: Optional[Annotated[str, Field(strict=True, max_length=255)]] = None
     validation_status: Optional[ValidationStatusEnum] = None
-    __properties: ClassVar[List[str]] = [
-        "team",
-        "inspection",
-        "uploaded_by",
-        "results",
-        "format",
-        "capture_datetime",
-        "file",
-        "part_id",
-        "validation_status",
-    ]
+    __properties: ClassVar[List[str]] = ["team", "inspection", "uploaded_by", "results", "format", "capture_datetime", "file", "part_id", "validation_status"]
 
     model_config = {
         "populate_by_name": True,
         "validate_assignment": True,
         "protected_namespaces": (),
     }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -89,18 +77,19 @@ class ImageRequest(BaseModel):
         """
         _dict = self.model_dump(
             by_alias=True,
-            exclude={},
+            exclude={
+            },
             exclude_none=True,
         )
         # set to None if inspection (nullable) is None
         # and model_fields_set contains the field
         if self.inspection is None and "inspection" in self.model_fields_set:
-            _dict["inspection"] = None
+            _dict['inspection'] = None
 
         # set to None if uploaded_by (nullable) is None
         # and model_fields_set contains the field
         if self.uploaded_by is None and "uploaded_by" in self.model_fields_set:
-            _dict["uploaded_by"] = None
+            _dict['uploaded_by'] = None
 
         return _dict
 
@@ -113,17 +102,17 @@ class ImageRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate(
-            {
-                "team": obj.get("team"),
-                "inspection": obj.get("inspection"),
-                "uploaded_by": obj.get("uploaded_by"),
-                "results": obj.get("results"),
-                "format": obj.get("format"),
-                "capture_datetime": obj.get("capture_datetime"),
-                "file": obj.get("file"),
-                "part_id": obj.get("part_id"),
-                "validation_status": obj.get("validation_status"),
-            }
-        )
+        _obj = cls.model_validate({
+            "team": obj.get("team"),
+            "inspection": obj.get("inspection"),
+            "uploaded_by": obj.get("uploaded_by"),
+            "results": obj.get("results"),
+            "format": obj.get("format"),
+            "capture_datetime": obj.get("capture_datetime"),
+            "file": obj.get("file"),
+            "part_id": obj.get("part_id"),
+            "validation_status": obj.get("validation_status")
+        })
         return _obj
+
+
