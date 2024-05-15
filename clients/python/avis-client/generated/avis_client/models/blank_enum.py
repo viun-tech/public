@@ -14,10 +14,8 @@
 
 from __future__ import annotations
 import json
-import pprint
 import re  # noqa: F401
 from enum import Enum
-
 
 
 try:
@@ -34,11 +32,9 @@ class BlankEnum(str, Enum):
     """
     allowed enum values
     """
-    EMPTY = ''
+    EMPTY = ""
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
         """Create an instance of BlankEnum from a JSON string"""
         return cls(json.loads(json_str))
-
-

@@ -14,10 +14,8 @@
 
 from __future__ import annotations
 import json
-import pprint
 import re  # noqa: F401
 from enum import Enum
-
 
 
 try:
@@ -34,13 +32,11 @@ class ValidationStatusEnum(str, Enum):
     """
     allowed enum values
     """
-    NONE = 'NONE'
-    REQUESTED = 'REQUESTED'
-    VALIDATED = 'VALIDATED'
+    NONE = "NONE"
+    REQUESTED = "REQUESTED"
+    VALIDATED = "VALIDATED"
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
         """Create an instance of ValidationStatusEnum from a JSON string"""
         return cls(json.loads(json_str))
-
-

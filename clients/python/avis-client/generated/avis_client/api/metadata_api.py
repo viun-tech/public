@@ -12,9 +12,6 @@
 """  # noqa: E501
 
 
-import io
-import warnings
-
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Dict, List, Optional, Tuple, Union, Any
 
@@ -23,11 +20,8 @@ try:
 except ImportError:
     from typing_extensions import Annotated
 
-from pydantic import Field
 from typing_extensions import Annotated
-from pydantic import StrictInt, StrictStr
 
-from typing import List, Optional
 
 from avis_client.models.metadata import Metadata
 from avis_client.models.metadata_request import MetadataRequest
@@ -51,7 +45,6 @@ class MetadataApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def metadata_create(
         self,
@@ -60,9 +53,8 @@ class MetadataApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -95,29 +87,27 @@ class MetadataApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._metadata_create_serialize(
             metadata_request=metadata_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Metadata",
+            "201": "Metadata",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def metadata_create_with_http_info(
@@ -127,9 +117,8 @@ class MetadataApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -162,29 +151,27 @@ class MetadataApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._metadata_create_serialize(
             metadata_request=metadata_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Metadata",
+            "201": "Metadata",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def metadata_create_without_preload_content(
@@ -194,9 +181,8 @@ class MetadataApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -229,25 +215,23 @@ class MetadataApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._metadata_create_serialize(
             metadata_request=metadata_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Metadata",
+            "201": "Metadata",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _metadata_create_serialize(
         self,
@@ -257,11 +241,9 @@ class MetadataApi:
         _headers,
         _host_index,
     ) -> Tuple:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -278,39 +260,31 @@ class MetadataApi:
         if metadata_request is not None:
             _body_params = metadata_request
 
-
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'application/x-www-form-urlencoded', 
-                        'multipart/form-data'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                [
+                    "application/json",
+                    "application/x-www-form-urlencoded",
+                    "multipart/form-data",
+                ]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'cookieAuth', 
-            'ApiKeyAuth'
-        ]
+        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/metadata/',
+            method="POST",
+            resource_path="/api/metadata/",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -320,23 +294,22 @@ class MetadataApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def metadata_destroy(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this metadata.")],
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this metadata."),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -369,22 +342,21 @@ class MetadataApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._metadata_destroy_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
+            "204": None,
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -392,18 +364,19 @@ class MetadataApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def metadata_destroy_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this metadata.")],
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this metadata."),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -436,22 +409,21 @@ class MetadataApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._metadata_destroy_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
+            "204": None,
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -459,18 +431,19 @@ class MetadataApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def metadata_destroy_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this metadata.")],
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this metadata."),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -503,25 +476,23 @@ class MetadataApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._metadata_destroy_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
+            "204": None,
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _metadata_destroy_serialize(
         self,
@@ -531,11 +502,9 @@ class MetadataApi:
         _headers,
         _host_index,
     ) -> Tuple:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -546,24 +515,18 @@ class MetadataApi:
 
         # process the path parameters
         if id is not None:
-            _path_params['id'] = id
+            _path_params["id"] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
-
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'cookieAuth', 
-            'ApiKeyAuth'
-        ]
+        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
 
         return self.api_client.param_serialize(
-            method='DELETE',
-            resource_path='/api/metadata/{id}/',
+            method="DELETE",
+            resource_path="/api/metadata/{id}/",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -573,27 +536,35 @@ class MetadataApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def metadata_list(
         self,
         fields: Optional[StrictStr] = None,
-        id: Annotated[Optional[List[StrictInt]], Field(description="Multiple values may be separated by commas.")] = None,
-        ordering: Annotated[Optional[StrictStr], Field(description="Which field to use when ordering the results.")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        id: Annotated[
+            Optional[List[StrictInt]],
+            Field(description="Multiple values may be separated by commas."),
+        ] = None,
+        ordering: Annotated[
+            Optional[StrictStr],
+            Field(description="Which field to use when ordering the results."),
+        ] = None,
+        page: Annotated[
+            Optional[StrictInt],
+            Field(description="A page number within the paginated result set."),
+        ] = None,
+        page_size: Annotated[
+            Optional[StrictInt],
+            Field(description="Number of results to return per page."),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -634,7 +605,7 @@ class MetadataApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._metadata_list_serialize(
             fields=fields,
@@ -645,15 +616,14 @@ class MetadataApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PaginatedMetadataList",
+            "200": "PaginatedMetadataList",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -661,22 +631,32 @@ class MetadataApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def metadata_list_with_http_info(
         self,
         fields: Optional[StrictStr] = None,
-        id: Annotated[Optional[List[StrictInt]], Field(description="Multiple values may be separated by commas.")] = None,
-        ordering: Annotated[Optional[StrictStr], Field(description="Which field to use when ordering the results.")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        id: Annotated[
+            Optional[List[StrictInt]],
+            Field(description="Multiple values may be separated by commas."),
+        ] = None,
+        ordering: Annotated[
+            Optional[StrictStr],
+            Field(description="Which field to use when ordering the results."),
+        ] = None,
+        page: Annotated[
+            Optional[StrictInt],
+            Field(description="A page number within the paginated result set."),
+        ] = None,
+        page_size: Annotated[
+            Optional[StrictInt],
+            Field(description="Number of results to return per page."),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -717,7 +697,7 @@ class MetadataApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._metadata_list_serialize(
             fields=fields,
@@ -728,15 +708,14 @@ class MetadataApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PaginatedMetadataList",
+            "200": "PaginatedMetadataList",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -744,22 +723,32 @@ class MetadataApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def metadata_list_without_preload_content(
         self,
         fields: Optional[StrictStr] = None,
-        id: Annotated[Optional[List[StrictInt]], Field(description="Multiple values may be separated by commas.")] = None,
-        ordering: Annotated[Optional[StrictStr], Field(description="Which field to use when ordering the results.")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        id: Annotated[
+            Optional[List[StrictInt]],
+            Field(description="Multiple values may be separated by commas."),
+        ] = None,
+        ordering: Annotated[
+            Optional[StrictStr],
+            Field(description="Which field to use when ordering the results."),
+        ] = None,
+        page: Annotated[
+            Optional[StrictInt],
+            Field(description="A page number within the paginated result set."),
+        ] = None,
+        page_size: Annotated[
+            Optional[StrictInt],
+            Field(description="Number of results to return per page."),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -800,7 +789,7 @@ class MetadataApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._metadata_list_serialize(
             fields=fields,
@@ -811,18 +800,16 @@ class MetadataApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PaginatedMetadataList",
+            "200": "PaginatedMetadataList",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _metadata_list_serialize(
         self,
@@ -836,11 +823,10 @@ class MetadataApi:
         _headers,
         _host_index,
     ) -> Tuple:
-
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            'id': 'csv',
+            "id": "csv",
         }
 
         _path_params: Dict[str, str] = {}
@@ -853,47 +839,35 @@ class MetadataApi:
         # process the path parameters
         # process the query parameters
         if fields is not None:
-            
-            _query_params.append(('fields', fields))
-            
+            _query_params.append(("fields", fields))
+
         if id is not None:
-            
-            _query_params.append(('id', id))
-            
+            _query_params.append(("id", id))
+
         if ordering is not None:
-            
-            _query_params.append(('ordering', ordering))
-            
+            _query_params.append(("ordering", ordering))
+
         if page is not None:
-            
-            _query_params.append(('page', page))
-            
+            _query_params.append(("page", page))
+
         if page_size is not None:
-            
-            _query_params.append(('page_size', page_size))
-            
+            _query_params.append(("page_size", page_size))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'cookieAuth', 
-            'ApiKeyAuth'
-        ]
+        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/metadata/',
+            method="GET",
+            resource_path="/api/metadata/",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -903,24 +877,23 @@ class MetadataApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def metadata_partial_update(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this metadata.")],
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this metadata."),
+        ],
         patched_metadata_request: Optional[PatchedMetadataRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -955,7 +928,7 @@ class MetadataApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._metadata_partial_update_serialize(
             id=id,
@@ -963,15 +936,14 @@ class MetadataApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Metadata",
+            "200": "Metadata",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -979,19 +951,20 @@ class MetadataApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def metadata_partial_update_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this metadata.")],
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this metadata."),
+        ],
         patched_metadata_request: Optional[PatchedMetadataRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1026,7 +999,7 @@ class MetadataApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._metadata_partial_update_serialize(
             id=id,
@@ -1034,15 +1007,14 @@ class MetadataApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Metadata",
+            "200": "Metadata",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1050,19 +1022,20 @@ class MetadataApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def metadata_partial_update_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this metadata.")],
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this metadata."),
+        ],
         patched_metadata_request: Optional[PatchedMetadataRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1097,7 +1070,7 @@ class MetadataApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._metadata_partial_update_serialize(
             id=id,
@@ -1105,18 +1078,16 @@ class MetadataApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Metadata",
+            "200": "Metadata",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _metadata_partial_update_serialize(
         self,
@@ -1127,11 +1098,9 @@ class MetadataApi:
         _headers,
         _host_index,
     ) -> Tuple:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1142,7 +1111,7 @@ class MetadataApi:
 
         # process the path parameters
         if id is not None:
-            _path_params['id'] = id
+            _path_params["id"] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -1150,39 +1119,31 @@ class MetadataApi:
         if patched_metadata_request is not None:
             _body_params = patched_metadata_request
 
-
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'application/x-www-form-urlencoded', 
-                        'multipart/form-data'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                [
+                    "application/json",
+                    "application/x-www-form-urlencoded",
+                    "multipart/form-data",
+                ]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'cookieAuth', 
-            'ApiKeyAuth'
-        ]
+        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
 
         return self.api_client.param_serialize(
-            method='PATCH',
-            resource_path='/api/metadata/{id}/',
+            method="PATCH",
+            resource_path="/api/metadata/{id}/",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1192,24 +1153,23 @@ class MetadataApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def metadata_retrieve(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this metadata.")],
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this metadata."),
+        ],
         fields: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1244,7 +1204,7 @@ class MetadataApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._metadata_retrieve_serialize(
             id=id,
@@ -1252,15 +1212,14 @@ class MetadataApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Metadata",
+            "200": "Metadata",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1268,19 +1227,20 @@ class MetadataApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def metadata_retrieve_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this metadata.")],
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this metadata."),
+        ],
         fields: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1315,7 +1275,7 @@ class MetadataApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._metadata_retrieve_serialize(
             id=id,
@@ -1323,15 +1283,14 @@ class MetadataApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Metadata",
+            "200": "Metadata",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1339,19 +1298,20 @@ class MetadataApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def metadata_retrieve_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this metadata.")],
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this metadata."),
+        ],
         fields: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1386,7 +1346,7 @@ class MetadataApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._metadata_retrieve_serialize(
             id=id,
@@ -1394,18 +1354,16 @@ class MetadataApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Metadata",
+            "200": "Metadata",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _metadata_retrieve_serialize(
         self,
@@ -1416,11 +1374,9 @@ class MetadataApi:
         _headers,
         _host_index,
     ) -> Tuple:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1431,34 +1387,26 @@ class MetadataApi:
 
         # process the path parameters
         if id is not None:
-            _path_params['id'] = id
+            _path_params["id"] = id
         # process the query parameters
         if fields is not None:
-            
-            _query_params.append(('fields', fields))
-            
+            _query_params.append(("fields", fields))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'cookieAuth', 
-            'ApiKeyAuth'
-        ]
+        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/metadata/{id}/',
+            method="GET",
+            resource_path="/api/metadata/{id}/",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1468,24 +1416,23 @@ class MetadataApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def metadata_update(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this metadata.")],
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this metadata."),
+        ],
         metadata_request: MetadataRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1520,7 +1467,7 @@ class MetadataApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._metadata_update_serialize(
             id=id,
@@ -1528,15 +1475,14 @@ class MetadataApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Metadata",
+            "200": "Metadata",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1544,19 +1490,20 @@ class MetadataApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def metadata_update_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this metadata.")],
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this metadata."),
+        ],
         metadata_request: MetadataRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1591,7 +1538,7 @@ class MetadataApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._metadata_update_serialize(
             id=id,
@@ -1599,15 +1546,14 @@ class MetadataApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Metadata",
+            "200": "Metadata",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1615,19 +1561,20 @@ class MetadataApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def metadata_update_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this metadata.")],
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this metadata."),
+        ],
         metadata_request: MetadataRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1662,7 +1609,7 @@ class MetadataApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._metadata_update_serialize(
             id=id,
@@ -1670,18 +1617,16 @@ class MetadataApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Metadata",
+            "200": "Metadata",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _metadata_update_serialize(
         self,
@@ -1692,11 +1637,9 @@ class MetadataApi:
         _headers,
         _host_index,
     ) -> Tuple:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1707,7 +1650,7 @@ class MetadataApi:
 
         # process the path parameters
         if id is not None:
-            _path_params['id'] = id
+            _path_params["id"] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -1715,39 +1658,31 @@ class MetadataApi:
         if metadata_request is not None:
             _body_params = metadata_request
 
-
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'application/x-www-form-urlencoded', 
-                        'multipart/form-data'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                [
+                    "application/json",
+                    "application/x-www-form-urlencoded",
+                    "multipart/form-data",
+                ]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'cookieAuth', 
-            'ApiKeyAuth'
-        ]
+        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
 
         return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/api/metadata/{id}/',
+            method="PUT",
+            resource_path="/api/metadata/{id}/",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1757,7 +1692,5 @@ class MetadataApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

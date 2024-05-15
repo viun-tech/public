@@ -22,15 +22,18 @@ from typing import Any, ClassVar, Dict, List
 from pydantic import BaseModel
 from pydantic import Field
 from typing_extensions import Annotated
+
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
+
 class MembershipRequest(BaseModel):
     """
     MembershipRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     role: Annotated[str, Field(min_length=1, strict=True)]
     __properties: ClassVar[List[str]] = ["role"]
 
@@ -39,7 +42,6 @@ class MembershipRequest(BaseModel):
         "validate_assignment": True,
         "protected_namespaces": (),
     }
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -67,8 +69,7 @@ class MembershipRequest(BaseModel):
         """
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude={},
             exclude_none=True,
         )
         return _dict
@@ -82,9 +83,5 @@ class MembershipRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "role": obj.get("role")
-        })
+        _obj = cls.model_validate({"role": obj.get("role")})
         return _obj
-
-

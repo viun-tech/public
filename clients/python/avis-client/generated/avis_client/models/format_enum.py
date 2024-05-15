@@ -14,10 +14,8 @@
 
 from __future__ import annotations
 import json
-import pprint
 import re  # noqa: F401
 from enum import Enum
-
 
 
 try:
@@ -34,14 +32,12 @@ class FormatEnum(str, Enum):
     """
     allowed enum values
     """
-    IMAGE_SLASH_PNG = 'image/png'
-    IMAGE_SLASH_TIFF = 'image/tiff'
-    IMAGE_SLASH_JPEG = 'image/jpeg'
-    IMAGE_SLASH_BMP = 'image/bmp'
+    IMAGE_SLASH_PNG = "image/png"
+    IMAGE_SLASH_TIFF = "image/tiff"
+    IMAGE_SLASH_JPEG = "image/jpeg"
+    IMAGE_SLASH_BMP = "image/bmp"
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
         """Create an instance of FormatEnum from a JSON string"""
         return cls(json.loads(json_str))
-
-

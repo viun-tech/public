@@ -2,11 +2,8 @@
 
 ## Enum
 
+- `PENDING` (value: `"PENDING"`)
 
-* `PENDING` (value: `"PENDING"`)
+- `FAILED` (value: `"FAILED"`)
 
-* `FAILED` (value: `"FAILED"`)
-
-* `SUCCESS` (value: `"SUCCESS"`)
-
-
+- `SUCCESS` (value: `"SUCCESS"`)

@@ -20,26 +20,32 @@ import json
 
 from typing import Any, ClassVar, Dict, List
 from pydantic import BaseModel, StrictInt
+
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
+
 class ConfigurationStatisticsRequest(BaseModel):
     """
     ConfigurationStatisticsRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     configuration: StrictInt
     opened_inspections: StrictInt
     inspections_marked_for_validation: StrictInt
-    __properties: ClassVar[List[str]] = ["configuration", "opened_inspections", "inspections_marked_for_validation"]
+    __properties: ClassVar[List[str]] = [
+        "configuration",
+        "opened_inspections",
+        "inspections_marked_for_validation",
+    ]
 
     model_config = {
         "populate_by_name": True,
         "validate_assignment": True,
         "protected_namespaces": (),
     }
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -67,8 +73,7 @@ class ConfigurationStatisticsRequest(BaseModel):
         """
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude={},
             exclude_none=True,
         )
         return _dict
@@ -82,11 +87,13 @@ class ConfigurationStatisticsRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "configuration": obj.get("configuration"),
-            "opened_inspections": obj.get("opened_inspections"),
-            "inspections_marked_for_validation": obj.get("inspections_marked_for_validation")
-        })
+        _obj = cls.model_validate(
+            {
+                "configuration": obj.get("configuration"),
+                "opened_inspections": obj.get("opened_inspections"),
+                "inspections_marked_for_validation": obj.get(
+                    "inspections_marked_for_validation"
+                ),
+            }
+        )
         return _obj
-
-

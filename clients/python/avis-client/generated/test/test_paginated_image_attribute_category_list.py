@@ -13,9 +13,11 @@
 
 
 import unittest
-import datetime
 
-from avis_client.models.paginated_image_attribute_category_list import PaginatedImageAttributeCategoryList
+from avis_client.models.paginated_image_attribute_category_list import (
+    PaginatedImageAttributeCategoryList,
+)
+
 
 class TestPaginatedImageAttributeCategoryList(unittest.TestCase):
     """PaginatedImageAttributeCategoryList unit test stubs"""
@@ -28,9 +30,9 @@ class TestPaginatedImageAttributeCategoryList(unittest.TestCase):
 
     def make_instance(self, include_optional) -> PaginatedImageAttributeCategoryList:
         """Test PaginatedImageAttributeCategoryList
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `PaginatedImageAttributeCategoryList`
         """
         model = PaginatedImageAttributeCategoryList()
@@ -41,12 +43,12 @@ class TestPaginatedImageAttributeCategoryList(unittest.TestCase):
                 previous = 'http://api.example.org/accounts/?page=2',
                 results = [
                     avis_client.models.image_attribute_category.ImageAttributeCategory(
-                        id = 56, 
-                        team = 56, 
-                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        name = '', 
-                        description = '', 
+                        id = 56,
+                        team = 56,
+                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                        name = '',
+                        description = '',
                         ml_model = 56, )
                     ]
             )
@@ -55,12 +57,12 @@ class TestPaginatedImageAttributeCategoryList(unittest.TestCase):
                 count = 123,
                 results = [
                     avis_client.models.image_attribute_category.ImageAttributeCategory(
-                        id = 56, 
-                        team = 56, 
-                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        name = '', 
-                        description = '', 
+                        id = 56,
+                        team = 56,
+                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                        name = '',
+                        description = '',
                         ml_model = 56, )
                     ],
         )
@@ -71,5 +73,6 @@ class TestPaginatedImageAttributeCategoryList(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

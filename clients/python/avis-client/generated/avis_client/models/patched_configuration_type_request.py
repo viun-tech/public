@@ -22,15 +22,18 @@ from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
 from pydantic import Field
 from typing_extensions import Annotated
+
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
+
 class PatchedConfigurationTypeRequest(BaseModel):
     """
     PatchedConfigurationTypeRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     team: Optional[StrictInt] = None
     name: Optional[Annotated[str, Field(min_length=1, strict=True)]] = None
     metadata_schema: Optional[StrictInt] = None
@@ -39,14 +42,22 @@ class PatchedConfigurationTypeRequest(BaseModel):
     image_attribute_categories: Optional[List[StrictInt]] = None
     description: Optional[StrictStr] = None
     is_default: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["team", "name", "metadata_schema", "quality_criteria", "product_category", "image_attribute_categories", "description", "is_default"]
+    __properties: ClassVar[List[str]] = [
+        "team",
+        "name",
+        "metadata_schema",
+        "quality_criteria",
+        "product_category",
+        "image_attribute_categories",
+        "description",
+        "is_default",
+    ]
 
     model_config = {
         "populate_by_name": True,
         "validate_assignment": True,
         "protected_namespaces": (),
     }
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -74,24 +85,29 @@ class PatchedConfigurationTypeRequest(BaseModel):
         """
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude={},
             exclude_none=True,
         )
         # set to None if metadata_schema (nullable) is None
         # and model_fields_set contains the field
         if self.metadata_schema is None and "metadata_schema" in self.model_fields_set:
-            _dict['metadata_schema'] = None
+            _dict["metadata_schema"] = None
 
         # set to None if quality_criteria (nullable) is None
         # and model_fields_set contains the field
-        if self.quality_criteria is None and "quality_criteria" in self.model_fields_set:
-            _dict['quality_criteria'] = None
+        if (
+            self.quality_criteria is None
+            and "quality_criteria" in self.model_fields_set
+        ):
+            _dict["quality_criteria"] = None
 
         # set to None if product_category (nullable) is None
         # and model_fields_set contains the field
-        if self.product_category is None and "product_category" in self.model_fields_set:
-            _dict['product_category'] = None
+        if (
+            self.product_category is None
+            and "product_category" in self.model_fields_set
+        ):
+            _dict["product_category"] = None
 
         return _dict
 
@@ -104,16 +120,16 @@ class PatchedConfigurationTypeRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "team": obj.get("team"),
-            "name": obj.get("name"),
-            "metadata_schema": obj.get("metadata_schema"),
-            "quality_criteria": obj.get("quality_criteria"),
-            "product_category": obj.get("product_category"),
-            "image_attribute_categories": obj.get("image_attribute_categories"),
-            "description": obj.get("description"),
-            "is_default": obj.get("is_default")
-        })
+        _obj = cls.model_validate(
+            {
+                "team": obj.get("team"),
+                "name": obj.get("name"),
+                "metadata_schema": obj.get("metadata_schema"),
+                "quality_criteria": obj.get("quality_criteria"),
+                "product_category": obj.get("product_category"),
+                "image_attribute_categories": obj.get("image_attribute_categories"),
+                "description": obj.get("description"),
+                "is_default": obj.get("is_default"),
+            }
+        )
         return _obj
-
-

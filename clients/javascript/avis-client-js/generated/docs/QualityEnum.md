@@ -2,11 +2,8 @@
 
 ## Enum
 
+- `GOOD` (value: `"GOOD"`)
 
-* `GOOD` (value: `"GOOD"`)
+- `UNCERTAIN` (value: `"UNCERTAIN"`)
 
-* `UNCERTAIN` (value: `"UNCERTAIN"`)
-
-* `BAD` (value: `"BAD"`)
-
-
+- `BAD` (value: `"BAD"`)

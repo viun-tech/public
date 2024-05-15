@@ -12,9 +12,6 @@
 """  # noqa: E501
 
 
-import io
-import warnings
-
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Dict, List, Optional, Tuple, Union, Any
 
@@ -23,16 +20,17 @@ try:
 except ImportError:
     from typing_extensions import Annotated
 
-from pydantic import Field
 from typing_extensions import Annotated
-from pydantic import StrictInt, StrictStr
 
-from typing import List, Optional
 
 from avis_client.models.configuration_type import ConfigurationType
 from avis_client.models.configuration_type_request import ConfigurationTypeRequest
-from avis_client.models.paginated_configuration_type_list import PaginatedConfigurationTypeList
-from avis_client.models.patched_configuration_type_request import PatchedConfigurationTypeRequest
+from avis_client.models.paginated_configuration_type_list import (
+    PaginatedConfigurationTypeList,
+)
+from avis_client.models.patched_configuration_type_request import (
+    PatchedConfigurationTypeRequest,
+)
 
 from avis_client.api_client import ApiClient
 from avis_client.api_response import ApiResponse
@@ -51,7 +49,6 @@ class ConfigurationApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def configuration_create(
         self,
@@ -60,9 +57,8 @@ class ConfigurationApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -95,29 +91,27 @@ class ConfigurationApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._configuration_create_serialize(
             configuration_type_request=configuration_type_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ConfigurationType",
+            "201": "ConfigurationType",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def configuration_create_with_http_info(
@@ -127,9 +121,8 @@ class ConfigurationApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -162,29 +155,27 @@ class ConfigurationApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._configuration_create_serialize(
             configuration_type_request=configuration_type_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ConfigurationType",
+            "201": "ConfigurationType",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def configuration_create_without_preload_content(
@@ -194,9 +185,8 @@ class ConfigurationApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -229,25 +219,23 @@ class ConfigurationApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._configuration_create_serialize(
             configuration_type_request=configuration_type_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ConfigurationType",
+            "201": "ConfigurationType",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _configuration_create_serialize(
         self,
@@ -257,11 +245,9 @@ class ConfigurationApi:
         _headers,
         _host_index,
     ) -> Tuple:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -278,39 +264,31 @@ class ConfigurationApi:
         if configuration_type_request is not None:
             _body_params = configuration_type_request
 
-
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'application/x-www-form-urlencoded', 
-                        'multipart/form-data'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                [
+                    "application/json",
+                    "application/x-www-form-urlencoded",
+                    "multipart/form-data",
+                ]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'cookieAuth', 
-            'ApiKeyAuth'
-        ]
+        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/configuration/',
+            method="POST",
+            resource_path="/api/configuration/",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -320,23 +298,22 @@ class ConfigurationApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def configuration_destroy(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this configuration.")],
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this configuration."),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -369,22 +346,21 @@ class ConfigurationApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._configuration_destroy_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
+            "204": None,
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -392,18 +368,19 @@ class ConfigurationApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def configuration_destroy_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this configuration.")],
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this configuration."),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -436,22 +413,21 @@ class ConfigurationApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._configuration_destroy_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
+            "204": None,
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -459,18 +435,19 @@ class ConfigurationApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def configuration_destroy_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this configuration.")],
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this configuration."),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -503,25 +480,23 @@ class ConfigurationApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._configuration_destroy_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
+            "204": None,
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _configuration_destroy_serialize(
         self,
@@ -531,11 +506,9 @@ class ConfigurationApi:
         _headers,
         _host_index,
     ) -> Tuple:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -546,24 +519,18 @@ class ConfigurationApi:
 
         # process the path parameters
         if id is not None:
-            _path_params['id'] = id
+            _path_params["id"] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
-
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'cookieAuth', 
-            'ApiKeyAuth'
-        ]
+        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
 
         return self.api_client.param_serialize(
-            method='DELETE',
-            resource_path='/api/configuration/{id}/',
+            method="DELETE",
+            resource_path="/api/configuration/{id}/",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -573,27 +540,35 @@ class ConfigurationApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def configuration_list(
         self,
         fields: Optional[StrictStr] = None,
-        id: Annotated[Optional[List[StrictInt]], Field(description="Multiple values may be separated by commas.")] = None,
-        ordering: Annotated[Optional[StrictStr], Field(description="Which field to use when ordering the results.")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        id: Annotated[
+            Optional[List[StrictInt]],
+            Field(description="Multiple values may be separated by commas."),
+        ] = None,
+        ordering: Annotated[
+            Optional[StrictStr],
+            Field(description="Which field to use when ordering the results."),
+        ] = None,
+        page: Annotated[
+            Optional[StrictInt],
+            Field(description="A page number within the paginated result set."),
+        ] = None,
+        page_size: Annotated[
+            Optional[StrictInt],
+            Field(description="Number of results to return per page."),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -634,7 +609,7 @@ class ConfigurationApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._configuration_list_serialize(
             fields=fields,
@@ -645,15 +620,14 @@ class ConfigurationApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PaginatedConfigurationTypeList",
+            "200": "PaginatedConfigurationTypeList",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -661,22 +635,32 @@ class ConfigurationApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def configuration_list_with_http_info(
         self,
         fields: Optional[StrictStr] = None,
-        id: Annotated[Optional[List[StrictInt]], Field(description="Multiple values may be separated by commas.")] = None,
-        ordering: Annotated[Optional[StrictStr], Field(description="Which field to use when ordering the results.")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        id: Annotated[
+            Optional[List[StrictInt]],
+            Field(description="Multiple values may be separated by commas."),
+        ] = None,
+        ordering: Annotated[
+            Optional[StrictStr],
+            Field(description="Which field to use when ordering the results."),
+        ] = None,
+        page: Annotated[
+            Optional[StrictInt],
+            Field(description="A page number within the paginated result set."),
+        ] = None,
+        page_size: Annotated[
+            Optional[StrictInt],
+            Field(description="Number of results to return per page."),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -717,7 +701,7 @@ class ConfigurationApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._configuration_list_serialize(
             fields=fields,
@@ -728,15 +712,14 @@ class ConfigurationApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PaginatedConfigurationTypeList",
+            "200": "PaginatedConfigurationTypeList",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -744,22 +727,32 @@ class ConfigurationApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def configuration_list_without_preload_content(
         self,
         fields: Optional[StrictStr] = None,
-        id: Annotated[Optional[List[StrictInt]], Field(description="Multiple values may be separated by commas.")] = None,
-        ordering: Annotated[Optional[StrictStr], Field(description="Which field to use when ordering the results.")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="A page number within the paginated result set.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of results to return per page.")] = None,
+        id: Annotated[
+            Optional[List[StrictInt]],
+            Field(description="Multiple values may be separated by commas."),
+        ] = None,
+        ordering: Annotated[
+            Optional[StrictStr],
+            Field(description="Which field to use when ordering the results."),
+        ] = None,
+        page: Annotated[
+            Optional[StrictInt],
+            Field(description="A page number within the paginated result set."),
+        ] = None,
+        page_size: Annotated[
+            Optional[StrictInt],
+            Field(description="Number of results to return per page."),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -800,7 +793,7 @@ class ConfigurationApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._configuration_list_serialize(
             fields=fields,
@@ -811,18 +804,16 @@ class ConfigurationApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PaginatedConfigurationTypeList",
+            "200": "PaginatedConfigurationTypeList",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _configuration_list_serialize(
         self,
@@ -836,11 +827,10 @@ class ConfigurationApi:
         _headers,
         _host_index,
     ) -> Tuple:
-
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            'id': 'csv',
+            "id": "csv",
         }
 
         _path_params: Dict[str, str] = {}
@@ -853,47 +843,35 @@ class ConfigurationApi:
         # process the path parameters
         # process the query parameters
         if fields is not None:
-            
-            _query_params.append(('fields', fields))
-            
+            _query_params.append(("fields", fields))
+
         if id is not None:
-            
-            _query_params.append(('id', id))
-            
+            _query_params.append(("id", id))
+
         if ordering is not None:
-            
-            _query_params.append(('ordering', ordering))
-            
+            _query_params.append(("ordering", ordering))
+
         if page is not None:
-            
-            _query_params.append(('page', page))
-            
+            _query_params.append(("page", page))
+
         if page_size is not None:
-            
-            _query_params.append(('page_size', page_size))
-            
+            _query_params.append(("page_size", page_size))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'cookieAuth', 
-            'ApiKeyAuth'
-        ]
+        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/configuration/',
+            method="GET",
+            resource_path="/api/configuration/",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -903,24 +881,25 @@ class ConfigurationApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def configuration_partial_update(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this configuration.")],
-        patched_configuration_type_request: Optional[PatchedConfigurationTypeRequest] = None,
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this configuration."),
+        ],
+        patched_configuration_type_request: Optional[
+            PatchedConfigurationTypeRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -955,7 +934,7 @@ class ConfigurationApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._configuration_partial_update_serialize(
             id=id,
@@ -963,15 +942,14 @@ class ConfigurationApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConfigurationType",
+            "200": "ConfigurationType",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -979,19 +957,22 @@ class ConfigurationApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def configuration_partial_update_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this configuration.")],
-        patched_configuration_type_request: Optional[PatchedConfigurationTypeRequest] = None,
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this configuration."),
+        ],
+        patched_configuration_type_request: Optional[
+            PatchedConfigurationTypeRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1026,7 +1007,7 @@ class ConfigurationApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._configuration_partial_update_serialize(
             id=id,
@@ -1034,15 +1015,14 @@ class ConfigurationApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConfigurationType",
+            "200": "ConfigurationType",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1050,19 +1030,22 @@ class ConfigurationApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def configuration_partial_update_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this configuration.")],
-        patched_configuration_type_request: Optional[PatchedConfigurationTypeRequest] = None,
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this configuration."),
+        ],
+        patched_configuration_type_request: Optional[
+            PatchedConfigurationTypeRequest
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1097,7 +1080,7 @@ class ConfigurationApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._configuration_partial_update_serialize(
             id=id,
@@ -1105,18 +1088,16 @@ class ConfigurationApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConfigurationType",
+            "200": "ConfigurationType",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _configuration_partial_update_serialize(
         self,
@@ -1127,11 +1108,9 @@ class ConfigurationApi:
         _headers,
         _host_index,
     ) -> Tuple:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1142,7 +1121,7 @@ class ConfigurationApi:
 
         # process the path parameters
         if id is not None:
-            _path_params['id'] = id
+            _path_params["id"] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -1150,39 +1129,31 @@ class ConfigurationApi:
         if patched_configuration_type_request is not None:
             _body_params = patched_configuration_type_request
 
-
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'application/x-www-form-urlencoded', 
-                        'multipart/form-data'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                [
+                    "application/json",
+                    "application/x-www-form-urlencoded",
+                    "multipart/form-data",
+                ]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'cookieAuth', 
-            'ApiKeyAuth'
-        ]
+        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
 
         return self.api_client.param_serialize(
-            method='PATCH',
-            resource_path='/api/configuration/{id}/',
+            method="PATCH",
+            resource_path="/api/configuration/{id}/",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1192,24 +1163,23 @@ class ConfigurationApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def configuration_retrieve(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this configuration.")],
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this configuration."),
+        ],
         fields: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1244,7 +1214,7 @@ class ConfigurationApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._configuration_retrieve_serialize(
             id=id,
@@ -1252,15 +1222,14 @@ class ConfigurationApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConfigurationType",
+            "200": "ConfigurationType",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1268,19 +1237,20 @@ class ConfigurationApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def configuration_retrieve_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this configuration.")],
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this configuration."),
+        ],
         fields: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1315,7 +1285,7 @@ class ConfigurationApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._configuration_retrieve_serialize(
             id=id,
@@ -1323,15 +1293,14 @@ class ConfigurationApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConfigurationType",
+            "200": "ConfigurationType",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1339,19 +1308,20 @@ class ConfigurationApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def configuration_retrieve_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this configuration.")],
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this configuration."),
+        ],
         fields: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1386,7 +1356,7 @@ class ConfigurationApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._configuration_retrieve_serialize(
             id=id,
@@ -1394,18 +1364,16 @@ class ConfigurationApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConfigurationType",
+            "200": "ConfigurationType",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _configuration_retrieve_serialize(
         self,
@@ -1416,11 +1384,9 @@ class ConfigurationApi:
         _headers,
         _host_index,
     ) -> Tuple:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1431,34 +1397,26 @@ class ConfigurationApi:
 
         # process the path parameters
         if id is not None:
-            _path_params['id'] = id
+            _path_params["id"] = id
         # process the query parameters
         if fields is not None:
-            
-            _query_params.append(('fields', fields))
-            
+            _query_params.append(("fields", fields))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'cookieAuth', 
-            'ApiKeyAuth'
-        ]
+        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/configuration/{id}/',
+            method="GET",
+            resource_path="/api/configuration/{id}/",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1468,24 +1426,23 @@ class ConfigurationApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def configuration_update(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this configuration.")],
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this configuration."),
+        ],
         configuration_type_request: ConfigurationTypeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1520,7 +1477,7 @@ class ConfigurationApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._configuration_update_serialize(
             id=id,
@@ -1528,15 +1485,14 @@ class ConfigurationApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConfigurationType",
+            "200": "ConfigurationType",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1544,19 +1500,20 @@ class ConfigurationApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def configuration_update_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this configuration.")],
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this configuration."),
+        ],
         configuration_type_request: ConfigurationTypeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1591,7 +1548,7 @@ class ConfigurationApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._configuration_update_serialize(
             id=id,
@@ -1599,15 +1556,14 @@ class ConfigurationApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConfigurationType",
+            "200": "ConfigurationType",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1615,19 +1571,20 @@ class ConfigurationApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def configuration_update_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="A unique integer value identifying this configuration.")],
+        id: Annotated[
+            StrictInt,
+            Field(description="A unique integer value identifying this configuration."),
+        ],
         configuration_type_request: ConfigurationTypeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1662,7 +1619,7 @@ class ConfigurationApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._configuration_update_serialize(
             id=id,
@@ -1670,18 +1627,16 @@ class ConfigurationApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ConfigurationType",
+            "200": "ConfigurationType",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _configuration_update_serialize(
         self,
@@ -1692,11 +1647,9 @@ class ConfigurationApi:
         _headers,
         _host_index,
     ) -> Tuple:
-
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1707,7 +1660,7 @@ class ConfigurationApi:
 
         # process the path parameters
         if id is not None:
-            _path_params['id'] = id
+            _path_params["id"] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -1715,39 +1668,31 @@ class ConfigurationApi:
         if configuration_type_request is not None:
             _body_params = configuration_type_request
 
-
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
+        _header_params["Accept"] = self.api_client.select_header_accept(
+            ["application/json"]
         )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'application/x-www-form-urlencoded', 
-                        'multipart/form-data'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                [
+                    "application/json",
+                    "application/x-www-form-urlencoded",
+                    "multipart/form-data",
+                ]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'cookieAuth', 
-            'ApiKeyAuth'
-        ]
+        _auth_settings: List[str] = ["cookieAuth", "ApiKeyAuth"]
 
         return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/api/configuration/{id}/',
+            method="PUT",
+            resource_path="/api/configuration/{id}/",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1757,7 +1702,5 @@ class ConfigurationApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

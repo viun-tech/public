@@ -20,15 +20,18 @@ import json
 from datetime import datetime
 from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictInt
+
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
+
 class InspectionRequest(BaseModel):
     """
     InspectionRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     team: StrictInt
     product: Optional[StrictInt] = None
     opened_by: Optional[StrictInt] = None
@@ -37,14 +40,22 @@ class InspectionRequest(BaseModel):
     close_datetime: Optional[datetime] = None
     configuration: Optional[StrictInt] = None
     metadata: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["team", "product", "opened_by", "closed_by", "images", "close_datetime", "configuration", "metadata"]
+    __properties: ClassVar[List[str]] = [
+        "team",
+        "product",
+        "opened_by",
+        "closed_by",
+        "images",
+        "close_datetime",
+        "configuration",
+        "metadata",
+    ]
 
     model_config = {
         "populate_by_name": True,
         "validate_assignment": True,
         "protected_namespaces": (),
     }
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -72,39 +83,38 @@ class InspectionRequest(BaseModel):
         """
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude={},
             exclude_none=True,
         )
         # set to None if product (nullable) is None
         # and model_fields_set contains the field
         if self.product is None and "product" in self.model_fields_set:
-            _dict['product'] = None
+            _dict["product"] = None
 
         # set to None if opened_by (nullable) is None
         # and model_fields_set contains the field
         if self.opened_by is None and "opened_by" in self.model_fields_set:
-            _dict['opened_by'] = None
+            _dict["opened_by"] = None
 
         # set to None if closed_by (nullable) is None
         # and model_fields_set contains the field
         if self.closed_by is None and "closed_by" in self.model_fields_set:
-            _dict['closed_by'] = None
+            _dict["closed_by"] = None
 
         # set to None if close_datetime (nullable) is None
         # and model_fields_set contains the field
         if self.close_datetime is None and "close_datetime" in self.model_fields_set:
-            _dict['close_datetime'] = None
+            _dict["close_datetime"] = None
 
         # set to None if configuration (nullable) is None
         # and model_fields_set contains the field
         if self.configuration is None and "configuration" in self.model_fields_set:
-            _dict['configuration'] = None
+            _dict["configuration"] = None
 
         # set to None if metadata (nullable) is None
         # and model_fields_set contains the field
         if self.metadata is None and "metadata" in self.model_fields_set:
-            _dict['metadata'] = None
+            _dict["metadata"] = None
 
         return _dict
 
@@ -117,16 +127,16 @@ class InspectionRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "team": obj.get("team"),
-            "product": obj.get("product"),
-            "opened_by": obj.get("opened_by"),
-            "closed_by": obj.get("closed_by"),
-            "images": obj.get("images"),
-            "close_datetime": obj.get("close_datetime"),
-            "configuration": obj.get("configuration"),
-            "metadata": obj.get("metadata")
-        })
+        _obj = cls.model_validate(
+            {
+                "team": obj.get("team"),
+                "product": obj.get("product"),
+                "opened_by": obj.get("opened_by"),
+                "closed_by": obj.get("closed_by"),
+                "images": obj.get("images"),
+                "close_datetime": obj.get("close_datetime"),
+                "configuration": obj.get("configuration"),
+                "metadata": obj.get("metadata"),
+            }
+        )
         return _obj
-
-

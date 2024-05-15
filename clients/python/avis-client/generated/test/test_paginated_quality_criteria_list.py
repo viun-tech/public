@@ -13,9 +13,11 @@
 
 
 import unittest
-import datetime
 
-from avis_client.models.paginated_quality_criteria_list import PaginatedQualityCriteriaList
+from avis_client.models.paginated_quality_criteria_list import (
+    PaginatedQualityCriteriaList,
+)
+
 
 class TestPaginatedQualityCriteriaList(unittest.TestCase):
     """PaginatedQualityCriteriaList unit test stubs"""
@@ -28,9 +30,9 @@ class TestPaginatedQualityCriteriaList(unittest.TestCase):
 
     def make_instance(self, include_optional) -> PaginatedQualityCriteriaList:
         """Test PaginatedQualityCriteriaList
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `PaginatedQualityCriteriaList`
         """
         model = PaginatedQualityCriteriaList()
@@ -41,21 +43,21 @@ class TestPaginatedQualityCriteriaList(unittest.TestCase):
                 previous = 'http://api.example.org/accounts/?page=2',
                 results = [
                     avis_client.models.quality_criteria.QualityCriteria(
-                        id = 56, 
-                        team = 56, 
+                        id = 56,
+                        team = 56,
                         configurations = [
                             56
-                            ], 
+                            ],
                         good_quality_classes = [
                             ''
-                            ], 
+                            ],
                         uncertain_quality_classes = [
                             ''
-                            ], 
+                            ],
                         bad_quality_classes = [
                             ''
-                            ], 
-                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                            ],
+                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                         updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ]
             )
@@ -64,21 +66,21 @@ class TestPaginatedQualityCriteriaList(unittest.TestCase):
                 count = 123,
                 results = [
                     avis_client.models.quality_criteria.QualityCriteria(
-                        id = 56, 
-                        team = 56, 
+                        id = 56,
+                        team = 56,
                         configurations = [
                             56
-                            ], 
+                            ],
                         good_quality_classes = [
                             ''
-                            ], 
+                            ],
                         uncertain_quality_classes = [
                             ''
-                            ], 
+                            ],
                         bad_quality_classes = [
                             ''
-                            ], 
-                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                            ],
+                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                         updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ],
         )
@@ -89,5 +91,6 @@ class TestPaginatedQualityCriteriaList(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

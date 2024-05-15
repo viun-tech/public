@@ -21,15 +21,18 @@ from datetime import datetime
 from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictInt
 from pydantic import Field
+
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
+
 class Metadata(BaseModel):
     """
     Metadata
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: StrictInt
     team: StrictInt
     configurations: Optional[List[StrictInt]] = None
@@ -37,14 +40,21 @@ class Metadata(BaseModel):
     data: Optional[Any] = None
     created_at: Optional[datetime]
     updated_at: Optional[datetime]
-    __properties: ClassVar[List[str]] = ["id", "team", "configurations", "schema", "data", "created_at", "updated_at"]
+    __properties: ClassVar[List[str]] = [
+        "id",
+        "team",
+        "configurations",
+        "schema",
+        "data",
+        "created_at",
+        "updated_at",
+    ]
 
     model_config = {
         "populate_by_name": True,
         "validate_assignment": True,
         "protected_namespaces": (),
     }
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -85,17 +95,17 @@ class Metadata(BaseModel):
         # set to None if data (nullable) is None
         # and model_fields_set contains the field
         if self.data is None and "data" in self.model_fields_set:
-            _dict['data'] = None
+            _dict["data"] = None
 
         # set to None if created_at (nullable) is None
         # and model_fields_set contains the field
         if self.created_at is None and "created_at" in self.model_fields_set:
-            _dict['created_at'] = None
+            _dict["created_at"] = None
 
         # set to None if updated_at (nullable) is None
         # and model_fields_set contains the field
         if self.updated_at is None and "updated_at" in self.model_fields_set:
-            _dict['updated_at'] = None
+            _dict["updated_at"] = None
 
         return _dict
 
@@ -108,15 +118,15 @@ class Metadata(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "team": obj.get("team"),
-            "configurations": obj.get("configurations"),
-            "schema": obj.get("schema"),
-            "data": obj.get("data"),
-            "created_at": obj.get("created_at"),
-            "updated_at": obj.get("updated_at")
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "team": obj.get("team"),
+                "configurations": obj.get("configurations"),
+                "schema": obj.get("schema"),
+                "data": obj.get("data"),
+                "created_at": obj.get("created_at"),
+                "updated_at": obj.get("updated_at"),
+            }
+        )
         return _obj
-
-

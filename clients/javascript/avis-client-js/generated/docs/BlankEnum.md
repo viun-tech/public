@@ -2,7 +2,4 @@
 
 ## Enum
 
-
-* `empty` (value: `""`)
-
-
+- `empty` (value: `""`)

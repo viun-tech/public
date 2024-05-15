@@ -2,12 +2,10 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**team** | **Number** |  | 
-**configurations** | **[Number]** |  | [optional] 
-**goodQualityClasses** | **[String]** |  | 
-**uncertainQualityClasses** | **[String]** |  | 
-**badQualityClasses** | **[String]** |  | 
-
-
+| Name                        | Type         | Description | Notes      |
+| --------------------------- | ------------ | ----------- | ---------- |
+| **team**                    | **Number**   |             |
+| **configurations**          | **[Number]** |             | [optional] |
+| **goodQualityClasses**      | **[String]** |             |
+| **uncertainQualityClasses** | **[String]** |             |
+| **badQualityClasses**       | **[String]** |             |

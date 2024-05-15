@@ -2,9 +2,7 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**team** | **Number** |  | 
-**json** | **Object** |  | 
-
-
+| Name     | Type       | Description | Notes |
+| -------- | ---------- | ----------- | ----- |
+| **team** | **Number** |             |
+| **json** | **Object** |             |

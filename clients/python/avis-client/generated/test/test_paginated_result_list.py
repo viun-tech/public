@@ -13,9 +13,9 @@
 
 
 import unittest
-import datetime
 
 from avis_client.models.paginated_result_list import PaginatedResultList
+
 
 class TestPaginatedResultList(unittest.TestCase):
     """PaginatedResultList unit test stubs"""
@@ -28,9 +28,9 @@ class TestPaginatedResultList(unittest.TestCase):
 
     def make_instance(self, include_optional) -> PaginatedResultList:
         """Test PaginatedResultList
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `PaginatedResultList`
         """
         model = PaginatedResultList()
@@ -41,18 +41,18 @@ class TestPaginatedResultList(unittest.TestCase):
                 previous = 'http://api.example.org/accounts/?page=2',
                 results = [
                     avis_client.models.result.Result(
-                        id = 56, 
-                        team = 56, 
-                        reported_by = 56, 
-                        inferred_by = 56, 
-                        image = 56, 
+                        id = 56,
+                        team = 56,
+                        reported_by = 56,
+                        inferred_by = 56,
+                        image = 56,
                         image_attributes = [
                             56
-                            ], 
-                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        status = null, 
-                        failure_reason = '', 
+                            ],
+                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                        status = null,
+                        failure_reason = '',
                         comment = '', )
                     ]
             )
@@ -61,18 +61,18 @@ class TestPaginatedResultList(unittest.TestCase):
                 count = 123,
                 results = [
                     avis_client.models.result.Result(
-                        id = 56, 
-                        team = 56, 
-                        reported_by = 56, 
-                        inferred_by = 56, 
-                        image = 56, 
+                        id = 56,
+                        team = 56,
+                        reported_by = 56,
+                        inferred_by = 56,
+                        image = 56,
                         image_attributes = [
                             56
-                            ], 
-                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        status = null, 
-                        failure_reason = '', 
+                            ],
+                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                        updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                        status = null,
+                        failure_reason = '',
                         comment = '', )
                     ],
         )
@@ -83,5 +83,6 @@ class TestPaginatedResultList(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

@@ -2,13 +2,10 @@
 
 ## Enum
 
+- `png` (value: `"image/png"`)
 
-* `png` (value: `"image/png"`)
+- `tiff` (value: `"image/tiff"`)
 
-* `tiff` (value: `"image/tiff"`)
+- `jpeg` (value: `"image/jpeg"`)
 
-* `jpeg` (value: `"image/jpeg"`)
-
-* `bmp` (value: `"image/bmp"`)
-
-
+- `bmp` (value: `"image/bmp"`)

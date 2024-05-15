@@ -17,7 +17,9 @@
 from avis_client.models.azure_ml_inference_request import AzureMLInferenceRequest
 from avis_client.models.blank_enum import BlankEnum
 from avis_client.models.configuration_statistics import ConfigurationStatistics
-from avis_client.models.configuration_statistics_request import ConfigurationStatisticsRequest
+from avis_client.models.configuration_statistics_request import (
+    ConfigurationStatisticsRequest,
+)
 from avis_client.models.configuration_type import ConfigurationType
 from avis_client.models.configuration_type_request import ConfigurationTypeRequest
 from avis_client.models.custom_user import CustomUser
@@ -27,12 +29,16 @@ from avis_client.models.format_enum import FormatEnum
 from avis_client.models.image import Image
 from avis_client.models.image_attribute import ImageAttribute
 from avis_client.models.image_attribute_category import ImageAttributeCategory
-from avis_client.models.image_attribute_category_request import ImageAttributeCategoryRequest
+from avis_client.models.image_attribute_category_request import (
+    ImageAttributeCategoryRequest,
+)
 from avis_client.models.image_attribute_request import ImageAttributeRequest
 from avis_client.models.image_request import ImageRequest
 from avis_client.models.inspection import Inspection
 from avis_client.models.inspection_images_statistics import InspectionImagesStatistics
-from avis_client.models.inspection_images_statistics_request import InspectionImagesStatisticsRequest
+from avis_client.models.inspection_images_statistics_request import (
+    InspectionImagesStatisticsRequest,
+)
 from avis_client.models.inspection_request import InspectionRequest
 from avis_client.models.inspection_statistics import InspectionStatistics
 from avis_client.models.inspection_statistics_request import InspectionStatisticsRequest
@@ -47,38 +53,72 @@ from avis_client.models.metadata import Metadata
 from avis_client.models.metadata_request import MetadataRequest
 from avis_client.models.metadata_schema import MetadataSchema
 from avis_client.models.metadata_schema_request import MetadataSchemaRequest
-from avis_client.models.paginated_configuration_statistics_list import PaginatedConfigurationStatisticsList
-from avis_client.models.paginated_configuration_type_list import PaginatedConfigurationTypeList
-from avis_client.models.paginated_image_attribute_category_list import PaginatedImageAttributeCategoryList
-from avis_client.models.paginated_image_attribute_list import PaginatedImageAttributeList
+from avis_client.models.paginated_configuration_statistics_list import (
+    PaginatedConfigurationStatisticsList,
+)
+from avis_client.models.paginated_configuration_type_list import (
+    PaginatedConfigurationTypeList,
+)
+from avis_client.models.paginated_image_attribute_category_list import (
+    PaginatedImageAttributeCategoryList,
+)
+from avis_client.models.paginated_image_attribute_list import (
+    PaginatedImageAttributeList,
+)
 from avis_client.models.paginated_image_list import PaginatedImageList
-from avis_client.models.paginated_inspection_images_statistics_list import PaginatedInspectionImagesStatisticsList
+from avis_client.models.paginated_inspection_images_statistics_list import (
+    PaginatedInspectionImagesStatisticsList,
+)
 from avis_client.models.paginated_inspection_list import PaginatedInspectionList
-from avis_client.models.paginated_inspection_statistics_list import PaginatedInspectionStatisticsList
-from avis_client.models.paginated_inspection_validation_status_list import PaginatedInspectionValidationStatusList
+from avis_client.models.paginated_inspection_statistics_list import (
+    PaginatedInspectionStatisticsList,
+)
+from avis_client.models.paginated_inspection_validation_status_list import (
+    PaginatedInspectionValidationStatusList,
+)
 from avis_client.models.paginated_ml_model_list import PaginatedMLModelList
 from avis_client.models.paginated_ml_model_type_list import PaginatedMLModelTypeList
 from avis_client.models.paginated_membership_list import PaginatedMembershipList
 from avis_client.models.paginated_metadata_list import PaginatedMetadataList
-from avis_client.models.paginated_metadata_schema_list import PaginatedMetadataSchemaList
-from avis_client.models.paginated_product_category_list import PaginatedProductCategoryList
+from avis_client.models.paginated_metadata_schema_list import (
+    PaginatedMetadataSchemaList,
+)
+from avis_client.models.paginated_product_category_list import (
+    PaginatedProductCategoryList,
+)
 from avis_client.models.paginated_product_list import PaginatedProductList
-from avis_client.models.paginated_quality_criteria_list import PaginatedQualityCriteriaList
-from avis_client.models.paginated_quality_criteria_result_list import PaginatedQualityCriteriaResultList
+from avis_client.models.paginated_quality_criteria_list import (
+    PaginatedQualityCriteriaList,
+)
+from avis_client.models.paginated_quality_criteria_result_list import (
+    PaginatedQualityCriteriaResultList,
+)
 from avis_client.models.paginated_result_list import PaginatedResultList
 from avis_client.models.paginated_team_list import PaginatedTeamList
-from avis_client.models.patched_configuration_type_request import PatchedConfigurationTypeRequest
-from avis_client.models.patched_image_attribute_category_request import PatchedImageAttributeCategoryRequest
-from avis_client.models.patched_image_attribute_request import PatchedImageAttributeRequest
+from avis_client.models.patched_configuration_type_request import (
+    PatchedConfigurationTypeRequest,
+)
+from avis_client.models.patched_image_attribute_category_request import (
+    PatchedImageAttributeCategoryRequest,
+)
+from avis_client.models.patched_image_attribute_request import (
+    PatchedImageAttributeRequest,
+)
 from avis_client.models.patched_image_request import PatchedImageRequest
 from avis_client.models.patched_inspection_request import PatchedInspectionRequest
 from avis_client.models.patched_ml_model_request import PatchedMLModelRequest
 from avis_client.models.patched_ml_model_type_request import PatchedMLModelTypeRequest
 from avis_client.models.patched_metadata_request import PatchedMetadataRequest
-from avis_client.models.patched_metadata_schema_request import PatchedMetadataSchemaRequest
-from avis_client.models.patched_product_category_request import PatchedProductCategoryRequest
+from avis_client.models.patched_metadata_schema_request import (
+    PatchedMetadataSchemaRequest,
+)
+from avis_client.models.patched_product_category_request import (
+    PatchedProductCategoryRequest,
+)
 from avis_client.models.patched_product_request import PatchedProductRequest
-from avis_client.models.patched_quality_criteria_request import PatchedQualityCriteriaRequest
+from avis_client.models.patched_quality_criteria_request import (
+    PatchedQualityCriteriaRequest,
+)
 from avis_client.models.patched_result_request import PatchedResultRequest
 from avis_client.models.patched_result_request_status import PatchedResultRequestStatus
 from avis_client.models.product import Product

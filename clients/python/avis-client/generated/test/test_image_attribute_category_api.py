@@ -27,41 +27,29 @@ class TestImageAttributeCategoryApi(unittest.TestCase):
         pass
 
     def test_image_attribute_category_create(self) -> None:
-        """Test case for image_attribute_category_create
-
-        """
+        """Test case for image_attribute_category_create"""
         pass
 
     def test_image_attribute_category_destroy(self) -> None:
-        """Test case for image_attribute_category_destroy
-
-        """
+        """Test case for image_attribute_category_destroy"""
         pass
 
     def test_image_attribute_category_list(self) -> None:
-        """Test case for image_attribute_category_list
-
-        """
+        """Test case for image_attribute_category_list"""
         pass
 
     def test_image_attribute_category_partial_update(self) -> None:
-        """Test case for image_attribute_category_partial_update
-
-        """
+        """Test case for image_attribute_category_partial_update"""
         pass
 
     def test_image_attribute_category_retrieve(self) -> None:
-        """Test case for image_attribute_category_retrieve
-
-        """
+        """Test case for image_attribute_category_retrieve"""
         pass
 
     def test_image_attribute_category_update(self) -> None:
-        """Test case for image_attribute_category_update
-
-        """
+        """Test case for image_attribute_category_update"""
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -13,9 +13,9 @@
 
 
 import unittest
-import datetime
 
 from avis_client.models.membership import Membership
+
 
 class TestMembership(unittest.TestCase):
     """Membership unit test stubs"""
@@ -28,9 +28,9 @@ class TestMembership(unittest.TestCase):
 
     def make_instance(self, include_optional) -> Membership:
         """Test Membership
-            include_option is a boolean, when False only required
-            params are included, when True both required and
-            optional params are included """
+        include_option is a boolean, when False only required
+        params are included, when True both required and
+        optional params are included"""
         # uncomment below to create an instance of `Membership`
         """
         model = Membership()
@@ -38,9 +38,9 @@ class TestMembership(unittest.TestCase):
             return Membership(
                 id = 56,
                 user = avis_client.models.custom_user.CustomUser(
-                    id = 56, 
-                    first_name = '', 
-                    last_name = '', 
+                    id = 56,
+                    first_name = '',
+                    last_name = '',
                     email = '', ),
                 role = '',
                 team = 56,
@@ -51,9 +51,9 @@ class TestMembership(unittest.TestCase):
             return Membership(
                 id = 56,
                 user = avis_client.models.custom_user.CustomUser(
-                    id = 56, 
-                    first_name = '', 
-                    last_name = '', 
+                    id = 56,
+                    first_name = '',
+                    last_name = '',
                     email = '', ),
                 role = '',
                 team = 56,
@@ -67,5 +67,6 @@ class TestMembership(unittest.TestCase):
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

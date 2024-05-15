@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **int** |  | 
-**next** | **str** |  | [optional] 
-**previous** | **str** |  | [optional] 
-**results** | [**List[ImageAttributeCategory]**](ImageAttributeCategory.md) |  | 
+**count** | **int** |  |
+**next** | **str** |  | [optional]
+**previous** | **str** |  | [optional]
+**results** | [**List[ImageAttributeCategory]**](ImageAttributeCategory.md) |  |
 
 ## Example
 
@@ -28,5 +28,3 @@ paginated_image_attribute_category_list_dict = paginated_image_attribute_categor
 paginated_image_attribute_category_list_form_dict = paginated_image_attribute_category_list.from_dict(paginated_image_attribute_category_list_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

@@ -2,11 +2,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**team** | **Number** |  | [optional] 
-**name** | **String** |  | [optional] 
-**description** | **String** |  | [optional] 
-**mlModel** | **Number** |  | [optional] 
-
-
+| Name            | Type       | Description | Notes      |
+| --------------- | ---------- | ----------- | ---------- |
+| **team**        | **Number** |             | [optional] |
+| **name**        | **String** |             | [optional] |
+| **description** | **String** |             | [optional] |
+| **mlModel**     | **Number** |             | [optional] |

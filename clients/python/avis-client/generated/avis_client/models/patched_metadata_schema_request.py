@@ -21,15 +21,18 @@ import json
 from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictInt
 from pydantic import Field
+
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
+
 class PatchedMetadataSchemaRequest(BaseModel):
     """
     PatchedMetadataSchemaRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     team: Optional[StrictInt] = None
     var_json: Optional[Any] = Field(default=None, alias="json")
     __properties: ClassVar[List[str]] = ["team", "json"]
@@ -39,7 +42,6 @@ class PatchedMetadataSchemaRequest(BaseModel):
         "validate_assignment": True,
         "protected_namespaces": (),
     }
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -67,14 +69,13 @@ class PatchedMetadataSchemaRequest(BaseModel):
         """
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude={},
             exclude_none=True,
         )
         # set to None if var_json (nullable) is None
         # and model_fields_set contains the field
         if self.var_json is None and "var_json" in self.model_fields_set:
-            _dict['json'] = None
+            _dict["json"] = None
 
         return _dict
 
@@ -87,10 +88,5 @@ class PatchedMetadataSchemaRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "team": obj.get("team"),
-            "json": obj.get("json")
-        })
+        _obj = cls.model_validate({"team": obj.get("team"), "json": obj.get("json")})
         return _obj
-
-

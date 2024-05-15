@@ -22,15 +22,18 @@ from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictInt
 from pydantic import Field
 from typing_extensions import Annotated
+
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
+
 class CustomUser(BaseModel):
     """
     CustomUser
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: StrictInt
     first_name: Optional[Annotated[str, Field(strict=True, max_length=150)]] = None
     last_name: Optional[Annotated[str, Field(strict=True, max_length=150)]] = None
@@ -42,7 +45,6 @@ class CustomUser(BaseModel):
         "validate_assignment": True,
         "protected_namespaces": (),
     }
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -87,12 +89,12 @@ class CustomUser(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "first_name": obj.get("first_name"),
-            "last_name": obj.get("last_name"),
-            "email": obj.get("email")
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "first_name": obj.get("first_name"),
+                "last_name": obj.get("last_name"),
+                "email": obj.get("email"),
+            }
+        )
         return _obj
-
-

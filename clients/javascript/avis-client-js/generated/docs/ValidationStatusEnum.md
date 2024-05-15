@@ -2,11 +2,8 @@
 
 ## Enum
 
+- `NONE` (value: `"NONE"`)
 
-* `NONE` (value: `"NONE"`)
+- `REQUESTED` (value: `"REQUESTED"`)
 
-* `REQUESTED` (value: `"REQUESTED"`)
-
-* `VALIDATED` (value: `"VALIDATED"`)
-
-
+- `VALIDATED` (value: `"VALIDATED"`)

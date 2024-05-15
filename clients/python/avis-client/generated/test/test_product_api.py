@@ -27,41 +27,29 @@ class TestProductApi(unittest.TestCase):
         pass
 
     def test_product_create(self) -> None:
-        """Test case for product_create
-
-        """
+        """Test case for product_create"""
         pass
 
     def test_product_destroy(self) -> None:
-        """Test case for product_destroy
-
-        """
+        """Test case for product_destroy"""
         pass
 
     def test_product_list(self) -> None:
-        """Test case for product_list
-
-        """
+        """Test case for product_list"""
         pass
 
     def test_product_partial_update(self) -> None:
-        """Test case for product_partial_update
-
-        """
+        """Test case for product_partial_update"""
         pass
 
     def test_product_retrieve(self) -> None:
-        """Test case for product_retrieve
-
-        """
+        """Test case for product_retrieve"""
         pass
 
     def test_product_update(self) -> None:
-        """Test case for product_update
-
-        """
+        """Test case for product_update"""
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

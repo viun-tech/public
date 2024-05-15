@@ -27,41 +27,29 @@ class TestMetadataApi(unittest.TestCase):
         pass
 
     def test_metadata_create(self) -> None:
-        """Test case for metadata_create
-
-        """
+        """Test case for metadata_create"""
         pass
 
     def test_metadata_destroy(self) -> None:
-        """Test case for metadata_destroy
-
-        """
+        """Test case for metadata_destroy"""
         pass
 
     def test_metadata_list(self) -> None:
-        """Test case for metadata_list
-
-        """
+        """Test case for metadata_list"""
         pass
 
     def test_metadata_partial_update(self) -> None:
-        """Test case for metadata_partial_update
-
-        """
+        """Test case for metadata_partial_update"""
         pass
 
     def test_metadata_retrieve(self) -> None:
-        """Test case for metadata_retrieve
-
-        """
+        """Test case for metadata_retrieve"""
         pass
 
     def test_metadata_update(self) -> None:
-        """Test case for metadata_update
-
-        """
+        """Test case for metadata_update"""
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

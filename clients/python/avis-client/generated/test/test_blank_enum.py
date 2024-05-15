@@ -13,9 +13,7 @@
 
 
 import unittest
-import datetime
 
-from avis_client.models.blank_enum import BlankEnum
 
 class TestBlankEnum(unittest.TestCase):
     """BlankEnum unit test stubs"""
@@ -30,5 +28,6 @@ class TestBlankEnum(unittest.TestCase):
         """Test BlankEnum"""
         # inst = BlankEnum()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

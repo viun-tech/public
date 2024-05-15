@@ -27,17 +27,13 @@ class TestUserApi(unittest.TestCase):
         pass
 
     def test_user_email_list(self) -> None:
-        """Test case for user_email_list
-
-        """
+        """Test case for user_email_list"""
         pass
 
     def test_user_whoami_retrieve(self) -> None:
-        """Test case for user_whoami_retrieve
-
-        """
+        """Test case for user_whoami_retrieve"""
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -13,9 +13,7 @@
 
 
 import unittest
-import datetime
 
-from avis_client.models.format_enum import FormatEnum
 
 class TestFormatEnum(unittest.TestCase):
     """FormatEnum unit test stubs"""
@@ -30,5 +28,6 @@ class TestFormatEnum(unittest.TestCase):
         """Test FormatEnum"""
         # inst = FormatEnum()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

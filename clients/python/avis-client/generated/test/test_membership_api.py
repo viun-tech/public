@@ -27,35 +27,25 @@ class TestMembershipApi(unittest.TestCase):
         pass
 
     def test_membership_create(self) -> None:
-        """Test case for membership_create
-
-        """
+        """Test case for membership_create"""
         pass
 
     def test_membership_destroy(self) -> None:
-        """Test case for membership_destroy
-
-        """
+        """Test case for membership_destroy"""
         pass
 
     def test_membership_list(self) -> None:
-        """Test case for membership_list
-
-        """
+        """Test case for membership_list"""
         pass
 
     def test_membership_retrieve(self) -> None:
-        """Test case for membership_retrieve
-
-        """
+        """Test case for membership_retrieve"""
         pass
 
     def test_membership_update(self) -> None:
-        """Test case for membership_update
-
-        """
+        """Test case for membership_update"""
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

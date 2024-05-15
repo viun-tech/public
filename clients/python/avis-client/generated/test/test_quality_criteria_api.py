@@ -27,41 +27,29 @@ class TestQualityCriteriaApi(unittest.TestCase):
         pass
 
     def test_quality_criteria_create(self) -> None:
-        """Test case for quality_criteria_create
-
-        """
+        """Test case for quality_criteria_create"""
         pass
 
     def test_quality_criteria_destroy(self) -> None:
-        """Test case for quality_criteria_destroy
-
-        """
+        """Test case for quality_criteria_destroy"""
         pass
 
     def test_quality_criteria_list(self) -> None:
-        """Test case for quality_criteria_list
-
-        """
+        """Test case for quality_criteria_list"""
         pass
 
     def test_quality_criteria_partial_update(self) -> None:
-        """Test case for quality_criteria_partial_update
-
-        """
+        """Test case for quality_criteria_partial_update"""
         pass
 
     def test_quality_criteria_retrieve(self) -> None:
-        """Test case for quality_criteria_retrieve
-
-        """
+        """Test case for quality_criteria_retrieve"""
         pass
 
     def test_quality_criteria_update(self) -> None:
-        """Test case for quality_criteria_update
-
-        """
+        """Test case for quality_criteria_update"""
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

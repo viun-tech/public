@@ -22,15 +22,18 @@ from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictInt
 from pydantic import Field
 from typing_extensions import Annotated
+
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
+
 class ImageAttributeRequest(BaseModel):
     """
     ImageAttributeRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     team: StrictInt
     category: Optional[StrictInt]
     results: Optional[List[StrictInt]] = None
@@ -42,7 +45,6 @@ class ImageAttributeRequest(BaseModel):
         "validate_assignment": True,
         "protected_namespaces": (),
     }
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -70,14 +72,13 @@ class ImageAttributeRequest(BaseModel):
         """
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude={},
             exclude_none=True,
         )
         # set to None if category (nullable) is None
         # and model_fields_set contains the field
         if self.category is None and "category" in self.model_fields_set:
-            _dict['category'] = None
+            _dict["category"] = None
 
         return _dict
 
@@ -90,12 +91,12 @@ class ImageAttributeRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "team": obj.get("team"),
-            "category": obj.get("category"),
-            "results": obj.get("results"),
-            "value": obj.get("value")
-        })
+        _obj = cls.model_validate(
+            {
+                "team": obj.get("team"),
+                "category": obj.get("category"),
+                "results": obj.get("results"),
+                "value": obj.get("value"),
+            }
+        )
         return _obj
-
-

@@ -13,9 +13,7 @@
 
 
 import unittest
-import datetime
 
-from avis_client.models.validation_status_enum import ValidationStatusEnum
 
 class TestValidationStatusEnum(unittest.TestCase):
     """ValidationStatusEnum unit test stubs"""
@@ -30,5 +28,6 @@ class TestValidationStatusEnum(unittest.TestCase):
         """Test ValidationStatusEnum"""
         # inst = ValidationStatusEnum()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** | **int** |  | 
-**next** | **str** |  | [optional] 
-**previous** | **str** |  | [optional] 
-**results** | [**List[ConfigurationType]**](ConfigurationType.md) |  | 
+**count** | **int** |  |
+**next** | **str** |  | [optional]
+**previous** | **str** |  | [optional]
+**results** | [**List[ConfigurationType]**](ConfigurationType.md) |  |
 
 ## Example
 
@@ -28,5 +28,3 @@ paginated_configuration_type_list_dict = paginated_configuration_type_list_insta
 paginated_configuration_type_list_form_dict = paginated_configuration_type_list.from_dict(paginated_configuration_type_list_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-

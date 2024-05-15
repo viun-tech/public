@@ -67,13 +67,13 @@ then install it via:
 
 The library also works in the browser environment via npm and [browserify](http://browserify.org/). After following
 the above steps with Node.js and installing browserify with `npm install -g browserify`,
-perform the following (assuming *main.js* is your entry file):
+perform the following (assuming _main.js_ is your entry file):
 
 ```shell
 browserify main.js > bundle.js
 ```
 
-Then include *bundle.js* in the HTML pages.
+Then include _bundle.js_ in the HTML pages.
 
 ### Webpack Configuration
 
@@ -86,10 +86,10 @@ module: {
   rules: [
     {
       parser: {
-        amd: false
-      }
-    }
-  ]
+        amd: false,
+      },
+    },
+  ];
 }
 ```
 
@@ -98,247 +98,243 @@ module: {
 Please follow the [installation](#installation) instruction and execute the following JS code:
 
 ```javascript
-var ViunAvisClientJs = require('@viun/avis-client-js');
+var ViunAvisClientJs = require("@viun/avis-client-js");
 
 var defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
-var cookieAuth = defaultClient.authentications['cookieAuth'];
-cookieAuth.apiKey = "YOUR API KEY"
+var cookieAuth = defaultClient.authentications["cookieAuth"];
+cookieAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //cookieAuth.apiKeyPrefix['sessionid'] = "Token"
 // Configure API key authorization: ApiKeyAuth
-var ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = "YOUR API KEY"
+var ApiKeyAuth = defaultClient.authentications["ApiKeyAuth"];
+ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix['X-Api-Key'] = "Token"
 
-var api = new ViunAvisClientJs.ApiKeysApi()
+var api = new ViunAvisClientJs.ApiKeysApi();
 var opts = {
-  'userAPIKeyCreateRequest': new ViunAvisClientJs.UserAPIKeyCreateRequest() // {UserAPIKeyCreateRequest} 
+  userAPIKeyCreateRequest: new ViunAvisClientJs.UserAPIKeyCreateRequest(), // {UserAPIKeyCreateRequest}
 };
-var callback = function(error, data, response) {
+var callback = function (error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log("API called successfully. Returned data: " + data);
   }
 };
 api.keysCreate(opts, callback);
-
 ```
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:8000*
+All URIs are relative to _http://localhost:8000_
 
-Class | Method | HTTP request | Description
------------- | ------------- | ------------- | -------------
-*ViunAvisClientJs.ApiKeysApi* | [**keysCreate**](docs/ApiKeysApi.md#keysCreate) | **POST** /api/keys/ | 
-*ViunAvisClientJs.ApiKeysApi* | [**keysRevokeCreate**](docs/ApiKeysApi.md#keysRevokeCreate) | **POST** /api/keys/revoke/ | 
-*ViunAvisClientJs.ConfigurationApi* | [**configurationCreate**](docs/ConfigurationApi.md#configurationCreate) | **POST** /api/configuration/ | 
-*ViunAvisClientJs.ConfigurationApi* | [**configurationDestroy**](docs/ConfigurationApi.md#configurationDestroy) | **DELETE** /api/configuration/{id}/ | 
-*ViunAvisClientJs.ConfigurationApi* | [**configurationList**](docs/ConfigurationApi.md#configurationList) | **GET** /api/configuration/ | 
-*ViunAvisClientJs.ConfigurationApi* | [**configurationPartialUpdate**](docs/ConfigurationApi.md#configurationPartialUpdate) | **PATCH** /api/configuration/{id}/ | 
-*ViunAvisClientJs.ConfigurationApi* | [**configurationRetrieve**](docs/ConfigurationApi.md#configurationRetrieve) | **GET** /api/configuration/{id}/ | 
-*ViunAvisClientJs.ConfigurationApi* | [**configurationUpdate**](docs/ConfigurationApi.md#configurationUpdate) | **PUT** /api/configuration/{id}/ | 
-*ViunAvisClientJs.ImageApi* | [**imageCreate**](docs/ImageApi.md#imageCreate) | **POST** /api/image/ | 
-*ViunAvisClientJs.ImageApi* | [**imageDestroy**](docs/ImageApi.md#imageDestroy) | **DELETE** /api/image/{id}/ | 
-*ViunAvisClientJs.ImageApi* | [**imageList**](docs/ImageApi.md#imageList) | **GET** /api/image/ | 
-*ViunAvisClientJs.ImageApi* | [**imagePartialUpdate**](docs/ImageApi.md#imagePartialUpdate) | **PATCH** /api/image/{id}/ | 
-*ViunAvisClientJs.ImageApi* | [**imageQualityList**](docs/ImageApi.md#imageQualityList) | **GET** /api/image/quality/ | 
-*ViunAvisClientJs.ImageApi* | [**imageRetrieve**](docs/ImageApi.md#imageRetrieve) | **GET** /api/image/{id}/ | 
-*ViunAvisClientJs.ImageApi* | [**imageUpdate**](docs/ImageApi.md#imageUpdate) | **PUT** /api/image/{id}/ | 
-*ViunAvisClientJs.ImageAttributeApi* | [**imageAttributeCreate**](docs/ImageAttributeApi.md#imageAttributeCreate) | **POST** /api/image-attribute/ | 
-*ViunAvisClientJs.ImageAttributeApi* | [**imageAttributeDestroy**](docs/ImageAttributeApi.md#imageAttributeDestroy) | **DELETE** /api/image-attribute/{id}/ | 
-*ViunAvisClientJs.ImageAttributeApi* | [**imageAttributeList**](docs/ImageAttributeApi.md#imageAttributeList) | **GET** /api/image-attribute/ | 
-*ViunAvisClientJs.ImageAttributeApi* | [**imageAttributePartialUpdate**](docs/ImageAttributeApi.md#imageAttributePartialUpdate) | **PATCH** /api/image-attribute/{id}/ | 
-*ViunAvisClientJs.ImageAttributeApi* | [**imageAttributeRetrieve**](docs/ImageAttributeApi.md#imageAttributeRetrieve) | **GET** /api/image-attribute/{id}/ | 
-*ViunAvisClientJs.ImageAttributeApi* | [**imageAttributeUpdate**](docs/ImageAttributeApi.md#imageAttributeUpdate) | **PUT** /api/image-attribute/{id}/ | 
-*ViunAvisClientJs.ImageAttributeCategoryApi* | [**imageAttributeCategoryCreate**](docs/ImageAttributeCategoryApi.md#imageAttributeCategoryCreate) | **POST** /api/image-attribute-category/ | 
-*ViunAvisClientJs.ImageAttributeCategoryApi* | [**imageAttributeCategoryDestroy**](docs/ImageAttributeCategoryApi.md#imageAttributeCategoryDestroy) | **DELETE** /api/image-attribute-category/{id}/ | 
-*ViunAvisClientJs.ImageAttributeCategoryApi* | [**imageAttributeCategoryList**](docs/ImageAttributeCategoryApi.md#imageAttributeCategoryList) | **GET** /api/image-attribute-category/ | 
-*ViunAvisClientJs.ImageAttributeCategoryApi* | [**imageAttributeCategoryPartialUpdate**](docs/ImageAttributeCategoryApi.md#imageAttributeCategoryPartialUpdate) | **PATCH** /api/image-attribute-category/{id}/ | 
-*ViunAvisClientJs.ImageAttributeCategoryApi* | [**imageAttributeCategoryRetrieve**](docs/ImageAttributeCategoryApi.md#imageAttributeCategoryRetrieve) | **GET** /api/image-attribute-category/{id}/ | 
-*ViunAvisClientJs.ImageAttributeCategoryApi* | [**imageAttributeCategoryUpdate**](docs/ImageAttributeCategoryApi.md#imageAttributeCategoryUpdate) | **PUT** /api/image-attribute-category/{id}/ | 
-*ViunAvisClientJs.InspectionApi* | [**inspectionCreate**](docs/InspectionApi.md#inspectionCreate) | **POST** /api/inspection/ | 
-*ViunAvisClientJs.InspectionApi* | [**inspectionDestroy**](docs/InspectionApi.md#inspectionDestroy) | **DELETE** /api/inspection/{id}/ | 
-*ViunAvisClientJs.InspectionApi* | [**inspectionList**](docs/InspectionApi.md#inspectionList) | **GET** /api/inspection/ | 
-*ViunAvisClientJs.InspectionApi* | [**inspectionPartialUpdate**](docs/InspectionApi.md#inspectionPartialUpdate) | **PATCH** /api/inspection/{id}/ | 
-*ViunAvisClientJs.InspectionApi* | [**inspectionRetrieve**](docs/InspectionApi.md#inspectionRetrieve) | **GET** /api/inspection/{id}/ | 
-*ViunAvisClientJs.InspectionApi* | [**inspectionSendValidationEmailRetrieve**](docs/InspectionApi.md#inspectionSendValidationEmailRetrieve) | **GET** /api/inspection/{id}/send_validation_email/ | 
-*ViunAvisClientJs.InspectionApi* | [**inspectionUpdate**](docs/InspectionApi.md#inspectionUpdate) | **PUT** /api/inspection/{id}/ | 
-*ViunAvisClientJs.InspectionApi* | [**inspectionValidationStatusList**](docs/InspectionApi.md#inspectionValidationStatusList) | **GET** /api/inspection/validation_status/ | 
-*ViunAvisClientJs.MembershipApi* | [**membershipCreate**](docs/MembershipApi.md#membershipCreate) | **POST** /api/membership/ | 
-*ViunAvisClientJs.MembershipApi* | [**membershipDestroy**](docs/MembershipApi.md#membershipDestroy) | **DELETE** /api/membership/{id}/ | 
-*ViunAvisClientJs.MembershipApi* | [**membershipList**](docs/MembershipApi.md#membershipList) | **GET** /api/membership/ | 
-*ViunAvisClientJs.MembershipApi* | [**membershipRetrieve**](docs/MembershipApi.md#membershipRetrieve) | **GET** /api/membership/{id}/ | 
-*ViunAvisClientJs.MembershipApi* | [**membershipUpdate**](docs/MembershipApi.md#membershipUpdate) | **PUT** /api/membership/{id}/ | 
-*ViunAvisClientJs.MetadataApi* | [**metadataCreate**](docs/MetadataApi.md#metadataCreate) | **POST** /api/metadata/ | 
-*ViunAvisClientJs.MetadataApi* | [**metadataDestroy**](docs/MetadataApi.md#metadataDestroy) | **DELETE** /api/metadata/{id}/ | 
-*ViunAvisClientJs.MetadataApi* | [**metadataList**](docs/MetadataApi.md#metadataList) | **GET** /api/metadata/ | 
-*ViunAvisClientJs.MetadataApi* | [**metadataPartialUpdate**](docs/MetadataApi.md#metadataPartialUpdate) | **PATCH** /api/metadata/{id}/ | 
-*ViunAvisClientJs.MetadataApi* | [**metadataRetrieve**](docs/MetadataApi.md#metadataRetrieve) | **GET** /api/metadata/{id}/ | 
-*ViunAvisClientJs.MetadataApi* | [**metadataUpdate**](docs/MetadataApi.md#metadataUpdate) | **PUT** /api/metadata/{id}/ | 
-*ViunAvisClientJs.MetadataSchemaApi* | [**metadataSchemaCreate**](docs/MetadataSchemaApi.md#metadataSchemaCreate) | **POST** /api/metadata-schema/ | 
-*ViunAvisClientJs.MetadataSchemaApi* | [**metadataSchemaDestroy**](docs/MetadataSchemaApi.md#metadataSchemaDestroy) | **DELETE** /api/metadata-schema/{id}/ | 
-*ViunAvisClientJs.MetadataSchemaApi* | [**metadataSchemaList**](docs/MetadataSchemaApi.md#metadataSchemaList) | **GET** /api/metadata-schema/ | 
-*ViunAvisClientJs.MetadataSchemaApi* | [**metadataSchemaPartialUpdate**](docs/MetadataSchemaApi.md#metadataSchemaPartialUpdate) | **PATCH** /api/metadata-schema/{id}/ | 
-*ViunAvisClientJs.MetadataSchemaApi* | [**metadataSchemaRetrieve**](docs/MetadataSchemaApi.md#metadataSchemaRetrieve) | **GET** /api/metadata-schema/{id}/ | 
-*ViunAvisClientJs.MetadataSchemaApi* | [**metadataSchemaUpdate**](docs/MetadataSchemaApi.md#metadataSchemaUpdate) | **PUT** /api/metadata-schema/{id}/ | 
-*ViunAvisClientJs.MlApi* | [**mlModelCreate**](docs/MlApi.md#mlModelCreate) | **POST** /api/ml/model/ | 
-*ViunAvisClientJs.MlApi* | [**mlModelDestroy**](docs/MlApi.md#mlModelDestroy) | **DELETE** /api/ml/model/{id}/ | 
-*ViunAvisClientJs.MlApi* | [**mlModelInference**](docs/MlApi.md#mlModelInference) | **POST** /api/ml/model/{id}/infer/ | 
-*ViunAvisClientJs.MlApi* | [**mlModelList**](docs/MlApi.md#mlModelList) | **GET** /api/ml/model/ | 
-*ViunAvisClientJs.MlApi* | [**mlModelPartialUpdate**](docs/MlApi.md#mlModelPartialUpdate) | **PATCH** /api/ml/model/{id}/ | 
-*ViunAvisClientJs.MlApi* | [**mlModelRetrieve**](docs/MlApi.md#mlModelRetrieve) | **GET** /api/ml/model/{id}/ | 
-*ViunAvisClientJs.MlApi* | [**mlModelTypeCreate**](docs/MlApi.md#mlModelTypeCreate) | **POST** /api/ml/model-type/ | 
-*ViunAvisClientJs.MlApi* | [**mlModelTypeDestroy**](docs/MlApi.md#mlModelTypeDestroy) | **DELETE** /api/ml/model-type/{id}/ | 
-*ViunAvisClientJs.MlApi* | [**mlModelTypeList**](docs/MlApi.md#mlModelTypeList) | **GET** /api/ml/model-type/ | 
-*ViunAvisClientJs.MlApi* | [**mlModelTypePartialUpdate**](docs/MlApi.md#mlModelTypePartialUpdate) | **PATCH** /api/ml/model-type/{id}/ | 
-*ViunAvisClientJs.MlApi* | [**mlModelTypeRetrieve**](docs/MlApi.md#mlModelTypeRetrieve) | **GET** /api/ml/model-type/{id}/ | 
-*ViunAvisClientJs.MlApi* | [**mlModelTypeUpdate**](docs/MlApi.md#mlModelTypeUpdate) | **PUT** /api/ml/model-type/{id}/ | 
-*ViunAvisClientJs.MlApi* | [**mlModelUpdate**](docs/MlApi.md#mlModelUpdate) | **PUT** /api/ml/model/{id}/ | 
-*ViunAvisClientJs.ProductApi* | [**productCreate**](docs/ProductApi.md#productCreate) | **POST** /api/product/ | 
-*ViunAvisClientJs.ProductApi* | [**productDestroy**](docs/ProductApi.md#productDestroy) | **DELETE** /api/product/{id}/ | 
-*ViunAvisClientJs.ProductApi* | [**productList**](docs/ProductApi.md#productList) | **GET** /api/product/ | 
-*ViunAvisClientJs.ProductApi* | [**productPartialUpdate**](docs/ProductApi.md#productPartialUpdate) | **PATCH** /api/product/{id}/ | 
-*ViunAvisClientJs.ProductApi* | [**productRetrieve**](docs/ProductApi.md#productRetrieve) | **GET** /api/product/{id}/ | 
-*ViunAvisClientJs.ProductApi* | [**productUpdate**](docs/ProductApi.md#productUpdate) | **PUT** /api/product/{id}/ | 
-*ViunAvisClientJs.ProductCategoryApi* | [**productCategoryCreate**](docs/ProductCategoryApi.md#productCategoryCreate) | **POST** /api/product-category/ | 
-*ViunAvisClientJs.ProductCategoryApi* | [**productCategoryDestroy**](docs/ProductCategoryApi.md#productCategoryDestroy) | **DELETE** /api/product-category/{id}/ | 
-*ViunAvisClientJs.ProductCategoryApi* | [**productCategoryList**](docs/ProductCategoryApi.md#productCategoryList) | **GET** /api/product-category/ | 
-*ViunAvisClientJs.ProductCategoryApi* | [**productCategoryPartialUpdate**](docs/ProductCategoryApi.md#productCategoryPartialUpdate) | **PATCH** /api/product-category/{id}/ | 
-*ViunAvisClientJs.ProductCategoryApi* | [**productCategoryRetrieve**](docs/ProductCategoryApi.md#productCategoryRetrieve) | **GET** /api/product-category/{id}/ | 
-*ViunAvisClientJs.ProductCategoryApi* | [**productCategoryUpdate**](docs/ProductCategoryApi.md#productCategoryUpdate) | **PUT** /api/product-category/{id}/ | 
-*ViunAvisClientJs.QualityCriteriaApi* | [**qualityCriteriaCreate**](docs/QualityCriteriaApi.md#qualityCriteriaCreate) | **POST** /api/quality-criteria/ | 
-*ViunAvisClientJs.QualityCriteriaApi* | [**qualityCriteriaDestroy**](docs/QualityCriteriaApi.md#qualityCriteriaDestroy) | **DELETE** /api/quality-criteria/{id}/ | 
-*ViunAvisClientJs.QualityCriteriaApi* | [**qualityCriteriaList**](docs/QualityCriteriaApi.md#qualityCriteriaList) | **GET** /api/quality-criteria/ | 
-*ViunAvisClientJs.QualityCriteriaApi* | [**qualityCriteriaPartialUpdate**](docs/QualityCriteriaApi.md#qualityCriteriaPartialUpdate) | **PATCH** /api/quality-criteria/{id}/ | 
-*ViunAvisClientJs.QualityCriteriaApi* | [**qualityCriteriaRetrieve**](docs/QualityCriteriaApi.md#qualityCriteriaRetrieve) | **GET** /api/quality-criteria/{id}/ | 
-*ViunAvisClientJs.QualityCriteriaApi* | [**qualityCriteriaUpdate**](docs/QualityCriteriaApi.md#qualityCriteriaUpdate) | **PUT** /api/quality-criteria/{id}/ | 
-*ViunAvisClientJs.ResultApi* | [**resultCreate**](docs/ResultApi.md#resultCreate) | **POST** /api/result/ | 
-*ViunAvisClientJs.ResultApi* | [**resultDestroy**](docs/ResultApi.md#resultDestroy) | **DELETE** /api/result/{id}/ | 
-*ViunAvisClientJs.ResultApi* | [**resultList**](docs/ResultApi.md#resultList) | **GET** /api/result/ | 
-*ViunAvisClientJs.ResultApi* | [**resultPartialUpdate**](docs/ResultApi.md#resultPartialUpdate) | **PATCH** /api/result/{id}/ | 
-*ViunAvisClientJs.ResultApi* | [**resultRetrieve**](docs/ResultApi.md#resultRetrieve) | **GET** /api/result/{id}/ | 
-*ViunAvisClientJs.ResultApi* | [**resultUpdate**](docs/ResultApi.md#resultUpdate) | **PUT** /api/result/{id}/ | 
-*ViunAvisClientJs.StatisticsApi* | [**statisticsConfigurationCreate**](docs/StatisticsApi.md#statisticsConfigurationCreate) | **POST** /api/statistics/configuration/ | 
-*ViunAvisClientJs.StatisticsApi* | [**statisticsConfigurationDestroy**](docs/StatisticsApi.md#statisticsConfigurationDestroy) | **DELETE** /api/statistics/configuration/{id}/ | 
-*ViunAvisClientJs.StatisticsApi* | [**statisticsConfigurationList**](docs/StatisticsApi.md#statisticsConfigurationList) | **GET** /api/statistics/configuration/ | 
-*ViunAvisClientJs.StatisticsApi* | [**statisticsConfigurationRetrieve**](docs/StatisticsApi.md#statisticsConfigurationRetrieve) | **GET** /api/statistics/configuration/{id}/ | 
-*ViunAvisClientJs.StatisticsApi* | [**statisticsConfigurationUpdate**](docs/StatisticsApi.md#statisticsConfigurationUpdate) | **PUT** /api/statistics/configuration/{id}/ | 
-*ViunAvisClientJs.StatisticsApi* | [**statisticsInspectionCreate**](docs/StatisticsApi.md#statisticsInspectionCreate) | **POST** /api/statistics/inspection/ | 
-*ViunAvisClientJs.StatisticsApi* | [**statisticsInspectionDestroy**](docs/StatisticsApi.md#statisticsInspectionDestroy) | **DELETE** /api/statistics/inspection/{id}/ | 
-*ViunAvisClientJs.StatisticsApi* | [**statisticsInspectionList**](docs/StatisticsApi.md#statisticsInspectionList) | **GET** /api/statistics/inspection/ | 
-*ViunAvisClientJs.StatisticsApi* | [**statisticsInspectionRetrieve**](docs/StatisticsApi.md#statisticsInspectionRetrieve) | **GET** /api/statistics/inspection/{id}/ | 
-*ViunAvisClientJs.StatisticsApi* | [**statisticsInspectionUpdate**](docs/StatisticsApi.md#statisticsInspectionUpdate) | **PUT** /api/statistics/inspection/{id}/ | 
-*ViunAvisClientJs.StatisticsApi* | [**statisticsTeamCreate**](docs/StatisticsApi.md#statisticsTeamCreate) | **POST** /api/statistics/team/ | 
-*ViunAvisClientJs.StatisticsApi* | [**statisticsTeamDestroy**](docs/StatisticsApi.md#statisticsTeamDestroy) | **DELETE** /api/statistics/team/{id}/ | 
-*ViunAvisClientJs.StatisticsApi* | [**statisticsTeamList**](docs/StatisticsApi.md#statisticsTeamList) | **GET** /api/statistics/team/ | 
-*ViunAvisClientJs.StatisticsApi* | [**statisticsTeamRetrieve**](docs/StatisticsApi.md#statisticsTeamRetrieve) | **GET** /api/statistics/team/{id}/ | 
-*ViunAvisClientJs.StatisticsApi* | [**statisticsTeamUpdate**](docs/StatisticsApi.md#statisticsTeamUpdate) | **PUT** /api/statistics/team/{id}/ | 
-*ViunAvisClientJs.TeamsApi* | [**teamsCreate**](docs/TeamsApi.md#teamsCreate) | **POST** /api/teams/ | 
-*ViunAvisClientJs.TeamsApi* | [**teamsDestroy**](docs/TeamsApi.md#teamsDestroy) | **DELETE** /api/teams/{id}/ | 
-*ViunAvisClientJs.TeamsApi* | [**teamsList**](docs/TeamsApi.md#teamsList) | **GET** /api/teams/ | 
-*ViunAvisClientJs.TeamsApi* | [**teamsRetrieve**](docs/TeamsApi.md#teamsRetrieve) | **GET** /api/teams/{id}/ | 
-*ViunAvisClientJs.TeamsApi* | [**teamsUpdate**](docs/TeamsApi.md#teamsUpdate) | **PUT** /api/teams/{id}/ | 
-*ViunAvisClientJs.UserApi* | [**userEmailList**](docs/UserApi.md#userEmailList) | **GET** /api/user/email/ | 
-*ViunAvisClientJs.UserApi* | [**userWhoamiRetrieve**](docs/UserApi.md#userWhoamiRetrieve) | **GET** /api/user/whoami/ | 
-
+| Class                                        | Method                                                                                                           | HTTP request                                        | Description |
+| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | ----------- |
+| _ViunAvisClientJs.ApiKeysApi_                | [**keysCreate**](docs/ApiKeysApi.md#keysCreate)                                                                  | **POST** /api/keys/                                 |
+| _ViunAvisClientJs.ApiKeysApi_                | [**keysRevokeCreate**](docs/ApiKeysApi.md#keysRevokeCreate)                                                      | **POST** /api/keys/revoke/                          |
+| _ViunAvisClientJs.ConfigurationApi_          | [**configurationCreate**](docs/ConfigurationApi.md#configurationCreate)                                          | **POST** /api/configuration/                        |
+| _ViunAvisClientJs.ConfigurationApi_          | [**configurationDestroy**](docs/ConfigurationApi.md#configurationDestroy)                                        | **DELETE** /api/configuration/{id}/                 |
+| _ViunAvisClientJs.ConfigurationApi_          | [**configurationList**](docs/ConfigurationApi.md#configurationList)                                              | **GET** /api/configuration/                         |
+| _ViunAvisClientJs.ConfigurationApi_          | [**configurationPartialUpdate**](docs/ConfigurationApi.md#configurationPartialUpdate)                            | **PATCH** /api/configuration/{id}/                  |
+| _ViunAvisClientJs.ConfigurationApi_          | [**configurationRetrieve**](docs/ConfigurationApi.md#configurationRetrieve)                                      | **GET** /api/configuration/{id}/                    |
+| _ViunAvisClientJs.ConfigurationApi_          | [**configurationUpdate**](docs/ConfigurationApi.md#configurationUpdate)                                          | **PUT** /api/configuration/{id}/                    |
+| _ViunAvisClientJs.ImageApi_                  | [**imageCreate**](docs/ImageApi.md#imageCreate)                                                                  | **POST** /api/image/                                |
+| _ViunAvisClientJs.ImageApi_                  | [**imageDestroy**](docs/ImageApi.md#imageDestroy)                                                                | **DELETE** /api/image/{id}/                         |
+| _ViunAvisClientJs.ImageApi_                  | [**imageList**](docs/ImageApi.md#imageList)                                                                      | **GET** /api/image/                                 |
+| _ViunAvisClientJs.ImageApi_                  | [**imagePartialUpdate**](docs/ImageApi.md#imagePartialUpdate)                                                    | **PATCH** /api/image/{id}/                          |
+| _ViunAvisClientJs.ImageApi_                  | [**imageQualityList**](docs/ImageApi.md#imageQualityList)                                                        | **GET** /api/image/quality/                         |
+| _ViunAvisClientJs.ImageApi_                  | [**imageRetrieve**](docs/ImageApi.md#imageRetrieve)                                                              | **GET** /api/image/{id}/                            |
+| _ViunAvisClientJs.ImageApi_                  | [**imageUpdate**](docs/ImageApi.md#imageUpdate)                                                                  | **PUT** /api/image/{id}/                            |
+| _ViunAvisClientJs.ImageAttributeApi_         | [**imageAttributeCreate**](docs/ImageAttributeApi.md#imageAttributeCreate)                                       | **POST** /api/image-attribute/                      |
+| _ViunAvisClientJs.ImageAttributeApi_         | [**imageAttributeDestroy**](docs/ImageAttributeApi.md#imageAttributeDestroy)                                     | **DELETE** /api/image-attribute/{id}/               |
+| _ViunAvisClientJs.ImageAttributeApi_         | [**imageAttributeList**](docs/ImageAttributeApi.md#imageAttributeList)                                           | **GET** /api/image-attribute/                       |
+| _ViunAvisClientJs.ImageAttributeApi_         | [**imageAttributePartialUpdate**](docs/ImageAttributeApi.md#imageAttributePartialUpdate)                         | **PATCH** /api/image-attribute/{id}/                |
+| _ViunAvisClientJs.ImageAttributeApi_         | [**imageAttributeRetrieve**](docs/ImageAttributeApi.md#imageAttributeRetrieve)                                   | **GET** /api/image-attribute/{id}/                  |
+| _ViunAvisClientJs.ImageAttributeApi_         | [**imageAttributeUpdate**](docs/ImageAttributeApi.md#imageAttributeUpdate)                                       | **PUT** /api/image-attribute/{id}/                  |
+| _ViunAvisClientJs.ImageAttributeCategoryApi_ | [**imageAttributeCategoryCreate**](docs/ImageAttributeCategoryApi.md#imageAttributeCategoryCreate)               | **POST** /api/image-attribute-category/             |
+| _ViunAvisClientJs.ImageAttributeCategoryApi_ | [**imageAttributeCategoryDestroy**](docs/ImageAttributeCategoryApi.md#imageAttributeCategoryDestroy)             | **DELETE** /api/image-attribute-category/{id}/      |
+| _ViunAvisClientJs.ImageAttributeCategoryApi_ | [**imageAttributeCategoryList**](docs/ImageAttributeCategoryApi.md#imageAttributeCategoryList)                   | **GET** /api/image-attribute-category/              |
+| _ViunAvisClientJs.ImageAttributeCategoryApi_ | [**imageAttributeCategoryPartialUpdate**](docs/ImageAttributeCategoryApi.md#imageAttributeCategoryPartialUpdate) | **PATCH** /api/image-attribute-category/{id}/       |
+| _ViunAvisClientJs.ImageAttributeCategoryApi_ | [**imageAttributeCategoryRetrieve**](docs/ImageAttributeCategoryApi.md#imageAttributeCategoryRetrieve)           | **GET** /api/image-attribute-category/{id}/         |
+| _ViunAvisClientJs.ImageAttributeCategoryApi_ | [**imageAttributeCategoryUpdate**](docs/ImageAttributeCategoryApi.md#imageAttributeCategoryUpdate)               | **PUT** /api/image-attribute-category/{id}/         |
+| _ViunAvisClientJs.InspectionApi_             | [**inspectionCreate**](docs/InspectionApi.md#inspectionCreate)                                                   | **POST** /api/inspection/                           |
+| _ViunAvisClientJs.InspectionApi_             | [**inspectionDestroy**](docs/InspectionApi.md#inspectionDestroy)                                                 | **DELETE** /api/inspection/{id}/                    |
+| _ViunAvisClientJs.InspectionApi_             | [**inspectionList**](docs/InspectionApi.md#inspectionList)                                                       | **GET** /api/inspection/                            |
+| _ViunAvisClientJs.InspectionApi_             | [**inspectionPartialUpdate**](docs/InspectionApi.md#inspectionPartialUpdate)                                     | **PATCH** /api/inspection/{id}/                     |
+| _ViunAvisClientJs.InspectionApi_             | [**inspectionRetrieve**](docs/InspectionApi.md#inspectionRetrieve)                                               | **GET** /api/inspection/{id}/                       |
+| _ViunAvisClientJs.InspectionApi_             | [**inspectionSendValidationEmailRetrieve**](docs/InspectionApi.md#inspectionSendValidationEmailRetrieve)         | **GET** /api/inspection/{id}/send_validation_email/ |
+| _ViunAvisClientJs.InspectionApi_             | [**inspectionUpdate**](docs/InspectionApi.md#inspectionUpdate)                                                   | **PUT** /api/inspection/{id}/                       |
+| _ViunAvisClientJs.InspectionApi_             | [**inspectionValidationStatusList**](docs/InspectionApi.md#inspectionValidationStatusList)                       | **GET** /api/inspection/validation_status/          |
+| _ViunAvisClientJs.MembershipApi_             | [**membershipCreate**](docs/MembershipApi.md#membershipCreate)                                                   | **POST** /api/membership/                           |
+| _ViunAvisClientJs.MembershipApi_             | [**membershipDestroy**](docs/MembershipApi.md#membershipDestroy)                                                 | **DELETE** /api/membership/{id}/                    |
+| _ViunAvisClientJs.MembershipApi_             | [**membershipList**](docs/MembershipApi.md#membershipList)                                                       | **GET** /api/membership/                            |
+| _ViunAvisClientJs.MembershipApi_             | [**membershipRetrieve**](docs/MembershipApi.md#membershipRetrieve)                                               | **GET** /api/membership/{id}/                       |
+| _ViunAvisClientJs.MembershipApi_             | [**membershipUpdate**](docs/MembershipApi.md#membershipUpdate)                                                   | **PUT** /api/membership/{id}/                       |
+| _ViunAvisClientJs.MetadataApi_               | [**metadataCreate**](docs/MetadataApi.md#metadataCreate)                                                         | **POST** /api/metadata/                             |
+| _ViunAvisClientJs.MetadataApi_               | [**metadataDestroy**](docs/MetadataApi.md#metadataDestroy)                                                       | **DELETE** /api/metadata/{id}/                      |
+| _ViunAvisClientJs.MetadataApi_               | [**metadataList**](docs/MetadataApi.md#metadataList)                                                             | **GET** /api/metadata/                              |
+| _ViunAvisClientJs.MetadataApi_               | [**metadataPartialUpdate**](docs/MetadataApi.md#metadataPartialUpdate)                                           | **PATCH** /api/metadata/{id}/                       |
+| _ViunAvisClientJs.MetadataApi_               | [**metadataRetrieve**](docs/MetadataApi.md#metadataRetrieve)                                                     | **GET** /api/metadata/{id}/                         |
+| _ViunAvisClientJs.MetadataApi_               | [**metadataUpdate**](docs/MetadataApi.md#metadataUpdate)                                                         | **PUT** /api/metadata/{id}/                         |
+| _ViunAvisClientJs.MetadataSchemaApi_         | [**metadataSchemaCreate**](docs/MetadataSchemaApi.md#metadataSchemaCreate)                                       | **POST** /api/metadata-schema/                      |
+| _ViunAvisClientJs.MetadataSchemaApi_         | [**metadataSchemaDestroy**](docs/MetadataSchemaApi.md#metadataSchemaDestroy)                                     | **DELETE** /api/metadata-schema/{id}/               |
+| _ViunAvisClientJs.MetadataSchemaApi_         | [**metadataSchemaList**](docs/MetadataSchemaApi.md#metadataSchemaList)                                           | **GET** /api/metadata-schema/                       |
+| _ViunAvisClientJs.MetadataSchemaApi_         | [**metadataSchemaPartialUpdate**](docs/MetadataSchemaApi.md#metadataSchemaPartialUpdate)                         | **PATCH** /api/metadata-schema/{id}/                |
+| _ViunAvisClientJs.MetadataSchemaApi_         | [**metadataSchemaRetrieve**](docs/MetadataSchemaApi.md#metadataSchemaRetrieve)                                   | **GET** /api/metadata-schema/{id}/                  |
+| _ViunAvisClientJs.MetadataSchemaApi_         | [**metadataSchemaUpdate**](docs/MetadataSchemaApi.md#metadataSchemaUpdate)                                       | **PUT** /api/metadata-schema/{id}/                  |
+| _ViunAvisClientJs.MlApi_                     | [**mlModelCreate**](docs/MlApi.md#mlModelCreate)                                                                 | **POST** /api/ml/model/                             |
+| _ViunAvisClientJs.MlApi_                     | [**mlModelDestroy**](docs/MlApi.md#mlModelDestroy)                                                               | **DELETE** /api/ml/model/{id}/                      |
+| _ViunAvisClientJs.MlApi_                     | [**mlModelInference**](docs/MlApi.md#mlModelInference)                                                           | **POST** /api/ml/model/{id}/infer/                  |
+| _ViunAvisClientJs.MlApi_                     | [**mlModelList**](docs/MlApi.md#mlModelList)                                                                     | **GET** /api/ml/model/                              |
+| _ViunAvisClientJs.MlApi_                     | [**mlModelPartialUpdate**](docs/MlApi.md#mlModelPartialUpdate)                                                   | **PATCH** /api/ml/model/{id}/                       |
+| _ViunAvisClientJs.MlApi_                     | [**mlModelRetrieve**](docs/MlApi.md#mlModelRetrieve)                                                             | **GET** /api/ml/model/{id}/                         |
+| _ViunAvisClientJs.MlApi_                     | [**mlModelTypeCreate**](docs/MlApi.md#mlModelTypeCreate)                                                         | **POST** /api/ml/model-type/                        |
+| _ViunAvisClientJs.MlApi_                     | [**mlModelTypeDestroy**](docs/MlApi.md#mlModelTypeDestroy)                                                       | **DELETE** /api/ml/model-type/{id}/                 |
+| _ViunAvisClientJs.MlApi_                     | [**mlModelTypeList**](docs/MlApi.md#mlModelTypeList)                                                             | **GET** /api/ml/model-type/                         |
+| _ViunAvisClientJs.MlApi_                     | [**mlModelTypePartialUpdate**](docs/MlApi.md#mlModelTypePartialUpdate)                                           | **PATCH** /api/ml/model-type/{id}/                  |
+| _ViunAvisClientJs.MlApi_                     | [**mlModelTypeRetrieve**](docs/MlApi.md#mlModelTypeRetrieve)                                                     | **GET** /api/ml/model-type/{id}/                    |
+| _ViunAvisClientJs.MlApi_                     | [**mlModelTypeUpdate**](docs/MlApi.md#mlModelTypeUpdate)                                                         | **PUT** /api/ml/model-type/{id}/                    |
+| _ViunAvisClientJs.MlApi_                     | [**mlModelUpdate**](docs/MlApi.md#mlModelUpdate)                                                                 | **PUT** /api/ml/model/{id}/                         |
+| _ViunAvisClientJs.ProductApi_                | [**productCreate**](docs/ProductApi.md#productCreate)                                                            | **POST** /api/product/                              |
+| _ViunAvisClientJs.ProductApi_                | [**productDestroy**](docs/ProductApi.md#productDestroy)                                                          | **DELETE** /api/product/{id}/                       |
+| _ViunAvisClientJs.ProductApi_                | [**productList**](docs/ProductApi.md#productList)                                                                | **GET** /api/product/                               |
+| _ViunAvisClientJs.ProductApi_                | [**productPartialUpdate**](docs/ProductApi.md#productPartialUpdate)                                              | **PATCH** /api/product/{id}/                        |
+| _ViunAvisClientJs.ProductApi_                | [**productRetrieve**](docs/ProductApi.md#productRetrieve)                                                        | **GET** /api/product/{id}/                          |
+| _ViunAvisClientJs.ProductApi_                | [**productUpdate**](docs/ProductApi.md#productUpdate)                                                            | **PUT** /api/product/{id}/                          |
+| _ViunAvisClientJs.ProductCategoryApi_        | [**productCategoryCreate**](docs/ProductCategoryApi.md#productCategoryCreate)                                    | **POST** /api/product-category/                     |
+| _ViunAvisClientJs.ProductCategoryApi_        | [**productCategoryDestroy**](docs/ProductCategoryApi.md#productCategoryDestroy)                                  | **DELETE** /api/product-category/{id}/              |
+| _ViunAvisClientJs.ProductCategoryApi_        | [**productCategoryList**](docs/ProductCategoryApi.md#productCategoryList)                                        | **GET** /api/product-category/                      |
+| _ViunAvisClientJs.ProductCategoryApi_        | [**productCategoryPartialUpdate**](docs/ProductCategoryApi.md#productCategoryPartialUpdate)                      | **PATCH** /api/product-category/{id}/               |
+| _ViunAvisClientJs.ProductCategoryApi_        | [**productCategoryRetrieve**](docs/ProductCategoryApi.md#productCategoryRetrieve)                                | **GET** /api/product-category/{id}/                 |
+| _ViunAvisClientJs.ProductCategoryApi_        | [**productCategoryUpdate**](docs/ProductCategoryApi.md#productCategoryUpdate)                                    | **PUT** /api/product-category/{id}/                 |
+| _ViunAvisClientJs.QualityCriteriaApi_        | [**qualityCriteriaCreate**](docs/QualityCriteriaApi.md#qualityCriteriaCreate)                                    | **POST** /api/quality-criteria/                     |
+| _ViunAvisClientJs.QualityCriteriaApi_        | [**qualityCriteriaDestroy**](docs/QualityCriteriaApi.md#qualityCriteriaDestroy)                                  | **DELETE** /api/quality-criteria/{id}/              |
+| _ViunAvisClientJs.QualityCriteriaApi_        | [**qualityCriteriaList**](docs/QualityCriteriaApi.md#qualityCriteriaList)                                        | **GET** /api/quality-criteria/                      |
+| _ViunAvisClientJs.QualityCriteriaApi_        | [**qualityCriteriaPartialUpdate**](docs/QualityCriteriaApi.md#qualityCriteriaPartialUpdate)                      | **PATCH** /api/quality-criteria/{id}/               |
+| _ViunAvisClientJs.QualityCriteriaApi_        | [**qualityCriteriaRetrieve**](docs/QualityCriteriaApi.md#qualityCriteriaRetrieve)                                | **GET** /api/quality-criteria/{id}/                 |
+| _ViunAvisClientJs.QualityCriteriaApi_        | [**qualityCriteriaUpdate**](docs/QualityCriteriaApi.md#qualityCriteriaUpdate)                                    | **PUT** /api/quality-criteria/{id}/                 |
+| _ViunAvisClientJs.ResultApi_                 | [**resultCreate**](docs/ResultApi.md#resultCreate)                                                               | **POST** /api/result/                               |
+| _ViunAvisClientJs.ResultApi_                 | [**resultDestroy**](docs/ResultApi.md#resultDestroy)                                                             | **DELETE** /api/result/{id}/                        |
+| _ViunAvisClientJs.ResultApi_                 | [**resultList**](docs/ResultApi.md#resultList)                                                                   | **GET** /api/result/                                |
+| _ViunAvisClientJs.ResultApi_                 | [**resultPartialUpdate**](docs/ResultApi.md#resultPartialUpdate)                                                 | **PATCH** /api/result/{id}/                         |
+| _ViunAvisClientJs.ResultApi_                 | [**resultRetrieve**](docs/ResultApi.md#resultRetrieve)                                                           | **GET** /api/result/{id}/                           |
+| _ViunAvisClientJs.ResultApi_                 | [**resultUpdate**](docs/ResultApi.md#resultUpdate)                                                               | **PUT** /api/result/{id}/                           |
+| _ViunAvisClientJs.StatisticsApi_             | [**statisticsConfigurationCreate**](docs/StatisticsApi.md#statisticsConfigurationCreate)                         | **POST** /api/statistics/configuration/             |
+| _ViunAvisClientJs.StatisticsApi_             | [**statisticsConfigurationDestroy**](docs/StatisticsApi.md#statisticsConfigurationDestroy)                       | **DELETE** /api/statistics/configuration/{id}/      |
+| _ViunAvisClientJs.StatisticsApi_             | [**statisticsConfigurationList**](docs/StatisticsApi.md#statisticsConfigurationList)                             | **GET** /api/statistics/configuration/              |
+| _ViunAvisClientJs.StatisticsApi_             | [**statisticsConfigurationRetrieve**](docs/StatisticsApi.md#statisticsConfigurationRetrieve)                     | **GET** /api/statistics/configuration/{id}/         |
+| _ViunAvisClientJs.StatisticsApi_             | [**statisticsConfigurationUpdate**](docs/StatisticsApi.md#statisticsConfigurationUpdate)                         | **PUT** /api/statistics/configuration/{id}/         |
+| _ViunAvisClientJs.StatisticsApi_             | [**statisticsInspectionCreate**](docs/StatisticsApi.md#statisticsInspectionCreate)                               | **POST** /api/statistics/inspection/                |
+| _ViunAvisClientJs.StatisticsApi_             | [**statisticsInspectionDestroy**](docs/StatisticsApi.md#statisticsInspectionDestroy)                             | **DELETE** /api/statistics/inspection/{id}/         |
+| _ViunAvisClientJs.StatisticsApi_             | [**statisticsInspectionList**](docs/StatisticsApi.md#statisticsInspectionList)                                   | **GET** /api/statistics/inspection/                 |
+| _ViunAvisClientJs.StatisticsApi_             | [**statisticsInspectionRetrieve**](docs/StatisticsApi.md#statisticsInspectionRetrieve)                           | **GET** /api/statistics/inspection/{id}/            |
+| _ViunAvisClientJs.StatisticsApi_             | [**statisticsInspectionUpdate**](docs/StatisticsApi.md#statisticsInspectionUpdate)                               | **PUT** /api/statistics/inspection/{id}/            |
+| _ViunAvisClientJs.StatisticsApi_             | [**statisticsTeamCreate**](docs/StatisticsApi.md#statisticsTeamCreate)                                           | **POST** /api/statistics/team/                      |
+| _ViunAvisClientJs.StatisticsApi_             | [**statisticsTeamDestroy**](docs/StatisticsApi.md#statisticsTeamDestroy)                                         | **DELETE** /api/statistics/team/{id}/               |
+| _ViunAvisClientJs.StatisticsApi_             | [**statisticsTeamList**](docs/StatisticsApi.md#statisticsTeamList)                                               | **GET** /api/statistics/team/                       |
+| _ViunAvisClientJs.StatisticsApi_             | [**statisticsTeamRetrieve**](docs/StatisticsApi.md#statisticsTeamRetrieve)                                       | **GET** /api/statistics/team/{id}/                  |
+| _ViunAvisClientJs.StatisticsApi_             | [**statisticsTeamUpdate**](docs/StatisticsApi.md#statisticsTeamUpdate)                                           | **PUT** /api/statistics/team/{id}/                  |
+| _ViunAvisClientJs.TeamsApi_                  | [**teamsCreate**](docs/TeamsApi.md#teamsCreate)                                                                  | **POST** /api/teams/                                |
+| _ViunAvisClientJs.TeamsApi_                  | [**teamsDestroy**](docs/TeamsApi.md#teamsDestroy)                                                                | **DELETE** /api/teams/{id}/                         |
+| _ViunAvisClientJs.TeamsApi_                  | [**teamsList**](docs/TeamsApi.md#teamsList)                                                                      | **GET** /api/teams/                                 |
+| _ViunAvisClientJs.TeamsApi_                  | [**teamsRetrieve**](docs/TeamsApi.md#teamsRetrieve)                                                              | **GET** /api/teams/{id}/                            |
+| _ViunAvisClientJs.TeamsApi_                  | [**teamsUpdate**](docs/TeamsApi.md#teamsUpdate)                                                                  | **PUT** /api/teams/{id}/                            |
+| _ViunAvisClientJs.UserApi_                   | [**userEmailList**](docs/UserApi.md#userEmailList)                                                               | **GET** /api/user/email/                            |
+| _ViunAvisClientJs.UserApi_                   | [**userWhoamiRetrieve**](docs/UserApi.md#userWhoamiRetrieve)                                                     | **GET** /api/user/whoami/                           |
 
 ## Documentation for Models
 
- - [ViunAvisClientJs.AzureMLInferenceRequest](docs/AzureMLInferenceRequest.md)
- - [ViunAvisClientJs.BlankEnum](docs/BlankEnum.md)
- - [ViunAvisClientJs.ConfigurationStatistics](docs/ConfigurationStatistics.md)
- - [ViunAvisClientJs.ConfigurationStatisticsRequest](docs/ConfigurationStatisticsRequest.md)
- - [ViunAvisClientJs.ConfigurationType](docs/ConfigurationType.md)
- - [ViunAvisClientJs.ConfigurationTypeRequest](docs/ConfigurationTypeRequest.md)
- - [ViunAvisClientJs.CustomUser](docs/CustomUser.md)
- - [ViunAvisClientJs.CustomUserRequest](docs/CustomUserRequest.md)
- - [ViunAvisClientJs.EmailAddress](docs/EmailAddress.md)
- - [ViunAvisClientJs.FormatEnum](docs/FormatEnum.md)
- - [ViunAvisClientJs.Image](docs/Image.md)
- - [ViunAvisClientJs.ImageAttribute](docs/ImageAttribute.md)
- - [ViunAvisClientJs.ImageAttributeCategory](docs/ImageAttributeCategory.md)
- - [ViunAvisClientJs.ImageAttributeCategoryRequest](docs/ImageAttributeCategoryRequest.md)
- - [ViunAvisClientJs.ImageAttributeRequest](docs/ImageAttributeRequest.md)
- - [ViunAvisClientJs.ImageRequest](docs/ImageRequest.md)
- - [ViunAvisClientJs.Inspection](docs/Inspection.md)
- - [ViunAvisClientJs.InspectionImagesStatistics](docs/InspectionImagesStatistics.md)
- - [ViunAvisClientJs.InspectionImagesStatisticsRequest](docs/InspectionImagesStatisticsRequest.md)
- - [ViunAvisClientJs.InspectionRequest](docs/InspectionRequest.md)
- - [ViunAvisClientJs.InspectionStatistics](docs/InspectionStatistics.md)
- - [ViunAvisClientJs.InspectionStatisticsRequest](docs/InspectionStatisticsRequest.md)
- - [ViunAvisClientJs.InspectionValidationStatus](docs/InspectionValidationStatus.md)
- - [ViunAvisClientJs.MLModel](docs/MLModel.md)
- - [ViunAvisClientJs.MLModelRequest](docs/MLModelRequest.md)
- - [ViunAvisClientJs.MLModelType](docs/MLModelType.md)
- - [ViunAvisClientJs.MLModelTypeRequest](docs/MLModelTypeRequest.md)
- - [ViunAvisClientJs.Membership](docs/Membership.md)
- - [ViunAvisClientJs.MembershipRequest](docs/MembershipRequest.md)
- - [ViunAvisClientJs.Metadata](docs/Metadata.md)
- - [ViunAvisClientJs.MetadataRequest](docs/MetadataRequest.md)
- - [ViunAvisClientJs.MetadataSchema](docs/MetadataSchema.md)
- - [ViunAvisClientJs.MetadataSchemaRequest](docs/MetadataSchemaRequest.md)
- - [ViunAvisClientJs.PaginatedConfigurationStatisticsList](docs/PaginatedConfigurationStatisticsList.md)
- - [ViunAvisClientJs.PaginatedConfigurationTypeList](docs/PaginatedConfigurationTypeList.md)
- - [ViunAvisClientJs.PaginatedImageAttributeCategoryList](docs/PaginatedImageAttributeCategoryList.md)
- - [ViunAvisClientJs.PaginatedImageAttributeList](docs/PaginatedImageAttributeList.md)
- - [ViunAvisClientJs.PaginatedImageList](docs/PaginatedImageList.md)
- - [ViunAvisClientJs.PaginatedInspectionImagesStatisticsList](docs/PaginatedInspectionImagesStatisticsList.md)
- - [ViunAvisClientJs.PaginatedInspectionList](docs/PaginatedInspectionList.md)
- - [ViunAvisClientJs.PaginatedInspectionStatisticsList](docs/PaginatedInspectionStatisticsList.md)
- - [ViunAvisClientJs.PaginatedInspectionValidationStatusList](docs/PaginatedInspectionValidationStatusList.md)
- - [ViunAvisClientJs.PaginatedMLModelList](docs/PaginatedMLModelList.md)
- - [ViunAvisClientJs.PaginatedMLModelTypeList](docs/PaginatedMLModelTypeList.md)
- - [ViunAvisClientJs.PaginatedMembershipList](docs/PaginatedMembershipList.md)
- - [ViunAvisClientJs.PaginatedMetadataList](docs/PaginatedMetadataList.md)
- - [ViunAvisClientJs.PaginatedMetadataSchemaList](docs/PaginatedMetadataSchemaList.md)
- - [ViunAvisClientJs.PaginatedProductCategoryList](docs/PaginatedProductCategoryList.md)
- - [ViunAvisClientJs.PaginatedProductList](docs/PaginatedProductList.md)
- - [ViunAvisClientJs.PaginatedQualityCriteriaList](docs/PaginatedQualityCriteriaList.md)
- - [ViunAvisClientJs.PaginatedQualityCriteriaResultList](docs/PaginatedQualityCriteriaResultList.md)
- - [ViunAvisClientJs.PaginatedResultList](docs/PaginatedResultList.md)
- - [ViunAvisClientJs.PaginatedTeamList](docs/PaginatedTeamList.md)
- - [ViunAvisClientJs.PatchedConfigurationTypeRequest](docs/PatchedConfigurationTypeRequest.md)
- - [ViunAvisClientJs.PatchedImageAttributeCategoryRequest](docs/PatchedImageAttributeCategoryRequest.md)
- - [ViunAvisClientJs.PatchedImageAttributeRequest](docs/PatchedImageAttributeRequest.md)
- - [ViunAvisClientJs.PatchedImageRequest](docs/PatchedImageRequest.md)
- - [ViunAvisClientJs.PatchedInspectionRequest](docs/PatchedInspectionRequest.md)
- - [ViunAvisClientJs.PatchedMLModelRequest](docs/PatchedMLModelRequest.md)
- - [ViunAvisClientJs.PatchedMLModelTypeRequest](docs/PatchedMLModelTypeRequest.md)
- - [ViunAvisClientJs.PatchedMetadataRequest](docs/PatchedMetadataRequest.md)
- - [ViunAvisClientJs.PatchedMetadataSchemaRequest](docs/PatchedMetadataSchemaRequest.md)
- - [ViunAvisClientJs.PatchedProductCategoryRequest](docs/PatchedProductCategoryRequest.md)
- - [ViunAvisClientJs.PatchedProductRequest](docs/PatchedProductRequest.md)
- - [ViunAvisClientJs.PatchedQualityCriteriaRequest](docs/PatchedQualityCriteriaRequest.md)
- - [ViunAvisClientJs.PatchedResultRequest](docs/PatchedResultRequest.md)
- - [ViunAvisClientJs.PatchedResultRequestStatus](docs/PatchedResultRequestStatus.md)
- - [ViunAvisClientJs.Product](docs/Product.md)
- - [ViunAvisClientJs.ProductCategory](docs/ProductCategory.md)
- - [ViunAvisClientJs.ProductCategoryRequest](docs/ProductCategoryRequest.md)
- - [ViunAvisClientJs.ProductRequest](docs/ProductRequest.md)
- - [ViunAvisClientJs.QualityCriteria](docs/QualityCriteria.md)
- - [ViunAvisClientJs.QualityCriteriaRequest](docs/QualityCriteriaRequest.md)
- - [ViunAvisClientJs.QualityCriteriaResult](docs/QualityCriteriaResult.md)
- - [ViunAvisClientJs.QualityEnum](docs/QualityEnum.md)
- - [ViunAvisClientJs.Result](docs/Result.md)
- - [ViunAvisClientJs.ResultRequest](docs/ResultRequest.md)
- - [ViunAvisClientJs.StatusEnum](docs/StatusEnum.md)
- - [ViunAvisClientJs.Team](docs/Team.md)
- - [ViunAvisClientJs.TeamRequest](docs/TeamRequest.md)
- - [ViunAvisClientJs.UserAPIKeyCreate](docs/UserAPIKeyCreate.md)
- - [ViunAvisClientJs.UserAPIKeyCreateRequest](docs/UserAPIKeyCreateRequest.md)
- - [ViunAvisClientJs.ValidationStatusEnum](docs/ValidationStatusEnum.md)
-
+- [ViunAvisClientJs.AzureMLInferenceRequest](docs/AzureMLInferenceRequest.md)
+- [ViunAvisClientJs.BlankEnum](docs/BlankEnum.md)
+- [ViunAvisClientJs.ConfigurationStatistics](docs/ConfigurationStatistics.md)
+- [ViunAvisClientJs.ConfigurationStatisticsRequest](docs/ConfigurationStatisticsRequest.md)
+- [ViunAvisClientJs.ConfigurationType](docs/ConfigurationType.md)
+- [ViunAvisClientJs.ConfigurationTypeRequest](docs/ConfigurationTypeRequest.md)
+- [ViunAvisClientJs.CustomUser](docs/CustomUser.md)
+- [ViunAvisClientJs.CustomUserRequest](docs/CustomUserRequest.md)
+- [ViunAvisClientJs.EmailAddress](docs/EmailAddress.md)
+- [ViunAvisClientJs.FormatEnum](docs/FormatEnum.md)
+- [ViunAvisClientJs.Image](docs/Image.md)
+- [ViunAvisClientJs.ImageAttribute](docs/ImageAttribute.md)
+- [ViunAvisClientJs.ImageAttributeCategory](docs/ImageAttributeCategory.md)
+- [ViunAvisClientJs.ImageAttributeCategoryRequest](docs/ImageAttributeCategoryRequest.md)
+- [ViunAvisClientJs.ImageAttributeRequest](docs/ImageAttributeRequest.md)
+- [ViunAvisClientJs.ImageRequest](docs/ImageRequest.md)
+- [ViunAvisClientJs.Inspection](docs/Inspection.md)
+- [ViunAvisClientJs.InspectionImagesStatistics](docs/InspectionImagesStatistics.md)
+- [ViunAvisClientJs.InspectionImagesStatisticsRequest](docs/InspectionImagesStatisticsRequest.md)
+- [ViunAvisClientJs.InspectionRequest](docs/InspectionRequest.md)
+- [ViunAvisClientJs.InspectionStatistics](docs/InspectionStatistics.md)
+- [ViunAvisClientJs.InspectionStatisticsRequest](docs/InspectionStatisticsRequest.md)
+- [ViunAvisClientJs.InspectionValidationStatus](docs/InspectionValidationStatus.md)
+- [ViunAvisClientJs.MLModel](docs/MLModel.md)
+- [ViunAvisClientJs.MLModelRequest](docs/MLModelRequest.md)
+- [ViunAvisClientJs.MLModelType](docs/MLModelType.md)
+- [ViunAvisClientJs.MLModelTypeRequest](docs/MLModelTypeRequest.md)
+- [ViunAvisClientJs.Membership](docs/Membership.md)
+- [ViunAvisClientJs.MembershipRequest](docs/MembershipRequest.md)
+- [ViunAvisClientJs.Metadata](docs/Metadata.md)
+- [ViunAvisClientJs.MetadataRequest](docs/MetadataRequest.md)
+- [ViunAvisClientJs.MetadataSchema](docs/MetadataSchema.md)
+- [ViunAvisClientJs.MetadataSchemaRequest](docs/MetadataSchemaRequest.md)
+- [ViunAvisClientJs.PaginatedConfigurationStatisticsList](docs/PaginatedConfigurationStatisticsList.md)
+- [ViunAvisClientJs.PaginatedConfigurationTypeList](docs/PaginatedConfigurationTypeList.md)
+- [ViunAvisClientJs.PaginatedImageAttributeCategoryList](docs/PaginatedImageAttributeCategoryList.md)
+- [ViunAvisClientJs.PaginatedImageAttributeList](docs/PaginatedImageAttributeList.md)
+- [ViunAvisClientJs.PaginatedImageList](docs/PaginatedImageList.md)
+- [ViunAvisClientJs.PaginatedInspectionImagesStatisticsList](docs/PaginatedInspectionImagesStatisticsList.md)
+- [ViunAvisClientJs.PaginatedInspectionList](docs/PaginatedInspectionList.md)
+- [ViunAvisClientJs.PaginatedInspectionStatisticsList](docs/PaginatedInspectionStatisticsList.md)
+- [ViunAvisClientJs.PaginatedInspectionValidationStatusList](docs/PaginatedInspectionValidationStatusList.md)
+- [ViunAvisClientJs.PaginatedMLModelList](docs/PaginatedMLModelList.md)
+- [ViunAvisClientJs.PaginatedMLModelTypeList](docs/PaginatedMLModelTypeList.md)
+- [ViunAvisClientJs.PaginatedMembershipList](docs/PaginatedMembershipList.md)
+- [ViunAvisClientJs.PaginatedMetadataList](docs/PaginatedMetadataList.md)
+- [ViunAvisClientJs.PaginatedMetadataSchemaList](docs/PaginatedMetadataSchemaList.md)
+- [ViunAvisClientJs.PaginatedProductCategoryList](docs/PaginatedProductCategoryList.md)
+- [ViunAvisClientJs.PaginatedProductList](docs/PaginatedProductList.md)
+- [ViunAvisClientJs.PaginatedQualityCriteriaList](docs/PaginatedQualityCriteriaList.md)
+- [ViunAvisClientJs.PaginatedQualityCriteriaResultList](docs/PaginatedQualityCriteriaResultList.md)
+- [ViunAvisClientJs.PaginatedResultList](docs/PaginatedResultList.md)
+- [ViunAvisClientJs.PaginatedTeamList](docs/PaginatedTeamList.md)
+- [ViunAvisClientJs.PatchedConfigurationTypeRequest](docs/PatchedConfigurationTypeRequest.md)
+- [ViunAvisClientJs.PatchedImageAttributeCategoryRequest](docs/PatchedImageAttributeCategoryRequest.md)
+- [ViunAvisClientJs.PatchedImageAttributeRequest](docs/PatchedImageAttributeRequest.md)
+- [ViunAvisClientJs.PatchedImageRequest](docs/PatchedImageRequest.md)
+- [ViunAvisClientJs.PatchedInspectionRequest](docs/PatchedInspectionRequest.md)
+- [ViunAvisClientJs.PatchedMLModelRequest](docs/PatchedMLModelRequest.md)
+- [ViunAvisClientJs.PatchedMLModelTypeRequest](docs/PatchedMLModelTypeRequest.md)
+- [ViunAvisClientJs.PatchedMetadataRequest](docs/PatchedMetadataRequest.md)
+- [ViunAvisClientJs.PatchedMetadataSchemaRequest](docs/PatchedMetadataSchemaRequest.md)
+- [ViunAvisClientJs.PatchedProductCategoryRequest](docs/PatchedProductCategoryRequest.md)
+- [ViunAvisClientJs.PatchedProductRequest](docs/PatchedProductRequest.md)
+- [ViunAvisClientJs.PatchedQualityCriteriaRequest](docs/PatchedQualityCriteriaRequest.md)
+- [ViunAvisClientJs.PatchedResultRequest](docs/PatchedResultRequest.md)
+- [ViunAvisClientJs.PatchedResultRequestStatus](docs/PatchedResultRequestStatus.md)
+- [ViunAvisClientJs.Product](docs/Product.md)
+- [ViunAvisClientJs.ProductCategory](docs/ProductCategory.md)
+- [ViunAvisClientJs.ProductCategoryRequest](docs/ProductCategoryRequest.md)
+- [ViunAvisClientJs.ProductRequest](docs/ProductRequest.md)
+- [ViunAvisClientJs.QualityCriteria](docs/QualityCriteria.md)
+- [ViunAvisClientJs.QualityCriteriaRequest](docs/QualityCriteriaRequest.md)
+- [ViunAvisClientJs.QualityCriteriaResult](docs/QualityCriteriaResult.md)
+- [ViunAvisClientJs.QualityEnum](docs/QualityEnum.md)
+- [ViunAvisClientJs.Result](docs/Result.md)
+- [ViunAvisClientJs.ResultRequest](docs/ResultRequest.md)
+- [ViunAvisClientJs.StatusEnum](docs/StatusEnum.md)
+- [ViunAvisClientJs.Team](docs/Team.md)
+- [ViunAvisClientJs.TeamRequest](docs/TeamRequest.md)
+- [ViunAvisClientJs.UserAPIKeyCreate](docs/UserAPIKeyCreate.md)
+- [ViunAvisClientJs.UserAPIKeyCreateRequest](docs/UserAPIKeyCreateRequest.md)
+- [ViunAvisClientJs.ValidationStatusEnum](docs/ValidationStatusEnum.md)
 
 ## Documentation for Authorization
 
-
 Authentication schemes defined for the API:
-### ApiKeyAuth
 
+### ApiKeyAuth
 
 - **Type**: API key
 - **API key parameter name**: X-Api-Key
@@ -346,8 +342,6 @@ Authentication schemes defined for the API:
 
 ### cookieAuth
 
-
 - **Type**: API key
 - **API key parameter name**: sessionid
-- **Location**: 
-
+- **Location**:
