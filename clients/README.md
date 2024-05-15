@@ -77,5 +77,22 @@ cd typescript/avis-client/generated
 # clean up
 rm -rf dist/
 
+npm install
+
+
+
+npm publish --access public
+```
+
+## Javascript - NPM
+
+```
+cd javascript/avis-client-js/generated
+
+# clean up
+rm -rf dist/
+
+npm install
+
 npm publish --access public
 ```
