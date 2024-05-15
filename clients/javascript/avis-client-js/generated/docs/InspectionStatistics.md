@@ -1,4 +1,4 @@
-# Avis.InspectionStatistics
+# ViunAvisClientJs.InspectionStatistics
 
 ## Properties
 

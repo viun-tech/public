@@ -1,4 +1,4 @@
-# Avis.PatchedMLModelTypeRequest
+# ViunAvisClientJs.PatchedMLModelTypeRequest
 
 ## Properties
 

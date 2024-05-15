@@ -1,4 +1,4 @@
-# Avis.PaginatedMLModelList
+# ViunAvisClientJs.PaginatedMLModelList
 
 ## Properties
 

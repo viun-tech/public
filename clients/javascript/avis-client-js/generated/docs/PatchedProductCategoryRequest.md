@@ -1,4 +1,4 @@
-# Avis.PatchedProductCategoryRequest
+# ViunAvisClientJs.PatchedProductCategoryRequest
 
 ## Properties
 

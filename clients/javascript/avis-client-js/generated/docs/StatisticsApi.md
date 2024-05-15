@@ -1,4 +1,4 @@
-# Avis.StatisticsApi
+# ViunAvisClientJs.StatisticsApi
 
 All URIs are relative to _http://localhost:8000_
 
@@ -29,8 +29,8 @@ A mixin that allows reading entities (listing and retrieving by id).
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -42,8 +42,9 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.StatisticsApi();
-let configurationStatisticsRequest = new Avis.ConfigurationStatisticsRequest(); // ConfigurationStatisticsRequest |
+let apiInstance = new ViunAvisClientJs.StatisticsApi();
+let configurationStatisticsRequest =
+  new ViunAvisClientJs.ConfigurationStatisticsRequest(); // ConfigurationStatisticsRequest |
 apiInstance.statisticsConfigurationCreate(
   configurationStatisticsRequest,
   (error, data, response) => {
@@ -84,8 +85,8 @@ A mixin that allows reading entities (listing and retrieving by id).
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -97,7 +98,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.StatisticsApi();
+let apiInstance = new ViunAvisClientJs.StatisticsApi();
 let id = 56; // Number | A unique integer value identifying this configuration.
 apiInstance.statisticsConfigurationDestroy(id, (error, data, response) => {
   if (error) {
@@ -136,8 +137,8 @@ A mixin that allows reading entities (listing and retrieving by id).
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -149,7 +150,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.StatisticsApi();
+let apiInstance = new ViunAvisClientJs.StatisticsApi();
 let opts = {
   id: [null], // [Number] | Multiple values may be separated by commas.
   ordering: "ordering_example", // String | Which field to use when ordering the results.
@@ -196,8 +197,8 @@ A mixin that allows reading entities (listing and retrieving by id).
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -209,7 +210,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.StatisticsApi();
+let apiInstance = new ViunAvisClientJs.StatisticsApi();
 let id = 56; // Number | A unique integer value identifying this configuration.
 apiInstance.statisticsConfigurationRetrieve(id, (error, data, response) => {
   if (error) {
@@ -248,8 +249,8 @@ A mixin that allows reading entities (listing and retrieving by id).
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -261,9 +262,10 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.StatisticsApi();
+let apiInstance = new ViunAvisClientJs.StatisticsApi();
 let id = 56; // Number | A unique integer value identifying this configuration.
-let configurationStatisticsRequest = new Avis.ConfigurationStatisticsRequest(); // ConfigurationStatisticsRequest |
+let configurationStatisticsRequest =
+  new ViunAvisClientJs.ConfigurationStatisticsRequest(); // ConfigurationStatisticsRequest |
 apiInstance.statisticsConfigurationUpdate(
   id,
   configurationStatisticsRequest,
@@ -306,8 +308,8 @@ A mixin that only allows retrieving entities by id.
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -319,9 +321,9 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.StatisticsApi();
+let apiInstance = new ViunAvisClientJs.StatisticsApi();
 let inspectionImagesStatisticsRequest =
-  new Avis.InspectionImagesStatisticsRequest(); // InspectionImagesStatisticsRequest |
+  new ViunAvisClientJs.InspectionImagesStatisticsRequest(); // InspectionImagesStatisticsRequest |
 apiInstance.statisticsInspectionCreate(
   inspectionImagesStatisticsRequest,
   (error, data, response) => {
@@ -362,8 +364,8 @@ A mixin that only allows retrieving entities by id.
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -375,7 +377,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.StatisticsApi();
+let apiInstance = new ViunAvisClientJs.StatisticsApi();
 let id = 56; // Number | A unique integer value identifying this image.
 apiInstance.statisticsInspectionDestroy(id, (error, data, response) => {
   if (error) {
@@ -414,8 +416,8 @@ A mixin that only allows retrieving entities by id.
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -427,7 +429,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.StatisticsApi();
+let apiInstance = new ViunAvisClientJs.StatisticsApi();
 let opts = {
   page: 56, // Number | A page number within the paginated result set.
   pageSize: 56, // Number | Number of results to return per page.
@@ -470,8 +472,8 @@ A mixin that only allows retrieving entities by id.
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -483,7 +485,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.StatisticsApi();
+let apiInstance = new ViunAvisClientJs.StatisticsApi();
 let id = 56; // Number | A unique integer value identifying this image.
 apiInstance.statisticsInspectionRetrieve(id, (error, data, response) => {
   if (error) {
@@ -522,8 +524,8 @@ A mixin that only allows retrieving entities by id.
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -535,10 +537,10 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.StatisticsApi();
+let apiInstance = new ViunAvisClientJs.StatisticsApi();
 let id = 56; // Number | A unique integer value identifying this image.
 let inspectionImagesStatisticsRequest =
-  new Avis.InspectionImagesStatisticsRequest(); // InspectionImagesStatisticsRequest |
+  new ViunAvisClientJs.InspectionImagesStatisticsRequest(); // InspectionImagesStatisticsRequest |
 apiInstance.statisticsInspectionUpdate(
   id,
   inspectionImagesStatisticsRequest,
@@ -581,8 +583,8 @@ A mixin that only allows retrieving entities by id.
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -594,8 +596,9 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.StatisticsApi();
-let inspectionStatisticsRequest = new Avis.InspectionStatisticsRequest(); // InspectionStatisticsRequest |
+let apiInstance = new ViunAvisClientJs.StatisticsApi();
+let inspectionStatisticsRequest =
+  new ViunAvisClientJs.InspectionStatisticsRequest(); // InspectionStatisticsRequest |
 apiInstance.statisticsTeamCreate(
   inspectionStatisticsRequest,
   (error, data, response) => {
@@ -636,8 +639,8 @@ A mixin that only allows retrieving entities by id.
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -649,7 +652,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.StatisticsApi();
+let apiInstance = new ViunAvisClientJs.StatisticsApi();
 let id = 56; // Number | A unique integer value identifying this inspection.
 apiInstance.statisticsTeamDestroy(id, (error, data, response) => {
   if (error) {
@@ -688,8 +691,8 @@ A mixin that only allows retrieving entities by id.
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -701,7 +704,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.StatisticsApi();
+let apiInstance = new ViunAvisClientJs.StatisticsApi();
 let opts = {
   page: 56, // Number | A page number within the paginated result set.
   pageSize: 56, // Number | Number of results to return per page.
@@ -744,8 +747,8 @@ A mixin that only allows retrieving entities by id.
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -757,7 +760,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.StatisticsApi();
+let apiInstance = new ViunAvisClientJs.StatisticsApi();
 let id = 56; // Number | A unique integer value identifying this inspection.
 apiInstance.statisticsTeamRetrieve(id, (error, data, response) => {
   if (error) {
@@ -796,8 +799,8 @@ A mixin that only allows retrieving entities by id.
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -809,9 +812,10 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.StatisticsApi();
+let apiInstance = new ViunAvisClientJs.StatisticsApi();
 let id = 56; // Number | A unique integer value identifying this inspection.
-let inspectionStatisticsRequest = new Avis.InspectionStatisticsRequest(); // InspectionStatisticsRequest |
+let inspectionStatisticsRequest =
+  new ViunAvisClientJs.InspectionStatisticsRequest(); // InspectionStatisticsRequest |
 apiInstance.statisticsTeamUpdate(
   id,
   inspectionStatisticsRequest,

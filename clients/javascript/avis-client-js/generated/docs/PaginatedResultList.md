@@ -1,4 +1,4 @@
-# Avis.PaginatedResultList
+# ViunAvisClientJs.PaginatedResultList
 
 ## Properties
 

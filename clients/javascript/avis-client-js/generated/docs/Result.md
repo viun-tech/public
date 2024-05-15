@@ -1,4 +1,4 @@
-# Avis.Result
+# ViunAvisClientJs.Result
 
 ## Properties
 

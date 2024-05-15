@@ -1,4 +1,4 @@
-# Avis.PatchedResultRequestStatus
+# ViunAvisClientJs.PatchedResultRequestStatus
 
 ## Properties
 

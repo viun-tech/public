@@ -1,4 +1,4 @@
-# Avis.MembershipRequest
+# ViunAvisClientJs.MembershipRequest
 
 ## Properties
 

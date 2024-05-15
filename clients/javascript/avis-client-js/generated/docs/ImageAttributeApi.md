@@ -1,4 +1,4 @@
-# Avis.ImageAttributeApi
+# ViunAvisClientJs.ImageAttributeApi
 
 All URIs are relative to _http://localhost:8000_
 
@@ -20,8 +20,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -33,8 +33,8 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.ImageAttributeApi();
-let imageAttributeRequest = new Avis.ImageAttributeRequest(); // ImageAttributeRequest |
+let apiInstance = new ViunAvisClientJs.ImageAttributeApi();
+let imageAttributeRequest = new ViunAvisClientJs.ImageAttributeRequest(); // ImageAttributeRequest |
 apiInstance.imageAttributeCreate(
   imageAttributeRequest,
   (error, data, response) => {
@@ -75,8 +75,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -88,7 +88,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.ImageAttributeApi();
+let apiInstance = new ViunAvisClientJs.ImageAttributeApi();
 let id = 56; // Number | A unique integer value identifying this image attribute.
 apiInstance.imageAttributeDestroy(id, (error, data, response) => {
   if (error) {
@@ -127,8 +127,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -140,7 +140,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.ImageAttributeApi();
+let apiInstance = new ViunAvisClientJs.ImageAttributeApi();
 let opts = {
   fields: "fields_example", // String |
   id: [null], // [Number] | Multiple values may be separated by commas.
@@ -189,8 +189,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -202,10 +202,11 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.ImageAttributeApi();
+let apiInstance = new ViunAvisClientJs.ImageAttributeApi();
 let id = 56; // Number | A unique integer value identifying this image attribute.
 let opts = {
-  patchedImageAttributeRequest: new Avis.PatchedImageAttributeRequest(), // PatchedImageAttributeRequest |
+  patchedImageAttributeRequest:
+    new ViunAvisClientJs.PatchedImageAttributeRequest(), // PatchedImageAttributeRequest |
 };
 apiInstance.imageAttributePartialUpdate(id, opts, (error, data, response) => {
   if (error) {
@@ -245,8 +246,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -258,7 +259,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.ImageAttributeApi();
+let apiInstance = new ViunAvisClientJs.ImageAttributeApi();
 let id = 56; // Number | A unique integer value identifying this image attribute.
 let opts = {
   fields: "fields_example", // String |
@@ -301,8 +302,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -314,9 +315,9 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.ImageAttributeApi();
+let apiInstance = new ViunAvisClientJs.ImageAttributeApi();
 let id = 56; // Number | A unique integer value identifying this image attribute.
-let imageAttributeRequest = new Avis.ImageAttributeRequest(); // ImageAttributeRequest |
+let imageAttributeRequest = new ViunAvisClientJs.ImageAttributeRequest(); // ImageAttributeRequest |
 apiInstance.imageAttributeUpdate(
   id,
   imageAttributeRequest,

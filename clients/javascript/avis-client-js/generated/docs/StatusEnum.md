@@ -1,4 +1,4 @@
-# Avis.StatusEnum
+# ViunAvisClientJs.StatusEnum
 
 ## Enum
 

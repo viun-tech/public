@@ -1,4 +1,4 @@
-# Avis.PaginatedMetadataList
+# ViunAvisClientJs.PaginatedMetadataList
 
 ## Properties
 

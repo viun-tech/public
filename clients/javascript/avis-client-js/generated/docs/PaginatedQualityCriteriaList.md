@@ -1,4 +1,4 @@
-# Avis.PaginatedQualityCriteriaList
+# ViunAvisClientJs.PaginatedQualityCriteriaList
 
 ## Properties
 

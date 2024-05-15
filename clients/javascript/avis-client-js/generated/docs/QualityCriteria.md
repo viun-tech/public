@@ -1,4 +1,4 @@
-# Avis.QualityCriteria
+# ViunAvisClientJs.QualityCriteria
 
 ## Properties
 

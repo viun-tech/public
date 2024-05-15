@@ -1,4 +1,4 @@
-# Avis.MetadataSchemaRequest
+# ViunAvisClientJs.MetadataSchemaRequest
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Avis.EmailAddress
+# ViunAvisClientJs.EmailAddress
 
 ## Properties
 

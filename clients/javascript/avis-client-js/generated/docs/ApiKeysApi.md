@@ -1,4 +1,4 @@
-# Avis.ApiKeysApi
+# ViunAvisClientJs.ApiKeysApi
 
 All URIs are relative to _http://localhost:8000_
 
@@ -16,8 +16,8 @@ Create a new API key for the current user.
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -29,9 +29,9 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.ApiKeysApi();
+let apiInstance = new ViunAvisClientJs.ApiKeysApi();
 let opts = {
-  userAPIKeyCreateRequest: new Avis.UserAPIKeyCreateRequest(), // UserAPIKeyCreateRequest |
+  userAPIKeyCreateRequest: new ViunAvisClientJs.UserAPIKeyCreateRequest(), // UserAPIKeyCreateRequest |
 };
 apiInstance.keysCreate(opts, (error, data, response) => {
   if (error) {
@@ -70,8 +70,8 @@ Revoke an API key for the current user. We use the name of the API Key to revoke
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -83,9 +83,9 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.ApiKeysApi();
+let apiInstance = new ViunAvisClientJs.ApiKeysApi();
 let opts = {
-  userAPIKeyCreateRequest: new Avis.UserAPIKeyCreateRequest(), // UserAPIKeyCreateRequest |
+  userAPIKeyCreateRequest: new ViunAvisClientJs.UserAPIKeyCreateRequest(), // UserAPIKeyCreateRequest |
 };
 apiInstance.keysRevokeCreate(opts, (error, data, response) => {
   if (error) {

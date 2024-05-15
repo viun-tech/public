@@ -1,4 +1,4 @@
-# Avis.MlApi
+# ViunAvisClientJs.MlApi
 
 All URIs are relative to _http://localhost:8000_
 
@@ -27,8 +27,8 @@ A viewset for ML models. It filters results based on the permissions granted to 
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -40,8 +40,8 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MlApi();
-let mLModelRequest = new Avis.MLModelRequest(); // MLModelRequest |
+let apiInstance = new ViunAvisClientJs.MlApi();
+let mLModelRequest = new ViunAvisClientJs.MLModelRequest(); // MLModelRequest |
 apiInstance.mlModelCreate(mLModelRequest, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -79,8 +79,8 @@ A viewset for ML models. It filters results based on the permissions granted to 
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -92,7 +92,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MlApi();
+let apiInstance = new ViunAvisClientJs.MlApi();
 let id = 56; // Number | A unique integer value identifying this ml model.
 apiInstance.mlModelDestroy(id, (error, data, response) => {
   if (error) {
@@ -131,8 +131,8 @@ Infer a result from the model. This is a passthrough to the model&#39;s inferenc
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -144,9 +144,9 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MlApi();
+let apiInstance = new ViunAvisClientJs.MlApi();
 let id = 56; // Number | A unique integer value identifying this ml model.
-let azureMLInferenceRequest = new Avis.AzureMLInferenceRequest(); // AzureMLInferenceRequest |
+let azureMLInferenceRequest = new ViunAvisClientJs.AzureMLInferenceRequest(); // AzureMLInferenceRequest |
 apiInstance.mlModelInference(
   id,
   azureMLInferenceRequest,
@@ -189,8 +189,8 @@ A viewset for ML models. It filters results based on the permissions granted to 
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -202,7 +202,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MlApi();
+let apiInstance = new ViunAvisClientJs.MlApi();
 let opts = {
   page: 56, // Number | A page number within the paginated result set.
   pageSize: 56, // Number | Number of results to return per page.
@@ -245,8 +245,8 @@ A viewset for ML models. It filters results based on the permissions granted to 
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -258,10 +258,10 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MlApi();
+let apiInstance = new ViunAvisClientJs.MlApi();
 let id = 56; // Number | A unique integer value identifying this ml model.
 let opts = {
-  patchedMLModelRequest: new Avis.PatchedMLModelRequest(), // PatchedMLModelRequest |
+  patchedMLModelRequest: new ViunAvisClientJs.PatchedMLModelRequest(), // PatchedMLModelRequest |
 };
 apiInstance.mlModelPartialUpdate(id, opts, (error, data, response) => {
   if (error) {
@@ -301,8 +301,8 @@ A viewset for ML models. It filters results based on the permissions granted to 
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -314,7 +314,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MlApi();
+let apiInstance = new ViunAvisClientJs.MlApi();
 let id = 56; // Number | A unique integer value identifying this ml model.
 apiInstance.mlModelRetrieve(id, (error, data, response) => {
   if (error) {
@@ -351,8 +351,8 @@ apiInstance.mlModelRetrieve(id, (error, data, response) => {
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -364,9 +364,9 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MlApi();
+let apiInstance = new ViunAvisClientJs.MlApi();
 let opts = {
-  mLModelTypeRequest: new Avis.MLModelTypeRequest(), // MLModelTypeRequest |
+  mLModelTypeRequest: new ViunAvisClientJs.MLModelTypeRequest(), // MLModelTypeRequest |
 };
 apiInstance.mlModelTypeCreate(opts, (error, data, response) => {
   if (error) {
@@ -403,8 +403,8 @@ apiInstance.mlModelTypeCreate(opts, (error, data, response) => {
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -416,7 +416,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MlApi();
+let apiInstance = new ViunAvisClientJs.MlApi();
 let id = 56; // Number | A unique integer value identifying this ml model type.
 apiInstance.mlModelTypeDestroy(id, (error, data, response) => {
   if (error) {
@@ -453,8 +453,8 @@ null (empty response body)
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -466,7 +466,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MlApi();
+let apiInstance = new ViunAvisClientJs.MlApi();
 let opts = {
   page: 56, // Number | A page number within the paginated result set.
   pageSize: 56, // Number | Number of results to return per page.
@@ -507,8 +507,8 @@ apiInstance.mlModelTypeList(opts, (error, data, response) => {
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -520,10 +520,10 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MlApi();
+let apiInstance = new ViunAvisClientJs.MlApi();
 let id = 56; // Number | A unique integer value identifying this ml model type.
 let opts = {
-  patchedMLModelTypeRequest: new Avis.PatchedMLModelTypeRequest(), // PatchedMLModelTypeRequest |
+  patchedMLModelTypeRequest: new ViunAvisClientJs.PatchedMLModelTypeRequest(), // PatchedMLModelTypeRequest |
 };
 apiInstance.mlModelTypePartialUpdate(id, opts, (error, data, response) => {
   if (error) {
@@ -561,8 +561,8 @@ apiInstance.mlModelTypePartialUpdate(id, opts, (error, data, response) => {
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -574,7 +574,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MlApi();
+let apiInstance = new ViunAvisClientJs.MlApi();
 let id = 56; // Number | A unique integer value identifying this ml model type.
 apiInstance.mlModelTypeRetrieve(id, (error, data, response) => {
   if (error) {
@@ -611,8 +611,8 @@ apiInstance.mlModelTypeRetrieve(id, (error, data, response) => {
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -624,10 +624,10 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MlApi();
+let apiInstance = new ViunAvisClientJs.MlApi();
 let id = 56; // Number | A unique integer value identifying this ml model type.
 let opts = {
-  mLModelTypeRequest: new Avis.MLModelTypeRequest(), // MLModelTypeRequest |
+  mLModelTypeRequest: new ViunAvisClientJs.MLModelTypeRequest(), // MLModelTypeRequest |
 };
 apiInstance.mlModelTypeUpdate(id, opts, (error, data, response) => {
   if (error) {
@@ -667,8 +667,8 @@ A viewset for ML models. It filters results based on the permissions granted to 
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -680,9 +680,9 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MlApi();
+let apiInstance = new ViunAvisClientJs.MlApi();
 let id = 56; // Number | A unique integer value identifying this ml model.
-let mLModelRequest = new Avis.MLModelRequest(); // MLModelRequest |
+let mLModelRequest = new ViunAvisClientJs.MLModelRequest(); // MLModelRequest |
 apiInstance.mlModelUpdate(id, mLModelRequest, (error, data, response) => {
   if (error) {
     console.error(error);

@@ -1,4 +1,4 @@
-# Avis.PatchedImageAttributeRequest
+# ViunAvisClientJs.PatchedImageAttributeRequest
 
 ## Properties
 

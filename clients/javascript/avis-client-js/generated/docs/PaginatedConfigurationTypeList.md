@@ -1,4 +1,4 @@
-# Avis.PaginatedConfigurationTypeList
+# ViunAvisClientJs.PaginatedConfigurationTypeList
 
 ## Properties
 

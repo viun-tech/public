@@ -1,4 +1,4 @@
-# Avis.ConfigurationStatistics
+# ViunAvisClientJs.ConfigurationStatistics
 
 ## Properties
 

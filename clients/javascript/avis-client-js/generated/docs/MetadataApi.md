@@ -1,4 +1,4 @@
-# Avis.MetadataApi
+# ViunAvisClientJs.MetadataApi
 
 All URIs are relative to _http://localhost:8000_
 
@@ -20,8 +20,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -33,8 +33,8 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MetadataApi();
-let metadataRequest = new Avis.MetadataRequest(); // MetadataRequest |
+let apiInstance = new ViunAvisClientJs.MetadataApi();
+let metadataRequest = new ViunAvisClientJs.MetadataRequest(); // MetadataRequest |
 apiInstance.metadataCreate(metadataRequest, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -72,8 +72,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -85,7 +85,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MetadataApi();
+let apiInstance = new ViunAvisClientJs.MetadataApi();
 let id = 56; // Number | A unique integer value identifying this metadata.
 apiInstance.metadataDestroy(id, (error, data, response) => {
   if (error) {
@@ -124,8 +124,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -137,7 +137,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MetadataApi();
+let apiInstance = new ViunAvisClientJs.MetadataApi();
 let opts = {
   fields: "fields_example", // String |
   id: [null], // [Number] | Multiple values may be separated by commas.
@@ -186,8 +186,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -199,10 +199,10 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MetadataApi();
+let apiInstance = new ViunAvisClientJs.MetadataApi();
 let id = 56; // Number | A unique integer value identifying this metadata.
 let opts = {
-  patchedMetadataRequest: new Avis.PatchedMetadataRequest(), // PatchedMetadataRequest |
+  patchedMetadataRequest: new ViunAvisClientJs.PatchedMetadataRequest(), // PatchedMetadataRequest |
 };
 apiInstance.metadataPartialUpdate(id, opts, (error, data, response) => {
   if (error) {
@@ -242,8 +242,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -255,7 +255,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MetadataApi();
+let apiInstance = new ViunAvisClientJs.MetadataApi();
 let id = 56; // Number | A unique integer value identifying this metadata.
 let opts = {
   fields: "fields_example", // String |
@@ -298,8 +298,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -311,9 +311,9 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MetadataApi();
+let apiInstance = new ViunAvisClientJs.MetadataApi();
 let id = 56; // Number | A unique integer value identifying this metadata.
-let metadataRequest = new Avis.MetadataRequest(); // MetadataRequest |
+let metadataRequest = new ViunAvisClientJs.MetadataRequest(); // MetadataRequest |
 apiInstance.metadataUpdate(id, metadataRequest, (error, data, response) => {
   if (error) {
     console.error(error);

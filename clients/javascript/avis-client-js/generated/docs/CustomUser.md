@@ -1,4 +1,4 @@
-# Avis.CustomUser
+# ViunAvisClientJs.CustomUser
 
 ## Properties
 

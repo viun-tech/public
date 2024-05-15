@@ -1,4 +1,4 @@
-# Avis.MembershipApi
+# ViunAvisClientJs.MembershipApi
 
 All URIs are relative to _http://localhost:8000_
 
@@ -19,8 +19,8 @@ A mixin that allows reading entities (listing and retrieving by id).
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -32,8 +32,8 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MembershipApi();
-let membershipRequest = new Avis.MembershipRequest(); // MembershipRequest |
+let apiInstance = new ViunAvisClientJs.MembershipApi();
+let membershipRequest = new ViunAvisClientJs.MembershipRequest(); // MembershipRequest |
 apiInstance.membershipCreate(membershipRequest, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -71,8 +71,8 @@ A mixin that allows reading entities (listing and retrieving by id).
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -84,7 +84,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MembershipApi();
+let apiInstance = new ViunAvisClientJs.MembershipApi();
 let id = 56; // Number | A unique integer value identifying this membership.
 apiInstance.membershipDestroy(id, (error, data, response) => {
   if (error) {
@@ -123,8 +123,8 @@ A mixin that allows reading entities (listing and retrieving by id).
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -136,7 +136,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MembershipApi();
+let apiInstance = new ViunAvisClientJs.MembershipApi();
 let opts = {
   page: 56, // Number | A page number within the paginated result set.
   pageSize: 56, // Number | Number of results to return per page.
@@ -179,8 +179,8 @@ A mixin that allows reading entities (listing and retrieving by id).
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -192,7 +192,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MembershipApi();
+let apiInstance = new ViunAvisClientJs.MembershipApi();
 let id = 56; // Number | A unique integer value identifying this membership.
 apiInstance.membershipRetrieve(id, (error, data, response) => {
   if (error) {
@@ -231,8 +231,8 @@ A mixin that allows reading entities (listing and retrieving by id).
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -244,9 +244,9 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.MembershipApi();
+let apiInstance = new ViunAvisClientJs.MembershipApi();
 let id = 56; // Number | A unique integer value identifying this membership.
-let membershipRequest = new Avis.MembershipRequest(); // MembershipRequest |
+let membershipRequest = new ViunAvisClientJs.MembershipRequest(); // MembershipRequest |
 apiInstance.membershipUpdate(id, membershipRequest, (error, data, response) => {
   if (error) {
     console.error(error);

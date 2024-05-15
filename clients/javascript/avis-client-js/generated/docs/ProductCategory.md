@@ -1,4 +1,4 @@
-# Avis.ProductCategory
+# ViunAvisClientJs.ProductCategory
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Avis.PaginatedProductList
+# ViunAvisClientJs.PaginatedProductList
 
 ## Properties
 

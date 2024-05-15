@@ -1,4 +1,4 @@
-# Avis.PaginatedImageAttributeCategoryList
+# ViunAvisClientJs.PaginatedImageAttributeCategoryList
 
 ## Properties
 

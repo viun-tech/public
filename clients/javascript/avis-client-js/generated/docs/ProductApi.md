@@ -1,4 +1,4 @@
-# Avis.ProductApi
+# ViunAvisClientJs.ProductApi
 
 All URIs are relative to _http://localhost:8000_
 
@@ -20,8 +20,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -33,8 +33,8 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.ProductApi();
-let productRequest = new Avis.ProductRequest(); // ProductRequest |
+let apiInstance = new ViunAvisClientJs.ProductApi();
+let productRequest = new ViunAvisClientJs.ProductRequest(); // ProductRequest |
 apiInstance.productCreate(productRequest, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -72,8 +72,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -85,7 +85,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.ProductApi();
+let apiInstance = new ViunAvisClientJs.ProductApi();
 let id = 56; // Number | A unique integer value identifying this product.
 apiInstance.productDestroy(id, (error, data, response) => {
   if (error) {
@@ -124,8 +124,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -137,7 +137,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.ProductApi();
+let apiInstance = new ViunAvisClientJs.ProductApi();
 let opts = {
   category: [null], // [Number] | Multiple values may be separated by commas.
   fields: "fields_example", // String |
@@ -190,8 +190,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -203,10 +203,10 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.ProductApi();
+let apiInstance = new ViunAvisClientJs.ProductApi();
 let id = 56; // Number | A unique integer value identifying this product.
 let opts = {
-  patchedProductRequest: new Avis.PatchedProductRequest(), // PatchedProductRequest |
+  patchedProductRequest: new ViunAvisClientJs.PatchedProductRequest(), // PatchedProductRequest |
 };
 apiInstance.productPartialUpdate(id, opts, (error, data, response) => {
   if (error) {
@@ -246,8 +246,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -259,7 +259,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.ProductApi();
+let apiInstance = new ViunAvisClientJs.ProductApi();
 let id = 56; // Number | A unique integer value identifying this product.
 let opts = {
   fields: "fields_example", // String |
@@ -302,8 +302,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -315,9 +315,9 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.ProductApi();
+let apiInstance = new ViunAvisClientJs.ProductApi();
 let id = 56; // Number | A unique integer value identifying this product.
-let productRequest = new Avis.ProductRequest(); // ProductRequest |
+let productRequest = new ViunAvisClientJs.ProductRequest(); // ProductRequest |
 apiInstance.productUpdate(id, productRequest, (error, data, response) => {
   if (error) {
     console.error(error);

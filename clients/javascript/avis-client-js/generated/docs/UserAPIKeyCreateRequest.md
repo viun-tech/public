@@ -1,4 +1,4 @@
-# Avis.UserAPIKeyCreateRequest
+# ViunAvisClientJs.UserAPIKeyCreateRequest
 
 ## Properties
 

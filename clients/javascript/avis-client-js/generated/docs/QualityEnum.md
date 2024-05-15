@@ -1,4 +1,4 @@
-# Avis.QualityEnum
+# ViunAvisClientJs.QualityEnum
 
 ## Enum
 

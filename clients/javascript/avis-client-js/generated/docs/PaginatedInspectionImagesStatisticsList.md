@@ -1,4 +1,4 @@
-# Avis.PaginatedInspectionImagesStatisticsList
+# ViunAvisClientJs.PaginatedInspectionImagesStatisticsList
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Avis.TeamRequest
+# ViunAvisClientJs.TeamRequest
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Avis.ImageAttributeCategoryRequest
+# ViunAvisClientJs.ImageAttributeCategoryRequest
 
 ## Properties
 

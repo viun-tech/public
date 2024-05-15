@@ -1,4 +1,4 @@
-# Avis.PatchedConfigurationTypeRequest
+# ViunAvisClientJs.PatchedConfigurationTypeRequest
 
 ## Properties
 

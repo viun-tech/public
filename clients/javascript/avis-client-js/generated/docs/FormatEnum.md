@@ -1,4 +1,4 @@
-# Avis.FormatEnum
+# ViunAvisClientJs.FormatEnum
 
 ## Enum
 

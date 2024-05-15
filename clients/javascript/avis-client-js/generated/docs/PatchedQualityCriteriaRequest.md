@@ -1,4 +1,4 @@
-# Avis.PatchedQualityCriteriaRequest
+# ViunAvisClientJs.PatchedQualityCriteriaRequest
 
 ## Properties
 

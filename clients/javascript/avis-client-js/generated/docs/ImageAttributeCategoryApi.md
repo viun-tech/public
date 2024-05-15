@@ -1,4 +1,4 @@
-# Avis.ImageAttributeCategoryApi
+# ViunAvisClientJs.ImageAttributeCategoryApi
 
 All URIs are relative to _http://localhost:8000_
 
@@ -20,8 +20,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -33,8 +33,9 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.ImageAttributeCategoryApi();
-let imageAttributeCategoryRequest = new Avis.ImageAttributeCategoryRequest(); // ImageAttributeCategoryRequest |
+let apiInstance = new ViunAvisClientJs.ImageAttributeCategoryApi();
+let imageAttributeCategoryRequest =
+  new ViunAvisClientJs.ImageAttributeCategoryRequest(); // ImageAttributeCategoryRequest |
 apiInstance.imageAttributeCategoryCreate(
   imageAttributeCategoryRequest,
   (error, data, response) => {
@@ -75,8 +76,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -88,7 +89,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.ImageAttributeCategoryApi();
+let apiInstance = new ViunAvisClientJs.ImageAttributeCategoryApi();
 let id = 56; // Number | A unique integer value identifying this image attribute category.
 apiInstance.imageAttributeCategoryDestroy(id, (error, data, response) => {
   if (error) {
@@ -127,8 +128,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -140,7 +141,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.ImageAttributeCategoryApi();
+let apiInstance = new ViunAvisClientJs.ImageAttributeCategoryApi();
 let opts = {
   fields: "fields_example", // String |
   id: [null], // [Number] | Multiple values may be separated by commas.
@@ -189,8 +190,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -202,11 +203,11 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.ImageAttributeCategoryApi();
+let apiInstance = new ViunAvisClientJs.ImageAttributeCategoryApi();
 let id = 56; // Number | A unique integer value identifying this image attribute category.
 let opts = {
   patchedImageAttributeCategoryRequest:
-    new Avis.PatchedImageAttributeCategoryRequest(), // PatchedImageAttributeCategoryRequest |
+    new ViunAvisClientJs.PatchedImageAttributeCategoryRequest(), // PatchedImageAttributeCategoryRequest |
 };
 apiInstance.imageAttributeCategoryPartialUpdate(
   id,
@@ -250,8 +251,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -263,7 +264,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.ImageAttributeCategoryApi();
+let apiInstance = new ViunAvisClientJs.ImageAttributeCategoryApi();
 let id = 56; // Number | A unique integer value identifying this image attribute category.
 let opts = {
   fields: "fields_example", // String |
@@ -310,8 +311,8 @@ A base viewset that allows reading, creating and updating objects. The following
 ### Example
 
 ```javascript
-import Avis from "avis";
-let defaultClient = Avis.ApiClient.instance;
+import ViunAvisClientJs from "@viun/avis-client-js";
+let defaultClient = ViunAvisClientJs.ApiClient.instance;
 // Configure API key authorization: cookieAuth
 let cookieAuth = defaultClient.authentications["cookieAuth"];
 cookieAuth.apiKey = "YOUR API KEY";
@@ -323,9 +324,10 @@ ApiKeyAuth.apiKey = "YOUR API KEY";
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new Avis.ImageAttributeCategoryApi();
+let apiInstance = new ViunAvisClientJs.ImageAttributeCategoryApi();
 let id = 56; // Number | A unique integer value identifying this image attribute category.
-let imageAttributeCategoryRequest = new Avis.ImageAttributeCategoryRequest(); // ImageAttributeCategoryRequest |
+let imageAttributeCategoryRequest =
+  new ViunAvisClientJs.ImageAttributeCategoryRequest(); // ImageAttributeCategoryRequest |
 apiInstance.imageAttributeCategoryUpdate(
   id,
   imageAttributeCategoryRequest,

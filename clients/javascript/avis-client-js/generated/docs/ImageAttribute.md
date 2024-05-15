@@ -1,4 +1,4 @@
-# Avis.ImageAttribute
+# ViunAvisClientJs.ImageAttribute
 
 ## Properties
 

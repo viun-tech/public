@@ -1,4 +1,4 @@
-# Avis.InspectionValidationStatus
+# ViunAvisClientJs.InspectionValidationStatus
 
 ## Properties
 

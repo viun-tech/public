@@ -1,4 +1,4 @@
-# Avis.PaginatedTeamList
+# ViunAvisClientJs.PaginatedTeamList
 
 ## Properties
 

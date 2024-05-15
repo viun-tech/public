@@ -119,9 +119,9 @@ import UserApi from "./api/UserApi";
  * <p>
  * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
  * <pre>
- * var Avis = require('index'); // See note below*.
- * var xxxSvc = new Avis.XxxApi(); // Allocate the API class we're going to use.
- * var yyyModel = new Avis.Yyy(); // Construct a model instance.
+ * var ViunAvisClientJs = require('index'); // See note below*.
+ * var xxxSvc = new ViunAvisClientJs.XxxApi(); // Allocate the API class we're going to use.
+ * var yyyModel = new ViunAvisClientJs.Yyy(); // Construct a model instance.
  * yyyModel.someProperty = 'someValue';
  * ...
  * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
@@ -133,8 +133,8 @@ import UserApi from "./api/UserApi";
  * <p>
  * A non-AMD browser application (discouraged) might do something like this:
  * <pre>
- * var xxxSvc = new Avis.XxxApi(); // Allocate the API class we're going to use.
- * var yyy = new Avis.Yyy(); // Construct a model instance.
+ * var xxxSvc = new ViunAvisClientJs.XxxApi(); // Allocate the API class we're going to use.
+ * var yyy = new ViunAvisClientJs.Yyy(); // Construct a model instance.
  * yyyModel.someProperty = 'someValue';
  * ...
  * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.

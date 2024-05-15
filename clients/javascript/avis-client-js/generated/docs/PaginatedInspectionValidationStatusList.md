@@ -1,4 +1,4 @@
-# Avis.PaginatedInspectionValidationStatusList
+# ViunAvisClientJs.PaginatedInspectionValidationStatusList
 
 ## Properties
 

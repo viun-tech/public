@@ -1,4 +1,4 @@
-# Avis.ResultRequest
+# ViunAvisClientJs.ResultRequest
 
 ## Properties
 

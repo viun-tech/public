@@ -1,4 +1,4 @@
-# Avis.BlankEnum
+# ViunAvisClientJs.BlankEnum
 
 ## Enum
 

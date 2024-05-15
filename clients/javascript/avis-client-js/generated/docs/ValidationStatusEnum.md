@@ -1,4 +1,4 @@
-# Avis.ValidationStatusEnum
+# ViunAvisClientJs.ValidationStatusEnum
 
 ## Enum
 
