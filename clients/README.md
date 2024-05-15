@@ -45,6 +45,12 @@ openapi-generator-cli generate --git-repo-id public --git-user-id vuengineering 
 openapi-generator-cli generate --git-repo-id public --git-user-id vuengineering -i ../api-schema.yml -g typescript-axios -o typescript/avis-client/generated --additional-properties=withInterfaces=true,npmName=@viun/avis-client
 ```
 
+## Javascript (using Fetch)
+
+```bash
+openapi-generator-cli generate --git-repo-id public --git-user-id vuengineering -i ../api-schema.yml -g javascript -o javascript/avis-client/generated --additional-properties=npmName=@viun/avis-client-js
+```
+
 # Manual release
 
 ## Python - PyPi
@@ -70,6 +76,23 @@ cd typescript/avis-client/generated
 
 # clean up
 rm -rf dist/
+
+npm install
+
+
+
+npm publish --access public
+```
+
+## Javascript - NPM
+
+```
+cd javascript/avis-client-js/generated
+
+# clean up
+rm -rf dist/
+
+npm install
 
 npm publish --access public
 ```
