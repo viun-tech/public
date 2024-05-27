@@ -450,12 +450,12 @@ files = [
 
 [[package]]
 name = "mkdocs-render-swagger-plugin"
-version = "0.1.1"
+version = "0.1.2"
 description = "MKDocs plugin for rendering swagger & openapi files."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mkdocs_render_swagger_plugin-0.1.1-py3-none-any.whl", hash = "sha256:1b0f4f92bf69d7e0d56b13f520fdad072ddd1f4ccf031f11706d45d831d4df7b"},
+    {file = "mkdocs_render_swagger_plugin-0.1.2-py3-none-any.whl", hash = "sha256:0340d45e12a0f1633a4b8af2eb99ea75469006ddf418ef0f1acd51ed1e4969e4"},
 ]
 
 [package.dependencies]
@@ -867,4 +867,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "c97ef12a133a15bc21f817ea455da81de6f77d6612c451801ad0853932aa9316"
+content-hash = "4602c686676b45d86796c03ff9910178092542c818110052bbe3f343d0af9648"
