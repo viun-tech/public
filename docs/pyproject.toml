@@ -11,7 +11,7 @@ mkdocs-material = "^9.5.22"
 pymdown-extensions = "^10.8"
 mkdocs-render-swagger-plugin = "^0.1.1"
 mkdocs-include-dir-to-nav = "^1.2.0"
-mike = "^2.1.1"
+mike = "^2.1.2"
 
 
 [build-system]
